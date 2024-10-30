@@ -4,7 +4,7 @@ const Table = props => {
     const {text} = props;
 
     const [count, setCount] = React.useState(0)
-    
+
     React.useEffect(() => {
         setInterval(() => {
             setCount(count + 1);
