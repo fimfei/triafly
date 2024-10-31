@@ -1,0 +1,25 @@
+.smart-list {
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.smart-scrollbar {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    overflow: hidden;
+
+    .smart-scrollbar-wrapper {
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    
+        .smart-scrollbar-inner {
+            width: 1px;
+        }
+    }
+}

@@ -1,0 +1,25 @@
+.unitable-scrollbar-vertical {
+    position: absolute;
+    right: 1px;
+    top: 0;
+    opacity: .3;
+
+    &:hover {
+        opacity: 1;
+        z-index: 1;
+
+        .usv-body-wrapper {
+            box-shadow: 0px 0px 5px 0px var(--table-border-color);
+        }
+    }
+
+    .usv-top {
+        display: none;
+        box-shadow: inset -1px 1px 0px 0px var(--table-border-color), inset 1px 0px 0px 0px var(--table-border-color);
+    }
+
+    .usv-body-wrapper {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+}

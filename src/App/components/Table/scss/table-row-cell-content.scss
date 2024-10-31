@@ -1,0 +1,48 @@
+.unitable-row-cell {
+    position: relative;
+
+
+    &.is-not-find {
+        .unitable-row-cell-tree,
+        .unitable-row-cell-value {
+            opacity: .3;
+        }
+    }
+
+    .unitable-row-cell-tree {
+        margin-right: 8px;
+        display: flex;
+        justify-content: right;
+        align-items: center;
+
+        .toggle-tree {
+            width: 11px;
+            box-shadow: 0px 0px 0px 1px #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 11px;
+            border-radius: 1px;
+            cursor: pointer;
+        }
+    }
+
+    .unitable-row-cell-value {
+        align-items: center;
+        display: flex;
+        height: 100%;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 0 5px;
+        position: relative;
+
+        search {
+            background: var(--primary-color);
+            color: #fff;
+            display: inline;
+            padding: 0 1px;
+        }
+    }
+}

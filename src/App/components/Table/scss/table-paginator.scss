@@ -1,0 +1,49 @@
+.unitable-paginator {
+    display: flex;
+
+    .slick-pager {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        span:first-child {
+            padding-right: 20px;
+        }
+
+        span:last-child {
+            flex: 1;
+            justify-content: flex-end;
+        }
+
+        .slick-pager-status {
+            display: flex;
+
+            .undefined-number {
+                cursor: pointer;
+                margin-left: 5px;
+
+                &:hover {
+                    font-weight: bold;
+                }
+            }
+
+            .num {
+                margin-left: 3px;
+            }
+
+            .between {
+                width: 10px;
+            }
+        }
+
+        .slick-pager-settings {
+
+            .btn-group {
+
+                .active {
+                    z-index: unset;
+                }
+            }
+        }
+    }
+}

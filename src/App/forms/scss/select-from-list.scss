@@ -1,0 +1,22 @@
+.rct-input-from-list .tf_form-control {
+    height: 25px;
+    width: 300px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-size: 14px;
+    position: relative;
+
+    div {
+        width: calc(100% - 10px);
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    i {
+        position: absolute;
+        right: 7px;
+        top: calc(50% - 7px);
+    }
+}

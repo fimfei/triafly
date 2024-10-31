@@ -1,0 +1,92 @@
+.custom-node-wrapper,
+.workflow-editor-graph-node-view {
+    background: #ffd180;
+    box-shadow: 0 0 0 2px #ffd58b;
+    border-radius: 3px;
+    position: relative;
+    max-width: 200px;
+
+    &.is-selected {
+        background: #ffa300;
+        box-shadow: 0 0 0 2px #ffb128;
+
+        .workflow-editor-graph-node-view-body {
+            background: #ffd180;
+        }
+    }
+
+    &.is-last {
+
+        &:before {
+            content: "\f11e";
+            right: -22px;
+            top: -23px;
+            position: absolute;
+            text-align: right;
+            font-size: 24px;
+            font-family: FontAwesome;
+            font-weight: 600;
+            color: #9b6d1d;
+        }
+    }
+
+    &.is-unattainable {
+
+        &:before {
+            content: "\f06a";
+            font-size: 30px;
+            font-weight: 600;
+            position: absolute;
+            font-family: FontAwesome;
+            right: -14px;
+            text-align: right;
+            top: -17px;
+            background: #fff;
+            color: #f00;
+            border-radius: 20px;
+        }
+    }
+
+    &.is-start {
+        background: #9b6d1d;
+        border-radius: 5px;
+        box-shadow: none;
+        height: 35px;
+        width: 35px;
+
+        &:before {
+            font-family: FontAwesome;
+            content: "\f04b";
+            color: #fff;
+            font-size: 20px;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .internal-node-label {
+            display: none;
+        }
+    }
+
+    .workflow-editor-graph-node-view-navigator {
+        background: transparent;
+        font-weight: bold;
+        font-size: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 5px 10px;
+    }
+
+    .workflow-editor-graph-node-view-body {
+        background: #ffe8bf;
+    }
+}

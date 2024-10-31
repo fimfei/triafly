@@ -1,0 +1,32 @@
+.unitable-header {
+    display: flex;
+    position: relative;
+
+    .unitable-header-left {
+        display: flex;
+/*
+        .unitable-header-cell:last-child {
+            box-shadow: inset -2px -2px 0 0 var(--table-border-color), inset 0 1px 0 0 var(--table-border-color);
+
+            .uhc-content {
+                box-shadow: inset -2px 1px 0 0 var(--table-border-color), inset 0px -2px 0 0 var(--table-border-color);
+            }
+        }
+*/
+    }
+
+    .unitable-header-right {
+        display: flex;
+        overflow: hidden;
+    }
+
+    .unitable-header-root {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .unitable-header-children {
+        display: flex;
+        flex: 1;
+    }
+}

@@ -1,0 +1,44 @@
+.usp-parameters {
+    padding-left: 10px;
+    padding-bottom: 20px;
+    box-shadow: -1px 0px 0px 0px #888;
+
+    .usp-param-block-name {
+        font-weight: bold;
+        margin-top: 10px;
+
+        &.is-hide {
+            display: none;
+        }
+    }
+
+    .usp-param-item {
+        min-width: 300px;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+
+        &.is-disable {
+            display: none;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .usp-param-item-color {
+            width: 13px;
+            height: 13px;
+            box-shadow: 0px 0px 0px 1px #888;
+            border-radius: 1px;
+            margin-right: 10px;
+
+            .sketch-picker {
+                z-index: 1;
+                margin-top: 14px;
+                margin-left: -3px;
+                position: absolute;
+            }
+        }
+    }
+}

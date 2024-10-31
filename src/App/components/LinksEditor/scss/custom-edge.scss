@@ -1,0 +1,43 @@
+.link-label-wrapper {
+    background: #fff;
+    padding: 2px 6px;
+    border-radius: 3px;
+    line-height: 13px;
+    z-index: 1;
+
+    .link-label {
+        background: #fff;
+        border: 1px solid #00f;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 12px;
+        height: 14px;
+        line-height: 1;
+        width: 14px; 
+    }
+
+    j {
+        color: #708;
+    }
+
+    r {
+        
+    }
+
+    f {
+        color: #009ad7;
+    }
+
+    o {
+
+    }
+
+    e {
+        color: #f00;
+        font-weight: bold;
+    }
+
+    h {
+        color: #bbb;
+    }
+}

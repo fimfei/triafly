@@ -1,0 +1,12 @@
+.table-cell-editor {
+    .tce-file {
+        height: 100%;
+        background: beige;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        input.temp-file-input.hidden {
+            display: none;
+        }
+    }
+}

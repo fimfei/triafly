@@ -1,0 +1,36 @@
+
+.rct-popup-corner {
+    border: 8px solid transparent;
+    cursor: move;
+    opacity: .3;
+    position: absolute;
+    transform: rotate(45deg);
+
+    &:hover {
+        opacity: 1;
+    }
+
+    &.bottom-right {
+        border-left-color: #000;
+        bottom: -8px;
+        right: -8px;
+    }
+
+    &.bottom-left {
+        left: -8px;
+        bottom: -8px;
+        border-top-color: #000;
+    }
+
+    &.top-right {
+        right: -8px;
+        top: -8px;
+        border-bottom-color: #000;
+    }
+
+    &.top-left {
+        left: -8px;
+        top: -8px;
+        border-right-color: #000;
+    }
+}

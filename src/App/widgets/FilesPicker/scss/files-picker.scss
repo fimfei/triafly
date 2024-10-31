@@ -1,0 +1,70 @@
+.rct-files-picker {
+    background: #fff;
+    box-shadow: inset 0px 0px 0px 1px #888;
+    box-sizing: border-box;
+    padding: 1px;
+
+    .rct-files-wrapper {
+        width: max-content;
+        max-height: 300px;
+        overflow: auto;
+        padding: 5px 0 5px 0;
+
+        .rct-files {
+
+            .empty-files-list {
+                padding: 10px;
+                font-weight: bold;
+                color: #aaa;
+            }
+
+            .rct-file {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1px 7px 1px 5px;
+                box-sizing: border-box;
+
+                &:hover {
+                    background: #eee;
+                }
+
+                &.is-new-file {
+                    font-weight: bold;
+                }
+
+                .rct-file-name {
+                    flex: 1;
+                    text-align: left;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                i {
+                    opacity: .5;
+                    font-size: 12px;
+                    padding: 0px 10px;
+
+                    &:hover {
+                        opacity: 1;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+
+    .rct-files-menu {
+        box-shadow: 0px -1px 0px 0px #aaa;
+        display: flex;
+        background: #f5f5f5;
+        justify-content: flex-end;
+        min-width: 200px;
+
+        button {
+            margin-left: 5px;
+        }
+    }
+}

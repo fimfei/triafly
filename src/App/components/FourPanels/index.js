@@ -1,0 +1,1 @@
+export {default as FourPanels} from './FourPanels';

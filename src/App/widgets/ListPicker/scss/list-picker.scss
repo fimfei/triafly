@@ -1,0 +1,22 @@
+.rct-popup_scrollbar-wrapper {
+    height: 100%;
+    width: 100%;
+    padding: 1px;
+    color: #000;
+    box-sizing: border-box;
+
+    .tf_smartlist {
+        grid-template-rows: unset;
+        height: 100%;
+        width: 100%;
+
+        .tf_smartlist-body {
+            height: 100%;
+            width: 100%;
+
+            .tf_smartlist-items {
+                padding: 0 5px;
+            }
+        }
+    }
+}

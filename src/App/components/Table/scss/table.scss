@@ -1,0 +1,72 @@
+.unitable {
+    --table-border-color: #c0c0c0;
+    --table-border-color-between: #667;
+    --table-error: #dc3545;
+}
+
+.call-unitable-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.unitable-wrapper {
+    width: 100%;
+    height: 100%;
+
+    .unitable {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        position: relative;
+
+        .unitable-inner {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+    }
+}
+
+.unitable-line {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background: var(--table-border-color);
+
+    &.right,
+    &.left {
+        width: 1px;
+        height: 100%;
+    }
+
+    &.left {
+        right: unset;
+        left: 0;
+    }
+
+    &.bottom,
+    &.top {
+        width: 100%;
+        height: 1px;
+
+        &.header-resize,
+        &.row-resize {
+            height: 3px;
+            background: transparent;
+
+            &:hover {
+                box-shadow: inset 0px -1px 0 0 var(--table-border-color), inset 0px 1px 0 0 var(--table-border-color);
+                cursor: row-resize;
+                background: #ebeff4;
+            }
+        }
+    }
+
+    &.top {
+        bottom: unset;
+        top: 0;
+    }
+}
+

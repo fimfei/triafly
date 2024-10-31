@@ -1,0 +1,39 @@
+.unitable-header-cell {
+
+    .uhc-menu {
+
+        &.show-search-bar {
+            margin-top: 1px;
+            width: calc(100% - 5px);
+
+            .search-input {
+                width: 100%;
+                position: absolute;
+                right: 0;
+                top: 0;
+                height: 20px;
+                max-width: 150px;
+                padding: 0 32px 0 3px;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            i {
+                opacity: .5;
+                position: absolute;
+                right: 0;
+                top: 5px;
+                font-size: 12px;
+                color: var(--primary-color);
+
+                &:hover {
+                    cursor: pointer;
+                    opacity: 1;
+                }
+
+                &.search-button        {right: 20px;}
+                &.cancel-search-button {right: 10px;}
+            }
+        }
+    }
+}

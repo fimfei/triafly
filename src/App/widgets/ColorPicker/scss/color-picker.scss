@@ -1,0 +1,16 @@
+.rct-color-picker {
+
+    &.rct-color-picker-compact {
+
+    }
+
+    &.rct-color-picker-sketch {
+
+        .sketch-picker {
+
+            .flexbox-fix:nth-of-type(n+3) {
+                display: none !important;
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+.unitable-row {
+    display: flex;
+    position: relative;
+
+    .unitable-row-left {
+        display: flex;
+
+        .unitable-row-cell:last-child {
+            box-shadow: inset 0px -1px 0 0 var(--table-border-color), inset -2px 0px 0 0 var(--table-border-color-between);
+        }
+    }
+
+    .unitable-row-right {
+        display: flex;
+        overflow: hidden;
+    }
+}

@@ -1,0 +1,26 @@
+.unitable-header-cell {
+
+    .uhc-menu {
+
+        &.show-formatter {
+            width: calc(100% - 5px);
+            background: #fff;
+            max-width: 160px;
+            height: unset;
+            margin-top: 1px;
+
+            i {
+                color: var(--primary-color);
+                font-size: 12px;
+                opacity: .3;
+                padding: 2px;
+                cursor: pointer;
+
+                &.checked,
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}

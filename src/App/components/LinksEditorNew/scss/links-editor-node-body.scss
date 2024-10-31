@@ -1,0 +1,78 @@
+.links-editor-graph-node-view {
+
+    .custom-node-body {
+        align-items: baseline;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 5px;
+        background: var(--warning-color-l2);
+
+        &.selected {
+            background: var(--warning-color-l1);
+
+            &.edit-mode {
+                background: #fff;
+            }
+        }
+
+        .custom-node-body-field {
+            display: flex;
+            justify-content: start;
+            width: 100%;
+            position: relative;
+            height: 20px;
+
+            .field-checkbox {
+                width: 26px;
+                display: flex;
+                justify-content: start;
+                align-items: center;
+            }
+
+            .field-name {
+                flex: 1;
+
+                &.is-required {
+                    font-weight: bold;
+                }
+            }
+
+            .field-menu {
+                display: flex;
+                margin-left: 15px;
+            }
+
+            &.is-deleted {
+
+                .field-checkbox,
+                .field-icon-type,
+                .field-icon-edit {
+                    visibility: hidden;
+                }
+
+                .field-name {
+                    color: #f00 !important;
+                    text-decoration: line-through;
+                }
+            }
+
+            &.is-new {
+
+                .field-name {
+                    color: #080;
+                }
+            }
+        }
+
+        .editor-table-buttons {
+            width: 100%;
+            justify-content: right;
+            margin-top: 5px;
+
+            button.hidden {
+                opacity: .1;
+            }
+        }
+    }
+}

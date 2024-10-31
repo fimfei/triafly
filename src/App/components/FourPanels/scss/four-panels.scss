@@ -1,0 +1,42 @@
+.four-panels-all-panels {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: absolute;
+
+    .four-panels-left-panels {
+        position: relative;
+        height: 100%;
+        width: 100%;
+    }
+
+    .four-panels-right-panels {
+        flex: 1;
+        margin-left: 10px;
+        height: 100%;
+    }
+
+    .four-panels-vertical-panels {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        .four-panels-top-panel {
+            position: relative;
+            height: 100%;
+        }
+
+        .four-panels-bottom-panel {
+            flex: 1;
+
+            &.with-top {
+                margin-top: 10px;
+            }
+        }
+
+        .four-panels-panel {
+            background: #fff;
+            height: 100%;
+        }
+    }
+}

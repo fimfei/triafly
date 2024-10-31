@@ -1,0 +1,22 @@
+.add-node {
+    max-height: 250px;
+
+    .inline-set {
+        margin: 0 0 0 8px;
+        position: relative;
+
+        .tf_smartlist-items {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            .tf_smartlist-item {
+                width: calc(100% - 16px);
+            }
+
+            .tf_smartitem-name {
+                margin-left: 5px;
+            }
+        }
+    }
+}

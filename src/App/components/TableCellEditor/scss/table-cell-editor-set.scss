@@ -1,0 +1,51 @@
+.table-cell-editor {
+    position: relative;
+
+    .tce-set-popup {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+
+        .tce-set-wrapper {
+            height: 100%;
+            width: 100%;
+            box-sizing: border-box;
+
+            .tce-set {
+                max-height: 100px;
+                overflow: auto;
+
+                .tce-set-inner {
+
+                    .tce-set-item {
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+
+                        .tce-set-item-checkbox {
+                            min-width: 30px;
+                            max-width: 30px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+
+                        .tce-set-item-value {
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+                    }
+                }
+            }
+
+            .rct-set-menu {
+                display: flex;
+                justify-content: flex-end;
+                box-shadow: inset 0px 1px 0px 0px #aaa;
+            }
+        }
+    }
+}

@@ -1,0 +1,97 @@
+.unitable-header-cell {
+    overflow: hidden;
+    box-sizing: border-box;
+    position: relative;
+    height: 100%;
+
+    &.index-parent {
+    }
+
+    &.is-hide {
+        cursor: pointer;
+        overflow: visible;
+        position: relative;
+        padding: 0;
+
+        .uhc-bookmark {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: inset 0px 0px 0px 1px var(--table-border-color);
+            height: 19px;
+            left: -10px;
+            position: absolute;
+            top: 5px;
+            width: 18px;
+            z-index: 1;
+        }
+    }
+
+//    &:hover {
+//        .order-column-button,
+//        .show-column-button,
+//        .uhc-resizer {
+//            display: block;
+//        }
+//    }
+
+    &.index-0 {
+        box-shadow: inset 0px 0px 0px 1px var(--table-border-color), inset 0px -2px 0px 0px var(--table-border-color);
+    }
+
+    .uhc-content {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        box-sizing: border-box;
+        transition: padding .5s;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+
+        .uhc-content-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+
+        &                       {box-shadow: inset -1px -1px 0 0 var(--table-border-color), inset  0px  0px 0 0 var(--table-border-color-between);}
+        &.is-end                {box-shadow: inset -1px -1px 0 0 var(--table-border-color), inset  0px -2px 0 0 var(--table-border-color-between);}
+        &.is-end-of-left        {box-shadow: inset -1px -1px 0 0 var(--table-border-color), inset -2px  0px 0 0 var(--table-border-color-between);}
+        &.is-end.is-end-of-left {box-shadow: inset -1px -1px 0 0 var(--table-border-color), inset -2px -2px 0 0 var(--table-border-color-between);}
+
+        .uhc-content-sort {
+            font-size: 20px;
+            color: var(--primary-color);
+            margin-left: 5px;
+
+            &.fa-sort-up {
+                margin-top: 11px;
+            }
+
+            &.fa-sort-down {
+                margin-top: -9px;
+            }
+        }
+    }
+
+    .uhc-resizer {
+        background: transparent;
+        height: calc(100% - 3px);
+        position: absolute;
+        right: 0;
+        top: 1px;
+        width: 3px;
+
+        &:hover {
+            box-shadow: inset -1px 0px 0 0 var(--table-border-color), inset 1px 0px 0 0 var(--table-border-color);
+            cursor: col-resize;
+            background: #ebeff4;
+        }
+    }
+}

@@ -1,0 +1,67 @@
+.links-editor-graph-node-view {
+
+    .field-icon {
+        opacity: .5;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        width: 24px;
+
+        &.field-icon-edit {
+            margin-right: -5px;
+        }
+
+        &.field-icon-type {
+            justify-content: left;
+        }
+
+        &.add-field {
+            font-size: 18px;
+            width: 14px !important;
+            margin-top: 3px;
+            justify-content: left;
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    &.is-edit {
+        .graph-node-handle,
+        div[data-handleid="connector"] {
+            display: none !important;
+        }
+    }
+
+    .custom-node-navigator {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--warning-color-l1);
+        padding: 5px;
+        font-weight: bold;
+        min-width: 100px;
+
+        &.selected {
+            background: var(--warning-color);
+            justify-content: space-between;
+
+            &.edit-mode {
+                background: #fff;
+                box-shadow: 0px 1px 0px 0px var(--warning-color-l1);;
+            }
+        }
+
+        .navigator-name {
+            width: 100%;
+            text-align: center;
+        }
+
+        .field-menu {
+            display: flex;
+            justify-content: right;
+            align-items: center;
+        }
+    }
+}

@@ -1,0 +1,94 @@
+
+.react-flow__controls {
+    display: flex;
+    box-shadow: 0px 0px 2px 0px #000;
+
+    &.react-flow__panel {
+        margin: 0;
+    }
+
+    .custom-control-buttons {
+        position: absolute;
+        left: 85px;
+        top: 0;
+        display: flex;
+        box-shadow: 0px 0px 2px 0px #000;
+
+        *.opacity-5 {
+            opacity: .5;
+        }
+
+        .submenu-wrapper {
+            position: relative;
+
+            .submenu-items-wrapper {
+                background: #fff;
+                box-shadow: 0 0 2px 0 #000;
+                left: 0;
+                padding: 5px;
+                position: absolute;
+                top: 32px;
+                border-radius: 3px;
+
+                &:before,
+                &:after {
+                    content: "";
+                    position: absolute;
+                    left: 5px;
+                    width: 0;
+                    height: 0;
+                    border-right: solid 8px transparent;
+                    border-left: solid 8px transparent;
+                    border-bottom: solid 10px #888;
+                }
+
+                &:before {
+                    top: -10px;
+                    border-bottom: solid 10px #888;
+                }
+
+                &:after {
+                    top: -9px;
+                    border-bottom: solid 10px #fff;
+                }
+
+                .submenu-items-label {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 30px;
+                    background: #888;
+                    color: #fff;
+                }
+
+                .submenu-items-inner {
+
+                    .submenu-item {
+                        display: flex;
+                        height: 20px;
+                        align-items: center;
+                        cursor: pointer;
+                        color: #000;
+
+                        i.submenu-item-icon {
+                            width: 25px;
+                            display: flex;
+                            justify-content: center;
+                        }
+                        
+                        .submenu-item-label {
+                            width: max-content;
+                            font-size: 12px;
+                            margin-left: 5px;
+                        }
+
+                        &.selected,
+                        &:hover {
+                            background: #eee;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
