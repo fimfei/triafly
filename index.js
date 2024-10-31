@@ -8,6 +8,8 @@ function callTable(data) {
     console.log(`callTable from GitHub`);
 }
 
-module.exports.callTable = callTable;
-module.exports.Table = Table;
+module.exports = {
+    callTable: callTable,
+    Table: Table
+};
 
