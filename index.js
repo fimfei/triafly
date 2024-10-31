@@ -1,16 +1,14 @@
-import Table from './src/components/Table/Table';
+//import Table from './src/components/Table/Table';
 
-//function Table(data) {
-//    console.log(`Table from GitHub`);
-//}
+function Table(data) {
+    console.log(`Table from GitHub`);
+}
 
 function callTable(data) {
     console.log(`callTable from GitHub`);
 }
 
-module.exports = {
-    callTable: callTable,
-};
+exports.callTable = callTable;
+exports.Table = Table;
 
-module.exports.Table = Table;
 
