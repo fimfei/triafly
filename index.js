@@ -5,7 +5,7 @@ const Table = () => _Table;
 const callTable = () => _callTable;
 
 module.exports = {
-    Table: Table,
-    callTable: callTable,
+    Table,
+    callTable,
 };
 
