@@ -1,19 +1,19 @@
 {
   "name": "triafly",
-  "version": "1.0.46",
-  "description": "",
-  "main": "index.js",
+  "version": "1.0.48",
+  "description": "...description...",
+  "main": "dist/bundle.js",
   "scripts": {
+    "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fimfei/triafly.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["react", "npm", "package"],
+  "author": "...автор...",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/fimfei/triafly/issues"
   },
@@ -27,9 +27,11 @@
     "sass-loader": ">=14.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.26.0",
-    "@babel/preset-env": "^7.26.0",
-    "@babel/preset-react": "^7.25.9",
-    "babel-loader": "^9.2.1"
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.0",
+    "webpack": "^5.0.0",
+    "webpack-cli": "^4.0.0"
   }
 }

@@ -1,22 +1,30 @@
+const path = require('path');
+
 module.exports = {
-    devtool: false, // Отключение source maps
+    entry: './src/index.js',
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'bundle.js',
+        library: 'triafly',
+        libraryTarget: 'umd',
+        globalObject: 'this'
+    },
     module: {
         rules: [
             {
-                test: /\.(js|jsx|ts|tsx)$/,
+                test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader"
                 }
-            },
-            {
-                test: /\.(js|jsx|ts|tsx)$/,
-                enforce: 'pre',
-                use: ['source-map-loader'],
-            },
+            }
         ]
     },
     resolve: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx']
+        extensions: ['.js', '.jsx']
+    },
+    externals: {
+        react: 'react',
+        'react-dom': 'react-dom'
     }
 };
