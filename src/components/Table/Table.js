@@ -1,13 +1,8 @@
-//import React from 'react';
-
-export function Table(props) {
-    console.log('TABLE!!!!!!!!!!')
-}
-
-/*
 import React from 'react';
 
-const Table = props => {
+import React from 'react';
+
+export const Table = props => {
     const {text} = props;
 
     const [count, setCount] = React.useState(0)
@@ -18,13 +13,9 @@ const Table = props => {
         } , 1000)
     }, []);
 
-
     return (
         <div className="unitable-wrapper" >
             T A B L E ({text} {count})
         </div>
     )
 }
-
-export default Table;
-*/
