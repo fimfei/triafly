@@ -9,7 +9,7 @@ module.exports = {
                 }
             },
             {
-                test: /\.js$/,
+                test: /\.(js|jsx|ts|tsx)$/,
                 enforce: 'pre',
                 use: ['source-map-loader'],
             },
