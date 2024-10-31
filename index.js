@@ -5,17 +5,20 @@ function callTable(data) {
 }
 
 module.exports = {
-	presets: [
-		'@babel/preset-react',
-		[
-			'@babel/preset-env',
+	module: {
+		rules: [
 			{
-				targets: {
-					node: 'current',
-				},
-			},
-		],
-	],
+				test: /\.(js|jsx)$/,
+				exclude: /node_modules/,
+				use: {
+					loader: "babel-loader"
+				}
+			}
+		]
+	},
+	resolve: {
+		extensions: ['.js', '.jsx']
+	},
 	Table,
-	callTable
-}
+	callTable,
+};
