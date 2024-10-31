@@ -1,9 +1,10 @@
-import _Table from './src/components/Table/Table.js';
-import _callTable from './src/components/Table/callTable.js';
 
-const Table = () => _Table;
-const callTable = () => _callTable;
-
+function Table(props) {
+    console.log('TABLE!!!!!!!!!!')
+}
+function callTable(props) {
+    console.log('CALL TABLE!!!!!!!!!!')
+}
 module.exports = {
     Table,
     callTable,
