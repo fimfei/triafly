@@ -1,5 +1,5 @@
-function _callTable(props) {
+function callTable(props) {
     console.log('CALL TABLE!!!!!!!!!!')
 }
 
-export default _callTable;
+export default callTable;
