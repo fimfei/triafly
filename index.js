@@ -10,6 +10,7 @@ function callTable(data) {
 
 module.exports = {
     callTable: callTable,
-    Table: Table
 };
+
+module.exports.Table = Table;
 
