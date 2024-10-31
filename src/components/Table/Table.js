@@ -4,7 +4,7 @@ function Table(props) {
     console.log('TABLE!!!!!!!!!!')
 }
 
-exports.Table = () => Table;
+module.exports.Table = Table;
 
 /*
 import React from 'react';

@@ -1,4 +1,5 @@
 function callTable(props) {
     console.log('CALL TABLE!!!!!!!!!!')
 }
-exports.callTable = () => callTable;
+
+module.exports.callTable = callTable;
