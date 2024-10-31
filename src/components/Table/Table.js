@@ -1,10 +1,8 @@
 //import React from 'react';
 
-function Table(props) {
+export function Table(props) {
     console.log('TABLE!!!!!!!!!!')
 }
-
-export default Table;
 
 /*
 import React from 'react';
