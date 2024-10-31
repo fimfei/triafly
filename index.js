@@ -1,12 +1,14 @@
+//import Table from './src/components/Table/Table';
 
-function Table(props) {
-    console.log('TABLE!!!!!!!!!!')
+function Table(data) {
+    console.log(`Table from GitHub`);
 }
-function callTable(props) {
-    console.log('CALL TABLE!!!!!!!!!!')
+
+function callTable(data) {
+    console.log(`callTable from GitHub`);
 }
+
 module.exports = {
-    Table,
-    callTable,
+	Table,
+	callTable
 };
-
