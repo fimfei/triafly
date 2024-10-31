@@ -1,6 +1,14 @@
 import React from 'react';
 
 const Table = props => {
+    console.log('TABLE!!!!!!!!!!')
+}
+
+export default Table;
+/*
+import React from 'react';
+
+const Table = props => {
     const {text} = props;
 
     const [count, setCount] = React.useState(0)
@@ -20,3 +28,4 @@ const Table = props => {
 }
 
 export default Table;
+*/
