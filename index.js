@@ -1,11 +1,11 @@
-import Table from './src/components/Table/Table.js';
-import callTable from './src/components/Table/callTable.js';
+import _Table from './src/components/Table/Table.js';
+import _callTable from './src/components/Table/callTable.js';
 
-const _Table = Table;
-const _callTable = callTable;
+const Table = () => _Table;
+const callTable = () => _callTable;
 
 module.exports = {
-    Table: _Table,
-    callTable: _callTable,
+    Table: Table,
+    callTable: callTable,
 };
 
