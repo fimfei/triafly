@@ -1,4 +1,5 @@
 module.exports = {
+    devtool: false, // Отключение source maps
     module: {
         rules: [
             {
