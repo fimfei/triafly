@@ -1,3 +1,5 @@
+import React from 'react';
+
 import {Table, callTable} from './App/components/Table';
 import {Graph} from './App/components/Graph';
 
@@ -13,9 +15,12 @@ import {Prompt, callPrompt} from './App/widgets/Prompt';
 
 import {InputBool, InputNumber, InputText, SelectFromList} from './App/forms';
 
-export const components = {Table, callTable, Graph};
-export const widgets = {Alert, callAlert, ColorPicker, DatePicker, ElementsPicker, FilesPicker, ListPicker, PeriodPicker, Popup, callPopup, Prompt, callPrompt};
-export const forms = {InputBool, InputNumber, InputText, SelectFromList};
+export {Alert, ColorPicker, Table};
 
+/*
+const components = () => {Table, callTable, Graph};
+const widgets = () => {Alert, callAlert, ColorPicker, DatePicker, ElementsPicker, FilesPicker, ListPicker, PeriodPicker, Popup, callPopup, Prompt, callPrompt};
+const forms = () => {InputBool, InputNumber, InputText, SelectFromList};
 
-
+export {components, widgets, forms}
+*/
