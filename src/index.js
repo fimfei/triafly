@@ -13,19 +13,9 @@ import {Prompt, callPrompt} from './App/widgets/Prompt';
 
 import {InputBool, InputNumber, InputText, SelectFromList} from './App/forms';
 
-export function components() {
-    console.log('components')
-    //return {Table, callTable, Graph};
-}
+export const components = {Table, callTable, Graph};
+export const widgets = {Alert, callAlert, ColorPicker, DatePicker, ElementsPicker, FilesPicker, ListPicker, PeriodPicker, Popup, callPopup, Prompt, callPrompt};
+export const forms = {InputBool, InputNumber, InputText, SelectFromList};
 
-export function widgets() {
-    console.log('widgets')
-    //return {Alert, callAlert, ColorPicker, DatePicker, ElementsPicker, FilesPicker, ListPicker, PeriodPicker, Popup, callPopup, Prompt, callPrompt};
-}
-
-export function forms() {
-    console.log('forms')
-    //return {InputBool, InputNumber, InputText, SelectFromList};
-}
 
 

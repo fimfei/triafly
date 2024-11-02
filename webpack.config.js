@@ -41,5 +41,9 @@ module.exports = {
     externals: {
         react: 'react',
         'react-dom': 'react-dom'
+    },
+    optimization: {
+        chunkIds: 'named',
+        moduleIds: 'named'
     }
 };

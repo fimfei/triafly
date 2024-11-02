@@ -1,5 +1,5 @@
 node_modules/
-src/App/
+src/
 .idea/
 .babelrc
 webpack.config.js
