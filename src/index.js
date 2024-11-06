@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Table, callTable} from './App/components/Table';
+import {Table, callTable} from '@/Аpp/components/Table';
 /*
 import {Graph} from './App/components/Graph';
 
