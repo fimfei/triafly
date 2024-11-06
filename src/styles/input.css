@@ -1,4 +1,5 @@
 input[type="checkbox"]:checked:before {
+    content: "";
     background: url(./img/check.png) 0 no-repeat;
     background-size: 23px;
     margin-top: -5px;
