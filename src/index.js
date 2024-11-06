@@ -16,7 +16,7 @@ import {Prompt, callPrompt} from './App/widgets/Prompt';
 
 import {InputBool, InputNumber, InputText, SelectFromList} from './App/forms';
 */
-import './styles/app.scss';
+//import './styles/app.scss';
 
 export {
     Table, callTable,
