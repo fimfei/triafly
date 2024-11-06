@@ -15,18 +15,21 @@ input {
         &:before {
             content: "";
             background-image: url(./img/uncheck.png);
-            background-size: 23px;
+            background-size: 19px;
             background-repeat: no-repeat;
             background-position: center;
-            margin-top: -5px;
-            margin-left: -5px;
+            margin-top: -3px;
+            margin-left: -3px;
             position: absolute;
             width: 20px;
             height: 20px;
+        }
 
-            &:checked {
-                background-image: url(./img/check.png);
-            }
+        &:checked:before {
+            background-image: url(./img/check.png);
+            background-size: 23px;
+            margin-top: -5px;
+            margin-left: -5px;
         }
     }
 }
