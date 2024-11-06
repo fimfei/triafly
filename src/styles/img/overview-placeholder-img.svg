@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="174px" height="108px" viewBox="0 0 174 108" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>overview-placeholder-img</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="86 0 148.18 0 174 25.7 174 108 86 108"></polygon>
+        <rect id="path-2" x="0" y="0" width="88" height="108"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="overview-placeholder-img">
+            <g id="Rounded_Rectangle_2">
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                <path stroke="#E1D9B3" stroke-width="2" d="M87,1 L87,107 L173,107 L173,26.1155786 L147.76715,1 L87,1 Z"></path>
+            </g>
+            <g id="Rounded_Rectangle_2_copy" fill-rule="nonzero">
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-2"></use>
+                <rect stroke="#E1D9B3" stroke-width="2" x="1" y="1" width="86" height="106"></rect>
+            </g>
+            <path d="M12,12 L76,12 L76,16 L12,16 L12,12 Z M12,22 L76,22 L76,26 L12,26 L12,22 Z M12,32 L76,32 L76,36 L12,36 L12,32 Z M12,42 L76,42 L76,46 L12,46 L12,42 Z M12,52 L76,52 L76,56 L12,56 L12,52 Z M12,62 L76,62 L76,66 L12,66 L12,62 Z M12,72 L76,72 L76,76 L12,76 L12,72 Z M12,82 L76,82 L76,86 L12,86 L12,82 Z M12,92 L76,92 L76,96 L12,96 L12,92 Z" id="Shape" fill="#E1D9B3"></path>
+            <path d="M113,64 L117,64 L117,73 L113,73 L113,64 Z M123,51 L127,51 L127,73 L123,73 L123,51 Z M133,56 L137,56 L137,73 L133,73 L133,56 Z M143,34 L147,34 L147,73 L143,73 L143,34 Z" id="Shape" fill="#E1D9B3"></path>
+            <polygon id="Shape" fill="#E1D9B3" points="148 0 174 26 148 26"></polygon>
+        </g>
+    </g>
+</svg>

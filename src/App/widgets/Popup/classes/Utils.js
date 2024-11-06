@@ -1,8 +1,7 @@
 class Utils {
 
     constructor({props}) {
-        props.answer = props.answer || {};
-        this.props = props;
+        this.props = {...props, answer: props?.answer ? props.answer : {}};
         this.position = {};
         this.localeStorageName = 'popup_sizes';
         const popupSizes = localStorage.getItem(this.localeStorageName);

@@ -4356,14 +4356,14 @@ var TableGo = function TableGo2(props) {
 };
 var HeaderAndBody = function HeaderAndBody2(props) {
   var connector = props.connector;
-  var _React$useState3 = React__default.useState(1), _React$useState4 = _slicedToArray(_React$useState3, 2), _2 = _React$useState4[0], setRefresh = _React$useState4[1];
+  var _React$useState3 = React__default.useState(1), _React$useState4 = _slicedToArray(_React$useState3, 2), _ = _React$useState4[0], setRefresh = _React$useState4[1];
   var refresh = function refresh2() {
     setRefresh(UTILS$2.random16);
   };
   React__default.useEffect(function() {
     connector.refresh.headerAndBody = refresh;
   }, []);
-  if (!_2)
+  if (!_)
     return null;
   return /* @__PURE__ */ React__default.createElement(React__default.Fragment, null, /* @__PURE__ */ React__default.createElement(TableHeader, props), /* @__PURE__ */ React__default.createElement(TableBody, props));
 };
@@ -4766,9 +4766,6 @@ var TableHeaderCell = function TableHeaderCell2(props) {
   }));
 };
 var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
-function commonjsRequire(path) {
-  throw new Error('Could not dynamically require "' + path + '". Please configure the dynamicRequireTargets or/and ignoreDynamicRequires option of @rollup/plugin-commonjs appropriately for this require call to work.');
-}
 var lib = {};
 var flattenNames$1 = {};
 var freeGlobal$3 = typeof commonjsGlobal == "object" && commonjsGlobal && commonjsGlobal.Object === Object && commonjsGlobal;
@@ -13886,8 +13883,9 @@ var Utils$1 = /* @__PURE__ */ function() {
   function Utils2(_ref) {
     var props = _ref.props;
     _classCallCheck$a(this, Utils2);
-    props.answer = props.answer || {};
-    this.props = props;
+    this.props = _objectSpread2(_objectSpread2({}, props), {}, {
+      answer: props !== null && props !== void 0 && props.answer ? props.answer : {}
+    });
     this.position = {};
     this.localeStorageName = "popup_sizes";
     var popupSizes = localStorage.getItem(this.localeStorageName);
@@ -14155,59 +14153,6 @@ var elementsPickerList = "";
 var elementsPickerList_item = "";
 var elementsPicker = "";
 var alert = "";
-var Alert = function Alert2(props) {
-  var _props$header = props.header, header = _props$header === void 0 ? "\u041F\u0440\u0435\u0434\u0443\u043F\u0440\u0435\u0436\u0434\u0435\u043D\u0438\u0435" : _props$header, text = props.text, _buttons = props.buttons, _props$success = props.success, success = _props$success === void 0 ? function() {
-  } : _props$success, _props$cancel = props.cancel, cancel = _props$cancel === void 0 ? function() {
-  } : _props$cancel, children = props.children, removeComponent = props.removeComponent;
-  var typesClasses = {
-    danger: "btn btn-danger",
-    cancel: "btn btn-no"
-  };
-  var buttons = _buttons ? _buttons : [{
-    text: "\u041E\u0442\u043C\u0435\u043D\u0430",
-    type: "cancel",
-    callback: cancel
-  }, {
-    text: "OK",
-    type: "danger",
-    callback: success
-  }];
-  var onClick = function onClick2(callback) {
-    return function() {
-      if (callback)
-        callback();
-      removeComponent();
-    };
-  };
-  return /* @__PURE__ */ React__default.createElement("div", {
-    className: "rct-alert"
-  }, /* @__PURE__ */ React__default.createElement("div", {
-    className: "prompter"
-  }, /* @__PURE__ */ React__default.createElement("div", {
-    className: "modal prompter"
-  }, /* @__PURE__ */ React__default.createElement("div", {
-    className: "modal-header"
-  }, /* @__PURE__ */ React__default.createElement("h3", null, /* @__PURE__ */ React__default.createElement("div", {
-    dangerouslySetInnerHTML: {
-      __html: header
-    }
-  }))), /* @__PURE__ */ React__default.createElement("div", {
-    className: "modal-body"
-  }, text && /* @__PURE__ */ React__default.createElement("div", {
-    dangerouslySetInnerHTML: {
-      __html: text
-    }
-  }), children), /* @__PURE__ */ React__default.createElement("div", {
-    className: "modal-footer"
-  }, buttons.map(function(item, key) {
-    var text2 = item.text, type = item.type, callback = item.callback;
-    return /* @__PURE__ */ React__default.createElement("a", {
-      href: "#",
-      className: typesClasses[type],
-      onClick: onClick(callback)
-    }, text2);
-  })))));
-};
 var prompt = "";
 function r(e) {
   var t, f2, n2 = "";
@@ -24818,7 +24763,7 @@ var tableHeaderCellMenuFormatter = "";
 var TableHeaderCellMenuFormatter = function TableHeaderCellMenuFormatter2(props) {
   var cell = props.cell, setShowFormatter = props.setShowFormatter, utils = props.utils;
   var _React$useState = React__default.useState(true), _React$useState2 = _slicedToArray(_React$useState, 2), isActual = _React$useState2[0], setIsActual = _React$useState2[1];
-  var _React$useState3 = React__default.useState(0), _React$useState4 = _slicedToArray(_React$useState3, 2), _2 = _React$useState4[0], setRefresh = _React$useState4[1];
+  var _React$useState3 = React__default.useState(0), _React$useState4 = _slicedToArray(_React$useState3, 2), _ = _React$useState4[0], setRefresh = _React$useState4[1];
   var refresh = function refresh2() {
     setIsActual(false);
     setRefresh(UTILS$2.random16());
@@ -24979,7 +24924,7 @@ var TableHeaderCellMenuFormatter = function TableHeaderCellMenuFormatter2(props)
   _bgrnd.background = color;
   return /* @__PURE__ */ React__default.createElement(React__default.Fragment, null, icons.map(function(icon) {
     return /* @__PURE__ */ React__default.createElement(FormatterIcon, _extends$h({}, icon, {
-      _: _2
+      _
     }));
   }), /* @__PURE__ */ React__default.createElement("div", {
     ref: colorPickerRef
@@ -25091,7 +25036,7 @@ var TableBody = function TableBody2(props) {
   var refUnitableBody = React__default.useRef(null);
   var refUnitableBodyInner = React__default.useRef(null);
   var refUnitableRowsWrapper = React__default.useRef(null);
-  var _React$useState = React__default.useState(0), _React$useState2 = _slicedToArray(_React$useState, 2), _2 = _React$useState2[0], setRefresh = _React$useState2[1];
+  var _React$useState = React__default.useState(0), _React$useState2 = _slicedToArray(_React$useState, 2), _ = _React$useState2[0], setRefresh = _React$useState2[1];
   var refresh = function refresh2() {
     refUnitableBodyInner.current.scrollTop = 0;
     setRefresh(UTILS$2.random16());
@@ -25128,7 +25073,7 @@ var TableBody = function TableBody2(props) {
     utils.recalcHeaderRootsPadding();
   };
   var sliding = utils.getSliding();
-  if (_2 === null)
+  if (_ === null)
     return null;
   return /* @__PURE__ */ React__default.createElement("div", {
     className: "unitable-body",
@@ -26141,7 +26086,7 @@ var TablePaginator = function TablePaginator2(props) {
   } : _onChangeComponentSta2, _onChangeComponentSta3 = onChangeComponentState.onClickToPaginator_GoToPage, onClickToPaginator_GoToPage = _onChangeComponentSta3 === void 0 ? function() {
   } : _onChangeComponentSta3;
   var pageNum = params.pageNum;
-  var _React$useState = React__default.useState(0), _React$useState2 = _slicedToArray(_React$useState, 2), _2 = _React$useState2[0], setRefresh = _React$useState2[1];
+  var _React$useState = React__default.useState(0), _React$useState2 = _slicedToArray(_React$useState, 2), _ = _React$useState2[0], setRefresh = _React$useState2[1];
   var refresh = function refresh2() {
     return setRefresh(UTILS$2.random16());
   };
@@ -26196,7 +26141,7 @@ var TablePaginator = function TablePaginator2(props) {
     });
   };
   var pagesNum = totalLength ? getPagesNum() : void 0;
-  var commonClass = "btn btn-mini pager-control";
+  var commonClass = "btn pager-control";
   var disabledFirstClass = pageNum ? "" : " disabled";
   var disabledPreClass = disabledFirstClass;
   var disabledNextClass = !pagesNum || pageNum < pagesNum - 1 ? "" : " disabled";
@@ -26253,7 +26198,7 @@ var TablePaginator = function TablePaginator2(props) {
     "data-toggle": "buttons-radio"
   }, rowsByPage.map(function(num) {
     return /* @__PURE__ */ React__default.createElement("div", {
-      className: "btn btn-mini".concat(num === pageLength ? " active" : "", " ").concat(_2),
+      className: "btn".concat(num === pageLength ? " active" : "", " ").concat(_),
       onClick: function onClick() {
         return clickToRowsByPage(num);
       }
@@ -29833,6 +29778,22 @@ var ListItem = function ListItem2(props) {
     ref: dragDropRef
   }, value);
 };
+var callTable = function callTable2(tablePortalEl, tableProps) {
+  var tableRoot = document.createElement("div");
+  tableRoot.className = "call-unitable-wrapper";
+  tablePortalEl.appendChild(tableRoot);
+  var root2 = client.createRoot(tableRoot);
+  var removeComponent = function removeComponent2() {
+    root2.unmount();
+    tableRoot.remove();
+  };
+  root2.render(/* @__PURE__ */ React__default.createElement(Table, _extends$h({}, tableProps, {
+    removeComponent
+  })));
+  return {
+    removeComponent
+  };
+};
 function die(error) {
   for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
     args[_key - 1] = arguments[_key];
@@ -30208,7 +30169,7 @@ var comparer = {
   "default": defaultComparer,
   shallow: shallowComparer
 };
-function deepEnhancer(v, _2, name) {
+function deepEnhancer(v, _, name) {
   if (isObservable(v)) {
     return v;
   }
@@ -30241,7 +30202,7 @@ function deepEnhancer(v, _2, name) {
   }
   return v;
 }
-function shallowEnhancer(v, _2, name) {
+function shallowEnhancer(v, _, name) {
   if (v === void 0 || v === null) {
     return v;
   }
@@ -34276,7 +34237,7 @@ var Utils = /* @__PURE__ */ function() {
         try {
           for (_iterator3.s(); !(_step3 = _iterator3.n()).done; ) {
             var item = _step3.value;
-            var row = item.row, children = item.children, _2 = item._;
+            var row = item.row, children = item.children, _ = item._;
             var isRoot = !!(children !== null && children !== void 0 && children.length);
             rows.push(row);
             _this2.rowsByOrdinalIndex[ordinalIndex] = item;
@@ -34292,7 +34253,7 @@ var Utils = /* @__PURE__ */ function() {
               parentIndex,
               ordinalIndex
             };
-            if (_2 !== null && _2 !== void 0 && _2.isNotFind)
+            if (_ !== null && _ !== void 0 && _.isNotFind)
               el.isNotFind = true;
             showRows.push(el);
             ordinalIndex++;
@@ -35559,75 +35520,5 @@ var Utils = /* @__PURE__ */ function() {
     }
   }]);
 }();
-var graph = "";
-var graphCustomNode = "";
-var graphCustomEdge = "";
-var graphButtonsPanel = "";
-var graphMenu = "";
-var graphAddNode = "";
-var graphlib;
-if (typeof commonjsRequire === "function") {
-  try {
-    graphlib = require("graphlib");
-  } catch (e) {
-  }
-}
-if (!graphlib) {
-  graphlib = window.graphlib;
-}
-var graphlib_1 = graphlib;
-var lodash;
-if (typeof commonjsRequire === "function") {
-  try {
-    lodash = {
-      cloneDeep: require("lodash/cloneDeep"),
-      constant: require("lodash/constant"),
-      defaults: require("lodash/defaults"),
-      each: require("lodash/each"),
-      filter: require("lodash/filter"),
-      find: require("lodash/find"),
-      flatten: require("lodash/flatten"),
-      forEach: require("lodash/forEach"),
-      forIn: require("lodash/forIn"),
-      has: require("lodash/has"),
-      isUndefined: require("lodash/isUndefined"),
-      last: require("lodash/last"),
-      map: require("lodash/map"),
-      mapValues: require("lodash/mapValues"),
-      max: require("lodash/max"),
-      merge: require("lodash/merge"),
-      min: require("lodash/min"),
-      minBy: require("lodash/minBy"),
-      now: require("lodash/now"),
-      pick: require("lodash/pick"),
-      range: require("lodash/range"),
-      reduce: require("lodash/reduce"),
-      sortBy: require("lodash/sortBy"),
-      uniqueId: require("lodash/uniqueId"),
-      values: require("lodash/values"),
-      zipObject: require("lodash/zipObject")
-    };
-  } catch (e) {
-  }
-}
-if (!lodash) {
-  lodash = window._;
-}
-var lodash_1 = lodash;
-var _ = lodash_1;
-graphlib_1.Graph;
-_.constant(1);
-graphlib_1.Graph;
-graphlib_1.Graph;
-graphlib_1.alg.preorder;
-graphlib_1.alg.postorder;
-graphlib_1.Graph;
-graphlib_1.Graph;
-graphlib_1.Graph;
-graphlib_1.Graph;
-graphlib_1.Graph;
-var inputBool = "";
-var inputNumber = "";
-var inputText = "";
-var selectFromList = "";
-export { Alert, ColorPicker, Table };
+var app = "";
+export { Table, callTable };

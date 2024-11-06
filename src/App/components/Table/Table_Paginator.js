@@ -68,7 +68,7 @@ const TablePaginator = props => {
     }
 
     const pagesNum = totalLength ? getPagesNum() : undefined;
-    const commonClass = 'btn btn-mini pager-control';
+    const commonClass = 'btn pager-control';
     const disabledFirstClass = pageNum ? '' : ' disabled';
     const disabledPreClass = disabledFirstClass;
     const disabledNextClass = !pagesNum || pageNum < (pagesNum-1) ? '' : ' disabled';
@@ -125,7 +125,7 @@ const TablePaginator = props => {
                             {rowsByPage.map(num => {
                                 return (
                                     <div
-                                        className={`btn btn-mini${num === pageLength ? ' active' : ''} ${_}`}
+                                        className={`btn${num === pageLength ? ' active' : ''} ${_}`}
                                         onClick={() => clickToRowsByPage(num)}
                                     >{num}</div>
                                 )
