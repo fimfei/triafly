@@ -1,0 +1,23 @@
+input {
+    font-size: 14px;
+    font-weight: normal;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    &[type="checkbox"] {
+        width: auto;
+        margin: 4px 0 0;
+        line-height: normal;
+        cursor: pointer;
+        vertical-align: middle;
+        appearance: auto;
+        box-sizing: border-box;
+
+        &:checked:before {
+            content: "";
+            background: url(./img/check.png) 0 no-repeat;
+            background-size: 23px;
+            margin-top: -5px;
+            margin-left: -5px;
+        }
+    }
+}
