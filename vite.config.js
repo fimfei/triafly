@@ -4,11 +4,6 @@ import babel from '@rollup/plugin-babel';
 import path from 'path';
 
 export default defineConfig({
-    resolve: {
-        alias: {
-            '@': path.resolve(__dirname, 'D:/apps/sampleapp/src/netdb-rspa/netdb_rspa/src'),
-        },
-    },
     plugins: [
         react(),
         babel({
