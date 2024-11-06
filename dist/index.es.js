@@ -35520,4 +35520,5 @@ var Utils = /* @__PURE__ */ function() {
     }
   }]);
 }();
+var app = "";
 export { Table, callTable };

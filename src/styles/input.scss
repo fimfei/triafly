@@ -14,14 +14,19 @@ input {
 
         &:checked:before {
             content: "";
-            background: url(./img/check.png) 0 no-repeat;
+            background-image: url(./img/uncheck.png);
             background-size: 23px;
+            background-repeat: no-repeat;
+            background-position: center;
             margin-top: -5px;
             margin-left: -5px;
+            position: absolute;
+            width: 20px;
+            height: 20px;
+
+            &:checked {
+                background-image: url(./img/check.png);
+            }
         }
     }
-}
-
-.branch-show {
-    background: #f00 !important;
 }
