@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Table, callTable} from 'D:/apps/sampleapp/src/netdb-rspa/netdb_rspa/src/App/components/Table';
+import {Table, callTable} from './App/components/Table';
 /*
 import {Graph} from './App/components/Graph';
 
