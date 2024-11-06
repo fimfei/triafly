@@ -4,9 +4,7 @@
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "scripts": {
-    "prepublish": "npm version patch",
-    "build": "vite build",
-    "publish": "npm publish"
+    "publish-packag": "git add . && git commit -m 'Table' && npm version patch && vite build && npm publish"
   },
   "peerDependencies": {
     "axios": "^1.3.2",
