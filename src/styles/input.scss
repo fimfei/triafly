@@ -12,7 +12,7 @@ input {
         appearance: auto;
         box-sizing: border-box;
 
-        &:checked:before {
+        &:before {
             content: "";
             background-image: url(./img/uncheck.png);
             background-size: 23px;
