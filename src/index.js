@@ -1,5 +1,5 @@
 import React from 'react';
-const aaa = 1;
+
 import {Table, callTable} from './Аpp/components/Table';
 
 /*
