@@ -88,6 +88,7 @@ const SetPickerItemView = ({...props}) => {
                                 name="selectedGroup"
                                 type={checkRadioType.current}
                                 checked={checked}
+                                onChange={() => {}}
                             />
                         </div>
                     )}

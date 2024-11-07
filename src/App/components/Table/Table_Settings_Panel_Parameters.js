@@ -66,10 +66,11 @@ const TableSettingsPanelParameters = props => {
 
     return (
         <div className="usp-parameters">
-            {data.map(item => {
+            {data.map((item, index) => {
                 if(item.blockName) return <div className={`usp-param-block-name${item.show ? '' : ' is-hide'}`}>{item.blockName}</div>
                 return (
                     <Parameter
+                        key={`par-${index}`}
                         {...props}
                         item={item}
                         getOptionValue={getOptionValue}
