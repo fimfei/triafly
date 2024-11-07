@@ -39,7 +39,7 @@ const TableCellEditorString = props => {
     }, []);
     /* eslint-enable */
 
-    const stop = () => onCellBlur();
+    const stop = () => {}//onCellBlur();
 
     const checkValid = value => {
         if (validator) {
@@ -56,6 +56,8 @@ const TableCellEditorString = props => {
         }
     }
     checkValid(valueCurrent.current);
+
+    console.log('TableCellEditorString')
 
     return (
         <div className={`tce-string${errorCurrent.current ? ' invalid' : ''}`} ref={inputRef}>

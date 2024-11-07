@@ -25678,7 +25678,9 @@ var TableCellEditor = function TableCellEditor2(props) {
     TableCellEditorSetMultiple
   };
   var Component2 = editors[(_CONSTANTS$fieldTypes = CONSTANTS.fieldTypesById[fieldTypeId]) === null || _CONSTANTS$fieldTypes === void 0 ? void 0 : _CONSTANTS$fieldTypes.editor] || TableCellEditorString;
+  console.log("Component", Component2);
   var onCellBlur = function onCellBlur2() {
+    console.log("onCellBlur");
     if (cell._.invalidValueFormat) {
       setTimeout(function() {
         COMMUNICATION.notify({
