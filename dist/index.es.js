@@ -26414,7 +26414,8 @@ var BranchLabel = function BranchLabel2(props) {
   }, /* @__PURE__ */ React__default.createElement("input", {
     type: "checkbox",
     checked: show,
-    onChange: isLeft ? null : toggleShow
+    onChange: isLeft ? function() {
+    } : toggleShow
   })), /* @__PURE__ */ React__default.createElement("div", {
     className: "branch-label"
   }, value), /* @__PURE__ */ React__default.createElement("div", {
@@ -26577,12 +26578,15 @@ var TableSettingsPanelParameters = function TableSettingsPanelParameters2(props)
   return /* @__PURE__ */ React__default.createElement("div", {
     className: "usp-parameters"
   }, data.map(function(item2, index2) {
+    var key = "par-".concat(index2);
     if (item2.blockName)
       return /* @__PURE__ */ React__default.createElement("div", {
-        key: "par-".concat(index2),
+        key,
         className: "usp-param-block-name".concat(item2.show ? "" : " is-hide")
       }, item2.blockName);
-    return /* @__PURE__ */ React__default.createElement(Parameter, _extends$h({}, props, {
+    return /* @__PURE__ */ React__default.createElement(Parameter, _extends$h({
+      key
+    }, props, {
       item: item2,
       getOptionValue,
       setOptionValue
@@ -26599,7 +26603,7 @@ var Parameter = function Parameter2(props) {
   }, type === "bool" && /* @__PURE__ */ React__default.createElement(ParameterCheckbox, props), type === "color" && /* @__PURE__ */ React__default.createElement(ParameterColor, props), title);
 };
 var ParameterCheckbox = function ParameterCheckbox2(props) {
-  var utils = props.utils, item = props.item, getOptionValue = props.getOptionValue, setOptionValue = props.setOptionValue;
+  var utils = props.utils, item = props.item, getOptionValue = props.getOptionValue, setOptionValue = props.setOptionValue, key = props.key;
   var address = item.address, isDisable = item.isDisable, refresh = item.refresh;
   var _React$useState = React__default.useState(getOptionValue(address)), _React$useState2 = _slicedToArray(_React$useState, 2), checked = _React$useState2[0], setChecked = _React$useState2[1];
   var clickToCheckbox = function clickToCheckbox2() {
@@ -26610,9 +26614,11 @@ var ParameterCheckbox = function ParameterCheckbox2(props) {
     utils.saveTableSettingsToLocaleStorage();
   };
   return /* @__PURE__ */ React__default.createElement("input", {
+    key,
     type: "checkbox",
     checked,
-    onChange: isDisable ? null : clickToCheckbox
+    onChange: isDisable ? function() {
+    } : clickToCheckbox
   });
 };
 var ParameterColor = function ParameterColor2(props) {

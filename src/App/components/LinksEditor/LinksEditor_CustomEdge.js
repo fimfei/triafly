@@ -39,10 +39,10 @@ const CustomEdge = ({...props}) => {
         fontSize: 12,
         pointerEvents: 'all',
         color: '#000',
-        'box-shadow': `0px 0px ${hoverLink ? 0 : 1}px ${hoverLink ? 2 : 0}px #000`,
+        boxShadow: `0px 0px ${hoverLink ? 0 : 1}px ${hoverLink ? 2 : 0}px #000`,
         visibility: showLinksLabelsCurrent.current ? 'visible' : 'hidden',
     }
-    if(hoverLink) labelStyle['z-index'] = '1100';
+    if(hoverLink) labelStyle['zIndex'] = '1100';
 
     return (
         <React.Fragment>

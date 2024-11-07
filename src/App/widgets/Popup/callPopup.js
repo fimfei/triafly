@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import {createRoot} from 'react-dom/client';
 import {Popup} from "./index";
 
 const callPopup = props => {
@@ -10,7 +10,7 @@ const callPopup = props => {
     const portal = externalPortal || document.querySelector('html');
     portal.appendChild(appRoot);
 
-    const root = ReactDOM.createRoot(appRoot);
+    const root = createRoot(appRoot);
 
     const removeComponent = () => {
         root.unmount();

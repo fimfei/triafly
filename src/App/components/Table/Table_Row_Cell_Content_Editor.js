@@ -32,9 +32,9 @@ const TableRowCellContentEditor = props => {
             fitToParent={true}
             onOutsideClick={clickOutsideThePopup}
             style={{
-                'background': 'transparent',
-                'overflow': 'visible',
-                'box-shadow': 'none',
+                background: 'transparent',
+                overflow: 'visible',
+                boxShadow: 'none',
             }}
             extraClass="unitable-row-cell-value-editor"
             answer={cell._.popupData}

@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import {createRoot} from 'react-dom/client';
 import {Table} from "./";
 
 const callTable = (tablePortalEl, tableProps) => {
@@ -7,7 +7,7 @@ const callTable = (tablePortalEl, tableProps) => {
     tableRoot.className = 'call-unitable-wrapper';
     tablePortalEl.appendChild(tableRoot);
 
-    const root = ReactDOM.createRoot(tableRoot);
+    const root = createRoot(tableRoot);
 
     const removeComponent = () => {
         root.unmount();

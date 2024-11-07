@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import {createRoot} from 'react-dom/client';
 import {Prompt} from "./index";
 
 const callPrompt = props => {
@@ -8,7 +8,7 @@ const callPrompt = props => {
     const portal = document.querySelector('html');
     portal.appendChild(appRoot);
 
-    const root = ReactDOM.createRoot(appRoot);
+    const root = createRoot(appRoot);
 
     const removeComponent = () => {
         root.unmount();

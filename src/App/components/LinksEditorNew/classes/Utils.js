@@ -371,7 +371,7 @@ class Utils {
                 <i
                     className="search-button fas fa-bell"
                     title="Показать инфу"
-                    style={{position: 'absolute', left: '4px', top: '4px', 'z-index': 1}}
+                    style={{position: 'absolute', left: '4px', top: '4px', zIndex: 1}}
                     onClick={() => alert(`value: ${value}\nisEnd: ${isEnd}\nisLeft: ${!!isLeft}\nlevel: ${level}\nrootIndex: ${rootIndex}\nendIndex: ${endIndex}\nordinalIndex: ${ordinalIndex}\nlength: ${length}`)}
                 ></i>
                 {_value}
