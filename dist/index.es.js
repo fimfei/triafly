@@ -25126,6 +25126,7 @@ var TableScrollbarHorizontal = function TableScrollbarHorizontal2(props) {
   React__default.useEffect(function() {
     connector.refresh.scrollbarHorizontal = refresh;
     connector.refs.scrollbarWrapperRef = scrollbarWrapperRef;
+    setTimeout(refresh, 0);
   }, []);
   var onScroll = function onScroll2(e) {
     var scrollLeft = scrollbarWrapperRef.current.scrollLeft;
@@ -25182,6 +25183,7 @@ var TableScrollbarVertical = function TableScrollbarVertical2(props) {
   };
   React__default.useEffect(function() {
     connector.refresh.scrollbarVertical = refresh;
+    setTimeout(refresh, 50);
   }, []);
   if (!connector.refs.unitableBodyInner)
     return null;
