@@ -16,7 +16,7 @@ const TableScrollbarHorizontal = props => {
     React.useEffect(() => {
         connector.refresh.scrollbarHorizontal = refresh;
         connector.refs.scrollbarWrapperRef = scrollbarWrapperRef;
-//        setTimeout(refresh, 0);
+        setTimeout(refresh, 0);
     }, []);
     /* eslint-enable */
 
@@ -33,7 +33,9 @@ const TableScrollbarHorizontal = props => {
 
     if(scrollbarIsNeeded !== tableHas.scrollbarHorizontal) {
         tableHas.scrollbarHorizontal = scrollbarIsNeeded;
-        connector.refresh.scrollbarVertical();
+        setTimeout(() => {
+            connector.refresh.scrollbarVertical();
+        }, 0)
     }
 
     if(!scrollbarIsNeeded) return null;
