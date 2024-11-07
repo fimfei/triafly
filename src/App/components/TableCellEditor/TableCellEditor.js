@@ -57,8 +57,10 @@ const TableCellEditor = props => {
     };
 
     const Component = editors[CONSTANTS.fieldTypesById[fieldTypeId]?.editor] || TableCellEditorString;
+    console.log('Component', Component)
 
     const onCellBlur = () => {
+        console.log('onCellBlur')
         if (cell._.invalidValueFormat) {
             setTimeout(()=> {
                 COMMUNICATION.notify({isError: true, text: cell._.invalidValueFormat});
