@@ -126,7 +126,7 @@ const BranchLabel = props => {
                 <input
                     type="checkbox"
                     checked={show}
-                    onChange={isLeft ? null : toggleShow}
+                    onChange={isLeft ? () => {} : toggleShow}
                 />
             </div>
             <div className="branch-label">

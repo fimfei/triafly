@@ -26579,11 +26579,10 @@ var TableSettingsPanelParameters = function TableSettingsPanelParameters2(props)
   }, data.map(function(item2, index2) {
     if (item2.blockName)
       return /* @__PURE__ */ React__default.createElement("div", {
+        key: "par-".concat(index2),
         className: "usp-param-block-name".concat(item2.show ? "" : " is-hide")
       }, item2.blockName);
-    return /* @__PURE__ */ React__default.createElement(Parameter, _extends$h({
-      key: "par-".concat(index2)
-    }, props, {
+    return /* @__PURE__ */ React__default.createElement(Parameter, _extends$h({}, props, {
       item: item2,
       getOptionValue,
       setOptionValue

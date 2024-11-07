@@ -67,17 +67,13 @@ const TableSettingsPanelParameters = props => {
     return (
         <div className="usp-parameters">
             {data.map((item, index) => {
-                if(item.blockName) return (
-                    <div
-                        key={`par-${index}`}
-                        className={`usp-param-block-name${item.show ? '' : ' is-hide'}`}
-                    >
-                        {item.blockName}
-                    </div>
-                )
+                const key = `par-${index}`;
+
+                if(item.blockName) return <div key={key} className={`usp-param-block-name${item.show ? '' : ' is-hide'}`}>{item.blockName}</div>
 
                 return (
                     <Parameter
+                        key={key}
                         {...props}
                         item={item}
                         getOptionValue={getOptionValue}
@@ -106,7 +102,7 @@ const Parameter = props => {
 }
 
 const ParameterCheckbox = props => {
-    const {utils, item, getOptionValue, setOptionValue} = props;
+    const {utils, item, getOptionValue, setOptionValue, key} = props;
     const {address, isDisable, refresh} = item;
 
     const [checked, setChecked] = React.useState(getOptionValue(address));
@@ -120,9 +116,10 @@ const ParameterCheckbox = props => {
 
     return (
         <input
+            key={key}
             type="checkbox"
             checked={checked}
-            onChange={isDisable ? null : clickToCheckbox}
+            onChange={isDisable ? () => {} : clickToCheckbox}
         />
     )
 }
