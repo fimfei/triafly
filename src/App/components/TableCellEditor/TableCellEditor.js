@@ -38,7 +38,10 @@ const TableCellEditor = props => {
     /* eslint-disable */
     React.useEffect(() => {
         document.addEventListener('keydown', checkToEscape);
-        return () => document.removeEventListener('keydown', checkToEscape);
+        return () => {
+            document.removeEventListener('keydown', checkToEscape);
+            console.log('--- TableCellEditor')
+        }
     }, []);
     /* eslint-enable */
 
@@ -57,7 +60,7 @@ const TableCellEditor = props => {
     };
 
     const Component = editors[CONSTANTS.fieldTypesById[fieldTypeId]?.editor] || TableCellEditorString;
-    console.log('Component', Component)
+    console.log('+++ TableCellEditor')
 
     const onCellBlur = () => {
         console.log('onCellBlur')

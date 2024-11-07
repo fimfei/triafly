@@ -35,7 +35,10 @@ const TableCellEditorString = props => {
     /* eslint-disable */
     React.useEffect(() => {
         document.addEventListener('keydown', onKeyUp);
-        return () => document.removeEventListener('keydown', onKeyUp);
+        return () => {
+            document.removeEventListener('keydown', onKeyUp);
+            console.log('--- TableCellEditorString')
+        }
     }, []);
     /* eslint-enable */
 
@@ -57,7 +60,7 @@ const TableCellEditorString = props => {
     }
     checkValid(valueCurrent.current);
 
-    console.log('TableCellEditorString')
+    console.log('+++ TableCellEditorString')
 
     return (
         <div className={`tce-string${errorCurrent.current ? ' invalid' : ''}`} ref={inputRef}>

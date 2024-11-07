@@ -25746,7 +25746,9 @@ var TableCellEditorBool = function TableCellEditorBool2(props) {
 };
 var tableCellEditorString = "";
 var TableCellEditorString = function TableCellEditorString2(props) {
-  var cell = props.cell, startValue = props.startValue, onCellBlur = props.onCellBlur, _props$validator = props.validator, validator = _props$validator === void 0 ? null : _props$validator;
+  var cell = props.cell, startValue = props.startValue;
+  props.onCellBlur;
+  var _props$validator = props.validator, validator = _props$validator === void 0 ? null : _props$validator;
   var _useCurrentState = useCurrentState(startValue), _useCurrentState2 = _slicedToArray(_useCurrentState, 3);
   _useCurrentState2[0];
   var valueCurrent = _useCurrentState2[1], setValue = _useCurrentState2[2];
@@ -25761,14 +25763,13 @@ var TableCellEditorString = function TableCellEditorString2(props) {
   };
   var onKeyUp = function onKeyUp2(e) {
     if (e.code === "Enter")
-      stop();
+      ;
     if (e.code === "Escape") {
       setValue(startValue);
       cell.value = startValue;
       setTimeout(function() {
         checkValid(startValue);
         setTimeout(function() {
-          stop();
         }, 0);
       }, 0);
     }
@@ -25780,7 +25781,6 @@ var TableCellEditorString = function TableCellEditorString2(props) {
     };
   }, []);
   var stop = function stop2() {
-    return onCellBlur();
   };
   var checkValid = function checkValid2(value) {
     if (validator) {
@@ -25797,6 +25797,7 @@ var TableCellEditorString = function TableCellEditorString2(props) {
     }
   };
   checkValid(valueCurrent.current);
+  console.log("TableCellEditorString");
   return /* @__PURE__ */ React__default.createElement("div", {
     className: "tce-string".concat(errorCurrent.current ? " invalid" : ""),
     ref: inputRef
