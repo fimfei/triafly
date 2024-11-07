@@ -25519,6 +25519,11 @@ var TableRowCellContent = function TableRowCellContent2(props) {
     oldValueBeforeEdit.current = cell.value;
     setIsEdit(true);
   };
+  React__default.useEffect(function() {
+    return function() {
+      console.log("--------- TableRowCellContent");
+    };
+  }, []);
   var stopEditor = function stopEditor2() {
     console.log("stopEditor");
     return;
@@ -25545,6 +25550,7 @@ var TableRowCellContent = function TableRowCellContent2(props) {
     refreshCell,
     stopEditor
   });
+  console.log("+++++++++ TableRowCellContent");
   return /* @__PURE__ */ React__default.createElement(React__default.Fragment, null, isTreeCell && /* @__PURE__ */ React__default.createElement("div", {
     className: "unitable-row-cell-tree",
     style: {
@@ -26033,7 +26039,7 @@ var TableRowCellContentEditor = function TableRowCellContentEditor2(props) {
   React__default.useEffect(function() {
     return function() {
       stopEditor();
-      console.log("--- TableRowCellContentEditor");
+      console.log("------ TableRowCellContentEditor");
     };
   }, []);
   var clickOutsideThePopup = function clickOutsideThePopup2() {
@@ -26043,7 +26049,7 @@ var TableRowCellContentEditor = function TableRowCellContentEditor2(props) {
   };
   var Editor = typeof cellEditor === "function" ? cellEditor : cellEditor === "TableCellEditor" ? TableCellEditor : InternalTableCellEditor;
   cell._.popupData = {};
-  console.log("+++ TableRowCellContentEditor");
+  console.log("++++++ TableRowCellContentEditor");
   return /* @__PURE__ */ React__default.createElement(Popup, {
     initiator: cellRef.current,
     notResize: true,

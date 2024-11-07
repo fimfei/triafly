@@ -37,12 +37,12 @@ const TableCellEditorString = props => {
         document.addEventListener('keydown', onKeyUp);
         return () => {
             document.removeEventListener('keydown', onKeyUp);
-            console.log('--- TableCellEditorString')
+            console.log('- TableCellEditorString')
         }
     }, []);
     /* eslint-enable */
 
-    const stop = () => {}//onCellBlur();
+    const stop = () => onCellBlur();
 
     const checkValid = value => {
         if (validator) {
@@ -60,7 +60,7 @@ const TableCellEditorString = props => {
     }
     checkValid(valueCurrent.current);
 
-    console.log('+++ TableCellEditorString')
+    console.log('+ TableCellEditorString')
 
     return (
         <div className={`tce-string${errorCurrent.current ? ' invalid' : ''}`} ref={inputRef}>

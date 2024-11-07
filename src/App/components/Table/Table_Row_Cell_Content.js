@@ -32,7 +32,6 @@ const TableRowCellContent = props => {
 
     const stopEditor = () => {
         console.log('stopEditor')
-        return
         if(!isEditCurrent.current) return;
 
         if(cell.value !== oldValueBeforeEdit.current) {
@@ -49,8 +48,8 @@ const TableRowCellContent = props => {
     }
 
     const clickToCell = () => {
-        console.log('clickToCell')
         if(isTreeCell || !isEditable) return;
+        console.log('clickToCell')
         utils.setEditableCell({cell, stopEditor, cellRef: cellRef.current});
         startEditor();
     }
