@@ -26576,12 +26576,14 @@ var TableSettingsPanelParameters = function TableSettingsPanelParameters2(props)
   lastBlock.show = showLastBlock;
   return /* @__PURE__ */ React__default.createElement("div", {
     className: "usp-parameters"
-  }, data.map(function(item2) {
+  }, data.map(function(item2, index2) {
     if (item2.blockName)
       return /* @__PURE__ */ React__default.createElement("div", {
         className: "usp-param-block-name".concat(item2.show ? "" : " is-hide")
       }, item2.blockName);
-    return /* @__PURE__ */ React__default.createElement(Parameter, _extends$h({}, props, {
+    return /* @__PURE__ */ React__default.createElement(Parameter, _extends$h({
+      key: "par-".concat(index2)
+    }, props, {
       item: item2,
       getOptionValue,
       setOptionValue

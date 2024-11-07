@@ -98,6 +98,7 @@ const SetPickerItemView = ({...props}) => {
                         itemIsEmptyClass={itemIsEmptyClass}
                         getChecked={getChecked}
                         checked={checked}
+                        onChange={() => {}}
                     />
                 </div>
             </div>
