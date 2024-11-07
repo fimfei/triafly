@@ -25110,7 +25110,7 @@ var TableBody = function TableBody2(props) {
     className: "unitable-line right"
   }), /* @__PURE__ */ React__default.createElement("div", {
     className: "unitable-line left"
-  }), _ && /* @__PURE__ */ React__default.createElement(React__default.Fragment, null, /* @__PURE__ */ React__default.createElement(TableScrollbarHorizontal, props), /* @__PURE__ */ React__default.createElement(TableScrollbarVertical, props)));
+  }), /* @__PURE__ */ React__default.createElement(TableScrollbarHorizontal, props), /* @__PURE__ */ React__default.createElement(TableScrollbarVertical, props));
 };
 var tableScrollbarHorizontal = "";
 var TableScrollbarHorizontal = function TableScrollbarHorizontal2(props) {
@@ -25126,6 +25126,7 @@ var TableScrollbarHorizontal = function TableScrollbarHorizontal2(props) {
   React__default.useEffect(function() {
     connector.refresh.scrollbarHorizontal = refresh;
     connector.refs.scrollbarWrapperRef = scrollbarWrapperRef;
+    setTimeout(refresh, 0);
   }, []);
   var onScroll = function onScroll2(e) {
     var scrollLeft = scrollbarWrapperRef.current.scrollLeft;
@@ -25146,7 +25147,9 @@ var TableScrollbarHorizontal = function TableScrollbarHorizontal2(props) {
   var scrollbarIsNeeded = headerRight ? headerRight.scrollWidth > headerRight.clientWidth : false;
   if (scrollbarIsNeeded !== tableHas.scrollbarHorizontal) {
     tableHas.scrollbarHorizontal = scrollbarIsNeeded;
-    connector.refresh.scrollbarVertical();
+    setTimeout(function() {
+      connector.refresh.scrollbarVertical();
+    }, 0);
   }
   if (!scrollbarIsNeeded)
     return null;
@@ -25182,6 +25185,7 @@ var TableScrollbarVertical = function TableScrollbarVertical2(props) {
   };
   React__default.useEffect(function() {
     connector.refresh.scrollbarVertical = refresh;
+    setTimeout(refresh, 0);
   }, []);
   if (!connector.refs.unitableBodyInner)
     return null;
