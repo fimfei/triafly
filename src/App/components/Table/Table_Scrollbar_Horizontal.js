@@ -16,10 +16,7 @@ const TableScrollbarHorizontal = props => {
     React.useEffect(() => {
         connector.refresh.scrollbarHorizontal = refresh;
         connector.refs.scrollbarWrapperRef = scrollbarWrapperRef;
-        setTimeout(() => {
-            console.log('*****************')
-            refresh()
-        }, 10000);
+//        setTimeout(refresh, 0);
     }, []);
     /* eslint-enable */
 

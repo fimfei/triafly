@@ -89,8 +89,10 @@ const TableBody = props => {
             <div className="unitable-line bottom"></div>
             <div className="unitable-line right"></div>
             <div className="unitable-line left"></div>
-            <TableScrollbarHorizontal {...props} />
-            <TableScrollbarVertical {...props} />
+            {_ && (
+                <TableScrollbarHorizontal {...props} />
+                <TableScrollbarVertical {...props} />
+            )}
         </div>
     )
 }
