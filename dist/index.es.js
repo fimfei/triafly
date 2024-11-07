@@ -25126,6 +25126,7 @@ var TableScrollbarHorizontal = function TableScrollbarHorizontal2(props) {
   React__default.useEffect(function() {
     connector.refresh.scrollbarHorizontal = refresh;
     connector.refs.scrollbarWrapperRef = scrollbarWrapperRef;
+    setTimeout(refresh, 100);
   }, []);
   var onScroll = function onScroll2(e) {
     var scrollLeft = scrollbarWrapperRef.current.scrollLeft;
