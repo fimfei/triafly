@@ -25517,6 +25517,7 @@ var TableRowCellContent = function TableRowCellContent2(props) {
     setIsEdit(true);
   };
   var stopEditor = function stopEditor2() {
+    console.log("stopEditor");
     if (!isEditCurrent.current)
       return;
     if (cell.value !== oldValueBeforeEdit.current) {
@@ -25532,6 +25533,7 @@ var TableRowCellContent = function TableRowCellContent2(props) {
     refreshCell();
   };
   var clickToCell = function clickToCell2() {
+    console.log("clickToCell");
     if (isTreeCell || !isEditable)
       return;
     utils.setEditableCell({
@@ -26039,7 +26041,8 @@ var TableRowCellContentEditor = function TableRowCellContentEditor2(props) {
   var _editors$cellEditor = editors.cellEditor, cellEditor = _editors$cellEditor === void 0 ? "internal" : _editors$cellEditor;
   React__default.useEffect(function() {
     return function() {
-      return stopEditor();
+      stopEditor();
+      console.log("--- TableRowCellContentEditor");
     };
   }, []);
   var clickOutsideThePopup = function clickOutsideThePopup2() {
@@ -26049,6 +26052,7 @@ var TableRowCellContentEditor = function TableRowCellContentEditor2(props) {
   };
   var Editor = typeof cellEditor === "function" ? cellEditor : cellEditor === "TableCellEditor" ? TableCellEditor : InternalTableCellEditor;
   cell._.popupData = {};
+  console.log("+++ TableRowCellContentEditor");
   return /* @__PURE__ */ React__default.createElement(Popup, {
     initiator: cellRef.current,
     notResize: true,

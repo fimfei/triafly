@@ -23,6 +23,7 @@ const TableRowCellContent = props => {
     }
     const stopEditor = () => {
         console.log('stopEditor')
+        return
         if(!isEditCurrent.current) return;
 
         if(cell.value !== oldValueBeforeEdit.current) {
