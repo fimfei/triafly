@@ -127,8 +127,8 @@ const TableHeaderCell = props => {
                 <div
                     className={`uhc-content${isEnd ? ' is-end' : ''}${isEndOfLeftPart ? ' is-end-of-left' : ''}`}
                     style={{
-                        'paddingLeft': `${paddingLeft}px`,
-                        'paddingRight': `${paddingRight}px`,
+                        paddingLeft: `${paddingLeft}px`,
+                        paddingRight: `${paddingRight}px`,
                     }}
                 >
                     {isRowsTreeMenu ? (

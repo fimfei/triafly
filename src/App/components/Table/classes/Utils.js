@@ -659,7 +659,7 @@ class Utils {
             this.connector.refresh.scrollbarHorizontal();
             this.connector.refresh.scrollbarVertical();
             this.recalcHeaderRootsPadding();
-            this.connector.refs.unitable.style[`max-width`] = `${this.getTotalRowWidth()}px`;
+            this.connector.refs.unitable.style[`maxWidth`] = `${this.getTotalRowWidth()}px`;
         }, 0);
     }
 
@@ -811,12 +811,12 @@ class Utils {
 
     getHeightStyle = height => {
         const _height = isNaN(height) ? height : `${height}px`;
-        return {'height': _height, 'min-height': _height, 'max-height': _height};
+        return {height: _height, minHeight: _height, maxHeight: _height};
     }
 
     getWidthStyle = width => {
         const _width = isNaN(width) ? width : `${width}px`;
-        return {'width': _width, 'min-width': _width, 'max-width': _width};
+        return {width: _width, minWidth: _width, maxWidth: _width};
     }
 
     getLeftPartRowWidth() {

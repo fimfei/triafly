@@ -4346,7 +4346,7 @@ var TableGo = function TableGo2(props) {
   return /* @__PURE__ */ React__default.createElement("div", {
     className: "unitable",
     style: {
-      "max-width": "".concat(utils.getTotalRowWidth(), "px")
+      maxWidth: "".concat(utils.getTotalRowWidth(), "px")
     },
     ref: tableRootRef
   }, /* @__PURE__ */ React__default.createElement("div", {
@@ -4741,8 +4741,8 @@ var TableHeaderCell = function TableHeaderCell2(props) {
   }, isShow ? /* @__PURE__ */ React__default.createElement(React__default.Fragment, null, /* @__PURE__ */ React__default.createElement("div", {
     className: "uhc-content".concat(isEnd ? " is-end" : "").concat(isEndOfLeftPart ? " is-end-of-left" : ""),
     style: {
-      "padding-left": "".concat(paddingLeft, "px"),
-      "padding-right": "".concat(paddingRight, "px")
+      "paddingLeft": "".concat(paddingLeft, "px"),
+      "paddingRight": "".concat(paddingRight, "px")
     }
   }, isRowsTreeMenu ? /* @__PURE__ */ React__default.createElement(React__default.Fragment, null, /* @__PURE__ */ React__default.createElement(TableHeaderCellRowsTreeMenu, props), /* @__PURE__ */ React__default.createElement(TableHeaderCellMenu, _extends$h({}, props, {
     onSortCurrent
@@ -13834,10 +13834,10 @@ function Popup(props) {
   return /* @__PURE__ */ React__default.createElement("div", {
     className: "rct-popup ".concat(randomClass.current, " ").concat(extraClass),
     style: _objectSpread2({
-      "min-width": minWidth ? utils.getVal(minWidth) : "unset",
-      "min-height": minHeight ? utils.getVal(minHeight) : "unset",
-      "max-width": maxWidth ? utils.getVal(maxWidth) : "unset",
-      "max-height": maxHeight ? utils.getVal(maxHeight) : "unset"
+      minWidth: minWidth ? utils.getVal(minWidth) : "unset",
+      minHeight: minHeight ? utils.getVal(minHeight) : "unset",
+      maxWidth: maxWidth ? utils.getVal(maxWidth) : "unset",
+      maxHeight: maxHeight ? utils.getVal(maxHeight) : "unset"
     }, style),
     ref: popupRefCurrent
   }, children, !notResize && /* @__PURE__ */ React__default.createElement(Corner, {
@@ -13943,8 +13943,8 @@ var Utils$1 = /* @__PURE__ */ function() {
       var out = {
         "left": this.getVal(left),
         "top": this.getVal(top),
-        "min-width": this.getVal(minWidth),
-        "min-height": this.getVal(minHeight)
+        "minWidth": this.getVal(minWidth),
+        "minHeight": this.getVal(minHeight)
       };
       if (!autoSize) {
         out.width = this.getVal(width);

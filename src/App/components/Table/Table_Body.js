@@ -64,7 +64,7 @@ const TableBody = props => {
     return (
         <div
             className="unitable-body"
-            style={{'max-height': utils.getBodyHeight()}}
+            style={{maxHeight: utils.getBodyHeight()}}
             onWheel={onWheel}
             ref={refUnitableBody}
             onMouseLeave={() => utils.setHoveredCell(null, null)}
@@ -83,7 +83,7 @@ const TableBody = props => {
                             <TableRow key={`row-${index}`} {...props} row={row} rowIndex={index} sliding={sliding}/>
                         )
                     })}
-                    <div style={{'height': '20px', 'min-height': '20px'}}></div>
+                    <div style={{height: '20px', minHeight: '20px'}}></div>
                 </div>
             </div>
             <div className="unitable-line bottom"></div>
