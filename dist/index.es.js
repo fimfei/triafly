@@ -25183,7 +25183,6 @@ var TableScrollbarVertical = function TableScrollbarVertical2(props) {
   };
   React__default.useEffect(function() {
     connector.refresh.scrollbarVertical = refresh;
-    setTimeout(refresh, 50);
   }, []);
   if (!connector.refs.unitableBodyInner)
     return null;
