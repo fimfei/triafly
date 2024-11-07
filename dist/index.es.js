@@ -4741,8 +4741,8 @@ var TableHeaderCell = function TableHeaderCell2(props) {
   }, isShow ? /* @__PURE__ */ React__default.createElement(React__default.Fragment, null, /* @__PURE__ */ React__default.createElement("div", {
     className: "uhc-content".concat(isEnd ? " is-end" : "").concat(isEndOfLeftPart ? " is-end-of-left" : ""),
     style: {
-      "paddingLeft": "".concat(paddingLeft, "px"),
-      "paddingRight": "".concat(paddingRight, "px")
+      paddingLeft: "".concat(paddingLeft, "px"),
+      paddingRight: "".concat(paddingRight, "px")
     }
   }, isRowsTreeMenu ? /* @__PURE__ */ React__default.createElement(React__default.Fragment, null, /* @__PURE__ */ React__default.createElement(TableHeaderCellRowsTreeMenu, props), /* @__PURE__ */ React__default.createElement(TableHeaderCellMenu, _extends$h({}, props, {
     onSortCurrent
@@ -25078,7 +25078,7 @@ var TableBody = function TableBody2(props) {
   return /* @__PURE__ */ React__default.createElement("div", {
     className: "unitable-body",
     style: {
-      "max-height": utils.getBodyHeight()
+      maxHeight: utils.getBodyHeight()
     },
     onWheel,
     ref: refUnitableBody,
@@ -25101,8 +25101,8 @@ var TableBody = function TableBody2(props) {
     }));
   }), /* @__PURE__ */ React__default.createElement("div", {
     style: {
-      "height": "20px",
-      "min-height": "20px"
+      height: "20px",
+      minHeight: "20px"
     }
   }))), /* @__PURE__ */ React__default.createElement("div", {
     className: "unitable-line bottom"
@@ -33911,17 +33911,17 @@ var Utils = /* @__PURE__ */ function() {
     _defineProperty$7(this, "getHeightStyle", function(height) {
       var _height = isNaN(height) ? height : "".concat(height, "px");
       return {
-        "height": _height,
-        "min-height": _height,
-        "max-height": _height
+        height: _height,
+        minHeight: _height,
+        maxHeight: _height
       };
     });
     _defineProperty$7(this, "getWidthStyle", function(width) {
       var _width = isNaN(width) ? width : "".concat(width, "px");
       return {
-        "width": _width,
-        "min-width": _width,
-        "max-width": _width
+        width: _width,
+        minWidth: _width,
+        maxWidth: _width
       };
     });
     _defineProperty$7(this, "getValueByAddress", function(address) {
@@ -34763,7 +34763,7 @@ var Utils = /* @__PURE__ */ function() {
         _this5.connector.refresh.scrollbarHorizontal();
         _this5.connector.refresh.scrollbarVertical();
         _this5.recalcHeaderRootsPadding();
-        _this5.connector.refs.unitable.style["max-width"] = "".concat(_this5.getTotalRowWidth(), "px");
+        _this5.connector.refs.unitable.style["maxWidth"] = "".concat(_this5.getTotalRowWidth(), "px");
       }, 0);
     }
   }, {

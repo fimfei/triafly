@@ -122,9 +122,10 @@ const TablePaginator = props => {
                 {rowsByPage.length && (
                     <span className="slick-pager-settings">Строк на странице:
                         <div className="btn-group" data-toggle="buttons-radio">
-                            {rowsByPage.map(num => {
+                            {rowsByPage.map((num, index) => {
                                 return (
                                     <div
+                                        key={`pag-index-${index}`}
                                         className={`btn${num === pageLength ? ' active' : ''} ${_}`}
                                         onClick={() => clickToRowsByPage(num)}
                                     >{num}</div>
