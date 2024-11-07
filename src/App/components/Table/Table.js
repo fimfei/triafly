@@ -48,7 +48,7 @@ const TableGo = props => {
     return (
         <div
             className="unitable"
-            style={{'max-width': `${utils.getTotalRowWidth()}px`}}
+            style={{maxWidth: `${utils.getTotalRowWidth()}px`}}
             ref={tableRootRef}
         >
             <div

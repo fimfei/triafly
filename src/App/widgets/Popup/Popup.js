@@ -65,10 +65,10 @@ function Popup(props) {
         <div
             className={`rct-popup ${randomClass.current} ${extraClass}`}
             style={{
-                'min-width':  minWidth  ? utils.getVal(minWidth)  : 'unset',
-                'min-height': minHeight ? utils.getVal(minHeight) : 'unset',
-                'max-width':  maxWidth  ? utils.getVal(maxWidth)  : 'unset',
-                'max-height': maxHeight ? utils.getVal(maxHeight) : 'unset',
+                minWidth:  minWidth  ? utils.getVal(minWidth)  : 'unset',
+                minHeight: minHeight ? utils.getVal(minHeight) : 'unset',
+                maxWidth:  maxWidth  ? utils.getVal(maxWidth)  : 'unset',
+                maxHeight: maxHeight ? utils.getVal(maxHeight) : 'unset',
                 ...style
             }}
             ref={popupRefCurrent}

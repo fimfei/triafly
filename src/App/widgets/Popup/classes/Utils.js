@@ -63,8 +63,8 @@ class Utils {
         const out = {
             'left': this.getVal(left),
             'top': this.getVal(top),
-            'min-width': this.getVal(minWidth),
-            'min-height': this.getVal(minHeight),
+            'minWidth': this.getVal(minWidth),
+            'minHeight': this.getVal(minHeight),
         }
         if(!autoSize) {
             out.width = this.getVal(width);
