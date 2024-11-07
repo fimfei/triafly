@@ -1,0 +1,26 @@
+
+.slick-pager {
+    display: flex;
+    align-items: center;
+    grid-gap: 0.5em;
+    vertical-align: middle;
+
+    span:first-child {
+        padding-right: 20px;
+    }
+
+    .slick-pager-nav {
+        display: inline-block;
+    }
+
+    .slick-pager-status {
+        display: inline-block;
+    }
+
+    .slick-pager-settings {
+        display: flex;
+        flex-direction: row;
+        white-space: nowrap;
+        align-items: center;
+    }
+}
