@@ -25661,7 +25661,8 @@ var TableCellEditor = function TableCellEditor2(props) {
   React__default.useEffect(function() {
     document.addEventListener("keydown", checkToEscape);
     return function() {
-      return document.removeEventListener("keydown", checkToEscape);
+      document.removeEventListener("keydown", checkToEscape);
+      console.log("--- TableCellEditor");
     };
   }, []);
   var editors = {
@@ -25678,7 +25679,7 @@ var TableCellEditor = function TableCellEditor2(props) {
     TableCellEditorSetMultiple
   };
   var Component2 = editors[(_CONSTANTS$fieldTypes = CONSTANTS.fieldTypesById[fieldTypeId]) === null || _CONSTANTS$fieldTypes === void 0 ? void 0 : _CONSTANTS$fieldTypes.editor] || TableCellEditorString;
-  console.log("Component", Component2);
+  console.log("+++ TableCellEditor");
   var onCellBlur = function onCellBlur2() {
     console.log("onCellBlur");
     if (cell._.invalidValueFormat) {
@@ -25777,7 +25778,8 @@ var TableCellEditorString = function TableCellEditorString2(props) {
   React__default.useEffect(function() {
     document.addEventListener("keydown", onKeyUp);
     return function() {
-      return document.removeEventListener("keydown", onKeyUp);
+      document.removeEventListener("keydown", onKeyUp);
+      console.log("--- TableCellEditorString");
     };
   }, []);
   var stop = function stop2() {
@@ -25797,7 +25799,7 @@ var TableCellEditorString = function TableCellEditorString2(props) {
     }
   };
   checkValid(valueCurrent.current);
-  console.log("TableCellEditorString");
+  console.log("+++ TableCellEditorString");
   return /* @__PURE__ */ React__default.createElement("div", {
     className: "tce-string".concat(errorCurrent.current ? " invalid" : ""),
     ref: inputRef
