@@ -26196,8 +26196,9 @@ var TablePaginator = function TablePaginator2(props) {
   }, "\u0421\u0442\u0440\u043E\u043A \u043D\u0430 \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u0435:", /* @__PURE__ */ React__default.createElement("div", {
     className: "btn-group",
     "data-toggle": "buttons-radio"
-  }, rowsByPage.map(function(num) {
+  }, rowsByPage.map(function(num, index2) {
     return /* @__PURE__ */ React__default.createElement("div", {
+      key: "pag-index-".concat(index2),
       className: "btn".concat(num === pageLength ? " active" : "", " ").concat(_),
       onClick: function onClick() {
         return clickToRowsByPage(num);

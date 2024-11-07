@@ -15,7 +15,7 @@ const TableScrollbarVertical = props => {
     /* eslint-disable */
     React.useEffect(() => {
         connector.refresh.scrollbarVertical = refresh;
-        setTimeout(refresh, 0);
+//        setTimeout(refresh, 0);
     }, []);
     /* eslint-enable */
 
