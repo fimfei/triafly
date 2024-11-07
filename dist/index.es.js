@@ -13844,11 +13844,11 @@ function Popup(props) {
     utils
   }));
 }
-var client = {};
+var createRoot;
 var m = ReactDOM__default;
 {
-  client.createRoot = m.createRoot;
-  client.hydrateRoot = m.hydrateRoot;
+  createRoot = m.createRoot;
+  m.hydrateRoot;
 }
 var callPopup = function callPopup2(props) {
   var externalPortal = props.portal;
@@ -13856,7 +13856,7 @@ var callPopup = function callPopup2(props) {
   appRoot.className = "popup-root";
   var portal = externalPortal || document.querySelector("html");
   portal.appendChild(appRoot);
-  var root2 = client.createRoot(appRoot);
+  var root2 = createRoot(appRoot);
   var removeComponent = function removeComponent2() {
     root2.unmount();
     appRoot.remove();
@@ -26050,9 +26050,9 @@ var TableRowCellContentEditor = function TableRowCellContentEditor2(props) {
     fitToParent: true,
     onOutsideClick: clickOutsideThePopup,
     style: {
-      "background": "transparent",
-      "overflow": "visible",
-      "box-shadow": "none"
+      background: "transparent",
+      overflow: "visible",
+      boxShadow: "none"
     },
     extraClass: "unitable-row-cell-value-editor",
     answer: cell._.popupData
@@ -29792,7 +29792,7 @@ var callTable = function callTable2(tablePortalEl, tableProps) {
   var tableRoot = document.createElement("div");
   tableRoot.className = "call-unitable-wrapper";
   tablePortalEl.appendChild(tableRoot);
-  var root2 = client.createRoot(tableRoot);
+  var root2 = createRoot(tableRoot);
   var removeComponent = function removeComponent2() {
     root2.unmount();
     tableRoot.remove();
