@@ -21,6 +21,15 @@ const TableRowCellContent = props => {
         oldValueBeforeEdit.current = cell.value;
         setIsEdit(true);
     }
+
+    /* eslint-disable */
+    React.useEffect(() => {
+        return () => {
+            console.log('--------- TableRowCellContent')
+        }
+    }, []);
+    /* eslint-enable */
+
     const stopEditor = () => {
         console.log('stopEditor')
         return
@@ -48,6 +57,8 @@ const TableRowCellContent = props => {
 
     const old_ = cell?._ || {};
     cell._ = {...old_, cellIndex, rowIndex, isTreeCell, isTreeRoot, rowTreeData, wrapperRefCurrent: cellRef, refreshCell, stopEditor};
+
+    console.log('+++++++++ TableRowCellContent')
 
     return (
         <React.Fragment>

@@ -13,7 +13,7 @@ const TableRowCellContentEditor = props => {
     React.useEffect(() => {
         return () => {
             stopEditor();
-            console.log('--- TableRowCellContentEditor')
+            console.log('------ TableRowCellContentEditor')
         }
     }, []);
     /* eslint-enable */
@@ -28,7 +28,8 @@ const TableRowCellContentEditor = props => {
 
     cell._.popupData = {};
 
-    console.log('+++ TableRowCellContentEditor')
+    console.log('++++++ TableRowCellContentEditor')
+    
     return (
         <Popup
             initiator={cellRef.current}
