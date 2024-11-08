@@ -14998,7 +14998,7 @@ var TableRowCell = function TableRowCell2(props) {
   }, /* @__PURE__ */ React.createElement(TableRowCellContent, cellData)));
 };
 var tableRowCellContent = "";
-var TableRowCellContent = function TableRowCellContent2(props) {
+var TableRowCellContent = /* @__PURE__ */ React.memo(function(props) {
   var _connector$data$heade, _headerEndCell$_, _connector$editableCe;
   var connector = props.connector, utils = props.utils, cellIndex = props.cellIndex, rowIndex = props.rowIndex, isTreeCell = props.isTreeCell, isTreeRoot = props.isTreeRoot, rowTreeData = props.rowTreeData, toggleShowRowTree = props.toggleShowRowTree, cell = props.cell, valueStyle = props.valueStyle, CellView = props.CellView, cellRef = props.cellRef, html = props.html, refreshCell = props.refreshCell;
   connector.onChangeComponentState.onChangeCell;
@@ -15076,7 +15076,7 @@ var TableRowCellContent = function TableRowCellContent2(props) {
     },
     onClick: isTreeCell ? null : clickToCell
   }));
-};
+});
 var tableCellEditor = "";
 var tableCellEditorBool = "";
 var tableCellEditorString = "";

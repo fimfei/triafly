@@ -69,6 +69,8 @@ const TableRowCellContent = React.memo(props => {
 
     return (
         <React.Fragment>
+            <div className="unitable-row-cell-tree" style={{width: `${rowTreeData.level * 30 + 20}px`}}></div>
+            {/*
             {isTreeCell && (
                 <div className="unitable-row-cell-tree" style={{width: `${rowTreeData.level * 30 + 20}px`}}>
                     {isTreeRoot && (
@@ -94,6 +96,7 @@ const TableRowCellContent = React.memo(props => {
                     onClick={isTreeCell ? null : clickToCell}
                 ></div>
             )}
+            */}
             {/*isEdit && (
                 <TableRowCellContentEditor {...props} stopEditor={stopEditor} />
             )*/}
