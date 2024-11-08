@@ -14856,10 +14856,10 @@ var TableRowCell = function TableRowCell2(props) {
   var customizer = (columnCustomizer !== null && columnCustomizer !== void 0 && columnCustomizer.length ? columnCustomizer : null) || (commonCustomizer !== null && commonCustomizer !== void 0 && commonCustomizer.length ? commonCustomizer : null);
   var columnView = (_headerEndCell$_3 = headerEndCell._) === null || _headerEndCell$_3 === void 0 ? void 0 : _headerEndCell$_3.view;
   var CellView = cellView || columnView || cellsView;
-  var _useCurrentState = useCurrentState(false), _useCurrentState2 = _slicedToArray(_useCurrentState, 3), hover3 = _useCurrentState2[0], hoverCurrent = _useCurrentState2[1];
-  _useCurrentState2[2];
+  var _useCurrentState = useCurrentState(false), _useCurrentState2 = _slicedToArray(_useCurrentState, 3), hover3 = _useCurrentState2[0], hoverCurrent = _useCurrentState2[1], _setHover = _useCurrentState2[2];
   var setHover = function setHover2(data) {
     console.log("*** setHover", data);
+    _setHover(data);
   };
   var _React$useState = React.useState(0), _React$useState2 = _slicedToArray(_React$useState, 2);
   _React$useState2[0];
@@ -14992,12 +14992,16 @@ var TableRowCell = function TableRowCell2(props) {
     ref: cellRef,
     onMouseEnter,
     onMouseLeave
-  }, /* @__PURE__ */ React.createElement(TableRowCellContent, cellData));
+  }, /* @__PURE__ */ React.createElement(TableRowCellContent, cellData), hover3 && /* @__PURE__ */ React.createElement("div", {
+    className: "unitable-row-cell unitable-row-cell-test",
+    ref: testRef
+  }, /* @__PURE__ */ React.createElement(TableRowCellContent, cellData)));
 };
 var tableRowCellContent = "";
 var TableRowCellContent = function TableRowCellContent2(props) {
   var _React$useState = React.useState(false), _React$useState2 = _slicedToArray(_React$useState, 2), isEdit = _React$useState2[0], _setIsEdit = _React$useState2[1];
-  console.log("+++++++++ TableRowCellContent", isEdit);
+  var aaa = React.useRef(Math.random());
+  console.log("+++++++++ TableRowCellContent", isEdit, aaa.current);
   return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", {
     className: "unitable-row-cell-value",
     dangerouslySetInnerHTML: {

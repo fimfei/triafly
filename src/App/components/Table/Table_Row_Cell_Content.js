@@ -15,9 +15,8 @@ const TableRowCellContent = props => {
         <React.Fragment>
             <div
                 className="unitable-row-cell-value"
-                dangerouslySetInnerHTML={{__html: 'aaa'}}
-                onClick={() => {_setIsEdit(true)}}
-            ></div>
+                onClick={() => {_setIsEdit(!isEdit)}}
+            >aaa</div>
             {/*
             {isTreeCell && (
                 <div className="unitable-row-cell-tree" style={{width: `${rowTreeData.level * 30 + 20}px`}}>
