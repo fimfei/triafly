@@ -14962,7 +14962,7 @@ var TableRowCell = function TableRowCell2(props) {
   var _ref3 = searchContext && value && !CellView && !isNotFind ? UTILS.textWithSearchContext(String(value), searchContext, true) : {
     html: value
   }, html = _ref3.html, find = _ref3.find;
-  var cellData = _objectSpread2(_objectSpread2({}, props), {}, {
+  _objectSpread2(_objectSpread2({}, props), {}, {
     isTreeCell,
     isTreeRoot,
     toggleShowRowTree,
@@ -14992,7 +14992,7 @@ var TableRowCell = function TableRowCell2(props) {
     ref: cellRef,
     onMouseEnter,
     onMouseLeave
-  }, /* @__PURE__ */ React.createElement(TableRowCellContent, cellData));
+  }, /* @__PURE__ */ React.createElement(TableRowCellContent, null));
 };
 var tableRowCellContent = "";
 var TableRowCellContent = function TableRowCellContent2(props) {

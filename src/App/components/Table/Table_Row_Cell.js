@@ -141,15 +141,15 @@ const TableRowCell = props => {
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
         >
-            <TableRowCellContent  />
-            {/*hover && (
+            <TableRowCellContent {...cellData} />
+            {hover && (
                 <div
                     className={`unitable-row-cell unitable-row-cell-test`}
                     ref={testRef}
                 >
                     <TableRowCellContent {...cellData} />
                 </div>
-            )*/}
+            )}
         </div>
     )
 }

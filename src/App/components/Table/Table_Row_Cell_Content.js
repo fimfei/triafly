@@ -5,24 +5,68 @@ import {TableRowCellContentEditor} from "./";
 import './scss/table-row-cell-content.scss';
 
 const TableRowCellContent = props => {
+    const {connector, utils, cellIndex, rowIndex, isTreeCell, isTreeRoot, rowTreeData, toggleShowRowTree, cell, valueStyle, CellView, cellRef, html, refreshCell,} = props;
+    const {onChangeComponentState: {onChangeCell = () => {}}, rowsTree, commonForBody = {}} = connector;
+    const {isEditable: isEditableCell} = cell;
+    const {isEditable: isEditableCommon = false} = commonForBody;
 
-    const [isEdit,  _setIsEdit] = React.useState(false);
-    const aaa = React.useRef(Math.random())
+    const headerEndCell = connector.data.headerRootByEndIndex[cellIndex]?.cell || {};
+    const isEditableColumn = headerEndCell._?.isEditable;
+    let isEditable = isEditableCell === undefined ? isEditableColumn : isEditableCell;
+        isEditable = isEditable     === undefined ? isEditableCommon : isEditable;
 
-    console.log('+++++++++ TableRowCellContent', isEdit, aaa.current)
-
-    const onClick = () => {
-        console.log('onClick')
-        _setIsEdit(!isEdit)
+    const oldValueBeforeEdit = React.useRef(null);
+    const [isEdit, isEditCurrent, _setIsEdit] = useCurrentState(cell === connector.editableCell?.cell);
+    const setIsEdit = data => {
+        console.log('*** setIsEdit', data)
+        _setIsEdit(data)
     }
+
+    const startEditor = () => {
+        oldValueBeforeEdit.current = cell.value;
+        setIsEdit(true);
+    }
+
+    /* eslint-disable */
+    React.useEffect(() => {
+        return () => {
+            console.log('--------- TableRowCellContent')
+        }
+    }, []);
+    /* eslint-enable */
+
+    const stopEditor = () => {
+        console.log('*** stopEditor')
+        return
+        if(!isEditCurrent.current) return;
+
+        if(cell.value !== oldValueBeforeEdit.current) {
+            onChangeCell({
+                cell,
+                oldValue: oldValueBeforeEdit.current,
+                newValue: cell.value,
+                rows: rowsTree,
+            })
+        }
+        setIsEdit(false);
+        connector.editableCell = null;
+        refreshCell();
+    }
+
+    const clickToCell = () => {
+        if(isTreeCell || !isEditable) return;
+        console.log('*** clickToCell')
+        utils.setEditableCell({cell, stopEditor, cellRef: cellRef.current});
+        startEditor();
+    }
+
+    const old_ = cell?._ || {};
+    cell._ = {...old_, cellIndex, rowIndex, isTreeCell, isTreeRoot, rowTreeData, wrapperRefCurrent: cellRef, refreshCell, stopEditor};
+
+    console.log('+++++++++ TableRowCellContent', isEdit)
 
     return (
         <React.Fragment>
-            <div
-                className="unitable-row-cell-value"
-                onClick={onClick}
-            >aaa</div>
-            {/*
             {isTreeCell && (
                 <div className="unitable-row-cell-tree" style={{width: `${rowTreeData.level * 30 + 20}px`}}>
                     {isTreeRoot && (
@@ -48,10 +92,9 @@ const TableRowCellContent = props => {
                     onClick={isTreeCell ? null : clickToCell}
                 ></div>
             )}
-            */}
-            {/*isEdit && (
+            {isEdit && (
                 <TableRowCellContentEditor {...props} stopEditor={stopEditor} />
-            )*/}
+            )}
         </React.Fragment>
     )
 }
