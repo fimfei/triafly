@@ -1,6 +1,7 @@
 import React from "react";
 
 import './scss/list-picker.scss';
+import callSetPicker from "../../components/SetPicker/callSetPicker";
 
 function ListPicker(props) {
     const {
@@ -72,6 +73,13 @@ function ListPicker(props) {
 
     /* eslint-disable */
     React.useEffect(() => {
+        const returnComponent = callSetPicker({
+            componentPortalEl: componentRef.current,
+            componentCallback,
+            componentClasses: 'inline-set',
+            options: getOptions(),
+        })
+/*
         const returnComponent = window.NetDB.namespace('react').createComponent({
             componentName: 'SetPicker',
             componentID: '',
@@ -82,6 +90,7 @@ function ListPicker(props) {
             componentCallback,
             options: getOptions(),
         });
+*/
 
         return () => {
             returnComponent.removeComponent();
