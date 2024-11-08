@@ -100,6 +100,8 @@ function ListPicker(props) {
     }, []);
     /* eslint-enable */
 
+    const componentReturn = React.useRef({});
+
     return (
         <div
             className={`setpicker-component-root${extraClass ? ' ' + extraClass : ''}`}
@@ -108,7 +110,7 @@ function ListPicker(props) {
             <SetPicker
                 options={getOptions()}
                 componentCallback={componentCallback}
-                componentReturn={componentReturn}
+                componentReturn={componentReturn.current}
             />
         </div>
     )

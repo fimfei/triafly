@@ -24,11 +24,14 @@ const callSetPicker = props => {
         removeComponent,
     };
 
+    const setPickerConnector = React.useRef({})
+
     root.render(
         <SetPicker
             options={options}
             componentCallback={componentCallback}
             componentReturn={componentReturn}
+            setPickerConnector={setPickerConnector.current}
         />
     );
 

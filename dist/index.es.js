@@ -20905,7 +20905,7 @@ var SetPicker = function SetPicker2(_ref) {
   var props = _extends$h({}, (_objectDestructuringEmpty(_ref), _ref));
   var options = props.options, setPickerConnector = props.setPickerConnector;
   props.removeComponent;
-  var componentCallback = props.componentCallback, componentReturn = props.componentReturn;
+  var componentCallback = props.componentCallback, componentReturn2 = props.componentReturn;
   var listName = options.listName, request2 = options.request, finalList = options.finalList;
   options.unavailableItemsList;
   var _options$singleChoice = options.singleChoiceOnly, singleChoiceOnly = _options$singleChoice === void 0 ? true : _options$singleChoice;
@@ -21131,7 +21131,7 @@ var SetPicker = function SetPicker2(_ref) {
       setSelected();
       showSelectedCounts();
     };
-    componentReturn.getMainStates = function() {
+    componentReturn2.getMainStates = function() {
       return {
         searchContext: currentSearchContext.current
       };
@@ -21775,7 +21775,7 @@ var ScrollbarContainerAll = function ScrollbarContainerAll2(_ref4) {
 };
 var SetPickerSmartListBody = function SetPickerSmartListBody2(_ref) {
   var props = _extends$h({}, (_objectDestructuringEmpty(_ref), _ref));
-  var options = props.options, componentReturn = props.componentReturn;
+  var options = props.options, componentReturn2 = props.componentReturn;
   var strHeight = options.strHeight;
   var bodyRef = React__default.useRef(null);
   var _React$useState = React__default.useState(0), _React$useState2 = _slicedToArray(_React$useState, 2), listHeight = _React$useState2[0], setListHeight = _React$useState2[1];
@@ -21784,7 +21784,7 @@ var SetPickerSmartListBody = function SetPickerSmartListBody2(_ref) {
     setListHeight(Math.floor(heightPX / strHeight));
   };
   React__default.useEffect(function() {
-    componentReturn.onResize = calcListHeight;
+    componentReturn2.onResize = calcListHeight;
     calcListHeight();
   }, []);
   return /* @__PURE__ */ React__default.createElement(React__default.Fragment, null, /* @__PURE__ */ React__default.createElement("div", {
@@ -22949,29 +22949,6 @@ var Utils$1 = /* @__PURE__ */ function() {
     }
   }]);
 }();
-var callSetPicker = function callSetPicker2(props) {
-  var componentPortalEl = props.componentPortalEl, componentCallback = props.componentCallback, componentClasses = props.componentClasses, options = props.options;
-  var appRoot = document.createElement("div");
-  if (componentClasses) {
-    appRoot.className = componentClasses;
-  }
-  var portal = typeof componentPortalEl === "string" ? document.querySelector(componentPortalEl) : componentPortalEl;
-  portal.appendChild(appRoot);
-  var root2 = createRoot(appRoot);
-  var removeComponent = function removeComponent2() {
-    root2.unmount();
-    appRoot.remove();
-  };
-  var componentReturn = React__default.useRef({
-    removeComponent
-  });
-  root2.render(/* @__PURE__ */ React__default.createElement(SetPicker, {
-    options,
-    componentCallback,
-    componentReturn: componentReturn.current
-  }));
-  return componentReturn.current;
-};
 function ListPicker(props) {
   var _props$label = props.label, label = _props$label === void 0 ? "" : _props$label, _props$list = props.list, list = _props$list === void 0 ? [] : _props$list, _props$selectedValue = props.selectedValue, selectedValue = _props$selectedValue === void 0 ? "" : _props$selectedValue, _props$selectedValues = props.selectedValues, selectedValues = _props$selectedValues === void 0 ? [] : _props$selectedValues, _props$onChange = props.onChange, onChange = _props$onChange === void 0 ? function() {
   } : _props$onChange, _props$isMultiSelect = props.isMultiSelect, isMultiSelect = _props$isMultiSelect === void 0 ? false : _props$isMultiSelect, _props$hideSearchBar = props.hideSearchBar, hideSearchBar = _props$hideSearchBar === void 0 ? false : _props$hideSearchBar, _props$hideCountersBa = props.hideCountersBar, hideCountersBar = _props$hideCountersBa === void 0 ? false : _props$hideCountersBa, _props$ItemViewName = props.ItemViewName, ItemViewName = _props$ItemViewName === void 0 ? false : _props$ItemViewName, _props$extraClass = props.extraClass, extraClass = _props$extraClass === void 0 ? "" : _props$extraClass;
@@ -23024,20 +23001,17 @@ function ListPicker(props) {
     };
   };
   React__default.useEffect(function() {
-    var returnComponent = callSetPicker({
-      componentPortalEl: componentRef.current,
-      componentCallback,
-      componentClasses: "inline-set",
-      options: getOptions()
-    });
     return function() {
-      returnComponent.removeComponent();
     };
   }, []);
   return /* @__PURE__ */ React__default.createElement("div", {
     className: "setpicker-component-root".concat(extraClass ? " " + extraClass : ""),
     ref: componentRef
-  });
+  }, /* @__PURE__ */ React__default.createElement(SetPicker, {
+    options: getOptions(),
+    componentCallback,
+    componentReturn
+  }));
 }
 var elementsPickerHeader = "";
 var elementsPickerList = "";
