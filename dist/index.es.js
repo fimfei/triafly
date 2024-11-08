@@ -4491,6 +4491,85 @@ var _RootCells = function RootCells(props) {
     }));
   })));
 };
+var root$b = window;
+var COMMUNICATION = {
+  Backbone: root$b.Backbone,
+  views: root$b.NetDB.namespace("views"),
+  utils: root$b.NetDB.namespace("utils"),
+  assets: root$b.NetDB.namespace("assets"),
+  widgets: root$b.NetDB.namespace("widgets"),
+  slickUtils: root$b.NetdbSlickgrid.Utils(),
+  interpolate: root$b.interpolate,
+  api: root$b.NetDB.namespace("API")
+};
+COMMUNICATION.notify = function(_ref) {
+  var isError = _ref.isError, isSpinner = _ref.isSpinner, isUnclosable = _ref.isUnclosable, text = _ref.text, delay = _ref.delay;
+  var notify = COMMUNICATION.utils.notify({
+    type: isError ? "error" : isSpinner ? "info" : "success",
+    message: {
+      text
+    },
+    closable: !isUnclosable,
+    fadeOut: delay ? {
+      delay
+    } : {
+      enabled: false
+    }
+  });
+  return notify;
+};
+COMMUNICATION.prompt = function(_ref2) {
+  var text = _ref2.text, _buttons = _ref2.buttons, confirmFn = _ref2.confirmFn;
+  var typesClasses = {
+    error: "tf_btn-error",
+    primary: "tf_btn-primary",
+    cancel: "tf_btn-transparent"
+  };
+  var buttons = _buttons.map(function(button) {
+    return {
+      text: button.text,
+      "class": typesClasses[button.type],
+      fn: button.fn
+    };
+  });
+  new COMMUNICATION.views.PromptsView().show({
+    confirmFn,
+    text,
+    buttons
+  });
+};
+COMMUNICATION.getFileMultiple = function(el, options) {
+  return new COMMUNICATION.Backbone.FileMultiple(el, options);
+};
+COMMUNICATION.getPeriodpicker = function(el, options) {
+  return new COMMUNICATION.assets.Periodpicker(el, options);
+};
+COMMUNICATION.getDatepicker = function(el, options) {
+  return new COMMUNICATION.Backbone.Datetimepicker(el, options);
+};
+COMMUNICATION.getSetpicker = function(el, options) {
+  return new COMMUNICATION.widgets.Setpicker(el, options);
+};
+COMMUNICATION.getPf = function(value) {
+  return COMMUNICATION.api.predefined.pf(value);
+};
+COMMUNICATION.getDescriptor = function(descr) {
+  return COMMUNICATION.api.descriptors.get(descr) || COMMUNICATION.api.descriptors.find(function(descr2) {
+    return descr2.is_lineset_multiple();
+  });
+};
+COMMUNICATION.datetimeToHuman = function() {
+  var _COMMUNICATION$slickU;
+  return (_COMMUNICATION$slickU = COMMUNICATION.slickUtils).datetimeToHuman.apply(_COMMUNICATION$slickU, arguments);
+};
+COMMUNICATION.fileMultipleToHuman = function(value) {
+  return COMMUNICATION.slickUtils.fileMultipleToHuman(value);
+};
+COMMUNICATION.prepareChangesToSave = function() {
+  var _COMMUNICATION$slickU2;
+  (_COMMUNICATION$slickU2 = COMMUNICATION.slickUtils).prepareChangesToSave.apply(_COMMUNICATION$slickU2, arguments);
+};
+COMMUNICATION.keyCodes = COMMUNICATION.assets.keyCodes(true);
 var CONSTANTS = {};
 CONSTANTS.fieldTypes = {
   string: {
@@ -25322,11 +25401,7 @@ var TableRowCell = function TableRowCell2(props) {
   var customizer = (columnCustomizer !== null && columnCustomizer !== void 0 && columnCustomizer.length ? columnCustomizer : null) || (commonCustomizer !== null && commonCustomizer !== void 0 && commonCustomizer.length ? commonCustomizer : null);
   var columnView = (_headerEndCell$_3 = headerEndCell._) === null || _headerEndCell$_3 === void 0 ? void 0 : _headerEndCell$_3.view;
   var CellView = cellView || columnView || cellsView;
-  var _useCurrentState = useCurrentState(false), _useCurrentState2 = _slicedToArray(_useCurrentState, 3), hover3 = _useCurrentState2[0], hoverCurrent = _useCurrentState2[1], _setHover = _useCurrentState2[2];
-  var setHover = function setHover2(data) {
-    console.log("*** setHover", data);
-    _setHover(data);
-  };
+  var _useCurrentState = useCurrentState(false), _useCurrentState2 = _slicedToArray(_useCurrentState, 3), hover3 = _useCurrentState2[0], hoverCurrent = _useCurrentState2[1], setHover = _useCurrentState2[2];
   var _React$useState = React__default.useState(0), _React$useState2 = _slicedToArray(_React$useState, 2);
   _React$useState2[0];
   var setRefresh = _React$useState2[1];
@@ -25337,15 +25412,11 @@ var TableRowCell = function TableRowCell2(props) {
     connector.refresh.column[cellIndex] = connector.refresh.column[cellIndex] || [];
     connector.refresh.column[cellIndex].push(refresh);
     setTimeout(refresh, 0);
-    return function() {
-      return console.log("------------ TableRowCell");
-    };
   }, []);
   var cellRef = React__default.useRef(null);
   var testRef = React__default.useRef(null);
   var removePopupFunction = React__default.useRef(null);
   React__default.useEffect(function() {
-    console.log("*** HOVER ***");
     if (highlightHovered && hoverCurrent.current)
       utils.setHoveredCell(cellIndex, rowIndex);
     if (!showHints || !hoverCurrent.current || !testRef.current)
@@ -25451,7 +25522,6 @@ var TableRowCell = function TableRowCell2(props) {
     className += " " + conditionalClass;
   if ((_cell$_ = cell._) !== null && _cell$_ !== void 0 && _cell$_.invalidValueFormat)
     className += " invalid-format";
-  console.log("++++++++++++ TableRowCell");
   return /* @__PURE__ */ React__default.createElement("div", {
     className,
     style: _objectSpread2(_objectSpread2(_objectSpread2(_objectSpread2({}, commonCSS), style), css), conditionalCss),
@@ -25467,9 +25537,8 @@ var tableRowCellContent = "";
 var TableRowCellContent = function TableRowCellContent2(props) {
   var _connector$data$heade, _headerEndCell$_, _connector$editableCe;
   var connector = props.connector, utils = props.utils, cellIndex = props.cellIndex, rowIndex = props.rowIndex, isTreeCell = props.isTreeCell, isTreeRoot = props.isTreeRoot, rowTreeData = props.rowTreeData, toggleShowRowTree = props.toggleShowRowTree, cell = props.cell, valueStyle = props.valueStyle, CellView = props.CellView, cellRef = props.cellRef, html = props.html, refreshCell = props.refreshCell;
-  connector.onChangeComponentState.onChangeCell;
-  connector.rowsTree;
-  var _connector$commonForB = connector.commonForBody, commonForBody = _connector$commonForB === void 0 ? {} : _connector$commonForB;
+  var _connector$onChangeCo = connector.onChangeComponentState.onChangeCell, onChangeCell = _connector$onChangeCo === void 0 ? function() {
+  } : _connector$onChangeCo, rowsTree = connector.rowsTree, _connector$commonForB = connector.commonForBody, commonForBody = _connector$commonForB === void 0 ? {} : _connector$commonForB;
   var isEditableCell = cell.isEditable;
   var _commonForBody$isEdit = commonForBody.isEditable, isEditableCommon = _commonForBody$isEdit === void 0 ? false : _commonForBody$isEdit;
   var headerEndCell = ((_connector$data$heade = connector.data.headerRootByEndIndex[cellIndex]) === null || _connector$data$heade === void 0 ? void 0 : _connector$data$heade.cell) || {};
@@ -25477,30 +25546,29 @@ var TableRowCellContent = function TableRowCellContent2(props) {
   var isEditable = isEditableCell === void 0 ? isEditableColumn : isEditableCell;
   isEditable = isEditable === void 0 ? isEditableCommon : isEditable;
   var oldValueBeforeEdit = React__default.useRef(null);
-  var _useCurrentState = useCurrentState(cell === ((_connector$editableCe = connector.editableCell) === null || _connector$editableCe === void 0 ? void 0 : _connector$editableCe.cell)), _useCurrentState2 = _slicedToArray(_useCurrentState, 3), isEdit = _useCurrentState2[0];
-  _useCurrentState2[1];
-  var _setIsEdit = _useCurrentState2[2];
-  var setIsEdit = function setIsEdit2(data) {
-    console.log("*** setIsEdit", data);
-    _setIsEdit(data);
-  };
+  var _useCurrentState = useCurrentState(cell === ((_connector$editableCe = connector.editableCell) === null || _connector$editableCe === void 0 ? void 0 : _connector$editableCe.cell)), _useCurrentState2 = _slicedToArray(_useCurrentState, 3), isEdit = _useCurrentState2[0], isEditCurrent = _useCurrentState2[1], setIsEdit = _useCurrentState2[2];
   var startEditor = function startEditor2() {
     oldValueBeforeEdit.current = cell.value;
     setIsEdit(true);
   };
-  React__default.useEffect(function() {
-    return function() {
-      console.log("--------- TableRowCellContent");
-    };
-  }, []);
   var stopEditor = function stopEditor2() {
-    console.log("*** stopEditor");
-    return;
+    if (!isEditCurrent.current)
+      return;
+    if (cell.value !== oldValueBeforeEdit.current) {
+      onChangeCell({
+        cell,
+        oldValue: oldValueBeforeEdit.current,
+        newValue: cell.value,
+        rows: rowsTree
+      });
+    }
+    setIsEdit(false);
+    connector.editableCell = null;
+    refreshCell();
   };
   var clickToCell = function clickToCell2() {
     if (isTreeCell || !isEditable)
       return;
-    console.log("*** clickToCell");
     utils.setEditableCell({
       cell,
       stopEditor,
@@ -25519,7 +25587,6 @@ var TableRowCellContent = function TableRowCellContent2(props) {
     refreshCell,
     stopEditor
   });
-  console.log("+++++++++ TableRowCellContent", isEdit);
   return /* @__PURE__ */ React__default.createElement(React__default.Fragment, null, isTreeCell && /* @__PURE__ */ React__default.createElement("div", {
     className: "unitable-row-cell-tree",
     style: {
@@ -25630,7 +25697,6 @@ var TableCellEditor = function TableCellEditor2(props) {
     document.addEventListener("keydown", checkToEscape);
     return function() {
       document.removeEventListener("keydown", checkToEscape);
-      console.log("--- TableCellEditor");
     };
   }, []);
   var editors = {
@@ -25647,11 +25713,13 @@ var TableCellEditor = function TableCellEditor2(props) {
     TableCellEditorSetMultiple
   };
   var Component2 = editors[(_CONSTANTS$fieldTypes = CONSTANTS.fieldTypesById[fieldTypeId]) === null || _CONSTANTS$fieldTypes === void 0 ? void 0 : _CONSTANTS$fieldTypes.editor] || TableCellEditorString;
-  console.log("+++ TableCellEditor");
   var onCellBlur = function onCellBlur2() {
-    console.log("*** onCellBlur");
     if (cell._.invalidValueFormat) {
       setTimeout(function() {
+        COMMUNICATION.notify({
+          isError: true,
+          text: cell._.invalidValueFormat
+        });
       });
     }
     cell._.stopEditor();
@@ -25742,12 +25810,10 @@ var TableCellEditorString = function TableCellEditorString2(props) {
     document.addEventListener("keydown", onKeyUp);
     return function() {
       document.removeEventListener("keydown", onKeyUp);
-      console.log("- TableCellEditorString");
     };
   }, []);
   var stop = function stop2() {
-    console.log("*** stop");
-    onCellBlur();
+    return onCellBlur();
   };
   var checkValid = function checkValid2(value) {
     if (validator) {
@@ -25764,7 +25830,6 @@ var TableCellEditorString = function TableCellEditorString2(props) {
     }
   };
   checkValid(valueCurrent.current);
-  console.log("+ TableCellEditorString");
   return /* @__PURE__ */ React__default.createElement("div", {
     className: "tce-string".concat(errorCurrent.current ? " invalid" : ""),
     ref: inputRef
@@ -26002,20 +26067,12 @@ var TableRowCellContentEditor = function TableRowCellContentEditor2(props) {
   var connector = props.connector, utils = props.utils, cell = props.cell, cellRef = props.cellRef, stopEditor = props.stopEditor;
   var _connector$editors = connector.editors, editors = _connector$editors === void 0 ? {} : _connector$editors;
   var _editors$cellEditor = editors.cellEditor, cellEditor = _editors$cellEditor === void 0 ? "internal" : _editors$cellEditor;
-  React__default.useEffect(function() {
-    return function() {
-      console.log("------ TableRowCellContentEditor");
-      stopEditor();
-    };
-  }, []);
   var clickOutsideThePopup = function clickOutsideThePopup2() {
-    console.log("*** clickOutsideThePopup");
     stopEditor();
     utils.setEditableCell(null);
   };
   var Editor = typeof cellEditor === "function" ? cellEditor : cellEditor === "TableCellEditor" ? TableCellEditor : InternalTableCellEditor;
   cell._.popupData = {};
-  console.log("++++++ TableRowCellContentEditor");
   return /* @__PURE__ */ React__default.createElement(Popup, {
     initiator: cellRef.current,
     notResize: true,
@@ -35357,7 +35414,6 @@ var Utils = /* @__PURE__ */ function() {
     key: "setEditableCell",
     value: function setEditableCell(props) {
       if (this.connector.editableCell) {
-        console.log("*********** setEditableCell -> stopEditor");
         this.connector.editableCell.stopEditor();
       }
       this.connector.editableCell = props;
