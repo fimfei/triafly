@@ -4,7 +4,7 @@ import {TableRowCellContentEditor} from "./";
 
 import './scss/table-row-cell-content.scss';
 
-const TableRowCellContent = props => {
+const TableRowCellContent = React.memo(props => {
 
     const [isEdit,  _setIsEdit] = React.useState(false);
     const aaa = React.useRef(Math.random())
@@ -49,6 +49,11 @@ const TableRowCellContent = props => {
             )*/}
         </React.Fragment>
     )
-};
+},
+    (prev, curr) => {
+        console.log(prev, curr)
+        return true
+    }
+);
 
 export default TableRowCellContent;
