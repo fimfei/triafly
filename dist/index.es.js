@@ -4492,7 +4492,7 @@ var _RootCells = function RootCells(props) {
   })));
 };
 var root$b = window;
-var COMMUNICATION = {
+var COMMUNICATION = root$b.Backbone ? {
   Backbone: root$b.Backbone,
   views: root$b.NetDB.namespace("views"),
   utils: root$b.NetDB.namespace("utils"),
@@ -4501,9 +4501,13 @@ var COMMUNICATION = {
   slickUtils: root$b.NetdbSlickgrid.Utils(),
   interpolate: root$b.interpolate,
   api: root$b.NetDB.namespace("API")
+} : {
+  isAbsent: true
 };
 COMMUNICATION.notify = function(_ref) {
   var isError = _ref.isError, isSpinner = _ref.isSpinner, isUnclosable = _ref.isUnclosable, text = _ref.text, delay = _ref.delay;
+  if (COMMUNICATION.isAbsent)
+    return null;
   var notify = COMMUNICATION.utils.notify({
     type: isError ? "error" : isSpinner ? "info" : "success",
     message: {
@@ -4520,6 +4524,8 @@ COMMUNICATION.notify = function(_ref) {
 };
 COMMUNICATION.prompt = function(_ref2) {
   var text = _ref2.text, _buttons = _ref2.buttons, confirmFn = _ref2.confirmFn;
+  if (COMMUNICATION.isAbsent)
+    return null;
   var typesClasses = {
     error: "tf_btn-error",
     primary: "tf_btn-primary",
@@ -4539,37 +4545,55 @@ COMMUNICATION.prompt = function(_ref2) {
   });
 };
 COMMUNICATION.getFileMultiple = function(el, options) {
+  if (COMMUNICATION.isAbsent)
+    return null;
   return new COMMUNICATION.Backbone.FileMultiple(el, options);
 };
 COMMUNICATION.getPeriodpicker = function(el, options) {
+  if (COMMUNICATION.isAbsent)
+    return null;
   return new COMMUNICATION.assets.Periodpicker(el, options);
 };
 COMMUNICATION.getDatepicker = function(el, options) {
+  if (COMMUNICATION.isAbsent)
+    return null;
   return new COMMUNICATION.Backbone.Datetimepicker(el, options);
 };
 COMMUNICATION.getSetpicker = function(el, options) {
+  if (COMMUNICATION.isAbsent)
+    return null;
   return new COMMUNICATION.widgets.Setpicker(el, options);
 };
 COMMUNICATION.getPf = function(value) {
+  if (COMMUNICATION.isAbsent)
+    return null;
   return COMMUNICATION.api.predefined.pf(value);
 };
 COMMUNICATION.getDescriptor = function(descr) {
+  if (COMMUNICATION.isAbsent)
+    return null;
   return COMMUNICATION.api.descriptors.get(descr) || COMMUNICATION.api.descriptors.find(function(descr2) {
     return descr2.is_lineset_multiple();
   });
 };
 COMMUNICATION.datetimeToHuman = function() {
   var _COMMUNICATION$slickU;
+  if (COMMUNICATION.isAbsent)
+    return null;
   return (_COMMUNICATION$slickU = COMMUNICATION.slickUtils).datetimeToHuman.apply(_COMMUNICATION$slickU, arguments);
 };
 COMMUNICATION.fileMultipleToHuman = function(value) {
+  if (COMMUNICATION.isAbsent)
+    return null;
   return COMMUNICATION.slickUtils.fileMultipleToHuman(value);
 };
 COMMUNICATION.prepareChangesToSave = function() {
   var _COMMUNICATION$slickU2;
+  if (COMMUNICATION.isAbsent)
+    return null;
   (_COMMUNICATION$slickU2 = COMMUNICATION.slickUtils).prepareChangesToSave.apply(_COMMUNICATION$slickU2, arguments);
 };
-COMMUNICATION.keyCodes = COMMUNICATION.assets.keyCodes(true);
+COMMUNICATION.keyCodes = COMMUNICATION.isAbsent ? null : COMMUNICATION.assets.keyCodes(true);
 var CONSTANTS = {};
 CONSTANTS.fieldTypes = {
   string: {

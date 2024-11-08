@@ -1,3 +1,4 @@
+import React from 'react';
 import {getMonth, getYear} from 'date-fns';
 
 const UTILS = {};
