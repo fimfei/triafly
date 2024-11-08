@@ -22,7 +22,11 @@ const TableRowCell = props => {
     const columnView = headerEndCell._?.view;
     const CellView = cellView || columnView || cellsView;
 
-    const [hover, hoverCurrent, setHover] = useCurrentState(false);
+    const [hover, hoverCurrent, _setHover] = useCurrentState(false);
+    const setHover = data => {
+        console.log('*** setHover', data)
+        _setHover(data)
+    }
 
     const [_, setRefresh] = React.useState(0);
     const refresh = () => setRefresh(UTILS.random16());
