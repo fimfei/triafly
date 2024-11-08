@@ -4,7 +4,7 @@ import {TableRowCellContentEditor} from "./";
 
 import './scss/table-row-cell-content.scss';
 
-const TableRowCellContent = React.memo(props => {
+const TableRowCellContent = props => {
     const {connector, utils, cellIndex, rowIndex, isTreeCell, isTreeRoot, rowTreeData, toggleShowRowTree, cell, valueStyle, CellView, cellRef, html, refreshCell,} = props;
     const {onChangeComponentState: {onChangeCell = () => {}}, rowsTree, commonForBody = {}} = connector;
     const {isEditable: isEditableCell} = cell;
@@ -73,7 +73,7 @@ const TableRowCellContent = React.memo(props => {
                 className="unitable-row-cell-value"
                 style={valueStyle}
                 dangerouslySetInnerHTML={{__html: html}}
-                onClick={clickToCell}
+                onClick={() => {_setIsEdit(true)}}
             ></div>
             {/*
             {isTreeCell && (
@@ -107,6 +107,6 @@ const TableRowCellContent = React.memo(props => {
             )*/}
         </React.Fragment>
     )
-}, () => true);
+};
 
 export default TableRowCellContent;
