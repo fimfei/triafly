@@ -14856,11 +14856,8 @@ var TableRowCell = function TableRowCell2(props) {
   var customizer = (columnCustomizer !== null && columnCustomizer !== void 0 && columnCustomizer.length ? columnCustomizer : null) || (commonCustomizer !== null && commonCustomizer !== void 0 && commonCustomizer.length ? commonCustomizer : null);
   var columnView = (_headerEndCell$_3 = headerEndCell._) === null || _headerEndCell$_3 === void 0 ? void 0 : _headerEndCell$_3.view;
   var CellView = cellView || columnView || cellsView;
-  var _useCurrentState = useCurrentState(false), _useCurrentState2 = _slicedToArray(_useCurrentState, 3), hover3 = _useCurrentState2[0], hoverCurrent = _useCurrentState2[1], _setHover = _useCurrentState2[2];
-  var setHover = function setHover2(data) {
-    console.log("*** setHover", data);
-    _setHover(data);
-  };
+  var _useCurrentState = useCurrentState(false), _useCurrentState2 = _slicedToArray(_useCurrentState, 3), hover3 = _useCurrentState2[0], hoverCurrent = _useCurrentState2[1];
+  _useCurrentState2[2];
   var _React$useState = React.useState(0), _React$useState2 = _slicedToArray(_React$useState, 2);
   _React$useState2[0];
   var setRefresh = _React$useState2[1];
@@ -14893,7 +14890,6 @@ var TableRowCell = function TableRowCell2(props) {
         removePopupFunction.current();
       if (!hoverCurrent.current)
         return;
-      setHover(false);
       var removePopup = function removePopup2() {
         return removePopupFunction.current();
       };
@@ -14928,13 +14924,11 @@ var TableRowCell = function TableRowCell2(props) {
     var _connector$editableCe;
     if ((_connector$editableCe = connector.editableCell) !== null && _connector$editableCe !== void 0 && _connector$editableCe.cell)
       return;
-    setHover(true);
   };
   var onMouseLeave = function onMouseLeave2() {
     var _connector$editableCe2;
     if ((_connector$editableCe2 = connector.editableCell) !== null && _connector$editableCe2 !== void 0 && _connector$editableCe2.cell)
       return;
-    setHover(false);
     if (removePopupFunction.current)
       removePopupFunction.current();
   };
