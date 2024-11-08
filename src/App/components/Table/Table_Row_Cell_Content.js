@@ -69,7 +69,12 @@ const TableRowCellContent = React.memo(props => {
 
     return (
         <React.Fragment>
-            <div className="unitable-row-cell-tree" style={{width: `${rowTreeData.level * 30 + 20}px`}}></div>
+            <div
+                className="unitable-row-cell-value"
+                style={valueStyle}
+                dangerouslySetInnerHTML={{__html: html}}
+                onClick={isTreeCell ? null : clickToCell}
+            ></div>
             {/*
             {isTreeCell && (
                 <div className="unitable-row-cell-tree" style={{width: `${rowTreeData.level * 30 + 20}px`}}>

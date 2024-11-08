@@ -15000,28 +15000,26 @@ var TableRowCell = function TableRowCell2(props) {
 var tableRowCellContent = "";
 var TableRowCellContent = /* @__PURE__ */ React.memo(function(props) {
   var _connector$data$heade, _headerEndCell$_, _connector$editableCe;
-  var connector = props.connector, utils = props.utils, cellIndex = props.cellIndex, rowIndex = props.rowIndex, isTreeCell = props.isTreeCell, isTreeRoot = props.isTreeRoot, rowTreeData = props.rowTreeData, toggleShowRowTree = props.toggleShowRowTree, cell = props.cell, valueStyle = props.valueStyle, CellView = props.CellView, cellRef = props.cellRef, html = props.html, refreshCell = props.refreshCell;
+  var connector = props.connector;
+  props.utils;
+  var cellIndex = props.cellIndex, rowIndex = props.rowIndex, isTreeCell = props.isTreeCell, isTreeRoot = props.isTreeRoot, rowTreeData = props.rowTreeData;
+  props.toggleShowRowTree;
+  var cell = props.cell;
+  props.valueStyle;
+  var CellView = props.CellView, cellRef = props.cellRef;
+  props.html;
+  var refreshCell = props.refreshCell;
   connector.onChangeComponentState.onChangeCell;
   connector.rowsTree;
   var _connector$commonForB = connector.commonForBody, commonForBody = _connector$commonForB === void 0 ? {} : _connector$commonForB;
-  var isEditableCell = cell.isEditable;
-  var _commonForBody$isEdit = commonForBody.isEditable, isEditableCommon = _commonForBody$isEdit === void 0 ? false : _commonForBody$isEdit;
+  cell.isEditable;
+  commonForBody.isEditable;
   var headerEndCell = ((_connector$data$heade = connector.data.headerRootByEndIndex[cellIndex]) === null || _connector$data$heade === void 0 ? void 0 : _connector$data$heade.cell) || {};
-  var isEditableColumn = (_headerEndCell$_ = headerEndCell._) === null || _headerEndCell$_ === void 0 ? void 0 : _headerEndCell$_.isEditable;
-  var isEditable = isEditableCell === void 0 ? isEditableColumn : isEditableCell;
-  isEditable = isEditable === void 0 ? isEditableCommon : isEditable;
-  var oldValueBeforeEdit = React.useRef(null);
+  (_headerEndCell$_ = headerEndCell._) === null || _headerEndCell$_ === void 0 ? void 0 : _headerEndCell$_.isEditable;
+  React.useRef(null);
   var _useCurrentState = useCurrentState(cell === ((_connector$editableCe = connector.editableCell) === null || _connector$editableCe === void 0 ? void 0 : _connector$editableCe.cell)), _useCurrentState2 = _slicedToArray(_useCurrentState, 3), isEdit = _useCurrentState2[0];
   _useCurrentState2[1];
-  var _setIsEdit = _useCurrentState2[2];
-  var setIsEdit = function setIsEdit2(data) {
-    console.log("*** setIsEdit", data);
-    _setIsEdit(data);
-  };
-  var startEditor = function startEditor2() {
-    oldValueBeforeEdit.current = cell.value;
-    setIsEdit(true);
-  };
+  _useCurrentState2[2];
   React.useEffect(function() {
     console.log("--------- TableRowCellContent INIT");
     return function() {
@@ -15031,18 +15029,6 @@ var TableRowCellContent = /* @__PURE__ */ React.memo(function(props) {
   var stopEditor = function stopEditor2() {
     console.log("*** stopEditor");
     return;
-  };
-  var clickToCell = function clickToCell2() {
-    console.log("*** clickToCell");
-    if (isTreeCell || !isEditable)
-      return;
-    console.log("*** clickToCell 2");
-    utils.setEditableCell({
-      cell,
-      stopEditor,
-      cellRef: cellRef.current
-    });
-    startEditor();
   };
   var old_ = (cell === null || cell === void 0 ? void 0 : cell._) || {};
   cell._ = _objectSpread2(_objectSpread2({}, old_), {}, {
@@ -15056,25 +15042,11 @@ var TableRowCellContent = /* @__PURE__ */ React.memo(function(props) {
     stopEditor
   });
   console.log("+++++++++ TableRowCellContent", isEdit, CellView, isTreeCell);
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, isTreeCell && /* @__PURE__ */ React.createElement("div", {
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", {
     className: "unitable-row-cell-tree",
     style: {
       width: "".concat(rowTreeData.level * 30 + 20, "px")
     }
-  }, isTreeRoot && /* @__PURE__ */ React.createElement("div", {
-    className: "toggle-tree",
-    onClick: toggleShowRowTree
-  }, rowTreeData.showChildren ? "-" : "+")), CellView ? /* @__PURE__ */ React.createElement("div", {
-    className: "unitable-row-cell-value",
-    style: valueStyle,
-    onClick: isTreeCell ? null : clickToCell
-  }, /* @__PURE__ */ React.createElement(CellView, cell)) : /* @__PURE__ */ React.createElement("div", {
-    className: "unitable-row-cell-value",
-    style: valueStyle,
-    dangerouslySetInnerHTML: {
-      __html: html
-    },
-    onClick: isTreeCell ? null : clickToCell
   }));
 });
 var tableCellEditor = "";
