@@ -25502,9 +25502,8 @@ var tableRowCellContent = "";
 var TableRowCellContent = function TableRowCellContent2(props) {
   var _connector$data$heade, _headerEndCell$_, _connector$editableCe;
   var connector = props.connector, utils = props.utils, cellIndex = props.cellIndex, rowIndex = props.rowIndex, isTreeCell = props.isTreeCell, isTreeRoot = props.isTreeRoot, rowTreeData = props.rowTreeData, toggleShowRowTree = props.toggleShowRowTree, cell = props.cell, valueStyle = props.valueStyle, CellView = props.CellView, cellRef = props.cellRef, html = props.html, refreshCell = props.refreshCell;
-  connector.onChangeComponentState.onChangeCell;
-  connector.rowsTree;
-  var _connector$commonForB = connector.commonForBody, commonForBody = _connector$commonForB === void 0 ? {} : _connector$commonForB;
+  var _connector$onChangeCo = connector.onChangeComponentState.onChangeCell, onChangeCell = _connector$onChangeCo === void 0 ? function() {
+  } : _connector$onChangeCo, rowsTree = connector.rowsTree, _connector$commonForB = connector.commonForBody, commonForBody = _connector$commonForB === void 0 ? {} : _connector$commonForB;
   var isEditableCell = cell.isEditable;
   var _commonForBody$isEdit = commonForBody.isEditable, isEditableCommon = _commonForBody$isEdit === void 0 ? false : _commonForBody$isEdit;
   var headerEndCell = ((_connector$data$heade = connector.data.headerRootByEndIndex[cellIndex]) === null || _connector$data$heade === void 0 ? void 0 : _connector$data$heade.cell) || {};
@@ -25512,9 +25511,7 @@ var TableRowCellContent = function TableRowCellContent2(props) {
   var isEditable = isEditableCell === void 0 ? isEditableColumn : isEditableCell;
   isEditable = isEditable === void 0 ? isEditableCommon : isEditable;
   var oldValueBeforeEdit = React__default.useRef(null);
-  var _useCurrentState = useCurrentState(cell === ((_connector$editableCe = connector.editableCell) === null || _connector$editableCe === void 0 ? void 0 : _connector$editableCe.cell)), _useCurrentState2 = _slicedToArray(_useCurrentState, 3), isEdit = _useCurrentState2[0];
-  _useCurrentState2[1];
-  var setIsEdit = _useCurrentState2[2];
+  var _useCurrentState = useCurrentState(cell === ((_connector$editableCe = connector.editableCell) === null || _connector$editableCe === void 0 ? void 0 : _connector$editableCe.cell)), _useCurrentState2 = _slicedToArray(_useCurrentState, 3), isEdit = _useCurrentState2[0], isEditCurrent = _useCurrentState2[1], setIsEdit = _useCurrentState2[2];
   var startEditor = function startEditor2() {
     oldValueBeforeEdit.current = cell.value;
     setIsEdit(true);
@@ -25526,12 +25523,24 @@ var TableRowCellContent = function TableRowCellContent2(props) {
   }, []);
   var stopEditor = function stopEditor2() {
     console.log("stopEditor");
-    return;
+    if (!isEditCurrent.current)
+      return;
+    if (cell.value !== oldValueBeforeEdit.current) {
+      onChangeCell({
+        cell,
+        oldValue: oldValueBeforeEdit.current,
+        newValue: cell.value,
+        rows: rowsTree
+      });
+    }
+    setIsEdit(false);
+    connector.editableCell = null;
+    refreshCell();
   };
   var clickToCell = function clickToCell2() {
-    console.log("clickToCell");
     if (isTreeCell || !isEditable)
       return;
+    console.log("clickToCell");
     utils.setEditableCell({
       cell,
       stopEditor,
@@ -25746,9 +25755,7 @@ var TableCellEditorBool = function TableCellEditorBool2(props) {
 };
 var tableCellEditorString = "";
 var TableCellEditorString = function TableCellEditorString2(props) {
-  var cell = props.cell, startValue = props.startValue;
-  props.onCellBlur;
-  var _props$validator = props.validator, validator = _props$validator === void 0 ? null : _props$validator;
+  var cell = props.cell, startValue = props.startValue, onCellBlur = props.onCellBlur, _props$validator = props.validator, validator = _props$validator === void 0 ? null : _props$validator;
   var _useCurrentState = useCurrentState(startValue), _useCurrentState2 = _slicedToArray(_useCurrentState, 3);
   _useCurrentState2[0];
   var valueCurrent = _useCurrentState2[1], setValue = _useCurrentState2[2];
@@ -25763,13 +25770,14 @@ var TableCellEditorString = function TableCellEditorString2(props) {
   };
   var onKeyUp = function onKeyUp2(e) {
     if (e.code === "Enter")
-      ;
+      stop();
     if (e.code === "Escape") {
       setValue(startValue);
       cell.value = startValue;
       setTimeout(function() {
         checkValid(startValue);
         setTimeout(function() {
+          stop();
         }, 0);
       }, 0);
     }
@@ -25778,10 +25786,11 @@ var TableCellEditorString = function TableCellEditorString2(props) {
     document.addEventListener("keydown", onKeyUp);
     return function() {
       document.removeEventListener("keydown", onKeyUp);
-      console.log("--- TableCellEditorString");
+      console.log("- TableCellEditorString");
     };
   }, []);
   var stop = function stop2() {
+    return onCellBlur();
   };
   var checkValid = function checkValid2(value) {
     if (validator) {
@@ -25798,7 +25807,7 @@ var TableCellEditorString = function TableCellEditorString2(props) {
     }
   };
   checkValid(valueCurrent.current);
-  console.log("+++ TableCellEditorString");
+  console.log("+ TableCellEditorString");
   return /* @__PURE__ */ React__default.createElement("div", {
     className: "tce-string".concat(errorCurrent.current ? " invalid" : ""),
     ref: inputRef
@@ -26038,8 +26047,8 @@ var TableRowCellContentEditor = function TableRowCellContentEditor2(props) {
   var _editors$cellEditor = editors.cellEditor, cellEditor = _editors$cellEditor === void 0 ? "internal" : _editors$cellEditor;
   React__default.useEffect(function() {
     return function() {
-      stopEditor();
       console.log("------ TableRowCellContentEditor");
+      stopEditor();
     };
   }, []);
   var clickOutsideThePopup = function clickOutsideThePopup2() {
