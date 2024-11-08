@@ -20,18 +20,19 @@ const callSetPicker = props => {
         appRoot.remove();
     }
 
-    const componentReturn = {
+    const componentReturn = React.useRef({
         removeComponent,
-    };
+    });
 
     root.render(
         <SetPicker
             options={options}
             componentCallback={componentCallback}
+            componentReturn={componentReturn.current}
         />
     );
 
-    return componentReturn;
+    return componentReturn.current;
 }
 
 export default callSetPicker;

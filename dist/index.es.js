@@ -20901,6 +20901,7 @@ var Store = /* @__PURE__ */ _createClass$9(
 var Store$1 = new Store();
 var setPicker = "";
 var SetPicker = function SetPicker2(_ref) {
+  var _pages$current;
   var props = _extends$h({}, (_objectDestructuringEmpty(_ref), _ref));
   var options = props.options, setPickerConnector = props.setPickerConnector;
   props.removeComponent;
@@ -20974,7 +20975,7 @@ var SetPicker = function SetPicker2(_ref) {
   var _useCurrentState5 = useCurrentState({
     selectedList: externalSelectedList,
     searchSelectedList: getSearchSelectedList(externalSelectedList),
-    show: !!pages.current._mainOptions
+    show: !!(pages !== null && pages !== void 0 && (_pages$current = pages.current) !== null && _pages$current !== void 0 && _pages$current._mainOptions)
   }), _useCurrentState6 = _slicedToArray(_useCurrentState5, 3), selected = _useCurrentState6[0], currentSelected = _useCurrentState6[1], _setSelected = _useCurrentState6[2];
   var selectedIds = React__default.useRef(null);
   var showSelectedCounts = function showSelectedCounts2() {
@@ -21154,7 +21155,7 @@ var SetPicker = function SetPicker2(_ref) {
     }
   };
   var onChangeSearh = function onChangeSearh2(search) {
-    var _pages$current;
+    var _pages$current2;
     resetScroll();
     setList([{
       i: 0,
@@ -21167,7 +21168,7 @@ var SetPicker = function SetPicker2(_ref) {
       Store$1.updateState(sessionOptionsIndex, search);
     }
     var pagesIndex = utils2.getPagesIndex(search.searchContext, 0);
-    var _mainOptions = (_pages$current = pages.current) === null || _pages$current === void 0 ? void 0 : _pages$current._mainOptions;
+    var _mainOptions = (_pages$current2 = pages.current) === null || _pages$current2 === void 0 ? void 0 : _pages$current2._mainOptions;
     if (_mainOptions && _mainOptions[pagesIndex]) {
       var newList = _objectSpread2({}, toJS(Store$1.getState(CONSTANTS_SETPICKER.pagesData(listName))));
       newList._mainOptions = _objectSpread2(_objectSpread2({}, _mainOptions), {}, {
