@@ -42,7 +42,10 @@ const TableCellEditorString = props => {
     }, []);
     /* eslint-enable */
 
-    const stop = () => onCellBlur();
+    const stop = () => {
+        console.log('*** stop')
+        onCellBlur();
+    }
 
     const checkValid = value => {
         if (validator) {

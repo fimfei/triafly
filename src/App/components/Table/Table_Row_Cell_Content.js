@@ -18,7 +18,7 @@ const TableRowCellContent = props => {
     const oldValueBeforeEdit = React.useRef(null);
     const [isEdit, isEditCurrent, _setIsEdit] = useCurrentState(cell === connector.editableCell?.cell);
     const setIsEdit = data => {
-        console.log('setIsEdit', data)
+        console.log('*** setIsEdit', data)
         _setIsEdit(data)
     }
 
@@ -54,7 +54,7 @@ const TableRowCellContent = props => {
 
     const clickToCell = () => {
         if(isTreeCell || !isEditable) return;
-        console.log('clickToCell')
+        console.log('*** clickToCell')
         utils.setEditableCell({cell, stopEditor, cellRef: cellRef.current});
         startEditor();
     }

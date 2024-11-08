@@ -4491,50 +4491,6 @@ var _RootCells = function RootCells(props) {
     }));
   })));
 };
-var COMMUNICATION = {
-  Backbone: null,
-  views: null,
-  utils: null,
-  assets: null,
-  widgets: null,
-  slickUtils: null,
-  interpolate: null,
-  api: null
-};
-COMMUNICATION.notify = function() {
-  return null;
-};
-COMMUNICATION.prompt = function() {
-  return null;
-};
-COMMUNICATION.getFileMultiple = function() {
-  return null;
-};
-COMMUNICATION.getPeriodpicker = function() {
-  return null;
-};
-COMMUNICATION.getDatepicker = function() {
-  return null;
-};
-COMMUNICATION.getSetpicker = function() {
-  return null;
-};
-COMMUNICATION.getPf = function() {
-  return null;
-};
-COMMUNICATION.getDescriptor = function() {
-  return null;
-};
-COMMUNICATION.datetimeToHuman = function() {
-  return null;
-};
-COMMUNICATION.fileMultipleToHuman = function() {
-  return null;
-};
-COMMUNICATION.prepareChangesToSave = function() {
-  return null;
-};
-COMMUNICATION.keyCodes = null;
 var CONSTANTS = {};
 CONSTANTS.fieldTypes = {
   string: {
@@ -25515,7 +25471,11 @@ var TableRowCellContent = function TableRowCellContent2(props) {
   var isEditable = isEditableCell === void 0 ? isEditableColumn : isEditableCell;
   isEditable = isEditable === void 0 ? isEditableCommon : isEditable;
   var oldValueBeforeEdit = React__default.useRef(null);
-  var _useCurrentState = useCurrentState(cell === ((_connector$editableCe = connector.editableCell) === null || _connector$editableCe === void 0 ? void 0 : _connector$editableCe.cell)), _useCurrentState2 = _slicedToArray(_useCurrentState, 3), isEdit = _useCurrentState2[0], isEditCurrent = _useCurrentState2[1], setIsEdit = _useCurrentState2[2];
+  var _useCurrentState = useCurrentState(cell === ((_connector$editableCe = connector.editableCell) === null || _connector$editableCe === void 0 ? void 0 : _connector$editableCe.cell)), _useCurrentState2 = _slicedToArray(_useCurrentState, 3), isEdit = _useCurrentState2[0], isEditCurrent = _useCurrentState2[1], _setIsEdit = _useCurrentState2[2];
+  var setIsEdit = function setIsEdit2(data) {
+    console.log("setIsEdit", data);
+    _setIsEdit(data);
+  };
   var startEditor = function startEditor2() {
     oldValueBeforeEdit.current = cell.value;
     setIsEdit(true);
@@ -25563,7 +25523,7 @@ var TableRowCellContent = function TableRowCellContent2(props) {
     refreshCell,
     stopEditor
   });
-  console.log("+++++++++ TableRowCellContent");
+  console.log("+++++++++ TableRowCellContent", isEdit);
   return /* @__PURE__ */ React__default.createElement(React__default.Fragment, null, isTreeCell && /* @__PURE__ */ React__default.createElement("div", {
     className: "unitable-row-cell-tree",
     style: {
@@ -25696,10 +25656,6 @@ var TableCellEditor = function TableCellEditor2(props) {
     console.log("onCellBlur");
     if (cell._.invalidValueFormat) {
       setTimeout(function() {
-        COMMUNICATION.notify({
-          isError: true,
-          text: cell._.invalidValueFormat
-        });
       });
     }
     cell._.stopEditor();

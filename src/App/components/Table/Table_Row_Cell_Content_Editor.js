@@ -19,7 +19,7 @@ const TableRowCellContentEditor = props => {
     /* eslint-enable */
 
     const clickOutsideThePopup = () => {
-        console.log('clickOutsideThePopup')
+        console.log('*** clickOutsideThePopup')
         stopEditor();
         utils.setEditableCell(null);
     };
