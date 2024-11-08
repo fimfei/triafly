@@ -35361,6 +35361,7 @@ var Utils = /* @__PURE__ */ function() {
     key: "setEditableCell",
     value: function setEditableCell(props) {
       if (this.connector.editableCell) {
+        console.log("*********** setEditableCell -> stopEditor");
         this.connector.editableCell.stopEditor();
       }
       this.connector.editableCell = props;
