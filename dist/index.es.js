@@ -14879,6 +14879,7 @@ var TableRowCell = function TableRowCell2(props) {
   var testRef = React.useRef(null);
   var removePopupFunction = React.useRef(null);
   React.useEffect(function() {
+    console.log("*** HOVER ***");
     if (highlightHovered && hoverCurrent.current)
       utils.setHoveredCell(cellIndex, rowIndex);
     if (!showHints || !hoverCurrent.current || !testRef.current)
@@ -15022,18 +15023,20 @@ var TableRowCellContent = function TableRowCellContent2(props) {
     setIsEdit(true);
   };
   React.useEffect(function() {
+    console.log("--------- TableRowCellContent INIT");
     return function() {
       console.log("--------- TableRowCellContent");
     };
   }, []);
   var stopEditor = function stopEditor2() {
-    console.log("stopEditor");
+    console.log("*** stopEditor");
     return;
   };
   var clickToCell = function clickToCell2() {
+    console.log("*** clickToCell");
     if (isTreeCell || !isEditable)
       return;
-    console.log("*** clickToCell");
+    console.log("*** clickToCell 2");
     utils.setEditableCell({
       cell,
       stopEditor,
@@ -15052,7 +15055,7 @@ var TableRowCellContent = function TableRowCellContent2(props) {
     refreshCell,
     stopEditor
   });
-  console.log("+++++++++ TableRowCellContent", isEdit);
+  console.log("+++++++++ TableRowCellContent", isEdit, CellView, isTreeCell);
   return /* @__PURE__ */ React.createElement(React.Fragment, null, isTreeCell && /* @__PURE__ */ React.createElement("div", {
     className: "unitable-row-cell-tree",
     style: {
