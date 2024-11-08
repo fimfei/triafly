@@ -14999,50 +14999,31 @@ var TableRowCell = function TableRowCell2(props) {
 };
 var tableRowCellContent = "";
 var TableRowCellContent = function TableRowCellContent2(props) {
-  var _connector$data$heade, _headerEndCell$_, _connector$editableCe;
   var connector = props.connector;
   props.utils;
-  var cellIndex = props.cellIndex, rowIndex = props.rowIndex, isTreeCell = props.isTreeCell, isTreeRoot = props.isTreeRoot, rowTreeData = props.rowTreeData;
+  props.cellIndex;
+  props.rowIndex;
+  props.isTreeCell;
+  props.isTreeRoot;
+  props.rowTreeData;
   props.toggleShowRowTree;
-  var cell = props.cell, valueStyle = props.valueStyle;
+  var cell = props.cell;
+  props.valueStyle;
   props.CellView;
-  var cellRef = props.cellRef, html = props.html, refreshCell = props.refreshCell;
+  props.cellRef;
+  var html = props.html;
+  props.refreshCell;
   connector.onChangeComponentState.onChangeCell;
   connector.rowsTree;
   var _connector$commonForB = connector.commonForBody, commonForBody = _connector$commonForB === void 0 ? {} : _connector$commonForB;
   cell.isEditable;
   commonForBody.isEditable;
-  var headerEndCell = ((_connector$data$heade = connector.data.headerRootByEndIndex[cellIndex]) === null || _connector$data$heade === void 0 ? void 0 : _connector$data$heade.cell) || {};
-  (_headerEndCell$_ = headerEndCell._) === null || _headerEndCell$_ === void 0 ? void 0 : _headerEndCell$_.isEditable;
-  React.useRef(null);
-  var _useCurrentState = useCurrentState(cell === ((_connector$editableCe = connector.editableCell) === null || _connector$editableCe === void 0 ? void 0 : _connector$editableCe.cell)), _useCurrentState2 = _slicedToArray(_useCurrentState, 3), isEdit = _useCurrentState2[0];
+  var _useCurrentState = useCurrentState(false), _useCurrentState2 = _slicedToArray(_useCurrentState, 3), isEdit = _useCurrentState2[0];
   _useCurrentState2[1];
   var _setIsEdit = _useCurrentState2[2];
-  React.useEffect(function() {
-    console.log("--------- TableRowCellContent INIT");
-    return function() {
-      console.log("--------- TableRowCellContent");
-    };
-  }, []);
-  var stopEditor = function stopEditor2() {
-    console.log("*** stopEditor");
-    return;
-  };
-  var old_ = (cell === null || cell === void 0 ? void 0 : cell._) || {};
-  cell._ = _objectSpread2(_objectSpread2({}, old_), {}, {
-    cellIndex,
-    rowIndex,
-    isTreeCell,
-    isTreeRoot,
-    rowTreeData,
-    wrapperRefCurrent: cellRef,
-    refreshCell,
-    stopEditor
-  });
   console.log("+++++++++ TableRowCellContent", isEdit, cell);
   return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", {
     className: "unitable-row-cell-value",
-    style: valueStyle,
     dangerouslySetInnerHTML: {
       __html: html
     },

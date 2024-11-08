@@ -9,7 +9,7 @@ const TableRowCellContent = props => {
     const {onChangeComponentState: {onChangeCell = () => {}}, rowsTree, commonForBody = {}} = connector;
     const {isEditable: isEditableCell} = cell;
     const {isEditable: isEditableCommon = false} = commonForBody;
-    const [isEdit, isEditCurrent, _setIsEdit] = useCurrentState(false);
+    const [isEdit,  _setIsEdit] = React.useState(false);
 
     console.log('+++++++++ TableRowCellContent', isEdit, cell)
 
