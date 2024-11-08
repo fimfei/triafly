@@ -65,7 +65,7 @@ const TableRowCellContent = props => {
     const old_ = cell?._ || {};
     cell._ = {...old_, cellIndex, rowIndex, isTreeCell, isTreeRoot, rowTreeData, wrapperRefCurrent: cellRef, refreshCell, stopEditor};
 
-    console.log('+++++++++ TableRowCellContent', isEdit, CellView, isTreeCell)
+    console.log('+++++++++ TableRowCellContent', isEdit, cell)
 
     return (
         <React.Fragment>
