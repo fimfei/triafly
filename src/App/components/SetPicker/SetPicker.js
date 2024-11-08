@@ -94,7 +94,7 @@ const SetPicker = ({...props}) => {
     const [selected, currentSelected, _setSelected] = useCurrentState({
         selectedList: externalSelectedList,        // array с id заселекченых элементов
         searchSelectedList: getSearchSelectedList(externalSelectedList),
-        show: !!pages.current._mainOptions,
+        show: !!pages?.current?._mainOptions,
     });
     const selectedIds = React.useRef(null); //
 
