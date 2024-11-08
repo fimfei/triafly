@@ -47,6 +47,7 @@ const TableRowCell = props => {
 
     /* eslint-disable */
     React.useEffect(() => {
+        console.log('*** HOVER ***')
         if(highlightHovered && hoverCurrent.current) utils.setHoveredCell(cellIndex, rowIndex);
 
         if(!showHints || !hoverCurrent.current || !testRef.current) return;

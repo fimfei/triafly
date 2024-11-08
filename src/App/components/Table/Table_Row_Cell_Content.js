@@ -29,6 +29,7 @@ const TableRowCellContent = props => {
 
     /* eslint-disable */
     React.useEffect(() => {
+        console.log('--------- TableRowCellContent INIT')
         return () => {
             console.log('--------- TableRowCellContent')
         }
@@ -36,7 +37,7 @@ const TableRowCellContent = props => {
     /* eslint-enable */
 
     const stopEditor = () => {
-        console.log('stopEditor')
+        console.log('*** stopEditor')
         return
         if(!isEditCurrent.current) return;
 
@@ -54,8 +55,9 @@ const TableRowCellContent = props => {
     }
 
     const clickToCell = () => {
-        if(isTreeCell || !isEditable) return;
         console.log('*** clickToCell')
+        if(isTreeCell || !isEditable) return;
+        console.log('*** clickToCell 2')
         utils.setEditableCell({cell, stopEditor, cellRef: cellRef.current});
         startEditor();
     }
@@ -63,7 +65,7 @@ const TableRowCellContent = props => {
     const old_ = cell?._ || {};
     cell._ = {...old_, cellIndex, rowIndex, isTreeCell, isTreeRoot, rowTreeData, wrapperRefCurrent: cellRef, refreshCell, stopEditor};
 
-    console.log('+++++++++ TableRowCellContent', isEdit)
+    console.log('+++++++++ TableRowCellContent', isEdit, CellView, isTreeCell)
 
     return (
         <React.Fragment>
