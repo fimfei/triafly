@@ -4,18 +4,23 @@ import {TableRowCellContentEditor} from "./";
 
 import './scss/table-row-cell-content.scss';
 
-const TableRowCellContent = React.memo(props => {
+const TableRowCellContent = props => {
 
     const [isEdit,  _setIsEdit] = React.useState(false);
     const aaa = React.useRef(Math.random())
 
     console.log('+++++++++ TableRowCellContent', isEdit, aaa.current)
 
+    const onClick = () => {
+        console.log('onClick')
+        _setIsEdit(!isEdit)
+    }
+
     return (
         <React.Fragment>
             <div
                 className="unitable-row-cell-value"
-                onClick={() => {_setIsEdit(!isEdit)}}
+                onClick={onClick}
             >aaa</div>
             {/*
             {isTreeCell && (
@@ -49,11 +54,6 @@ const TableRowCellContent = React.memo(props => {
             )*/}
         </React.Fragment>
     )
-},
-    (prev, curr) => {
-        console.log(prev, curr)
-        return true
-    }
-);
+}
 
 export default TableRowCellContent;

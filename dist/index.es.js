@@ -14995,7 +14995,7 @@ var TableRowCell = function TableRowCell2(props) {
   }, /* @__PURE__ */ React.createElement(TableRowCellContent, cellData));
 };
 var tableRowCellContent = "";
-var TableRowCellContent = function TableRowCellContent2(props) {
+var TableRowCellContent = /* @__PURE__ */ React.memo(function(props) {
   var _React$useState = React.useState(false), _React$useState2 = _slicedToArray(_React$useState, 2), isEdit = _React$useState2[0], _setIsEdit = _React$useState2[1];
   var aaa = React.useRef(Math.random());
   console.log("+++++++++ TableRowCellContent", isEdit, aaa.current);
@@ -15005,7 +15005,10 @@ var TableRowCellContent = function TableRowCellContent2(props) {
       _setIsEdit(!isEdit);
     }
   }, "aaa"));
-};
+}, function(prev, curr) {
+  console.log(prev, curr);
+  return true;
+});
 var tableCellEditor = "";
 var tableCellEditorBool = "";
 var tableCellEditorString = "";
