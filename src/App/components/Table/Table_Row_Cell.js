@@ -32,6 +32,8 @@ const TableRowCell = props => {
         connector.refresh.column[cellIndex] = connector.refresh.column[cellIndex] || [];
         connector.refresh.column[cellIndex].push(refresh);
         setTimeout(refresh, 0);
+
+        return () => console.log('------------ TableRowCell')
     }, []);
     /* eslint-enable */
 
@@ -123,6 +125,8 @@ const TableRowCell = props => {
     let className = `unitable-row-cell${isTreeCell ? ' is-tree-cell' : ''}${isNotFind ? ' is-not-find' : ''}${find ? ' cell-with-search-context' : ''}`;
     if(conditionalClass) className += ' ' + conditionalClass;
     if(cell._?.invalidValueFormat) className += ' invalid-format';
+
+    console.log('++++++++++++ TableRowCell')
 
     return (
         <div
