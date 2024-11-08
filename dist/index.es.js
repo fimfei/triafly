@@ -20923,6 +20923,7 @@ var SetPicker = function SetPicker2(_ref) {
     CONFIG_API.listBlockLength = listBlockLength;
   var operationCodes = CONFIG_SETPICKER.operationCodes;
   var pages = React__default.useRef(toJS(Store$1.getState(CONSTANTS_SETPICKER.pagesData(listName))));
+  console.log("--------- PAGES ------>", pages);
   var changeTimeoutId = React__default.useRef(null);
   var requestedPages = React__default.useRef({});
   var scrollData = React__default.useRef({});
@@ -22961,14 +22962,15 @@ var callSetPicker = function callSetPicker2(props) {
     root2.unmount();
     appRoot.remove();
   };
-  var componentReturn = {
+  var componentReturn = React__default.useRef({
     removeComponent
-  };
+  });
   root2.render(/* @__PURE__ */ React__default.createElement(SetPicker, {
     options,
-    componentCallback
+    componentCallback,
+    componentReturn: componentReturn.current
   }));
-  return componentReturn;
+  return componentReturn.current;
 };
 function ListPicker(props) {
   var _props$label = props.label, label = _props$label === void 0 ? "" : _props$label, _props$list = props.list, list = _props$list === void 0 ? [] : _props$list, _props$selectedValue = props.selectedValue, selectedValue = _props$selectedValue === void 0 ? "" : _props$selectedValue, _props$selectedValues = props.selectedValues, selectedValues = _props$selectedValues === void 0 ? [] : _props$selectedValues, _props$onChange = props.onChange, onChange = _props$onChange === void 0 ? function() {

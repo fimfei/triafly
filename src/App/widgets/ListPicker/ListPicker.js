@@ -2,6 +2,7 @@ import React from "react";
 
 import './scss/list-picker.scss';
 import callSetPicker from "../../components/SetPicker/callSetPicker";
+import {SetPicker} from "../../components/SetPicker";
 
 function ListPicker(props) {
     const {
@@ -73,6 +74,7 @@ function ListPicker(props) {
 
     /* eslint-disable */
     React.useEffect(() => {
+/*
         const returnComponent = callSetPicker({
             componentPortalEl: componentRef.current,
             componentCallback,
@@ -93,7 +95,7 @@ function ListPicker(props) {
 */
 
         return () => {
-            returnComponent.removeComponent();
+//            returnComponent.removeComponent();
         }
     }, []);
     /* eslint-enable */
@@ -102,7 +104,13 @@ function ListPicker(props) {
         <div
             className={`setpicker-component-root${extraClass ? ' ' + extraClass : ''}`}
             ref={componentRef}
-        ></div>
+        >
+            <SetPicker
+                options={getOptions()}
+                componentCallback={componentCallback}
+                componentReturn={componentReturn}
+            />
+        </div>
     )
 }
 
