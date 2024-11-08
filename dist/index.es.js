@@ -24341,17 +24341,17 @@ UTILS$1.renderCustomHeader = function(props) {
   var date2 = props.date, changeYear = props.changeYear, changeMonth = props.changeMonth, decreaseMonth = props.decreaseMonth, increaseMonth = props.increaseMonth, prevMonthButtonDisabled = props.prevMonthButtonDisabled, nextMonthButtonDisabled = props.nextMonthButtonDisabled;
   var years2 = UTILS$1.range(1990, getYear(new Date()) + 1, 1);
   var months2 = ["\u042F\u043D\u0432\u0430\u0440\u044C", "\u0424\u0435\u0432\u0440\u0430\u043B\u044C", "\u041C\u0430\u0440\u0442", "\u0410\u043F\u0440\u0435\u043B\u044C", "\u041C\u0430\u0439", "\u0418\u044E\u043D\u044C", "\u0418\u044E\u043B\u044C", "\u0410\u0432\u0433\u0443\u0441\u0442", "\u0421\u0435\u043D\u0442\u044F\u0431\u0440\u044C", "\u041E\u043A\u0442\u044F\u0431\u0440\u044C", "\u041D\u043E\u044F\u0431\u0440\u044C", "\u0414\u0435\u043A\u0430\u0431\u0440\u044C"];
-  return /* @__PURE__ */ React.createElement("div", {
+  return /* @__PURE__ */ React__default.createElement("div", {
     style: {
       margin: 10,
       display: "flex",
       justifyContent: "center"
     }
-  }, /* @__PURE__ */ React.createElement("button", {
+  }, /* @__PURE__ */ React__default.createElement("button", {
     className: "date-arrow-style",
     onClick: decreaseMonth,
     disabled: prevMonthButtonDisabled
-  }, "<"), /* @__PURE__ */ React.createElement("select", {
+  }, "<"), /* @__PURE__ */ React__default.createElement("select", {
     className: "date-select-style",
     value: getYear(date2),
     onChange: function onChange(_ref) {
@@ -24359,11 +24359,11 @@ UTILS$1.renderCustomHeader = function(props) {
       return changeYear(value);
     }
   }, years2.map(function(option) {
-    return /* @__PURE__ */ React.createElement("option", {
+    return /* @__PURE__ */ React__default.createElement("option", {
       key: option,
       value: option
     }, option);
-  })), /* @__PURE__ */ React.createElement("select", {
+  })), /* @__PURE__ */ React__default.createElement("select", {
     className: "date-select-style",
     value: months2[getMonth(date2)],
     onChange: function onChange(_ref2) {
@@ -24371,11 +24371,11 @@ UTILS$1.renderCustomHeader = function(props) {
       return changeMonth(months2.indexOf(value));
     }
   }, months2.map(function(option) {
-    return /* @__PURE__ */ React.createElement("option", {
+    return /* @__PURE__ */ React__default.createElement("option", {
       key: option,
       value: option
     }, option);
-  })), /* @__PURE__ */ React.createElement("button", {
+  })), /* @__PURE__ */ React__default.createElement("button", {
     className: "date-arrow-style",
     onClick: increaseMonth,
     disabled: nextMonthButtonDisabled

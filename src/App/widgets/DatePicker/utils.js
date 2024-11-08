@@ -20,6 +20,8 @@ UTILS.renderCustomHeader = props => {
     const years = UTILS.range(1990, getYear(new Date()) + 1, 1);
     const months = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
 
+    const r = React;
+
     return (
         <div
             style={{
