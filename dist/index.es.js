@@ -14995,20 +14995,19 @@ var TableRowCell = function TableRowCell2(props) {
   }, /* @__PURE__ */ React.createElement(TableRowCellContent, cellData));
 };
 var tableRowCellContent = "";
-var TableRowCellContent = /* @__PURE__ */ React.memo(function(props) {
+var TableRowCellContent = function TableRowCellContent2(props) {
   var _React$useState = React.useState(false), _React$useState2 = _slicedToArray(_React$useState, 2), isEdit = _React$useState2[0], _setIsEdit = _React$useState2[1];
   var aaa = React.useRef(Math.random());
   console.log("+++++++++ TableRowCellContent", isEdit, aaa.current);
+  var onClick = function onClick2() {
+    console.log("onClick");
+    _setIsEdit(!isEdit);
+  };
   return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", {
     className: "unitable-row-cell-value",
-    onClick: function onClick() {
-      _setIsEdit(!isEdit);
-    }
+    onClick
   }, "aaa"));
-}, function(prev, curr) {
-  console.log(prev, curr);
-  return true;
-});
+};
 var tableCellEditor = "";
 var tableCellEditorBool = "";
 var tableCellEditorString = "";
