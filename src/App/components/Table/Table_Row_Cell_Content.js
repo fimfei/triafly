@@ -58,7 +58,7 @@ const TableRowCellContent = React.memo(props => {
         console.log('*** clickToCell')
         if(isTreeCell || !isEditable) return;
         console.log('*** clickToCell 2')
-        utils.setEditableCell({cell, stopEditor, cellRef: cellRef.current});
+//        utils.setEditableCell({cell, stopEditor, cellRef: cellRef.current});
         startEditor();
     }
 
