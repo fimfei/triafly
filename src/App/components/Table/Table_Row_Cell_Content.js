@@ -92,9 +92,9 @@ const TableRowCellContent = props => {
                     onClick={isTreeCell ? null : clickToCell}
                 ></div>
             )}
-            {isEdit && (
+            {/*isEdit && (
                 <TableRowCellContentEditor {...props} stopEditor={stopEditor} />
-            )}
+            )*/}
         </React.Fragment>
     )
 }

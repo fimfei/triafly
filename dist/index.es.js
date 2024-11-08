@@ -25322,10 +25322,10 @@ var TableRowCell = function TableRowCell2(props) {
   var customizer = (columnCustomizer !== null && columnCustomizer !== void 0 && columnCustomizer.length ? columnCustomizer : null) || (commonCustomizer !== null && commonCustomizer !== void 0 && commonCustomizer.length ? commonCustomizer : null);
   var columnView = (_headerEndCell$_3 = headerEndCell._) === null || _headerEndCell$_3 === void 0 ? void 0 : _headerEndCell$_3.view;
   var CellView = cellView || columnView || cellsView;
-  var _useCurrentState = useCurrentState(false), _useCurrentState2 = _slicedToArray(_useCurrentState, 3), hover3 = _useCurrentState2[0], hoverCurrent = _useCurrentState2[1], _setHover = _useCurrentState2[2];
+  var _useCurrentState = useCurrentState(false), _useCurrentState2 = _slicedToArray(_useCurrentState, 3), hover3 = _useCurrentState2[0], hoverCurrent = _useCurrentState2[1];
+  _useCurrentState2[2];
   var setHover = function setHover2(data) {
     console.log("*** setHover", data);
-    _setHover(data);
   };
   var _React$useState = React__default.useState(0), _React$useState2 = _slicedToArray(_React$useState, 2);
   _React$useState2[0];
