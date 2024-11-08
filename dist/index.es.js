@@ -14992,10 +14992,7 @@ var TableRowCell = function TableRowCell2(props) {
     ref: cellRef,
     onMouseEnter,
     onMouseLeave
-  }, /* @__PURE__ */ React.createElement(TableRowCellContent, cellData), hover3 && /* @__PURE__ */ React.createElement("div", {
-    className: "unitable-row-cell unitable-row-cell-test",
-    ref: testRef
-  }, /* @__PURE__ */ React.createElement(TableRowCellContent, cellData)));
+  }, /* @__PURE__ */ React.createElement(TableRowCellContent, cellData));
 };
 var tableRowCellContent = "";
 var TableRowCellContent = function TableRowCellContent2(props) {

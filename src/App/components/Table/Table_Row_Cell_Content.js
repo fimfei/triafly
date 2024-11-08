@@ -7,8 +7,9 @@ import './scss/table-row-cell-content.scss';
 const TableRowCellContent = props => {
 
     const [isEdit,  _setIsEdit] = React.useState(false);
+    const aaa = React.useRef(Math.random())
 
-    console.log('+++++++++ TableRowCellContent', isEdit)
+    console.log('+++++++++ TableRowCellContent', isEdit, aaa.current)
 
     return (
         <React.Fragment>
