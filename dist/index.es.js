@@ -15000,7 +15000,9 @@ var TableRowCell = function TableRowCell2(props) {
 var tableRowCellContent = "";
 var TableRowCellContent = /* @__PURE__ */ React.memo(function(props) {
   var _connector$data$heade, _headerEndCell$_, _connector$editableCe;
-  var connector = props.connector, utils = props.utils, cellIndex = props.cellIndex, rowIndex = props.rowIndex, isTreeCell = props.isTreeCell, isTreeRoot = props.isTreeRoot, rowTreeData = props.rowTreeData;
+  var connector = props.connector;
+  props.utils;
+  var cellIndex = props.cellIndex, rowIndex = props.rowIndex, isTreeCell = props.isTreeCell, isTreeRoot = props.isTreeRoot, rowTreeData = props.rowTreeData;
   props.toggleShowRowTree;
   var cell = props.cell, valueStyle = props.valueStyle, CellView = props.CellView, cellRef = props.cellRef, html = props.html, refreshCell = props.refreshCell;
   connector.onChangeComponentState.onChangeCell;
@@ -15039,11 +15041,6 @@ var TableRowCellContent = /* @__PURE__ */ React.memo(function(props) {
     if (isTreeCell || !isEditable)
       return;
     console.log("*** clickToCell 2");
-    utils.setEditableCell({
-      cell,
-      stopEditor,
-      cellRef: cellRef.current
-    });
     startEditor();
   };
   var old_ = (cell === null || cell === void 0 ? void 0 : cell._) || {};

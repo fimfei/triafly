@@ -73,7 +73,7 @@ const TableRowCellContent = React.memo(props => {
                 className="unitable-row-cell-value"
                 style={valueStyle}
                 dangerouslySetInnerHTML={{__html: html}}
-                onClick={isTreeCell ? null : clickToCell}
+                onClick={clickToCell}
             ></div>
             {/*
             {isTreeCell && (
