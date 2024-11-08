@@ -25473,7 +25473,7 @@ var TableRowCellContent = function TableRowCellContent2(props) {
   var oldValueBeforeEdit = React__default.useRef(null);
   var _useCurrentState = useCurrentState(cell === ((_connector$editableCe = connector.editableCell) === null || _connector$editableCe === void 0 ? void 0 : _connector$editableCe.cell)), _useCurrentState2 = _slicedToArray(_useCurrentState, 3), isEdit = _useCurrentState2[0], isEditCurrent = _useCurrentState2[1], _setIsEdit = _useCurrentState2[2];
   var setIsEdit = function setIsEdit2(data) {
-    console.log("setIsEdit", data);
+    console.log("*** setIsEdit", data);
     _setIsEdit(data);
   };
   var startEditor = function startEditor2() {
@@ -25504,7 +25504,7 @@ var TableRowCellContent = function TableRowCellContent2(props) {
   var clickToCell = function clickToCell2() {
     if (isTreeCell || !isEditable)
       return;
-    console.log("clickToCell");
+    console.log("*** clickToCell");
     utils.setEditableCell({
       cell,
       stopEditor,
@@ -25653,7 +25653,7 @@ var TableCellEditor = function TableCellEditor2(props) {
   var Component2 = editors[(_CONSTANTS$fieldTypes = CONSTANTS.fieldTypesById[fieldTypeId]) === null || _CONSTANTS$fieldTypes === void 0 ? void 0 : _CONSTANTS$fieldTypes.editor] || TableCellEditorString;
   console.log("+++ TableCellEditor");
   var onCellBlur = function onCellBlur2() {
-    console.log("onCellBlur");
+    console.log("*** onCellBlur");
     if (cell._.invalidValueFormat) {
       setTimeout(function() {
       });
@@ -25750,7 +25750,8 @@ var TableCellEditorString = function TableCellEditorString2(props) {
     };
   }, []);
   var stop = function stop2() {
-    return onCellBlur();
+    console.log("*** stop");
+    onCellBlur();
   };
   var checkValid = function checkValid2(value) {
     if (validator) {
@@ -26012,7 +26013,7 @@ var TableRowCellContentEditor = function TableRowCellContentEditor2(props) {
     };
   }, []);
   var clickOutsideThePopup = function clickOutsideThePopup2() {
-    console.log("clickOutsideThePopup");
+    console.log("*** clickOutsideThePopup");
     stopEditor();
     utils.setEditableCell(null);
   };
