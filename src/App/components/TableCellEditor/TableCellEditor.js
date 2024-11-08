@@ -40,7 +40,6 @@ const TableCellEditor = props => {
         document.addEventListener('keydown', checkToEscape);
         return () => {
             document.removeEventListener('keydown', checkToEscape);
-            console.log('--- TableCellEditor')
         }
     }, []);
     /* eslint-enable */
@@ -60,13 +59,11 @@ const TableCellEditor = props => {
     };
 
     const Component = editors[CONSTANTS.fieldTypesById[fieldTypeId]?.editor] || TableCellEditorString;
-    console.log('+++ TableCellEditor')
 
     const onCellBlur = () => {
-        console.log('*** onCellBlur')
         if (cell._.invalidValueFormat) {
             setTimeout(()=> {
-//                COMMUNICATION.notify({isError: true, text: cell._.invalidValueFormat});
+                COMMUNICATION.notify({isError: true, text: cell._.invalidValueFormat});
             })
         }
         cell._.stopEditor();

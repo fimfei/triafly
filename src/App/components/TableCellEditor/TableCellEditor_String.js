@@ -1,7 +1,6 @@
 import React from 'react';
 import {useCurrentState} from "../../hooks";
 
-
 import './scss/table-cell-editor-string.scss';
 
 const TableCellEditorString = props => {
@@ -37,15 +36,11 @@ const TableCellEditorString = props => {
         document.addEventListener('keydown', onKeyUp);
         return () => {
             document.removeEventListener('keydown', onKeyUp);
-            console.log('- TableCellEditorString')
         }
     }, []);
     /* eslint-enable */
 
-    const stop = () => {
-        console.log('*** stop')
-        onCellBlur();
-    }
+    const stop = () => onCellBlur();
 
     const checkValid = value => {
         if (validator) {
@@ -62,8 +57,6 @@ const TableCellEditorString = props => {
         }
     }
     checkValid(valueCurrent.current);
-
-    console.log('+ TableCellEditorString')
 
     return (
         <div className={`tce-string${errorCurrent.current ? ' invalid' : ''}`} ref={inputRef}>

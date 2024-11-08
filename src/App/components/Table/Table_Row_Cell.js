@@ -22,11 +22,7 @@ const TableRowCell = props => {
     const columnView = headerEndCell._?.view;
     const CellView = cellView || columnView || cellsView;
 
-    const [hover, hoverCurrent, _setHover] = useCurrentState(false);
-    const setHover = data => {
-        console.log('*** setHover', data)
-        _setHover(data)
-    }
+    const [hover, hoverCurrent, setHover] = useCurrentState(false);
 
     const [_, setRefresh] = React.useState(0);
     const refresh = () => setRefresh(UTILS.random16());
@@ -36,8 +32,6 @@ const TableRowCell = props => {
         connector.refresh.column[cellIndex] = connector.refresh.column[cellIndex] || [];
         connector.refresh.column[cellIndex].push(refresh);
         setTimeout(refresh, 0);
-
-        return () => console.log('------------ TableRowCell')
     }, []);
     /* eslint-enable */
 
@@ -47,7 +41,6 @@ const TableRowCell = props => {
 
     /* eslint-disable */
     React.useEffect(() => {
-        console.log('*** HOVER ***')
         if(highlightHovered && hoverCurrent.current) utils.setHoveredCell(cellIndex, rowIndex);
 
         if(!showHints || !hoverCurrent.current || !testRef.current) return;
@@ -130,8 +123,6 @@ const TableRowCell = props => {
     let className = `unitable-row-cell${isTreeCell ? ' is-tree-cell' : ''}${isNotFind ? ' is-not-find' : ''}${find ? ' cell-with-search-context' : ''}`;
     if(conditionalClass) className += ' ' + conditionalClass;
     if(cell._?.invalidValueFormat) className += ' invalid-format';
-
-    console.log('++++++++++++ TableRowCell')
 
     return (
         <div

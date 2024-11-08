@@ -16,28 +16,14 @@ const TableRowCellContent = props => {
         isEditable = isEditable     === undefined ? isEditableCommon : isEditable;
 
     const oldValueBeforeEdit = React.useRef(null);
-    const [isEdit, isEditCurrent, _setIsEdit] = useCurrentState(cell === connector.editableCell?.cell);
-    const setIsEdit = data => {
-        console.log('*** setIsEdit', data)
-        _setIsEdit(data)
-    }
+    const [isEdit, isEditCurrent, setIsEdit] = useCurrentState(cell === connector.editableCell?.cell);
 
     const startEditor = () => {
         oldValueBeforeEdit.current = cell.value;
         setIsEdit(true);
     }
 
-    /* eslint-disable */
-    React.useEffect(() => {
-        return () => {
-            console.log('--------- TableRowCellContent')
-        }
-    }, []);
-    /* eslint-enable */
-
     const stopEditor = () => {
-        console.log('*** stopEditor')
-        return
         if(!isEditCurrent.current) return;
 
         if(cell.value !== oldValueBeforeEdit.current) {
@@ -55,15 +41,12 @@ const TableRowCellContent = props => {
 
     const clickToCell = () => {
         if(isTreeCell || !isEditable) return;
-        console.log('*** clickToCell')
         utils.setEditableCell({cell, stopEditor, cellRef: cellRef.current});
         startEditor();
     }
 
     const old_ = cell?._ || {};
     cell._ = {...old_, cellIndex, rowIndex, isTreeCell, isTreeRoot, rowTreeData, wrapperRefCurrent: cellRef, refreshCell, stopEditor};
-
-    console.log('+++++++++ TableRowCellContent', isEdit)
 
     return (
         <React.Fragment>

@@ -9,17 +9,7 @@ const TableRowCellContentEditor = props => {
     const {editors = {}} = connector;
     const {cellEditor = 'internal'} = editors;
 
-    /* eslint-disable */
-    React.useEffect(() => {
-        return () => {
-            console.log('------ TableRowCellContentEditor')
-            stopEditor();
-        }
-    }, []);
-    /* eslint-enable */
-
     const clickOutsideThePopup = () => {
-        console.log('*** clickOutsideThePopup')
         stopEditor();
         utils.setEditableCell(null);
     };
@@ -27,8 +17,6 @@ const TableRowCellContentEditor = props => {
     const Editor = typeof cellEditor === 'function' ? cellEditor : (cellEditor === 'TableCellEditor' ? TableCellEditor : InternalTableCellEditor);
 
     cell._.popupData = {};
-
-    console.log('++++++ TableRowCellContentEditor')
 
     return (
         <Popup
