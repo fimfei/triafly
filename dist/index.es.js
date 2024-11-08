@@ -14992,7 +14992,7 @@ var TableRowCell = function TableRowCell2(props) {
     ref: cellRef,
     onMouseEnter,
     onMouseLeave
-  }, /* @__PURE__ */ React.createElement(TableRowCellContent, cellData), hover3 && /* @__PURE__ */ React.createElement("div", {
+  }, /* @__PURE__ */ React.createElement(React.StrictMode, null, /* @__PURE__ */ React.createElement(TableRowCellContent, cellData)), hover3 && /* @__PURE__ */ React.createElement("div", {
     className: "unitable-row-cell unitable-row-cell-test",
     ref: testRef
   }, /* @__PURE__ */ React.createElement(TableRowCellContent, cellData)));
@@ -15061,7 +15061,7 @@ var TableRowCellContent = /* @__PURE__ */ React.memo(function(props) {
     dangerouslySetInnerHTML: {
       __html: html
     },
-    onClick: isTreeCell ? null : clickToCell
+    onClick: clickToCell
   }));
 });
 var tableCellEditor = "";

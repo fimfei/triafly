@@ -141,9 +141,7 @@ const TableRowCell = props => {
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
         >
-            <React.StrictMode>
-                <TableRowCellContent {...cellData} />
-            </React.StrictMode>
+            <TableRowCellContent {...cellData} />
             {hover && (
                 <div
                     className={`unitable-row-cell unitable-row-cell-test`}

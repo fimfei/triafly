@@ -107,6 +107,6 @@ const TableRowCellContent = React.memo(props => {
             )*/}
         </React.Fragment>
     )
-});
+}, () => true);
 
 export default TableRowCellContent;
