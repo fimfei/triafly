@@ -15018,9 +15018,7 @@ var TableRowCellContent = function TableRowCellContent2(props) {
   var _connector$commonForB = connector.commonForBody, commonForBody = _connector$commonForB === void 0 ? {} : _connector$commonForB;
   cell.isEditable;
   commonForBody.isEditable;
-  var _useCurrentState = useCurrentState(false), _useCurrentState2 = _slicedToArray(_useCurrentState, 3), isEdit = _useCurrentState2[0];
-  _useCurrentState2[1];
-  var _setIsEdit = _useCurrentState2[2];
+  var _React$useState = React.useState(false), _React$useState2 = _slicedToArray(_React$useState, 2), isEdit = _React$useState2[0], _setIsEdit = _React$useState2[1];
   console.log("+++++++++ TableRowCellContent", isEdit, cell);
   return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", {
     className: "unitable-row-cell-value",

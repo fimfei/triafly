@@ -5,19 +5,16 @@ import {TableRowCellContentEditor} from "./";
 import './scss/table-row-cell-content.scss';
 
 const TableRowCellContent = props => {
-    const {connector, utils, cellIndex, rowIndex, isTreeCell, isTreeRoot, rowTreeData, toggleShowRowTree, cell, valueStyle, CellView, cellRef, html, refreshCell,} = props;
-    const {onChangeComponentState: {onChangeCell = () => {}}, rowsTree, commonForBody = {}} = connector;
-    const {isEditable: isEditableCell} = cell;
-    const {isEditable: isEditableCommon = false} = commonForBody;
+
     const [isEdit,  _setIsEdit] = React.useState(false);
 
-    console.log('+++++++++ TableRowCellContent', isEdit, cell)
+    console.log('+++++++++ TableRowCellContent', isEdit)
 
     return (
         <React.Fragment>
             <div
                 className="unitable-row-cell-value"
-                dangerouslySetInnerHTML={{__html: html}}
+                dangerouslySetInnerHTML={{__html: 'aaa'}}
                 onClick={() => {_setIsEdit(true)}}
             ></div>
             {/*
