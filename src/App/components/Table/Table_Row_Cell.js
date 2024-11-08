@@ -24,8 +24,8 @@ const TableRowCell = props => {
 
     const [hover, hoverCurrent, _setHover] = useCurrentState(false);
     const setHover = data => {
-//        console.log('*** setHover', data)
-//        _setHover(data)
+        console.log('*** setHover', data)
+        _setHover(data)
     }
 
     const [_, setRefresh] = React.useState(0);
@@ -142,6 +142,14 @@ const TableRowCell = props => {
             onMouseLeave={onMouseLeave}
         >
             <TableRowCellContent {...cellData} />
+            {/*hover && (
+                <div
+                    className={`unitable-row-cell unitable-row-cell-test`}
+                    ref={testRef}
+                >
+                    <TableRowCellContent {...cellData} />
+                </div>
+            )*/}
         </div>
     )
 }
