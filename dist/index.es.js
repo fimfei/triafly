@@ -14999,31 +14999,12 @@ var TableRowCell = function TableRowCell2(props) {
 };
 var tableRowCellContent = "";
 var TableRowCellContent = function TableRowCellContent2(props) {
-  var connector = props.connector;
-  props.utils;
-  props.cellIndex;
-  props.rowIndex;
-  props.isTreeCell;
-  props.isTreeRoot;
-  props.rowTreeData;
-  props.toggleShowRowTree;
-  var cell = props.cell;
-  props.valueStyle;
-  props.CellView;
-  props.cellRef;
-  var html = props.html;
-  props.refreshCell;
-  connector.onChangeComponentState.onChangeCell;
-  connector.rowsTree;
-  var _connector$commonForB = connector.commonForBody, commonForBody = _connector$commonForB === void 0 ? {} : _connector$commonForB;
-  cell.isEditable;
-  commonForBody.isEditable;
   var _React$useState = React.useState(false), _React$useState2 = _slicedToArray(_React$useState, 2), isEdit = _React$useState2[0], _setIsEdit = _React$useState2[1];
-  console.log("+++++++++ TableRowCellContent", isEdit, cell);
+  console.log("+++++++++ TableRowCellContent", isEdit);
   return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", {
     className: "unitable-row-cell-value",
     dangerouslySetInnerHTML: {
-      __html: html
+      __html: "aaa"
     },
     onClick: function onClick() {
       _setIsEdit(true);
