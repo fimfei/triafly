@@ -15004,13 +15004,10 @@ var TableRowCellContent = function TableRowCellContent2(props) {
   console.log("+++++++++ TableRowCellContent", isEdit, aaa.current);
   return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", {
     className: "unitable-row-cell-value",
-    dangerouslySetInnerHTML: {
-      __html: "aaa"
-    },
     onClick: function onClick() {
-      _setIsEdit(true);
+      _setIsEdit(!isEdit);
     }
-  }));
+  }, "aaa"));
 };
 var tableCellEditor = "";
 var tableCellEditorBool = "";
