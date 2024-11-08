@@ -16,7 +16,12 @@ const TableRowCellContent = props => {
         isEditable = isEditable     === undefined ? isEditableCommon : isEditable;
 
     const oldValueBeforeEdit = React.useRef(null);
-    const [isEdit, isEditCurrent, setIsEdit] = useCurrentState(cell === connector.editableCell?.cell);
+    const [isEdit, isEditCurrent, _setIsEdit] = useCurrentState(cell === connector.editableCell?.cell);
+    const setIsEdit = data => {
+        console.log('setIsEdit', data)
+        _setIsEdit(data)
+    }
+
     const startEditor = () => {
         oldValueBeforeEdit.current = cell.value;
         setIsEdit(true);
@@ -57,7 +62,7 @@ const TableRowCellContent = props => {
     const old_ = cell?._ || {};
     cell._ = {...old_, cellIndex, rowIndex, isTreeCell, isTreeRoot, rowTreeData, wrapperRefCurrent: cellRef, refreshCell, stopEditor};
 
-    console.log('+++++++++ TableRowCellContent')
+    console.log('+++++++++ TableRowCellContent', isEdit)
 
     return (
         <React.Fragment>

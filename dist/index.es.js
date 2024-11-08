@@ -25377,6 +25377,9 @@ var TableRowCell = function TableRowCell2(props) {
     connector.refresh.column[cellIndex] = connector.refresh.column[cellIndex] || [];
     connector.refresh.column[cellIndex].push(refresh);
     setTimeout(refresh, 0);
+    return function() {
+      return console.log("------------ TableRowCell");
+    };
   }, []);
   var cellRef = React__default.useRef(null);
   var testRef = React__default.useRef(null);
@@ -25487,6 +25490,7 @@ var TableRowCell = function TableRowCell2(props) {
     className += " " + conditionalClass;
   if ((_cell$_ = cell._) !== null && _cell$_ !== void 0 && _cell$_.invalidValueFormat)
     className += " invalid-format";
+  console.log("++++++++++++ TableRowCell");
   return /* @__PURE__ */ React__default.createElement("div", {
     className,
     style: _objectSpread2(_objectSpread2(_objectSpread2(_objectSpread2({}, commonCSS), style), css), conditionalCss),

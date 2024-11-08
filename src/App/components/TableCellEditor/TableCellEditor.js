@@ -66,7 +66,7 @@ const TableCellEditor = props => {
         console.log('onCellBlur')
         if (cell._.invalidValueFormat) {
             setTimeout(()=> {
-                COMMUNICATION.notify({isError: true, text: cell._.invalidValueFormat});
+//                COMMUNICATION.notify({isError: true, text: cell._.invalidValueFormat});
             })
         }
         cell._.stopEditor();
