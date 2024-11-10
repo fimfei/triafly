@@ -20912,6 +20912,9 @@ var SetPicker = function SetPicker2(_ref) {
   options.hideCountersBar;
   options.ItemViewName;
   console.log("SetPicker", props);
+  if (Store$1.getState(currentListName) !== listName) {
+    Store$1.setState(currentListName, listName);
+  }
   if (!listName)
     console.error("!!! \u0412\u041D\u0418\u041C\u0410\u041D\u0418\u0415 !!! \u041D\u0435 \u043D\u0430\u0437\u043D\u0430\u0447\u0435\u043D\u043E \u0443\u043D\u0438\u043A\u0430\u043B\u044C\u043D\u043E\u0435 \u0438\u043C\u044F \u0441\u043F\u0438\u0441\u043A\u0430 \u0434\u043B\u044F \u0441\u0435\u0442\u043F\u0438\u043A\u0435\u0440\u0430 - \u0432\u043E\u0437\u043C\u043E\u0436\u043D\u0430 \u043F\u0443\u0442\u0430\u043D\u0438\u0446\u0430 \u0432 \u0434\u0430\u043D\u043D\u044B\u0445!!!");
   var utilsCurrent = React__default.useRef(new Utils$1({
@@ -20924,6 +20927,10 @@ var SetPicker = function SetPicker2(_ref) {
   var d = CONSTANTS_SETPICKER.pagesData(listName);
   console.log("d", d);
   var s = Store$1.getState(d);
+  if (!s) {
+    Store$1.setState(d, {});
+    s = Store$1.getState(d);
+  }
   console.log("s", s);
   var j = toJS(s);
   console.log("j", j);

@@ -36,11 +36,6 @@ const SetPicker = ({...props}) => {
     } = options;
     console.log('SetPicker', props)
 
-    if(Store.getState(currentListName) !== listName) {
-        Store.setState(currentListName, listName);
-    }
-
-
     if(!listName) console.error('!!! ВНИМАНИЕ !!! Не назначено уникальное имя списка для сетпикера - возможна путаница в данных!!!');
 
     const utilsCurrent = React.useRef(new Utils({finalList}));
