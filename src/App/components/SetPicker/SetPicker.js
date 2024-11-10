@@ -36,6 +36,35 @@ const SetPicker = ({...props}) => {
     } = options;
     console.log('SetPicker', props)
 
+    /********************************************************************************************************************/
+    /********************************************************************************************************************/
+    /********************************************************************************************************************/
+
+
+    const currentListName = CONSTANTS_SETPICKER.currentListName();
+    if(Store.getState(currentListName) !== listName) {
+        Store.setState(currentListName, listName);
+    }
+
+    const setpickerCommonStates = CONSTANTS_SETPICKER.commonStates();
+    if(!toJS(Store.getState(setpickerCommonStates))) {
+        Store.createStore(setpickerCommonStates, {...CONSTANTS_SETPICKER.initCommonStates})
+    }
+
+    const setpickerPagesData = CONSTANTS_SETPICKER.pagesData(listName);
+    const setpickerStates = CONSTANTS_SETPICKER.states(listName);
+    if(!toJS(Store.getState(setpickerPagesData))) {
+        Store.createStore(setpickerPagesData, {})
+        Store.createStore(setpickerStates, {...CONSTANTS_SETPICKER.initStates})
+    }
+
+    Store.setState(CONSTANTS_SETPICKER.currentListName(), listName);
+    Store.updateState(CONSTANTS_SETPICKER.listNams(), {[listName]: true});
+
+    /********************************************************************************************************************/
+    /********************************************************************************************************************/
+    /********************************************************************************************************************/
+
     if(!listName) console.error('!!! ВНИМАНИЕ !!! Не назначено уникальное имя списка для сетпикера - возможна путаница в данных!!!');
 
     const utilsCurrent = React.useRef(new Utils({finalList}));
@@ -45,20 +74,7 @@ const SetPicker = ({...props}) => {
 
     const operationCodes = CONFIG_SETPICKER.operationCodes;
 
-//    const pages = React.useRef(toJS(Store.getState(CONSTANTS_SETPICKER.pagesData(listName))));     // страницы (блоки) и доп.информация, полученные с сервера
-    const d = CONSTANTS_SETPICKER.pagesData(listName)
-    console.log('d', d)
-    let s = Store.getState(d)
-    if(!s) {
-        Store.setState(d, {});
-        s = Store.getState(d);
-    }
-    console.log('s', s)
-    const j = toJS(s)
-    console.log('j', j)
-    const pages = React.useRef(j)
-    console.log('--------- PAGES ------>', pages)
-
+    const pages = React.useRef(toJS(Store.getState(CONSTANTS_SETPICKER.pagesData(listName))));     // страницы (блоки) и доп.информация, полученные с сервера
     const changeTimeoutId = React.useRef(null);            // id таймаута смены состояния list
     const requestedPages = React.useRef({});               // pageIndex осуществляемых в данный момент запросов на сервер
     const scrollData = React.useRef({});                   // current стейта скроллбара
