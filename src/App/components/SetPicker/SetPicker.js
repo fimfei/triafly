@@ -17,6 +17,7 @@ const SetPicker = ({...props}) => {
         setPickerConnector,
         componentCallback,
         componentReturn,
+        initStore,                                         // надо ли инициализировать хранилище (надо если вызов напрямую, не через createComponent
     } = props;
     const {
         listName,                                          // произвольное уникальное имя списка без пробелов('reportsList', ''... - см. store.js)
@@ -34,36 +35,28 @@ const SetPicker = ({...props}) => {
         hideCountersBar,                                   // скрывать строку со счётчиками
         ItemViewName,                                      // внешняя вьюха имени в строке
     } = options;
-    console.log('SetPicker', props)
 
-    /********************************************************************************************************************/
-    /********************************************************************************************************************/
-    /********************************************************************************************************************/
+    const _ = React.useRef(initStore ? (() => {
+        const currentListName = CONSTANTS_SETPICKER.currentListName();
+        if(Store.getState(currentListName) !== listName) {
+            Store.setState(currentListName, listName);
+        }
 
+        const setpickerCommonStates = CONSTANTS_SETPICKER.commonStates();
+        if(!toJS(Store.getState(setpickerCommonStates))) {
+            Store.createStore(setpickerCommonStates, {...CONSTANTS_SETPICKER.initCommonStates})
+        }
 
-    const currentListName = CONSTANTS_SETPICKER.currentListName();
-    if(Store.getState(currentListName) !== listName) {
-        Store.setState(currentListName, listName);
-    }
+        const setpickerPagesData = CONSTANTS_SETPICKER.pagesData(listName);
+        const setpickerStates = CONSTANTS_SETPICKER.states(listName);
+        if(!toJS(Store.getState(setpickerPagesData))) {
+            Store.createStore(setpickerPagesData, {})
+            Store.createStore(setpickerStates, {...CONSTANTS_SETPICKER.initStates})
+        }
 
-    const setpickerCommonStates = CONSTANTS_SETPICKER.commonStates();
-    if(!toJS(Store.getState(setpickerCommonStates))) {
-        Store.createStore(setpickerCommonStates, {...CONSTANTS_SETPICKER.initCommonStates})
-    }
-
-    const setpickerPagesData = CONSTANTS_SETPICKER.pagesData(listName);
-    const setpickerStates = CONSTANTS_SETPICKER.states(listName);
-    if(!toJS(Store.getState(setpickerPagesData))) {
-        Store.createStore(setpickerPagesData, {})
-        Store.createStore(setpickerStates, {...CONSTANTS_SETPICKER.initStates})
-    }
-
-    Store.setState(CONSTANTS_SETPICKER.currentListName(), listName);
-    Store.updateState(CONSTANTS_SETPICKER.listNams(), {[listName]: true});
-
-    /********************************************************************************************************************/
-    /********************************************************************************************************************/
-    /********************************************************************************************************************/
+        Store.setState(CONSTANTS_SETPICKER.currentListName(), listName);
+        Store.updateState(CONSTANTS_SETPICKER.listNams(), {[listName]: true});
+    })() : null);
 
     if(!listName) console.error('!!! ВНИМАНИЕ !!! Не назначено уникальное имя списка для сетпикера - возможна путаница в данных!!!');
 

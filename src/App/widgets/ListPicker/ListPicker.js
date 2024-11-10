@@ -114,6 +114,7 @@ function ListPicker(props) {
                 componentCallback={componentCallback}
                 componentReturn={componentReturn.current}
                 setPickerConnector={setPickerConnector.current}
+                initStore={true}
             />
         </div>
     )

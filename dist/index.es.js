@@ -20912,6 +20912,22 @@ var SetPicker = function SetPicker2(_ref) {
   options.hideCountersBar;
   options.ItemViewName;
   console.log("SetPicker", props);
+  var currentListName = CONSTANTS_SETPICKER.currentListName();
+  if (Store$1.getState(currentListName) !== listName) {
+    Store$1.setState(currentListName, listName);
+  }
+  var setpickerCommonStates = CONSTANTS_SETPICKER.commonStates();
+  if (!toJS(Store$1.getState(setpickerCommonStates))) {
+    Store$1.createStore(setpickerCommonStates, _objectSpread2({}, CONSTANTS_SETPICKER.initCommonStates));
+  }
+  var setpickerPagesData = CONSTANTS_SETPICKER.pagesData(listName);
+  var setpickerStates = CONSTANTS_SETPICKER.states(listName);
+  if (!toJS(Store$1.getState(setpickerPagesData))) {
+    Store$1.createStore(setpickerPagesData, {});
+    Store$1.createStore(setpickerStates, _objectSpread2({}, CONSTANTS_SETPICKER.initStates));
+  }
+  Store$1.setState(CONSTANTS_SETPICKER.currentListName(), listName);
+  Store$1.updateState(CONSTANTS_SETPICKER.listNams(), _defineProperty$7({}, listName, true));
   if (!listName)
     console.error("!!! \u0412\u041D\u0418\u041C\u0410\u041D\u0418\u0415 !!! \u041D\u0435 \u043D\u0430\u0437\u043D\u0430\u0447\u0435\u043D\u043E \u0443\u043D\u0438\u043A\u0430\u043B\u044C\u043D\u043E\u0435 \u0438\u043C\u044F \u0441\u043F\u0438\u0441\u043A\u0430 \u0434\u043B\u044F \u0441\u0435\u0442\u043F\u0438\u043A\u0435\u0440\u0430 - \u0432\u043E\u0437\u043C\u043E\u0436\u043D\u0430 \u043F\u0443\u0442\u0430\u043D\u0438\u0446\u0430 \u0432 \u0434\u0430\u043D\u043D\u044B\u0445!!!");
   var utilsCurrent = React__default.useRef(new Utils$1({
@@ -20921,18 +20937,7 @@ var SetPicker = function SetPicker2(_ref) {
   if (listBlockLength)
     CONFIG_API.listBlockLength = listBlockLength;
   var operationCodes = CONFIG_SETPICKER.operationCodes;
-  var d = CONSTANTS_SETPICKER.pagesData(listName);
-  console.log("d", d);
-  var s = Store$1.getState(d);
-  if (!s) {
-    Store$1.setState(d, {});
-    s = Store$1.getState(d);
-  }
-  console.log("s", s);
-  var j = toJS(s);
-  console.log("j", j);
-  var pages = React__default.useRef(j);
-  console.log("--------- PAGES ------>", pages);
+  var pages = React__default.useRef(toJS(Store$1.getState(CONSTANTS_SETPICKER.pagesData(listName))));
   var changeTimeoutId = React__default.useRef(null);
   var requestedPages = React__default.useRef({});
   var scrollData = React__default.useRef({});
