@@ -20905,7 +20905,7 @@ var SetPicker = function SetPicker2(_ref) {
   var props = _extends$h({}, (_objectDestructuringEmpty(_ref), _ref));
   var options = props.options, setPickerConnector = props.setPickerConnector;
   props.removeComponent;
-  var componentCallback = props.componentCallback, componentReturn2 = props.componentReturn;
+  var componentCallback = props.componentCallback, componentReturn = props.componentReturn;
   var listName = options.listName, request2 = options.request, finalList = options.finalList;
   options.unavailableItemsList;
   var _options$singleChoice = options.singleChoiceOnly, singleChoiceOnly = _options$singleChoice === void 0 ? true : _options$singleChoice;
@@ -21131,7 +21131,7 @@ var SetPicker = function SetPicker2(_ref) {
       setSelected();
       showSelectedCounts();
     };
-    componentReturn2.getMainStates = function() {
+    componentReturn.getMainStates = function() {
       return {
         searchContext: currentSearchContext.current
       };
@@ -21775,7 +21775,7 @@ var ScrollbarContainerAll = function ScrollbarContainerAll2(_ref4) {
 };
 var SetPickerSmartListBody = function SetPickerSmartListBody2(_ref) {
   var props = _extends$h({}, (_objectDestructuringEmpty(_ref), _ref));
-  var options = props.options, componentReturn2 = props.componentReturn;
+  var options = props.options, componentReturn = props.componentReturn;
   var strHeight = options.strHeight;
   var bodyRef = React__default.useRef(null);
   var _React$useState = React__default.useState(0), _React$useState2 = _slicedToArray(_React$useState, 2), listHeight = _React$useState2[0], setListHeight = _React$useState2[1];
@@ -21784,7 +21784,7 @@ var SetPickerSmartListBody = function SetPickerSmartListBody2(_ref) {
     setListHeight(Math.floor(heightPX / strHeight));
   };
   React__default.useEffect(function() {
-    componentReturn2.onResize = calcListHeight;
+    componentReturn.onResize = calcListHeight;
     calcListHeight();
   }, []);
   return /* @__PURE__ */ React__default.createElement(React__default.Fragment, null, /* @__PURE__ */ React__default.createElement("div", {
@@ -23004,13 +23004,14 @@ function ListPicker(props) {
     return function() {
     };
   }, []);
+  var componentReturn = React__default.useRef({});
   return /* @__PURE__ */ React__default.createElement("div", {
     className: "setpicker-component-root".concat(extraClass ? " " + extraClass : ""),
     ref: componentRef
   }, /* @__PURE__ */ React__default.createElement(SetPicker, {
     options: getOptions(),
     componentCallback,
-    componentReturn
+    componentReturn: componentReturn.current
   }));
 }
 var elementsPickerHeader = "";

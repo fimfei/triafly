@@ -15,7 +15,6 @@ const SetPicker = ({...props}) => {
     const {
         options,
         setPickerConnector,
-        removeComponent,
         componentCallback,
         componentReturn,
     } = props;
