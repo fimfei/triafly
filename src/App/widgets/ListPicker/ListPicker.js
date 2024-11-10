@@ -102,6 +102,7 @@ function ListPicker(props) {
     /* eslint-enable */
 
     const componentReturn = React.useRef({});
+    const setPickerConnector = React.useRef({});
 
     return (
         <div
@@ -112,6 +113,7 @@ function ListPicker(props) {
                 options={getOptions()}
                 componentCallback={componentCallback}
                 componentReturn={componentReturn.current}
+                setPickerConnector={setPickerConnector.current}
             />
         </div>
     )
