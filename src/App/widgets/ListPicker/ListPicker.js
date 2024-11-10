@@ -82,7 +82,7 @@ function ListPicker(props) {
             options: getOptions(),
         })
 */
-
+/*
         const returnComponent = window.NetDB.namespace('react').createComponent({
             componentName: 'SetPicker',
             componentID: '',
@@ -93,22 +93,15 @@ function ListPicker(props) {
             componentCallback,
             options: getOptions(),
         });
-
+*/
 
         return () => {
-            returnComponent.removeComponent();
+//            returnComponent.removeComponent();
         }
     }, []);
     /* eslint-enable */
 
     const componentReturn = React.useRef({});
-
-    return (
-        <div
-            className={`setpicker-component-root${extraClass ? ' ' + extraClass : ''}`}
-            ref={componentRef}
-        ></div>
-    )
 
     return (
         <div
