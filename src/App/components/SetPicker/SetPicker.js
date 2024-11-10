@@ -34,6 +34,7 @@ const SetPicker = ({...props}) => {
         hideCountersBar,                                   // скрывать строку со счётчиками
         ItemViewName,                                      // внешняя вьюха имени в строке
     } = options;
+    console.log('SetPicker', props)
 
     if(!listName) console.error('!!! ВНИМАНИЕ !!! Не назначено уникальное имя списка для сетпикера - возможна путаница в данных!!!');
 

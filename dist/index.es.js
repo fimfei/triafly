@@ -13887,7 +13887,7 @@ var popup = "";
 function Popup(props) {
   var children = props.children, initiator = props.initiator, _props$style = props.style, style = _props$style === void 0 ? {} : _props$style, minWidth = props.minWidth, minHeight = props.minHeight, maxWidth = props.maxWidth, maxHeight = props.maxHeight, _props$extraClass = props.extraClass, extraClass = _props$extraClass === void 0 ? "" : _props$extraClass, _props$onOutsideClick = props.onOutsideClick, onOutsideClick = _props$onOutsideClick === void 0 ? function() {
   } : _props$onOutsideClick, _props$notResize = props.notResize, notResize = _props$notResize === void 0 ? false : _props$notResize, _props$answer = props.answer, answer = _props$answer === void 0 ? {} : _props$answer;
-  var utilsCurrent = React__default.useRef(new Utils$2({
+  var utilsCurrent = React__default.useRef(new Utils$1({
     props
   }));
   var utils2 = utilsCurrent.current;
@@ -13965,7 +13965,7 @@ function Corner(props) {
     onMouseDown: utils2.cornerStart.bind(utils2)
   });
 }
-var Utils$2 = /* @__PURE__ */ function() {
+var Utils$1 = /* @__PURE__ */ function() {
   function Utils2(_ref) {
     var props = _ref.props;
     _classCallCheck$a(this, Utils2);
@@ -16093,33 +16093,33 @@ function autorun(view, opts) {
   }
   var name = (_opts$name = (_opts = opts) == null ? void 0 : _opts.name) != null ? _opts$name : "Autorun";
   var runSync = !opts.scheduler && !opts.delay;
-  var reaction2;
+  var reaction;
   if (runSync) {
-    reaction2 = new Reaction(name, function() {
+    reaction = new Reaction(name, function() {
       this.track(reactionRunner);
     }, opts.onError, opts.requiresObservable);
   } else {
     var scheduler = createSchedulerFromOptions(opts);
     var isScheduled = false;
-    reaction2 = new Reaction(name, function() {
+    reaction = new Reaction(name, function() {
       if (!isScheduled) {
         isScheduled = true;
         scheduler(function() {
           isScheduled = false;
-          if (!reaction2.isDisposed) {
-            reaction2.track(reactionRunner);
+          if (!reaction.isDisposed) {
+            reaction.track(reactionRunner);
           }
         });
       }
     }, opts.onError, opts.requiresObservable);
   }
   function reactionRunner() {
-    view(reaction2);
+    view(reaction);
   }
   if (!((_opts2 = opts) != null && (_opts2 = _opts2.signal) != null && _opts2.aborted)) {
-    reaction2.schedule_();
+    reaction.schedule_();
   }
-  return reaction2.getDisposer_((_opts3 = opts) == null ? void 0 : _opts3.signal);
+  return reaction.getDisposer_((_opts3 = opts) == null ? void 0 : _opts3.signal);
 }
 var run = function run2(f2) {
   return f2();
@@ -16128,62 +16128,6 @@ function createSchedulerFromOptions(opts) {
   return opts.scheduler ? opts.scheduler : opts.delay ? function(f2) {
     return setTimeout(f2, opts.delay);
   } : run;
-}
-function reaction(expression, effect, opts) {
-  var _opts$name2, _opts4, _opts5;
-  if (opts === void 0) {
-    opts = EMPTY_OBJECT;
-  }
-  var name = (_opts$name2 = opts.name) != null ? _opts$name2 : "Reaction";
-  var effectAction = action(name, opts.onError ? wrapErrorHandler(opts.onError, effect) : effect);
-  var runSync = !opts.scheduler && !opts.delay;
-  var scheduler = createSchedulerFromOptions(opts);
-  var firstTime = true;
-  var isScheduled = false;
-  var value;
-  var equals = opts.compareStructural ? comparer.structural : opts.equals || comparer["default"];
-  var r2 = new Reaction(name, function() {
-    if (firstTime || runSync) {
-      reactionRunner();
-    } else if (!isScheduled) {
-      isScheduled = true;
-      scheduler(reactionRunner);
-    }
-  }, opts.onError, opts.requiresObservable);
-  function reactionRunner() {
-    isScheduled = false;
-    if (r2.isDisposed) {
-      return;
-    }
-    var changed = false;
-    var oldValue = value;
-    r2.track(function() {
-      var nextValue = allowStateChanges(false, function() {
-        return expression(r2);
-      });
-      changed = firstTime || !equals(value, nextValue);
-      value = nextValue;
-    });
-    if (firstTime && opts.fireImmediately) {
-      effectAction(value, oldValue, r2);
-    } else if (!firstTime && changed) {
-      effectAction(value, oldValue, r2);
-    }
-    firstTime = false;
-  }
-  if (!((_opts4 = opts) != null && (_opts4 = _opts4.signal) != null && _opts4.aborted)) {
-    r2.schedule_();
-  }
-  return r2.getDisposer_((_opts5 = opts) == null ? void 0 : _opts5.signal);
-}
-function wrapErrorHandler(errorHandler, baseFn) {
-  return function() {
-    try {
-      return baseFn.apply(this, arguments);
-    } catch (e) {
-      errorHandler.call(this, e);
-    }
-  };
 }
 var ON_BECOME_OBSERVED = "onBO";
 var ON_BECOME_UNOBSERVED = "onBUO";
@@ -18758,7 +18702,7 @@ var utils$1 = {
   setImmediate: _setImmediate,
   asap: asap$1
 };
-function AxiosError(message2, code, config, request2, response) {
+function AxiosError(message2, code, config, request, response) {
   Error.call(this);
   if (Error.captureStackTrace) {
     Error.captureStackTrace(this, this.constructor);
@@ -18769,7 +18713,7 @@ function AxiosError(message2, code, config, request2, response) {
   this.name = "AxiosError";
   code && (this.code = code);
   config && (this.config = config);
-  request2 && (this.request = request2);
+  request && (this.request = request);
   if (response) {
     this.response = response;
     this.status = response.status ? response.status : null;
@@ -18812,14 +18756,14 @@ const descriptors = {};
 });
 Object.defineProperties(AxiosError, descriptors);
 Object.defineProperty(prototype$1, "isAxiosError", { value: true });
-AxiosError.from = (error, code, config, request2, response, customProps) => {
+AxiosError.from = (error, code, config, request, response, customProps) => {
   const axiosError = Object.create(prototype$1);
   utils$1.toFlatObject(error, axiosError, function filter2(obj) {
     return obj !== Error.prototype;
   }, (prop) => {
     return prop !== "isAxiosError";
   });
-  AxiosError.call(axiosError, error.message, code, config, request2, response);
+  AxiosError.call(axiosError, error.message, code, config, request, response);
   axiosError.cause = error;
   axiosError.name = error.name;
   customProps && Object.assign(axiosError, customProps);
@@ -18970,9 +18914,9 @@ prototype.toString = function toString3(encoder) {
 function encode(val) {
   return encodeURIComponent(val).replace(/%3A/gi, ":").replace(/%24/g, "$").replace(/%2C/gi, ",").replace(/%20/g, "+").replace(/%5B/gi, "[").replace(/%5D/gi, "]");
 }
-function buildURL(url2, params, options) {
+function buildURL(url, params, options) {
   if (!params) {
-    return url2;
+    return url;
   }
   const _encode = options && options.encode || encode;
   const serializeFn = options && options.serialize;
@@ -18983,13 +18927,13 @@ function buildURL(url2, params, options) {
     serializedParams = utils$1.isURLSearchParams(params) ? params.toString() : new AxiosURLSearchParams(params, options).toString(_encode);
   }
   if (serializedParams) {
-    const hashmarkIndex = url2.indexOf("#");
+    const hashmarkIndex = url.indexOf("#");
     if (hashmarkIndex !== -1) {
-      url2 = url2.slice(0, hashmarkIndex);
+      url = url.slice(0, hashmarkIndex);
     }
-    url2 += (url2.indexOf("?") === -1 ? "?" : "&") + serializedParams;
+    url += (url.indexOf("?") === -1 ? "?" : "&") + serializedParams;
   }
-  return url2;
+  return url;
 }
 class InterceptorManager {
   constructor() {
@@ -19501,8 +19445,8 @@ function transformData(fns, response) {
 function isCancel(value) {
   return !!(value && value.__CANCEL__);
 }
-function CanceledError(message2, config, request2) {
-  AxiosError.call(this, message2 == null ? "canceled" : message2, AxiosError.ERR_CANCELED, config, request2);
+function CanceledError(message2, config, request) {
+  AxiosError.call(this, message2 == null ? "canceled" : message2, AxiosError.ERR_CANCELED, config, request);
   this.name = "CanceledError";
 }
 utils$1.inherits(CanceledError, AxiosError, {
@@ -19522,8 +19466,8 @@ function settle(resolve, reject, response) {
     ));
   }
 }
-function parseProtocol(url2) {
-  const match5 = /^([-+\w]{1,25})(:?\/\/|:)/.exec(url2);
+function parseProtocol(url) {
+  const match5 = /^([-+\w]{1,25})(:?\/\/|:)/.exec(url);
   return match5 && match5[1] || "";
 }
 function speedometer(samplesCount, min2) {
@@ -19628,8 +19572,8 @@ var isURLSameOrigin = platform$1.hasStandardBrowserEnv ? function standardBrowse
   const msie = platform$1.navigator && /(msie|trident)/i.test(platform$1.navigator.userAgent);
   const urlParsingNode = document.createElement("a");
   let originURL;
-  function resolveURL(url2) {
-    let href = url2;
+  function resolveURL(url) {
+    let href = url;
     if (msie) {
       urlParsingNode.setAttribute("href", href);
       href = urlParsingNode.href;
@@ -19681,8 +19625,8 @@ var cookies = platform$1.hasStandardBrowserEnv ? {
   remove() {
   }
 };
-function isAbsoluteURL(url2) {
-  return /^([a-z][a-z\d+\-.]*:)?\/\//i.test(url2);
+function isAbsoluteURL(url) {
+  return /^([a-z][a-z\d+\-.]*:)?\/\//i.test(url);
 }
 function combineURLs(baseURL, relativeURL) {
   return relativeURL ? baseURL.replace(/\/?\/$/, "") + "/" + relativeURL.replace(/^\/+/, "") : baseURL;
@@ -19818,24 +19762,24 @@ var xhrAdapter = isXHRAdapterSupported && function(config) {
       _config.cancelToken && _config.cancelToken.unsubscribe(onCanceled);
       _config.signal && _config.signal.removeEventListener("abort", onCanceled);
     }
-    let request2 = new XMLHttpRequest();
-    request2.open(_config.method.toUpperCase(), _config.url, true);
-    request2.timeout = _config.timeout;
+    let request = new XMLHttpRequest();
+    request.open(_config.method.toUpperCase(), _config.url, true);
+    request.timeout = _config.timeout;
     function onloadend() {
-      if (!request2) {
+      if (!request) {
         return;
       }
       const responseHeaders = AxiosHeaders$1.from(
-        "getAllResponseHeaders" in request2 && request2.getAllResponseHeaders()
+        "getAllResponseHeaders" in request && request.getAllResponseHeaders()
       );
-      const responseData = !responseType || responseType === "text" || responseType === "json" ? request2.responseText : request2.response;
+      const responseData = !responseType || responseType === "text" || responseType === "json" ? request.responseText : request.response;
       const response = {
         data: responseData,
-        status: request2.status,
-        statusText: request2.statusText,
+        status: request.status,
+        statusText: request.statusText,
         headers: responseHeaders,
         config,
-        request: request2
+        request
       };
       settle(function _resolve(value) {
         resolve(value);
@@ -19844,33 +19788,33 @@ var xhrAdapter = isXHRAdapterSupported && function(config) {
         reject(err);
         done();
       }, response);
-      request2 = null;
+      request = null;
     }
-    if ("onloadend" in request2) {
-      request2.onloadend = onloadend;
+    if ("onloadend" in request) {
+      request.onloadend = onloadend;
     } else {
-      request2.onreadystatechange = function handleLoad() {
-        if (!request2 || request2.readyState !== 4) {
+      request.onreadystatechange = function handleLoad() {
+        if (!request || request.readyState !== 4) {
           return;
         }
-        if (request2.status === 0 && !(request2.responseURL && request2.responseURL.indexOf("file:") === 0)) {
+        if (request.status === 0 && !(request.responseURL && request.responseURL.indexOf("file:") === 0)) {
           return;
         }
         setTimeout(onloadend);
       };
     }
-    request2.onabort = function handleAbort() {
-      if (!request2) {
+    request.onabort = function handleAbort() {
+      if (!request) {
         return;
       }
-      reject(new AxiosError("Request aborted", AxiosError.ECONNABORTED, config, request2));
-      request2 = null;
+      reject(new AxiosError("Request aborted", AxiosError.ECONNABORTED, config, request));
+      request = null;
     };
-    request2.onerror = function handleError() {
-      reject(new AxiosError("Network Error", AxiosError.ERR_NETWORK, config, request2));
-      request2 = null;
+    request.onerror = function handleError() {
+      reject(new AxiosError("Network Error", AxiosError.ERR_NETWORK, config, request));
+      request = null;
     };
-    request2.ontimeout = function handleTimeout() {
+    request.ontimeout = function handleTimeout() {
       let timeoutErrorMessage = _config.timeout ? "timeout of " + _config.timeout + "ms exceeded" : "timeout exceeded";
       const transitional2 = _config.transitional || transitionalDefaults;
       if (_config.timeoutErrorMessage) {
@@ -19880,39 +19824,39 @@ var xhrAdapter = isXHRAdapterSupported && function(config) {
         timeoutErrorMessage,
         transitional2.clarifyTimeoutError ? AxiosError.ETIMEDOUT : AxiosError.ECONNABORTED,
         config,
-        request2
+        request
       ));
-      request2 = null;
+      request = null;
     };
     requestData === void 0 && requestHeaders.setContentType(null);
-    if ("setRequestHeader" in request2) {
+    if ("setRequestHeader" in request) {
       utils$1.forEach(requestHeaders.toJSON(), function setRequestHeader(val, key) {
-        request2.setRequestHeader(key, val);
+        request.setRequestHeader(key, val);
       });
     }
     if (!utils$1.isUndefined(_config.withCredentials)) {
-      request2.withCredentials = !!_config.withCredentials;
+      request.withCredentials = !!_config.withCredentials;
     }
     if (responseType && responseType !== "json") {
-      request2.responseType = _config.responseType;
+      request.responseType = _config.responseType;
     }
     if (onDownloadProgress) {
       [downloadThrottled, flushDownload] = progressEventReducer(onDownloadProgress, true);
-      request2.addEventListener("progress", downloadThrottled);
+      request.addEventListener("progress", downloadThrottled);
     }
-    if (onUploadProgress && request2.upload) {
+    if (onUploadProgress && request.upload) {
       [uploadThrottled, flushUpload] = progressEventReducer(onUploadProgress);
-      request2.upload.addEventListener("progress", uploadThrottled);
-      request2.upload.addEventListener("loadend", flushUpload);
+      request.upload.addEventListener("progress", uploadThrottled);
+      request.upload.addEventListener("loadend", flushUpload);
     }
     if (_config.cancelToken || _config.signal) {
       onCanceled = (cancel) => {
-        if (!request2) {
+        if (!request) {
           return;
         }
-        reject(!cancel || cancel.type ? new CanceledError(null, config, request2) : cancel);
-        request2.abort();
-        request2 = null;
+        reject(!cancel || cancel.type ? new CanceledError(null, config, request) : cancel);
+        request.abort();
+        request = null;
       };
       _config.cancelToken && _config.cancelToken.subscribe(onCanceled);
       if (_config.signal) {
@@ -19924,7 +19868,7 @@ var xhrAdapter = isXHRAdapterSupported && function(config) {
       reject(new AxiosError("Unsupported protocol " + protocol + ":", AxiosError.ERR_BAD_REQUEST, config));
       return;
     }
-    request2.send(requestData || null);
+    request.send(requestData || null);
   });
 };
 const composeSignals = (signals, timeout) => {
@@ -20100,7 +20044,7 @@ const resolveBodyLength = async (headers, body) => {
 };
 var fetchAdapter = isFetchSupported && (async (config) => {
   let {
-    url: url2,
+    url,
     method,
     data,
     signal,
@@ -20115,14 +20059,14 @@ var fetchAdapter = isFetchSupported && (async (config) => {
   } = resolveConfig(config);
   responseType = responseType ? (responseType + "").toLowerCase() : "text";
   let composedSignal = composeSignals$1([signal, cancelToken && cancelToken.toAbortSignal()], timeout);
-  let request2;
+  let request;
   const unsubscribe = composedSignal && composedSignal.unsubscribe && (() => {
     composedSignal.unsubscribe();
   });
   let requestContentLength;
   try {
     if (onUploadProgress && supportsRequestStream && method !== "get" && method !== "head" && (requestContentLength = await resolveBodyLength(headers, data)) !== 0) {
-      let _request = new Request(url2, {
+      let _request = new Request(url, {
         method: "POST",
         body: data,
         duplex: "half"
@@ -20143,7 +20087,7 @@ var fetchAdapter = isFetchSupported && (async (config) => {
       withCredentials = withCredentials ? "include" : "omit";
     }
     const isCredentialsSupported = "credentials" in Request.prototype;
-    request2 = new Request(url2, {
+    request = new Request(url, {
       ...fetchOptions,
       signal: composedSignal,
       method: method.toUpperCase(),
@@ -20152,7 +20096,7 @@ var fetchAdapter = isFetchSupported && (async (config) => {
       duplex: "half",
       credentials: isCredentialsSupported ? withCredentials : void 0
     });
-    let response = await fetch(request2);
+    let response = await fetch(request);
     const isStreamResponse = supportsResponseStream && (responseType === "stream" || responseType === "response");
     if (supportsResponseStream && (onDownloadProgress || isStreamResponse && unsubscribe)) {
       const options = {};
@@ -20182,20 +20126,20 @@ var fetchAdapter = isFetchSupported && (async (config) => {
         status: response.status,
         statusText: response.statusText,
         config,
-        request: request2
+        request
       });
     });
   } catch (err) {
     unsubscribe && unsubscribe();
     if (err && err.name === "TypeError" && /fetch/i.test(err.message)) {
       throw Object.assign(
-        new AxiosError("Network Error", AxiosError.ERR_NETWORK, config, request2),
+        new AxiosError("Network Error", AxiosError.ERR_NETWORK, config, request),
         {
           cause: err.cause || err
         }
       );
     }
-    throw AxiosError.from(err, err && err.code, config, request2);
+    throw AxiosError.from(err, err && err.code, config, request);
   }
 });
 const knownAdapters = {
@@ -20478,23 +20422,23 @@ class Axios {
   }
 }
 utils$1.forEach(["delete", "get", "head", "options"], function forEachMethodNoData(method) {
-  Axios.prototype[method] = function(url2, config) {
+  Axios.prototype[method] = function(url, config) {
     return this.request(mergeConfig(config || {}, {
       method,
-      url: url2,
+      url,
       data: (config || {}).data
     }));
   };
 });
 utils$1.forEach(["post", "put", "patch"], function forEachMethodWithData(method) {
   function generateHTTPMethod(isForm) {
-    return function httpMethod(url2, data, config) {
+    return function httpMethod(url, data, config) {
       return this.request(mergeConfig(config || {}, {
         method,
         headers: isForm ? {
           "Content-Type": "multipart/form-data"
         } : {},
-        url: url2,
+        url,
         data
       }));
     };
@@ -20533,11 +20477,11 @@ class CancelToken {
       };
       return promise;
     };
-    executor(function cancel(message2, config, request2) {
+    executor(function cancel(message2, config, request) {
       if (token2.reason) {
         return;
       }
-      token2.reason = new CanceledError(message2, config, request2);
+      token2.reason = new CanceledError(message2, config, request);
       resolvePromise(token2.reason);
     });
   }
@@ -20719,9 +20663,9 @@ var Api = /* @__PURE__ */ function() {
     key: "get",
     value: function get5(_ref) {
       var props = _extends$h({}, (_objectDestructuringEmpty(_ref), _ref));
-      var _props$url = props.url, url2 = _props$url === void 0 ? "" : _props$url, _props$headers = props.headers, headers = _props$headers === void 0 ? {} : _props$headers, options = _objectWithoutProperties$3(props, _excluded);
+      var _props$url = props.url, url = _props$url === void 0 ? "" : _props$url, _props$headers = props.headers, headers = _props$headers === void 0 ? {} : _props$headers, options = _objectWithoutProperties$3(props, _excluded);
       return this.fetch(_objectSpread2({
-        url: url2,
+        url,
         method: "GET",
         headers
       }, options));
@@ -20729,9 +20673,9 @@ var Api = /* @__PURE__ */ function() {
   }, {
     key: "post",
     value: function post(_ref2) {
-      var _ref2$url = _ref2.url, url2 = _ref2$url === void 0 ? "" : _ref2$url, _ref2$body = _ref2.body, body = _ref2$body === void 0 ? {} : _ref2$body, form = _ref2.form, _ref2$headers = _ref2.headers, headers = _ref2$headers === void 0 ? {} : _ref2$headers;
+      var _ref2$url = _ref2.url, url = _ref2$url === void 0 ? "" : _ref2$url, _ref2$body = _ref2.body, body = _ref2$body === void 0 ? {} : _ref2$body, form = _ref2.form, _ref2$headers = _ref2.headers, headers = _ref2$headers === void 0 ? {} : _ref2$headers;
       return this.fetch({
-        url: url2,
+        url,
         method: "POST",
         data: form ? form : JSON.stringify(body),
         headers
@@ -20740,9 +20684,9 @@ var Api = /* @__PURE__ */ function() {
   }, {
     key: "put",
     value: function put(_ref3) {
-      var _ref3$url = _ref3.url, url2 = _ref3$url === void 0 ? "" : _ref3$url, _ref3$body = _ref3.body, body = _ref3$body === void 0 ? {} : _ref3$body, _ref3$headers = _ref3.headers, headers = _ref3$headers === void 0 ? {} : _ref3$headers;
+      var _ref3$url = _ref3.url, url = _ref3$url === void 0 ? "" : _ref3$url, _ref3$body = _ref3.body, body = _ref3$body === void 0 ? {} : _ref3$body, _ref3$headers = _ref3.headers, headers = _ref3$headers === void 0 ? {} : _ref3$headers;
       return this.fetch({
-        url: url2,
+        url,
         method: "PUT",
         data: JSON.stringify(body),
         headers
@@ -20751,9 +20695,9 @@ var Api = /* @__PURE__ */ function() {
   }, {
     key: "delete",
     value: function _delete(_ref4) {
-      var _ref4$url = _ref4.url, url2 = _ref4$url === void 0 ? "" : _ref4$url, _ref4$body = _ref4.body, body = _ref4$body === void 0 ? {} : _ref4$body, _ref4$headers = _ref4.headers, headers = _ref4$headers === void 0 ? {} : _ref4$headers;
+      var _ref4$url = _ref4.url, url = _ref4$url === void 0 ? "" : _ref4$url, _ref4$body = _ref4.body, body = _ref4$body === void 0 ? {} : _ref4$body, _ref4$headers = _ref4.headers, headers = _ref4$headers === void 0 ? {} : _ref4$headers;
       return this.fetch({
-        url: url2,
+        url,
         method: "DELETE",
         data: JSON.stringify(body),
         headers
@@ -20779,9 +20723,9 @@ var Request$1 = /* @__PURE__ */ function() {
     key: "get",
     value: function get5(_ref) {
       var props = _extends$h({}, (_objectDestructuringEmpty(_ref), _ref));
-      var url2 = props.url, getParams = props.getParams, success = props.success, error = props.error, dataConverter = props.dataConverter;
+      var url = props.url, getParams = props.getParams, success = props.success, error = props.error, dataConverter = props.dataConverter;
       return api.get({
-        url: url2 + UTILS$2.getParamsToString(getParams)
+        url: url + UTILS$2.getParamsToString(getParams)
       }).then(function(_data) {
         var data = dataConverter ? dataConverter(_data.data) : _data.data;
         if (success) {
@@ -20823,9 +20767,9 @@ var Request$1 = /* @__PURE__ */ function() {
     key: "post_put_delete",
     value: function post_put_delete(_ref5) {
       var props = _extends$h({}, (_objectDestructuringEmpty(_ref5), _ref5));
-      var url2 = props.url, body = props.body, form = props.form, headers = props.headers, success = props.success, error = props.error, method = props.method, dataConverter = props.dataConverter;
+      var url = props.url, body = props.body, form = props.form, headers = props.headers, success = props.success, error = props.error, method = props.method, dataConverter = props.dataConverter;
       return api[method]({
-        url: url2,
+        url,
         body,
         form,
         headers
@@ -20851,7 +20795,7 @@ var Request$1 = /* @__PURE__ */ function() {
     }
   }]);
 }();
-var request = new Request$1();
+new Request$1();
 var Store = /* @__PURE__ */ _createClass$9(
   function Store2() {
     var _this = this;
@@ -20900,1033 +20844,7 @@ var Store = /* @__PURE__ */ _createClass$9(
 );
 var Store$1 = new Store();
 var setPicker = "";
-var SetPicker = function SetPicker2(_ref) {
-  var _pages$current;
-  var props = _extends$h({}, (_objectDestructuringEmpty(_ref), _ref));
-  var options = props.options, setPickerConnector = props.setPickerConnector;
-  props.removeComponent;
-  var componentCallback = props.componentCallback, componentReturn = props.componentReturn;
-  var listName = options.listName, request2 = options.request, finalList = options.finalList;
-  options.unavailableItemsList;
-  var _options$singleChoice = options.singleChoiceOnly, singleChoiceOnly = _options$singleChoice === void 0 ? true : _options$singleChoice;
-  options.title;
-  var _options$selectable = options.selectable, selectable = _options$selectable === void 0 ? true : _options$selectable, _options$selectedList = options.selectedList, externalSelectedList = _options$selectedList === void 0 ? [] : _options$selectedList, _options$strHeight = options.strHeight, strHeight = _options$strHeight === void 0 ? CONFIG_SETPICKER.lineHeight : _options$strHeight, callbackOnReadyComponentDOM = options.callbackOnReadyComponentDOM, listBlockLength = options.listBlockLength, hideSearchBar = options.hideSearchBar;
-  options.hideCountersBar;
-  options.ItemViewName;
-  if (!listName)
-    console.error("!!! \u0412\u041D\u0418\u041C\u0410\u041D\u0418\u0415 !!! \u041D\u0435 \u043D\u0430\u0437\u043D\u0430\u0447\u0435\u043D\u043E \u0443\u043D\u0438\u043A\u0430\u043B\u044C\u043D\u043E\u0435 \u0438\u043C\u044F \u0441\u043F\u0438\u0441\u043A\u0430 \u0434\u043B\u044F \u0441\u0435\u0442\u043F\u0438\u043A\u0435\u0440\u0430 - \u0432\u043E\u0437\u043C\u043E\u0436\u043D\u0430 \u043F\u0443\u0442\u0430\u043D\u0438\u0446\u0430 \u0432 \u0434\u0430\u043D\u043D\u044B\u0445!!!");
-  var utilsCurrent = React__default.useRef(new Utils$1({
-    finalList
-  }));
-  var utils2 = utilsCurrent.current;
-  if (listBlockLength)
-    CONFIG_API.listBlockLength = listBlockLength;
-  var operationCodes = CONFIG_SETPICKER.operationCodes;
-  var pages = React__default.useRef(toJS(Store$1.getState(CONSTANTS_SETPICKER.pagesData(listName))));
-  console.log("--------- PAGES ------>", pages);
-  var changeTimeoutId = React__default.useRef(null);
-  var requestedPages = React__default.useRef({});
-  var scrollData = React__default.useRef({});
-  var counterRequest = React__default.useRef({});
-  var _React$useState = React__default.useState(void 0), _React$useState2 = _slicedToArray(_React$useState, 2), showSelectedList = _React$useState2[0], _setShowSelectedList = _React$useState2[1];
-  var setShowSelectedList = function setShowSelectedList2(onOff, withSearch) {
-    utils2.showSelectedListMode = onOff ? withSearch ? "search" : "full" : false;
-    if (onOff) {
-      var _list = withSearch ? currentSelected.current.searchSelectedList : currentSelected.current.selectedList;
-      utils2.goToSelectedListMode({
-        listName,
-        list: _list
-      });
-    } else {
-      utils2.goFromSelectedListMode({
-        listName
-      });
-    }
-    _setShowSelectedList(utils2.showSelectedListMode);
-  };
-  var _React$useState3 = React__default.useState(0), _React$useState4 = _slicedToArray(_React$useState3, 2), resetScrollbar = _React$useState4[0], setResetScrollbar = _React$useState4[1];
-  var resetScroll = function resetScroll2() {
-    return setResetScrollbar(resetScrollbar + 1);
-  };
-  var _useCurrentState = useCurrentState([]), _useCurrentState2 = _slicedToArray(_useCurrentState, 3), list = _useCurrentState2[0], currentList = _useCurrentState2[1], setList = _useCurrentState2[2];
-  var _React$useState5 = React__default.useState(null), _React$useState6 = _slicedToArray(_React$useState5, 2), actionsMode = _React$useState6[0], _setActionsMode = _React$useState6[1];
-  var setActionsMode = function setActionsMode2(mode) {
-    return _setActionsMode(mode === actionsMode ? null : mode);
-  };
-  var blocksLoading = React__default.useRef(0);
-  var blockLoadingStart = function blockLoadingStart2() {
-    blocksLoading.current++;
-    utils2.spinner(listName, true);
-  };
-  var blockLoadingStop = function blockLoadingStop2() {
-    blocksLoading.current = Math.max(blocksLoading.current - 1, 0);
-    if (!blocksLoading.current) {
-      utils2.spinner(listName, false);
-    }
-  };
-  var _useCurrentState3 = useCurrentState(void 0), _useCurrentState4 = _slicedToArray(_useCurrentState3, 3), searchContext = _useCurrentState4[0], currentSearchContext = _useCurrentState4[1], _setSearchContext = _useCurrentState4[2];
-  var getSearchSelectedList = function getSearchSelectedList2(list2) {
-    if (!(currentSearchContext !== null && currentSearchContext !== void 0 && currentSearchContext.current))
-      return list2;
-    var context = currentSearchContext.current.toLowerCase();
-    return list2.filter(function(item) {
-      return ~item.toLowerCase().indexOf(context);
-    });
-  };
-  var _useCurrentState5 = useCurrentState({
-    selectedList: externalSelectedList,
-    searchSelectedList: getSearchSelectedList(externalSelectedList),
-    show: !!(pages !== null && pages !== void 0 && (_pages$current = pages.current) !== null && _pages$current !== void 0 && _pages$current._mainOptions)
-  }), _useCurrentState6 = _slicedToArray(_useCurrentState5, 3), selected = _useCurrentState6[0], currentSelected = _useCurrentState6[1], _setSelected = _useCurrentState6[2];
-  var selectedIds = React__default.useRef(null);
-  var showSelectedCounts = function showSelectedCounts2() {
-    return _setSelected(_objectSpread2(_objectSpread2({}, currentSelected.current), {}, {
-      show: true
-    }));
-  };
-  var hideSelectedCounts = function hideSelectedCounts2() {
-    return _setSelected(_objectSpread2(_objectSpread2({}, currentSelected.current), {}, {
-      show: false
-    }));
-  };
-  var setSelectedTimeoutId = React__default.useRef(0);
-  var setSelected = function setSelected2(_selected) {
-    var selected2 = _selected || currentSelected.current;
-    var selectedList = selected2.selectedList;
-    var newSelected = {
-      selectedList,
-      searchSelectedList: getSearchSelectedList(selectedList),
-      show: selected2.show === void 0 ? currentSelected.current.show : selected2.show
-    };
-    currentSelected.current = newSelected;
-    if (setSelectedTimeoutId.current) {
-      clearTimeout(setSelectedTimeoutId.current);
-    }
-    setSelectedTimeoutId.current = setTimeout(function() {
-      setSelectedTimeoutId.current = 0;
-      _setSelected(newSelected);
-    }, 0);
-  };
-  var setSearchContext = function setSearchContext2(data) {
-    _setSearchContext(data);
-    componentCallback({
-      code: CONFIG_SETPICKER.operationCodes.changeSearchContext,
-      value: data
-    });
-    setSelected();
-  };
-  var checkUnloadedPages = function checkUnloadedPages2() {
-    setTimeout(function() {
-      endOfScroll({
-        subList: scrollData.current.current.subList
-      });
-    }, 10);
-  };
-  var _componentCallback = function _componentCallback2(data) {
-    componentCallback(_objectSpread2(_objectSpread2({}, data), {}, {
-      common: {
-        searchContext: currentSearchContext.current,
-        pages: pages.current
-      }
-    }));
-  };
-  var onClickToLineCheckbox = function onClickToLineCheckbox2(item, checked) {
-    var id = item.id;
-    if (!selectable)
-      return;
-    var isSelected = singleChoiceOnly ? true : checked;
-    var selectedList = selected.selectedList;
-    if (singleChoiceOnly) {
-      selectedList = [id];
-    } else {
-      selectedList = isSelected ? UTILS$2.idArrayIncrease(selectedList, id) : UTILS$2.idArrayDecrease(selectedList, id);
-    }
-    setSelected({
-      selectedList
-    });
-    _componentCallback({
-      code: operationCodes.itemSelect,
-      item: _objectSpread2(_objectSpread2({}, item), {}, {
-        id
-      }),
-      isSelected,
-      selectedList
-    });
-  };
-  var getBlock = function getBlock2(_ref2) {
-    var props2 = _extends$h({}, (_objectDestructuringEmpty(_ref2), _ref2));
-    var page = props2.page, trace = props2.trace;
-    if (isNaN(page)) {
-      console.error("getBlock error --- page = ".concat(page, " (trace: ").concat(trace, ")"));
-      return;
-    }
-    var pagesIndex = utils2.getPagesIndex(currentSearchContext.current);
-    var pageIndex = utils2.getPageIndex(pagesIndex, page);
-    if (requestedPages[pageIndex]) {
-      return;
-    }
-    requestedPages[pageIndex] = CONFIG_SETPICKER.loadingText;
-    blockLoadingStart();
-    var resetRequestedPage = function resetRequestedPage2() {
-      return requestedPages[pageIndex] = null;
-    };
-    var promise = utils2.requestGetPage({
-      listName,
-      request: request2,
-      searchContext: currentSearchContext.current,
-      page,
-      pages: pages.current,
-      callbackForGetBlock: function callbackForGetBlock() {
-        blockLoadingStop();
-        showSelectedCounts();
-      }
-    });
-    if (promise !== null && promise !== void 0 && promise.then) {
-      promise.then(resetRequestedPage);
-    }
-  };
-  React__default.useEffect(function() {
-    setTimeout(function() {
-      if (currentSearchContext.current) {
-        setActionsMode(CONFIG_SETPICKER.actionModes.search);
-      }
-    }, 0);
-    var removeReaction = reaction(function() {
-      return Store$1.getState(CONSTANTS_SETPICKER.pagesData(listName));
-    }, function(_data) {
-      var data = toJS(_data);
-      var currentPages = pages.current;
-      var newPageIndex = data._change.pageIndex;
-      pages.current = data;
-      if (currentPages[newPageIndex] && !data._change.forceReBuild) {
-        return;
-      }
-      if (changeTimeoutId.current) {
-        clearTimeout(changeTimeoutId.current);
-      }
-      changeTimeoutId.current = setTimeout(function() {
-        changeTimeoutId.current = null;
-        reBuildList();
-        setSelected();
-        checkUnloadedPages();
-      }, 0);
-    });
-    startNewList();
-    setSelected();
-    showSelectedCounts();
-    setPickerConnector.setSelected = function(arr) {
-      return setSelected({
-        selectedList: arr,
-        show: currentSelected.current.show
-      });
-    };
-    setPickerConnector.showSpinner = function(onOff) {
-      utils2.spinner(listName, onOff);
-      if (!onOff) {
-        showSelectedCounts();
-      }
-    };
-    setPickerConnector.selectedInfo = function(data) {
-      selectedIds.current = data;
-      setSelected();
-      showSelectedCounts();
-    };
-    componentReturn.getMainStates = function() {
-      return {
-        searchContext: currentSearchContext.current
-      };
-    };
-    if (callbackOnReadyComponentDOM) {
-      callbackOnReadyComponentDOM();
-    }
-    return function() {
-      removeReaction();
-    };
-  }, []);
-  var startNewList = function startNewList2() {
-    var pagesIndex = utils2.getPagesIndex(currentSearchContext.current, 0);
-    var pageIndex = utils2.getPageIndex(pagesIndex, 0);
-    if (pages.current[pageIndex]) {
-      reBuildList();
-    } else {
-      getBlock({
-        page: 0,
-        trace: "startNewList"
-      });
-    }
-  };
-  var onChangeSearh = function onChangeSearh2(search) {
-    var _pages$current2;
-    resetScroll();
-    setList([{
-      i: 0,
-      p: 0,
-      l: 0
-    }]);
-    startNewList();
-    if (search) {
-      var sessionOptionsIndex = CONSTANTS_SETPICKER.sessionOptionsIndex(listName);
-      Store$1.updateState(sessionOptionsIndex, search);
-    }
-    var pagesIndex = utils2.getPagesIndex(search.searchContext, 0);
-    var _mainOptions = (_pages$current2 = pages.current) === null || _pages$current2 === void 0 ? void 0 : _pages$current2._mainOptions;
-    if (_mainOptions && _mainOptions[pagesIndex]) {
-      var newList = _objectSpread2({}, toJS(Store$1.getState(CONSTANTS_SETPICKER.pagesData(listName))));
-      newList._mainOptions = _objectSpread2(_objectSpread2({}, _mainOptions), {}, {
-        totalCount: void 0
-      }, _mainOptions[pagesIndex]);
-      Store$1.setState(CONSTANTS_SETPICKER.pagesData(listName), newList);
-    }
-  };
-  React__default.useEffect(function() {
-    if (searchContext === void 0) {
-      var sessionOptionsIndex = CONSTANTS_SETPICKER.sessionOptionsIndex(listName);
-      var prevSessionData = toJS(Store$1.getState(sessionOptionsIndex));
-      setSearchContext((prevSessionData === null || prevSessionData === void 0 ? void 0 : prevSessionData.searchContext) || "");
-      return;
-    }
-    onChangeSearh({
-      searchContext
-    });
-  }, [searchContext]);
-  React__default.useEffect(function() {
-    if (showSelectedList === void 0)
-      return;
-    resetScroll();
-    reBuildList();
-  }, [showSelectedList]);
-  var buildParentID = function buildParentID2(_ref3) {
-    var _parentID = _ref3.parentID;
-    var parentID = _parentID || 0;
-    var pagesIndex = utils2.getPagesIndex(currentSearchContext.current);
-    var rootOptions = pages.current._rootsOptions[pagesIndex];
-    var childrenElements = rootOptions ? rootOptions.childrenItems : 0;
-    var childrenPages = rootOptions.pagesCounts.length;
-    var out = [];
-    for (var page = 0; page < childrenPages; page++) {
-      var pageIndex = utils2.getPageIndex(pagesIndex, page);
-      var pageItems = pages.current[pageIndex];
-      if (pageItems !== null && pageItems !== void 0 && pageItems.length) {
-        for (var index2 in pageItems) {
-          var item = pageItems[index2];
-          out.push(_objectSpread2(_objectSpread2({}, item), {}, {
-            pagesIndex,
-            pageIndex,
-            page,
-            index: Number(index2),
-            searchContext: currentSearchContext.current
-          }));
-        }
-      } else {
-        var length = Math.min(childrenElements - CONFIG_API.listBlockLength * page, CONFIG_API.listBlockLength);
-        for (var i = 0; i < length; i++) {
-          out.push({
-            i: parentID,
-            p: page
-          });
-        }
-      }
-    }
-    return out;
-  };
-  var reBuildList = function reBuildList2() {
-    var rootContent = buildParentID({
-      parentID: 0
-    });
-    setList(rootContent);
-  };
-  var endOfScroll = function endOfScroll2(_ref4) {
-    var subListTo = _ref4.subListTo, subList = _ref4.subList;
-    var getPageIndex = function getPageIndex2(context, parent, page2) {
-      var pagesIndex = utils2.getPagesIndex(context, parent);
-      return utils2.getPageIndex(pagesIndex, page2);
-    };
-    var searchContext2 = currentSearchContext.current;
-    var prePageIndex = getPageIndex(searchContext2, 0, 0);
-    var _iterator = _createForOfIteratorHelper(subList), _step;
-    try {
-      for (_iterator.s(); !(_step = _iterator.n()).done; ) {
-        var item = _step.value;
-        if (!item.id) {
-          var parentID = item.i, page = item.p;
-          var pageIndex = getPageIndex(searchContext2, parentID, page);
-          if (pageIndex !== prePageIndex) {
-            getBlock({
-              parentID,
-              page,
-              trace: "endOfScroll-1"
-            });
-          }
-          prePageIndex = pageIndex;
-        }
-      }
-    } catch (err) {
-      _iterator.e(err);
-    } finally {
-      _iterator.f();
-    }
-    var _toJS = toJS(Store$1.getState(CONSTANTS_SETPICKER.pagesData(listName))), _mainOptions = _toJS._mainOptions;
-    if (subListTo && !(_mainOptions !== null && _mainOptions !== void 0 && _mainOptions.isFinalTotalCount) && subListTo >= (_mainOptions === null || _mainOptions === void 0 ? void 0 : _mainOptions.totalItems)) {
-      getBlock({
-        parentID: 0,
-        page: subList[subList.length - 1].page + 1,
-        trace: "endOfScroll-2"
-      });
-    }
-  };
-  var componentData = _objectSpread2(_objectSpread2({}, props), {}, {
-    utils: utils2,
-    ItemView: SetPickerItemView,
-    listName,
-    endOfScroll,
-    setSearchContext,
-    onClickToLineCheckbox,
-    options,
-    list,
-    currentList,
-    strHeight,
-    resetScrollbar,
-    scrollData,
-    request: request2,
-    counterRequest,
-    showSelectedCounts,
-    hideSelectedCounts,
-    componentCallback: _componentCallback,
-    loadingText: CONFIG_SETPICKER.loadingText,
-    wheelTimeout: CONFIG_SETPICKER.wheelTimeout,
-    searchTimeout: CONFIG_SETPICKER.searchTimeout,
-    pages: pages.current,
-    searchContext: currentSearchContext.current,
-    selected,
-    setSelected,
-    actionsMode,
-    setActionsMode,
-    showSelectedList,
-    setShowSelectedList
-  });
-  return /* @__PURE__ */ React__default.createElement(React__default.Fragment, null, !hideSearchBar && /* @__PURE__ */ React__default.createElement(SetPickerActions, componentData), /* @__PURE__ */ React__default.createElement(SetPickerSmartList, componentData));
-};
-var SetPickerActions = function SetPickerActions2(_ref) {
-  var props = _extends$h({}, (_objectDestructuringEmpty(_ref), _ref));
-  var options = props.options, showSelectedList = props.showSelectedList;
-  var title = options.title, componentContent = options.componentContent, hideCountersBar = options.hideCountersBar;
-  var showButtons = !((componentContent === null || componentContent === void 0 ? void 0 : componentContent.actions) === false);
-  var showTitle = !!title;
-  if (!showButtons && !showTitle) {
-    return null;
-  }
-  return /* @__PURE__ */ React__default.createElement("div", {
-    className: "clearfix inline-set-header set-picker-actions".concat(showSelectedList ? " is-hidden" : "")
-  }, /* @__PURE__ */ React__default.createElement("div", {
-    className: "search-wrapper"
-  }, showButtons && !hideCountersBar && /* @__PURE__ */ React__default.createElement(React__default.Fragment, null, /* @__PURE__ */ React__default.createElement(SetPickerActionsPanelSearch, props)), /* @__PURE__ */ React__default.createElement("div", {
-    className: "d-flex justify-content-between"
-  }, /* @__PURE__ */ React__default.createElement("div", null, title), showButtons && /* @__PURE__ */ React__default.createElement(SetPickerActionsButtons, props))));
-};
-var SetPickerActionsButtons = function SetPickerActionsButtons2(_ref) {
-  var props = _extends$h({}, (_objectDestructuringEmpty(_ref), _ref));
-  var actionsMode = props.actionsMode, setActionsMode = props.setActionsMode, options = props.options;
-  var componentContent = options.componentContent;
-  var _CONFIG_SETPICKER$act = CONFIG_SETPICKER.actionModes, search = _CONFIG_SETPICKER$act.search, addLine = _CONFIG_SETPICKER$act.addLine, edit = _CONFIG_SETPICKER$act.edit;
-  var buttons = React__default.useRef([
-    {
-      name: search,
-      className: "b-search",
-      icon: "fa-search",
-      title: "\u041F\u043E\u0438\u0441\u043A \u043F\u043E \u0441\u043F\u0440\u0430\u0432\u043E\u0447\u043D\u0438\u043A\u0443",
-      activeIf: [search]
-    }
-  ]);
-  var buttonIsShow = function buttonIsShow2(name) {
-    return !(componentContent !== null && componentContent !== void 0 && componentContent.actions) || UTILS$2.parseParams(componentContent === null || componentContent === void 0 ? void 0 : componentContent.actions[name]).show;
-  };
-  var clickToButton = function clickToButton2(name) {
-    return function() {
-      var newMode = name;
-      switch ("".concat(actionsMode, "->").concat(name)) {
-        case "".concat(addLine, "->").concat(edit):
-          newMode = null;
-          break;
-        case "".concat(addLine, "->").concat(addLine):
-          newMode = edit;
-          break;
-      }
-      setActionsMode(newMode);
-    };
-  };
-  return /* @__PURE__ */ React__default.createElement("div", {
-    className: "d-flex g-1"
-  }, buttons.current.map(function(button, index2) {
-    var name = button.name, activeIf = button.activeIf, showIf = button.showIf, className = button.className, title = button.title, icon = button.icon;
-    var isActive = activeIf.includes(actionsMode);
-    var isShow = buttonIsShow(name) && (!showIf || showIf.includes(actionsMode));
-    if (!isShow) {
-      return null;
-    }
-    return /* @__PURE__ */ React__default.createElement("button", {
-      index: index2,
-      className: "tf_btn tf_btn-xs tf_btn-transparent tf_btn-icon ".concat(className).concat(UTILS$2.addActiveClassIf(isActive)),
-      title,
-      onClick: clickToButton(name)
-    }, /* @__PURE__ */ React__default.createElement("i", {
-      className: "fas fa-fw ".concat(icon)
-    }));
-  }));
-};
-var SetPickerActionsPanelSearch = function SetPickerActionsPanelSearch2(_ref) {
-  var props = _extends$h({}, (_objectDestructuringEmpty(_ref), _ref));
-  var actionsMode = props.actionsMode, searchContext = props.searchContext, setSearchContext = props.setSearchContext;
-  var _React$useState = React__default.useState(searchContext), _React$useState2 = _slicedToArray(_React$useState, 2), value = _React$useState2[0], setValue = _React$useState2[1];
-  var timeoutId = React__default.useRef(null);
-  var inputRef = React__default.useRef(null);
-  var onChangeValue = function onChangeValue2(e) {
-    var newValue = e.target.value;
-    setValue(newValue);
-    if (timeoutId.current) {
-      clearTimeout(timeoutId.current);
-    }
-    timeoutId.current = setTimeout(function() {
-      timeoutId.current = null;
-      setSearchContext(newValue);
-    }, CONFIG_SETPICKER.searchTimeout);
-  };
-  var clearSearchContext = function clearSearchContext2() {
-    setValue("");
-    setSearchContext("");
-  };
-  React__default.useEffect(function() {
-    if (actionsMode !== CONFIG_SETPICKER.actionModes.search) {
-      return;
-    }
-    inputRef.current.focus();
-  }, [actionsMode]);
-  React__default.useEffect(function() {
-    if (searchContext !== value) {
-      setValue(searchContext);
-    }
-  }, [searchContext]);
-  return /* @__PURE__ */ React__default.createElement("div", {
-    className: "c-search tf_input-group flex-grow-1".concat(UTILS$2.addHideClassIf(actionsMode !== CONFIG_SETPICKER.actionModes.search))
-  }, /* @__PURE__ */ React__default.createElement("input", {
-    className: "tf_form-control tf_form-control-xs tf_form-control-secondary",
-    type: "text",
-    value,
-    placeholder: "\u041F\u043E\u0438\u0441\u043A...",
-    onChange: onChangeValue,
-    autoFocus: true,
-    ref: inputRef
-  }), /* @__PURE__ */ React__default.createElement("button", {
-    className: "tf_btn tf_btn-xs tf_btn-secondary tf_btn-icon",
-    title: "\u041E\u0447\u0438\u0441\u0442\u0438\u0442\u044C",
-    onClick: clearSearchContext
-  }, /* @__PURE__ */ React__default.createElement("i", {
-    className: "fas fa-backspace fa-fw"
-  })));
-};
-var SetPickerSmartList = function SetPickerSmartList2(_ref) {
-  var props = _extends$h({}, (_objectDestructuringEmpty(_ref), _ref));
-  var options = props.options;
-  var componentContent = options.componentContent, hideSearchBar = options.hideSearchBar;
-  return /* @__PURE__ */ React__default.createElement("div", {
-    className: "tf_smartwindow-body".concat(hideSearchBar ? " without-searchbar" : "")
-  }, /* @__PURE__ */ React__default.createElement("div", {
-    className: "tf_smartlist"
-  }, !((componentContent === null || componentContent === void 0 ? void 0 : componentContent.header) === false) && /* @__PURE__ */ React__default.createElement(SetPickerSmartListHeader, props), /* @__PURE__ */ React__default.createElement(SetPickerSmartListBody, props)));
-};
-var SetPickerSmartListHeader = function SetPickerSmartListHeader2(_ref) {
-  var _componentContent$hea;
-  var props = _extends$h({}, (_objectDestructuringEmpty(_ref), _ref));
-  var options = props.options;
-  var componentContent = options.componentContent, hideCountersBar = options.hideCountersBar;
-  if (hideCountersBar)
-    return /* @__PURE__ */ React__default.createElement("div", {
-      className: "tf_smartlist-header tf_smartlist-header-hidden"
-    });
-  return /* @__PURE__ */ React__default.createElement("div", {
-    className: "tf_smartlist-header"
-  }, /* @__PURE__ */ React__default.createElement("div", {
-    className: "d-flex g-2 align-items-end p-1 overflow-hidden"
-  }, UTILS$2.parseParams(componentContent === null || componentContent === void 0 || (_componentContent$hea = componentContent.header) === null || _componentContent$hea === void 0 ? void 0 : _componentContent$hea.counts).show && /* @__PURE__ */ React__default.createElement(SetPickerSmartListHeaderCounts, props)), /* @__PURE__ */ React__default.createElement(SetPickerSpinner$1, props));
-};
-var SetPickerSmartListHeaderCounts = function SetPickerSmartListHeaderCounts2(_ref) {
-  var _mainOptions$currInde, _mainOptions$currInde2, _mainOptions$mainInde2;
-  var props = _extends$h({}, (_objectDestructuringEmpty(_ref), _ref));
-  var utils2 = props.utils, _props$selected = props.selected, show = _props$selected.show, selectedList = _props$selected.selectedList, searchSelectedList = _props$selected.searchSelectedList, showSelectedList = props.showSelectedList, setShowSelectedList = props.setShowSelectedList, pages = props.pages, searchContext = props.searchContext, setSearchContext = props.setSearchContext, setSelected = props.setSelected, singleChoiceOnly = props.options.singleChoiceOnly, componentCallback = props.componentCallback, listName = props.listName;
-  var _mainOptions = pages._mainOptions;
-  utils2.showSelectedListMode = false;
-  var mainIndex = utils2.getPagesIndex("", 0);
-  var currIndex = utils2.getPagesIndex(searchContext, 0);
-  utils2.showSelectedListMode = showSelectedList;
-  var clickToTotalCount = function clickToTotalCount2() {
-    if (showSelectedList) {
-      setShowSelectedList(false);
-      return;
-    }
-    if (!(_mainOptions !== null && _mainOptions !== void 0 && _mainOptions.totalCount)) {
-      utils2.spinner(listName, true);
-      var resetSpinner = function resetSpinner2() {
-        return utils2.spinner(listName, false);
-      };
-      var promise = utils2.requestGetTotalCounter(props);
-      if (promise !== null && promise !== void 0 && promise.then) {
-        promise.then(resetSpinner);
-      }
-      return;
-    }
-  };
-  var clickToGlobalTotalCount = function clickToGlobalTotalCount2() {
-    var _mainOptions$mainInde;
-    if (showSelectedList) {
-      setShowSelectedList(false);
-      setSearchContext("");
-      return;
-    }
-    if (!((_mainOptions$mainInde = _mainOptions[mainIndex]) !== null && _mainOptions$mainInde !== void 0 && _mainOptions$mainInde.totalCount)) {
-      utils2.requestGetGlobalTotalCounter(props);
-      return;
-    }
-    setSearchContext("");
-  };
-  var unselect = function unselect2() {
-    setSelected({
-      selectedList: []
-    });
-    componentCallback({
-      code: CONFIG_SETPICKER.operationCodes.unselectAll
-    });
-  };
-  var totalCountText = _mainOptions && ((_mainOptions$currInde = _mainOptions[currIndex]) === null || _mainOptions$currInde === void 0 ? void 0 : _mainOptions$currInde.totalCount) !== void 0 ? (_mainOptions$currInde2 = _mainOptions[currIndex]) === null || _mainOptions$currInde2 === void 0 ? void 0 : _mainOptions$currInde2.totalCount : showSelectedList ? "\u0432\u0441\u0435\u0445" : "\u043F\u043E\u043A\u0430\u0437\u0430\u0442\u044C";
-  var globalTotalCountText = _mainOptions && ((_mainOptions$mainInde2 = _mainOptions[mainIndex]) === null || _mainOptions$mainInde2 === void 0 ? void 0 : _mainOptions$mainInde2.totalCount) !== void 0 ? _mainOptions[mainIndex].totalCount : showSelectedList ? "\u0432\u0441\u0435\u0445" : "\u043F\u043E\u043A\u0430\u0437\u0430\u0442\u044C";
-  return /* @__PURE__ */ React__default.createElement(React__default.Fragment, null, /* @__PURE__ */ React__default.createElement("div", {
-    className: "flex-grow-1"
-  }, !singleChoiceOnly && !!selectedList.length && /* @__PURE__ */ React__default.createElement("div", {
-    className: "tf_form-check"
-  }, /* @__PURE__ */ React__default.createElement("i", {
-    className: "fas fa-times unselect",
-    onClick: unselect
-  }))), /* @__PURE__ */ React__default.createElement("div", {
-    className: "lh-1 text-end",
-    style: {
-      visibility: show ? "unset" : "hidden"
-    }
-  }, /* @__PURE__ */ React__default.createElement("span", {
-    className: "text-nowrap"
-  }, "\u0432\u044B\u0431\u0440\u0430\u043D\u043E ", /* @__PURE__ */ React__default.createElement("span", {
-    className: "text-primary",
-    tabIndex: "1",
-    role: "button",
-    style: {
-      "font-weight": showSelectedList === "search" ? "bold" : ""
-    },
-    onClick: function onClick() {
-      return setShowSelectedList(true, true);
-    }
-  }, searchSelectedList.length || 0), " \u0438\u0437 ", /* @__PURE__ */ React__default.createElement("span", {
-    className: "text-primary",
-    tabIndex: "1",
-    role: "button",
-    style: {
-      "font-weight": !showSelectedList ? "bold" : ""
-    },
-    onClick: clickToTotalCount
-  }, totalCountText), searchContext && /* @__PURE__ */ React__default.createElement(React__default.Fragment, null, " (\u0432\u0441\u0435\u0433\u043E ", /* @__PURE__ */ React__default.createElement("span", {
-    className: "text-primary",
-    tabIndex: "1",
-    role: "button",
-    style: {
-      "font-weight": showSelectedList === "full" ? "bold" : ""
-    },
-    onClick: function onClick() {
-      return setShowSelectedList(true, false);
-    }
-  }, selectedList.length || 0), " \u0438\u0437 ", /* @__PURE__ */ React__default.createElement("span", {
-    className: "text-primary",
-    tabIndex: "1",
-    role: "button",
-    onClick: clickToGlobalTotalCount
-  }, globalTotalCountText), ")"))));
-};
 var scrollbar = "";
-var Scrollbar = function Scrollbar2(_ref) {
-  var _smartListRef$current;
-  var props = _extends$h({}, (_objectDestructuringEmpty(_ref), _ref));
-  var list = props.list, currentList = props.currentList, resetScrollbar = props.resetScrollbar, scrollData = props.scrollData, strHeight = props.strHeight;
-  var smartListRef = React__default.useRef(null);
-  var getSubList = function getSubList2(data2) {
-    var listHeight = data2.listHeight, wrapperHeight2 = data2.wrapperHeight, scroll = data2.scroll;
-    var freeSpace = listHeight - wrapperHeight2;
-    var fromPx = freeSpace / 100 * scroll;
-    var toPx = fromPx + wrapperHeight2;
-    var subListFrom = Math.ceil(fromPx / strHeight);
-    var subListTo = Math.ceil(toPx / strHeight);
-    var subList = currentList.current.slice(subListFrom, subListTo + 1);
-    return {
-      subListFrom,
-      subListTo,
-      subList
-    };
-  };
-  var _useCurrentState = useCurrentState({
-    wrapperHeight: void 0,
-    wrapperWidth: void 0,
-    scroll: 0,
-    listHeight: currentList.current.length * strHeight,
-    upDownHeight: strHeight * 3,
-    subListFrom: 0,
-    subListTo: 0,
-    subList: []
-  }, true), _useCurrentState2 = _slicedToArray(_useCurrentState, 3), data = _useCurrentState2[0], currentData = _useCurrentState2[1], _setData = _useCurrentState2[2];
-  var setData = function setData2(obj) {
-    var cd = currentData.current;
-    if (obj.listHeight && obj.listHeight !== cd.listHeight && cd.scroll === 100) {
-      obj.scroll = (cd.listHeight - cd.wrapperHeight + strHeight) * 100 / (obj.listHeight - cd.wrapperHeight);
-    }
-    _setData(obj);
-    var subListData = getSubList(currentData.current);
-    Object.assign(currentData.current, subListData);
-  };
-  var mouseOverTheSmartList = React__default.useRef(false);
-  React__default.useEffect(function() {
-    if (scrollData) {
-      scrollData.current = currentData;
-    }
-    var setSizeData = function setSizeData2() {
-      setData({
-        wrapperWidth: smartListRef.current.clientWidth,
-        wrapperHeight: smartListRef.current.clientHeight
-      });
-    };
-    setTimeout(function() {
-      setSizeData();
-    }, 0);
-    smartListRef.current.onmouseover = function() {
-      mouseOverTheSmartList.current = true;
-    };
-    smartListRef.current.onmouseleave = function() {
-      mouseOverTheSmartList.current = false;
-    };
-  }, []);
-  React__default.useEffect(function() {
-    setData({
-      scroll: 0
-    });
-  }, [resetScrollbar]);
-  React__default.useEffect(function() {
-    setData({
-      listHeight: list.length * strHeight
-    });
-  }, [list]);
-  var onWheel = function onWheel2(e) {
-    var direction = e.deltaY > 0 ? 1 : -1;
-    if (direction === -1 && data.scroll === 0) {
-      return;
-    }
-    var listFreeSpacePx = data.listHeight - data.wrapperHeight;
-    var deltaPersent = data.upDownHeight * 100 / listFreeSpacePx;
-    var newScroll = Math.max(0, Math.min(100, data.scroll + deltaPersent * direction));
-    setData({
-      scroll: newScroll
-    });
-  };
-  var wrapperHeight = (_smartListRef$current = smartListRef.current) === null || _smartListRef$current === void 0 ? void 0 : _smartListRef$current.clientHeight;
-  if (wrapperHeight && wrapperHeight !== currentData.current.wrapperHeight) {
-    setData({
-      wrapperWidth: smartListRef.current.clientWidth,
-      wrapperHeight: smartListRef.current.clientHeight
-    });
-  }
-  return /* @__PURE__ */ React__default.createElement(React__default.Fragment, null, /* @__PURE__ */ React__default.createElement("div", {
-    className: "tf_smartlist-items",
-    onWheel,
-    ref: smartListRef
-  }, /* @__PURE__ */ React__default.createElement(ScrollbarContainer, _extends$h({}, props, {
-    list: data.subList,
-    subListFrom: data.subListFrom,
-    subListTo: data.subListTo
-  }))), /* @__PURE__ */ React__default.createElement(ScrollbarScrollbar, _extends$h({}, props, {
-    strHeight,
-    data,
-    setData,
-    mouseOverTheSmartList: mouseOverTheSmartList.current
-  })));
-};
-var ScrollbarScrollbar = function ScrollbarScrollbar2(_ref) {
-  var props = _extends$h({}, (_objectDestructuringEmpty(_ref), _ref));
-  var data = props.data, setData = props.setData, wheelTimeout = props.wheelTimeout, endOfScroll = props.endOfScroll, mouseOverTheSmartList = props.mouseOverTheSmartList;
-  var listHeight = data.listHeight, wrapperHeight = data.wrapperHeight, scroll = data.scroll, subListFrom = data.subListFrom, subListTo = data.subListTo, subList = data.subList;
-  var innerHeight = Math.min(1e4, listHeight);
-  var wrapperRef = React__default.useRef(null);
-  var setDataBlocked = React__default.useRef(false);
-  var wheelTimeoutId = React__default.useRef(0);
-  var forceTimeout = React__default.useRef(wheelTimeout);
-  var scrollByKey = React__default.useRef(void 0);
-  var scrollPercentToPx = function scrollPercentToPx2(scrollPercent) {
-    return scrollPercent * (innerHeight - wrapperHeight) / 100;
-  };
-  var scrollPxToPercent = function scrollPxToPercent2(scrollPx) {
-    return scrollPx * 100 / (innerHeight - wrapperHeight);
-  };
-  var checkEndOfScroll = function checkEndOfScroll2() {
-    if (wheelTimeoutId.current) {
-      clearTimeout(wheelTimeoutId.current);
-    }
-    wheelTimeoutId.current = setTimeout(function() {
-      wheelTimeoutId.current = 0;
-      endOfScroll({
-        subListFrom,
-        subListTo,
-        subList
-      });
-    }, forceTimeout.current);
-  };
-  var onScroll = function onScroll2(e) {
-    if (setDataBlocked.current) {
-      setDataBlocked.current = false;
-      checkEndOfScroll();
-      return;
-    }
-    setDataBlocked.current = true;
-    setData({
-      scroll: scrollPxToPercent(e.target.scrollTop)
-    });
-    checkEndOfScroll();
-  };
-  var keyUp = function keyUp2(e) {
-    if (!scrollByKey.current) {
-      return;
-    }
-    var delta = 0;
-    switch (e.code) {
-      case "ArrowUp":
-        delta = -1;
-        break;
-      case "ArrowDown":
-        delta = 1;
-        break;
-      default:
-        return;
-    }
-    forceTimeout.current = 0;
-    wrapperRef.current.scrollBy({
-      top: delta
-    });
-    setTimeout(function() {
-      forceTimeout.current = wheelTimeout;
-    }, 10);
-  };
-  React__default.useEffect(function() {
-    document.addEventListener("keyup", keyUp);
-    return function() {
-      return document.removeEventListener("keyup", keyUp);
-    };
-  }, []);
-  React__default.useEffect(function() {
-    scrollByKey.current = mouseOverTheSmartList;
-  }, [mouseOverTheSmartList]);
-  React__default.useEffect(function() {
-    if (setDataBlocked.current) {
-      setDataBlocked.current = false;
-      checkEndOfScroll();
-      return;
-    }
-    var newScroll = scrollPercentToPx(scroll);
-    if (wrapperRef.current.scrollTop !== newScroll) {
-      setDataBlocked.current = true;
-      wrapperRef.current.scrollTop = newScroll;
-      checkEndOfScroll();
-    }
-  }, [scroll]);
-  return /* @__PURE__ */ React__default.createElement("div", {
-    className: "tf_smartscroll",
-    onScroll,
-    ref: wrapperRef
-  }, /* @__PURE__ */ React__default.createElement("div", {
-    className: "tf_smartscroll-wrapper",
-    style: {
-      height: "".concat(innerHeight, "px")
-    }
-  }));
-};
-var ScrollbarContainer = function ScrollbarContainer2(_ref) {
-  var props = _extends$h({}, (_objectDestructuringEmpty(_ref), _ref));
-  var count2 = React__default.useRef(0);
-  count2.current++;
-  var odd = count2.current % 2 === 0;
-  return /* @__PURE__ */ React__default.createElement(React__default.Fragment, null, odd ? /* @__PURE__ */ React__default.createElement(ScrollbarContainerOdd, props) : /* @__PURE__ */ React__default.createElement(ScrollbarContainerEven, props));
-};
-var ScrollbarContainerOdd = function ScrollbarContainerOdd2(_ref2) {
-  var props = _extends$h({}, (_objectDestructuringEmpty(_ref2), _ref2));
-  return /* @__PURE__ */ React__default.createElement(ScrollbarContainerAll, props);
-};
-var ScrollbarContainerEven = function ScrollbarContainerEven2(_ref3) {
-  var props = _extends$h({}, (_objectDestructuringEmpty(_ref3), _ref3));
-  return /* @__PURE__ */ React__default.createElement(ScrollbarContainerAll, props);
-};
-var ScrollbarContainerAll = function ScrollbarContainerAll2(_ref4) {
-  var props = _extends$h({}, (_objectDestructuringEmpty(_ref4), _ref4));
-  var list = props.list, ItemView = props.ItemView, subListFrom = props.subListFrom;
-  return /* @__PURE__ */ React__default.createElement(React__default.Fragment, null, list.map(function(item, index2) {
-    return /* @__PURE__ */ React__default.createElement(ItemView, _extends$h({}, props, {
-      item,
-      subListFrom,
-      index: index2
-    }));
-  }));
-};
-var SetPickerSmartListBody = function SetPickerSmartListBody2(_ref) {
-  var props = _extends$h({}, (_objectDestructuringEmpty(_ref), _ref));
-  var options = props.options, componentReturn = props.componentReturn;
-  var strHeight = options.strHeight;
-  var bodyRef = React__default.useRef(null);
-  var _React$useState = React__default.useState(0), _React$useState2 = _slicedToArray(_React$useState, 2), listHeight = _React$useState2[0], setListHeight = _React$useState2[1];
-  var calcListHeight = function calcListHeight2() {
-    var heightPX = bodyRef.current.clientHeight;
-    setListHeight(Math.floor(heightPX / strHeight));
-  };
-  React__default.useEffect(function() {
-    componentReturn.onResize = calcListHeight;
-    calcListHeight();
-  }, []);
-  return /* @__PURE__ */ React__default.createElement(React__default.Fragment, null, /* @__PURE__ */ React__default.createElement("div", {
-    ref: bodyRef,
-    className: "tf_smartlist-body"
-  }, /* @__PURE__ */ React__default.createElement(Scrollbar, _extends$h({}, props, {
-    listHeight
-  }))));
-};
-var SetPickerItemView = function SetPickerItemView2(_ref) {
-  var _componentContent$lin;
-  var props = _extends$h({}, (_objectDestructuringEmpty(_ref), _ref));
-  var item = props.item, selected = props.selected, options = props.options, index2 = props.index, onClickToLineCheckbox = props.onClickToLineCheckbox;
-  var componentContent = options.componentContent, strHeight = options.strHeight, highlightNodes = options.highlightNodes, singleChoiceOnly = options.singleChoiceOnly, unavailableItemsList = options.unavailableItemsList, ItemViewName = options.ItemViewName;
-  var id = item.id, hasChildren = item.hasChildren;
-  var skeletonSpace = 4;
-  var skeletonColor = "#ddd";
-  var minSkeletonElements = 4;
-  var maxSkeletonElements = 20;
-  var minSkeletonElementLength = 5;
-  var maxSkeletonElementLength = 60;
-  var itemIsUnavailable = unavailableItemsList ? unavailableItemsList.includes(id) : false;
-  var generateSkeletonArr = function generateSkeletonArr2() {
-    var randomInteger = function randomInteger2(min2, max2) {
-      return Math.floor(min2 + Math.random() * (max2 + 1 - min2));
-    };
-    var out = [];
-    for (var i = 0; i < randomInteger(minSkeletonElements, maxSkeletonElements); i++) {
-      out.push(randomInteger(minSkeletonElementLength, maxSkeletonElementLength));
-    }
-    return out;
-  };
-  var currSkeleton = React__default.useRef(generateSkeletonArr());
-  var getChecked = function getChecked2() {
-    return selected.selectedList.includes(id);
-  };
-  var _React$useState = React__default.useState(getChecked()), _React$useState2 = _slicedToArray(_React$useState, 2), checked = _React$useState2[0], setChecked = _React$useState2[1];
-  var inputRef = React__default.useRef(null);
-  var checkRadioClass = React__default.useRef(singleChoiceOnly ? "radio" : "check");
-  var checkRadioType = React__default.useRef(singleChoiceOnly ? "radio" : "checkbox");
-  React__default.useEffect(function() {
-    var newChecked = getChecked();
-    if (newChecked === checked) {
-      return;
-    }
-    setChecked(newChecked);
-  }, [selected]);
-  var getSkeleton = function getSkeleton2(arr) {
-    var out = [];
-    var start = 0;
-    var getSk = function getSk2(length2) {
-      return "".concat(skeletonColor, " ").concat(start, "px, ").concat(skeletonColor, " ").concat(start + length2, "px, #fff ").concat(start + length2, "px, #fff ").concat(start + length2 + skeletonSpace, "px");
-    };
-    var _iterator = _createForOfIteratorHelper(arr), _step;
-    try {
-      for (_iterator.s(); !(_step = _iterator.n()).done; ) {
-        var length = _step.value;
-        out.push(getSk(length));
-        start += length + skeletonSpace;
-      }
-    } catch (err) {
-      _iterator.e(err);
-    } finally {
-      _iterator.f();
-    }
-    return "linear-gradient(to right, ".concat(out.join(","), ")");
-  };
-  var onClickToSelect = function onClickToSelect2() {
-    if (itemIsUnavailable)
-      return;
-    onClickToLineCheckbox(item, !checked);
-  };
-  var itemIsEmptyClass = !id ? " item-is-empty" : "";
-  var itemHasChildrenClass = hasChildren && highlightNodes ? " item-has-children" : "";
-  var itemIsUnavailableClass = itemIsUnavailable ? " item-is-unavailable" : "";
-  var CurrentItemViewName = ItemViewName ? ItemViewName : SetPickerItemViewName;
-  return /* @__PURE__ */ React__default.createElement(React__default.Fragment, null, /* @__PURE__ */ React__default.createElement("div", {
-    className: "tf_smartlist-item".concat(itemIsEmptyClass).concat(itemHasChildrenClass).concat(itemIsUnavailableClass).concat(checked ? " selected" : ""),
-    style: {
-      height: "".concat(strHeight, "px")
-    },
-    index: index2,
-    onClick: onClickToSelect
-  }, /* @__PURE__ */ React__default.createElement("div", {
-    className: "tf_smartitem"
-  }, /* @__PURE__ */ React__default.createElement(SetPickerItemViewLevel, props), UTILS$2.parseParams(componentContent === null || componentContent === void 0 || (_componentContent$lin = componentContent.line) === null || _componentContent$lin === void 0 ? void 0 : _componentContent$lin.select).show && /* @__PURE__ */ React__default.createElement("div", {
-    className: "tf_form-".concat(checkRadioClass.current)
-  }, /* @__PURE__ */ React__default.createElement("input", {
-    ref: inputRef,
-    className: "tf_form-".concat(checkRadioClass.current, "-input"),
-    name: "selectedGroup",
-    type: checkRadioType.current,
-    checked,
-    onChange: function onChange() {
-    }
-  })), /* @__PURE__ */ React__default.createElement(CurrentItemViewName, _extends$h({}, props, {
-    skeleton: typeof id === "undefined" ? getSkeleton(currSkeleton.current) : null,
-    itemIsEmptyClass,
-    getChecked,
-    checked,
-    onChange: function onChange() {
-    }
-  })))));
-};
-var SetPickerItemViewLevel = function SetPickerItemViewLevel2(_ref) {
-  var props = _extends$h({}, (_objectDestructuringEmpty(_ref), _ref));
-  var item = props.item, options = props.options, deltaLevel = props.deltaLevel;
-  var _selectedRoots = options.selectedRoots;
-  var _level = item.level, l2 = item.l, id = item.id, hasChildren = item.hasChildren;
-  var empty = !id;
-  var level = empty ? l2 : _level;
-  level += deltaLevel || 0;
-  var selectedRoots = !(_selectedRoots === false);
-  var arr = UTILS$2.monoArray(level + (!hasChildren && selectedRoots), true);
-  return /* @__PURE__ */ React__default.createElement(React__default.Fragment, null, arr.map(function() {
-    return /* @__PURE__ */ React__default.createElement("div", {
-      className: "s-em"
-    });
-  }));
-};
-var SetPickerItemViewName = function SetPickerItemViewName2(_ref) {
-  var props = _extends$h({}, (_objectDestructuringEmpty(_ref), _ref));
-  var actionsMode = props.actionsMode, item = props.item, searchContext = props.searchContext, options = props.options, skeleton = props.skeleton;
-  var highlightFound = options.highlightFound;
-  var id = item.id, label = item.label;
-  var noName = React__default.useRef(id && label === CONFIG_SETPICKER.newItemLabel);
-  var calcLabelHtml = function calcLabelHtml2() {
-    return noName.current ? "" : !id ? CONFIG_SETPICKER.emptyText : searchContext && highlightFound ? UTILS$2.textWithSearchContext(label, searchContext || "") : label;
-  };
-  var labelHtml = React__default.useRef(calcLabelHtml());
-  var isEditable = actionsMode === CONFIG_SETPICKER.actionModes.edit || actionsMode === CONFIG_SETPICKER.actionModes.addLine;
-  return /* @__PURE__ */ React__default.createElement(React__default.Fragment, null, /* @__PURE__ */ React__default.createElement("div", {
-    className: "tf_smartitem-name".concat(noName.current ? " no-name" : ""),
-    contentEditable: isEditable,
-    dangerouslySetInnerHTML: {
-      __html: labelHtml.current
-    },
-    style: skeleton ? {
-      backgroundImage: skeleton
-    } : {}
-  }));
-};
 if (!useState) {
   throw new Error("mobx-react-lite requires React with Hooks support");
 }
@@ -22376,9 +21294,9 @@ function makeClassComponentObserver(componentClass) {
     }
   });
   patch(target, "componentWillUnmount", function() {
-    var reaction2 = this.render[mobxAdminProperty];
-    if (reaction2) {
-      reaction2.dispose();
+    var reaction = this.render[mobxAdminProperty];
+    if (reaction) {
+      reaction.dispose();
       this.render[mobxAdminProperty] = null;
     } else {
       var _displayName2 = getDisplayName(this);
@@ -22399,7 +21317,7 @@ function createReactiveRender(originalRender) {
   var boundOriginalRender = originalRender.bind(this);
   var isRenderingPending = false;
   var createReaction = function createReaction2() {
-    var reaction2 = new Reaction(initialName + ".render()", function() {
+    var reaction = new Reaction(initialName + ".render()", function() {
       if (!isRenderingPending) {
         isRenderingPending = true;
         if (_this[mobxIsUnmounted] !== true) {
@@ -22413,23 +21331,23 @@ function createReactiveRender(originalRender) {
           } finally {
             setHiddenProp(_this, isForcingUpdateKey, false);
             if (hasError) {
-              reaction2.dispose();
+              reaction.dispose();
               _this.render[mobxAdminProperty] = null;
             }
           }
         }
       }
     });
-    reaction2["reactComponent"] = _this;
-    return reaction2;
+    reaction["reactComponent"] = _this;
+    return reaction;
   };
   function reactiveRender() {
     var _reactiveRender$mobxA;
     isRenderingPending = false;
-    var reaction2 = (_reactiveRender$mobxA = reactiveRender[mobxAdminProperty]) != null ? _reactiveRender$mobxA : reactiveRender[mobxAdminProperty] = createReaction();
+    var reaction = (_reactiveRender$mobxA = reactiveRender[mobxAdminProperty]) != null ? _reactiveRender$mobxA : reactiveRender[mobxAdminProperty] = createReaction();
     var exception = void 0;
     var rendering = void 0;
-    reaction2.track(function() {
+    reaction.track(function() {
       try {
         rendering = allowStateChanges(false, boundOriginalRender);
       } catch (e) {
@@ -22509,47 +21427,7 @@ var SetPickerSpinner = function SetPickerSpinner2(_ref) {
     }
   });
 };
-var SetPickerSpinner$1 = observer(SetPickerSpinner);
-var CONFIG_SETPICKER = {
-  lineHeight: 23,
-  wheelTimeout: 200,
-  searchTimeout: 500,
-  newItemLabel: " ",
-  emptyText: "",
-  emptyId: "",
-  loadingText: "\u0417\u0430\u0433\u0440\u0443\u0437\u043A\u0430...",
-  actionModes: {
-    search: "search",
-    addLine: "addLine",
-    edit: "edit"
-  },
-  operationCodes: {
-    actionsAddNewLine: "actions-add-new-line",
-    actionsRenameLine: "actions-rename-line",
-    actionsChangeSelectedLevels: "actions-change-selected-levels",
-    itemMenuSelectAllLevels: "item-menu-select-all-levels",
-    itemMenuSelectChild: "item-menu-select-child",
-    itemMenuRaiseLevel: "item-menu-raise-level",
-    itemMenuLowerLevel: "item-menu-lower-level",
-    itemMenuAddChild: "item-menu-add-child",
-    itemMenuDeleteWithLevels: "item-menu-delete-with-levels",
-    itemMenuDelete: "item-menu-delete",
-    itemSelect: "item-select",
-    unselectell: "unselect-all",
-    changeSearchContext: "change-search-context",
-    changeSearchFilter: "change-search-filter"
-  },
-  url: function url(set_id, elem_id) {
-    return {
-      getBlock: "/rspa/set/".concat(set_id, "/page2/"),
-      getCounters: "/rspa/set/".concat(set_id, "/counters2/"),
-      addNewItem: "/rspa/set/".concat(set_id, "/elements/"),
-      renameItem: "/rspa/set/".concat(set_id, "/elements/").concat(elem_id, "/"),
-      deleteItem: "/rspa/set/".concat(set_id, "/elements/").concat(elem_id, "/"),
-      constraints: "/rspa/set/".concat(set_id, "/constraints/")
-    };
-  }
-};
+observer(SetPickerSpinner);
 var CONSTANTS_SETPICKER = {
   widgetName: "setpicker",
   dataName: {
@@ -22601,354 +21479,6 @@ CONSTANTS_SETPICKER.currentListName = function() {
 CONSTANTS_SETPICKER.listNams = function() {
   return "".concat(CONSTANTS_SETPICKER.commonStates(), ".listNames");
 };
-var Utils$1 = /* @__PURE__ */ function() {
-  function Utils2(_ref) {
-    var finalList = _ref.finalList;
-    _classCallCheck$a(this, Utils2);
-    _defineProperty$7(this, "blockDataConverter", function(_ref2) {
-      var searchContext = _ref2.searchContext, page = _ref2.page;
-      return function(_response) {
-        var response = Array.isArray(_response) ? _response : [_response];
-        var out = {
-          data: response.map(function(item) {
-            return {
-              id: item || CONFIG_SETPICKER.emptyId,
-              label: item
-            };
-          }),
-          searchContext: searchContext || "",
-          page
-        };
-        return out;
-      };
-    });
-    this.finalList = finalList || null;
-    this.indexDetails = {
-      zeroSearch: "<ALL>",
-      selectedSearch: "<SELECTED ONLY>"
-    };
-    this.showSelectedListMode = false;
-    this.error = {
-      pageReadingError: "*** \u041E\u0428\u0418\u0411\u041A\u0410 \u0427\u0422\u0415\u041D\u0418\u042F \u0421\u0422\u0420\u0410\u041D\u0418\u0426\u042B ***"
-    };
-  }
-  return _createClass$9(Utils2, [{
-    key: "getFilterIndex",
-    value: function getFilterIndex(search) {
-      return "search=".concat(this.showSelectedListMode ? this.indexDetails.selectedSearch : search || this.indexDetails.zeroSearch);
-    }
-  }, {
-    key: "getPagesIndex",
-    value: function getPagesIndex(search, id) {
-      return "".concat(this.getFilterIndex(search), " id=").concat(id || 0);
-    }
-  }, {
-    key: "getPageIndex",
-    value: function getPageIndex(pagesIndex, num) {
-      return "".concat(pagesIndex, " page=").concat(num || 0);
-    }
-  }, {
-    key: "spinner",
-    value: function spinner(listName, show) {
-      var spinnerAddr = CONSTANTS_SETPICKER.stateSpinner(listName);
-      var spinner2 = Store$1.getState(spinnerAddr);
-      if (spinner2 !== show) {
-        Store$1.setState(spinnerAddr, show);
-      }
-    }
-  }, {
-    key: "storeSavePage",
-    value: function storeSavePage(_ref3) {
-      var props = _extends$h({}, (_objectDestructuringEmpty(_ref3), _ref3));
-      var listName = props.listName, _pagesIndex = props.pagesIndex, _pageIndex = props.pageIndex, oldList = props.oldList, data = props.data, callbackForGetBlock = props.callbackForGetBlock;
-      var dataFromServer = data.data, page = data.page, _data$searchContext = data.searchContext, searchContext = _data$searchContext === void 0 ? "" : _data$searchContext;
-      var pagesIndex = _pagesIndex || this.getPagesIndex(searchContext, 0);
-      var pageIndex = _pageIndex || this.getPageIndex(pagesIndex, page);
-      var newList = oldList || _objectSpread2({}, toJS(Store$1.getState(CONSTANTS_SETPICKER.pagesData(listName))));
-      newList[pageIndex] = dataFromServer;
-      newList._rootsOptions = newList._rootsOptions || {};
-      newList._rootsOptions[pagesIndex] = newList._rootsOptions[pagesIndex] || {
-        childrenItems: 0,
-        pagesCounts: []
-      };
-      var _length = newList._rootsOptions[pagesIndex].childrenItems + dataFromServer.length;
-      newList._rootsOptions[pagesIndex].childrenItems = _length;
-      newList._rootsOptions[pagesIndex].pagesCounts.push(dataFromServer.length);
-      newList._items = newList._items || {};
-      var _iterator = _createForOfIteratorHelper(dataFromServer), _step;
-      try {
-        for (_iterator.s(); !(_step = _iterator.n()).done; ) {
-          var item = _step.value;
-          newList._items[item.id] = item.label;
-        }
-      } catch (err) {
-        _iterator.e(err);
-      } finally {
-        _iterator.f();
-      }
-      if (!newList._mainOptions) {
-        newList._mainOptions = {
-          hasParent: false,
-          totalItems: 0,
-          pagesCounts: []
-        };
-      }
-      if (newList._mainOptions[pagesIndex] && page === 0) {
-        return;
-      }
-      newList._pagesOptions = newList._pagesOptions || {};
-      newList._pagesOptions[pagesIndex] = {
-        parentID: 0,
-        page
-      };
-      var pageLevel = 0;
-      newList._pagesIndexes = newList._pagesIndexes || {};
-      newList._pagesIndexes[pagesIndex] = {
-        searchContext,
-        parentID: 0,
-        pagesIndex,
-        pageIndex,
-        pageLevel
-      };
-      newList._pagesIndexes[pageIndex] = {
-        searchContext,
-        parentID: 0,
-        page,
-        pagesIndex,
-        pageIndex,
-        pageLevel
-      };
-      newList._change = {
-        searchContext,
-        parentID: 0,
-        pagesIndex,
-        pageIndex,
-        page
-      };
-      if (!oldList) {
-        Store$1.setState(CONSTANTS_SETPICKER.pagesData(listName), newList);
-      }
-      var counter = {
-        childrenItems: _length,
-        pagesCounts: newList._rootsOptions[pagesIndex].pagesCounts,
-        totalItems: _length
-      };
-      if (dataFromServer.length < CONFIG_API.listBlockLength || this.finalList) {
-        counter.isFinalTotalCount = true;
-        counter.totalCount = _length;
-      }
-      this.storeSaveCounters(_objectSpread2(_objectSpread2({}, props), {}, {
-        data: counter
-      }));
-      if (callbackForGetBlock) {
-        callbackForGetBlock();
-      }
-    }
-  }, {
-    key: "storeSaveCounters",
-    value: function storeSaveCounters(_ref4) {
-      var _newData$_mainOptions;
-      var props = _extends$h({}, (_objectDestructuringEmpty(_ref4), _ref4));
-      var listName = props.listName, _props$searchContext = props.searchContext, searchContext = _props$searchContext === void 0 ? "" : _props$searchContext, parentID = props.parentID, callbackForGetBlock = props.callbackForGetBlock, data = props.data;
-      var totalItems = data.totalItems, _totalCount = data.totalCount, childrenItems = data.childrenItems, pagesCounts = data.pagesCounts, isFinalTotalCount = data.isFinalTotalCount;
-      var pagesIndex = this.getPagesIndex(searchContext, parentID);
-      var newData = _objectSpread2({}, toJS(Store$1.getState(CONSTANTS_SETPICKER.pagesData(listName))));
-      var totalCount = _totalCount !== void 0 ? _totalCount : (_newData$_mainOptions = newData._mainOptions[pagesIndex]) === null || _newData$_mainOptions === void 0 ? void 0 : _newData$_mainOptions.totalCount;
-      if (totalItems !== void 0) {
-        var out = {
-          totalItems,
-          isFinalTotalCount: !!isFinalTotalCount,
-          totalCount,
-          pagesCounts
-        };
-        newData._mainOptions = _objectSpread2(_objectSpread2(_objectSpread2({}, newData._mainOptions), out), {}, _defineProperty$7({}, pagesIndex, _objectSpread2({}, out)));
-      }
-      newData._rootsOptions[pagesIndex] = {
-        childrenItems,
-        pagesCounts
-      };
-      newData._change.forceReBuild = true;
-      Store$1.setState(CONSTANTS_SETPICKER.pagesData(listName), newData);
-      if (callbackForGetBlock) {
-        callbackForGetBlock();
-      }
-    }
-  }, {
-    key: "storeSaveTotalCounter",
-    value: function storeSaveTotalCounter(_ref5) {
-      var props = _extends$h({}, (_objectDestructuringEmpty(_ref5), _ref5));
-      var listName = props.listName, _props$searchContext2 = props.searchContext, searchContext = _props$searchContext2 === void 0 ? "" : _props$searchContext2, parentID = props.parentID, totalCount = props.data;
-      var pagesIndex = this.getPagesIndex(searchContext, parentID);
-      var newData = _objectSpread2({}, toJS(Store$1.getState(CONSTANTS_SETPICKER.pagesData(listName))));
-      newData._mainOptions.totalCount = totalCount;
-      newData._mainOptions[pagesIndex].totalCount = totalCount;
-      Store$1.setState(CONSTANTS_SETPICKER.pagesData(listName), newData);
-    }
-  }, {
-    key: "storeSaveGlobalTotalCounter",
-    value: function storeSaveGlobalTotalCounter(_ref6) {
-      var props = _extends$h({}, (_objectDestructuringEmpty(_ref6), _ref6));
-      var listName = props.listName, _props$searchContext3 = props.searchContext, searchContext = _props$searchContext3 === void 0 ? "" : _props$searchContext3, parentID = props.parentID, totalCount = props.data;
-      var pagesIndex = this.getPagesIndex("", parentID);
-      var newData = _objectSpread2({}, toJS(Store$1.getState(CONSTANTS_SETPICKER.pagesData(listName))));
-      if (!searchContext)
-        newData._mainOptions.totalCount = totalCount;
-      newData._mainOptions[pagesIndex].totalCount = totalCount;
-      Store$1.setState(CONSTANTS_SETPICKER.pagesData(listName), newData);
-    }
-  }, {
-    key: "getSearchArr",
-    value: function getSearchArr(list, search) {
-      if (!search)
-        return list;
-      var context = search.toLowerCase();
-      return list.filter(function(item) {
-        return ~item.toLowerCase().indexOf(context);
-      });
-    }
-  }, {
-    key: "requestGetPage",
-    value: function requestGetPage(props) {
-      var _this = this;
-      var _request = props.request, searchContext = props.searchContext, page = props.page, callbackForGetBlock = props.callbackForGetBlock;
-      if (this.finalList) {
-        var subList = this.getSearchArr(this.finalList, searchContext);
-        var data = this.blockDataConverter({
-          searchContext,
-          page
-        })(subList);
-        this.storeSavePage(_objectSpread2(_objectSpread2({}, props), {}, {
-          data
-        }));
-        return;
-      }
-      var _request$method = _request.method, method = _request$method === void 0 ? "get" : _request$method, url2 = _request.url, registryId = _request.registryId, _request$keys = _request.keys, keys2 = _request$keys === void 0 ? {} : _request$keys;
-      var _keys$pageLength = keys2.pageLength, keyPageLength = _keys$pageLength === void 0 ? "length" : _keys$pageLength, _keys$pageNum = keys2.pageNum, keyPageNum = _keys$pageNum === void 0 ? "page_num" : _keys$pageNum, _keys$searchContext = keys2.searchContext, keySearchContext = _keys$searchContext === void 0 ? "search" : _keys$searchContext;
-      var _url = registryId ? url2.replace("<registryId>", registryId) : url2;
-      var _length = "?".concat(keyPageLength, "=").concat(CONFIG_API.listBlockLength);
-      var _page = "&".concat(keyPageNum, "=").concat(page);
-      var _search = !!searchContext ? "&".concat(keySearchContext, "=").concat(searchContext) : "";
-      return request[method]({
-        url: "".concat(_url).concat(_length).concat(_page).concat(_search),
-        dataConverter: this.blockDataConverter({
-          searchContext,
-          page
-        }),
-        success: function success(data2) {
-          _this.storeSavePage(_objectSpread2(_objectSpread2({}, props), {}, {
-            data: data2
-          }));
-        },
-        error: function error(data2) {
-          console.error(_this.error.pageReadingError, "requestGetPage", data2);
-          callbackForGetBlock();
-        }
-      });
-    }
-  }, {
-    key: "requestGetTotalCounter",
-    value: function requestGetTotalCounter(props) {
-      var _this2 = this;
-      var _request = props.request, searchContext = props.searchContext, callbackForGetBlock = props.callbackForGetBlock, counterRequest = props.counterRequest;
-      var _request$method2 = _request.method, method = _request$method2 === void 0 ? "get" : _request$method2, url2 = _request.url, registryId = _request.registryId, _request$keys2 = _request.keys, keys2 = _request$keys2 === void 0 ? {} : _request$keys2;
-      var _keys$searchContext2 = keys2.searchContext, keySearchContext = _keys$searchContext2 === void 0 ? "search" : _keys$searchContext2, _keys$count = keys2.count, keyCount = _keys$count === void 0 ? "count" : _keys$count;
-      if (counterRequest.current[searchContext])
-        return;
-      counterRequest.current[searchContext] = true;
-      var _url = registryId ? url2.replace("<registryId>", registryId) : url2;
-      var _count = "?".concat(keyCount, "=true");
-      var _search = !!searchContext ? "&".concat(keySearchContext, "=").concat(searchContext) : "";
-      return request[method]({
-        url: "".concat(_url).concat(_count).concat(_search),
-        success: function success(data) {
-          _this2.storeSaveTotalCounter(_objectSpread2(_objectSpread2({}, props), {}, {
-            data
-          }));
-          counterRequest.current[searchContext] = false;
-        },
-        error: function error(data) {
-          console.error(_this2.error.pageReadingError, "requestGetTotalCounter", data);
-          callbackForGetBlock();
-          counterRequest.current[searchContext] = false;
-        }
-      });
-    }
-  }, {
-    key: "requestGetGlobalTotalCounter",
-    value: function requestGetGlobalTotalCounter(props) {
-      var _this3 = this;
-      var _request = props.request, callbackForGetBlock = props.callbackForGetBlock, counterRequest = props.counterRequest;
-      var _request$method3 = _request.method, method = _request$method3 === void 0 ? "get" : _request$method3, url2 = _request.url, registryId = _request.registryId, _request$keys3 = _request.keys, keys2 = _request$keys3 === void 0 ? {} : _request$keys3;
-      var _keys$count2 = keys2.count, keyCount = _keys$count2 === void 0 ? "count" : _keys$count2;
-      var searchContext = this.indexDetails.zeroSearch;
-      if (counterRequest.current[searchContext])
-        return;
-      counterRequest.current[searchContext] = true;
-      var _url = registryId ? url2.replace("<registryId>", registryId) : url2;
-      var _count = "?".concat(keyCount, "=true");
-      return request[method]({
-        url: "".concat(_url).concat(_count),
-        success: function success(data) {
-          _this3.storeSaveGlobalTotalCounter(_objectSpread2(_objectSpread2({}, props), {}, {
-            data
-          }));
-          counterRequest.current[searchContext] = false;
-        },
-        error: function error(data) {
-          console.error(_this3.error.pageReadingError, "requestGetGlobalTotalCounter", data);
-          callbackForGetBlock();
-          counterRequest.current[searchContext] = false;
-        }
-      });
-    }
-  }, {
-    key: "goToSelectedListMode",
-    value: function goToSelectedListMode(props) {
-      var listName = props.listName, list = props.list;
-      var listLength = list.length;
-      var newList = _objectSpread2({}, toJS(Store$1.getState(CONSTANTS_SETPICKER.pagesData(listName))));
-      var items = newList._items;
-      var pagesIndex = this.getPagesIndex(null, 0);
-      var pageIndex = this.getPageIndex(pagesIndex, 0);
-      var out = [];
-      var _iterator2 = _createForOfIteratorHelper(list), _step2;
-      try {
-        for (_iterator2.s(); !(_step2 = _iterator2.n()).done; ) {
-          var name = _step2.value;
-          out.push({
-            id: name,
-            label: items[name]
-          });
-        }
-      } catch (err) {
-        _iterator2.e(err);
-      } finally {
-        _iterator2.f();
-      }
-      newList[pageIndex] = out;
-      newList._rootsOptions[pagesIndex] = {
-        childrenItems: listLength,
-        pagesCounts: [listLength]
-      };
-      var newMainOptions = {
-        isFinalTotalCount: true,
-        totalItems: listLength,
-        totalCount: listLength
-      };
-      var oldMainOptions = JSON.parse(JSON.stringify(newList._mainOptions));
-      newList._mainOptions = _objectSpread2(_objectSpread2(_objectSpread2({}, newList._mainOptions), newMainOptions), {}, _defineProperty$7(_defineProperty$7({}, pagesIndex, _objectSpread2({}, newMainOptions)), "oldMainOptions", oldMainOptions));
-      Store$1.setState(CONSTANTS_SETPICKER.pagesData(listName), newList);
-    }
-  }, {
-    key: "goFromSelectedListMode",
-    value: function goFromSelectedListMode(_ref7) {
-      var listName = _ref7.listName;
-      var newList = _objectSpread2({}, toJS(Store$1.getState(CONSTANTS_SETPICKER.pagesData(listName))));
-      newList._mainOptions = newList._mainOptions.oldMainOptions;
-      Store$1.setState(CONSTANTS_SETPICKER.pagesData(listName), newList);
-    }
-  }]);
-}();
 function ListPicker(props) {
   var _props$label = props.label, label = _props$label === void 0 ? "" : _props$label, _props$list = props.list, list = _props$list === void 0 ? [] : _props$list, _props$selectedValue = props.selectedValue, selectedValue = _props$selectedValue === void 0 ? "" : _props$selectedValue, _props$selectedValues = props.selectedValues, selectedValues = _props$selectedValues === void 0 ? [] : _props$selectedValues, _props$onChange = props.onChange, onChange = _props$onChange === void 0 ? function() {
   } : _props$onChange, _props$isMultiSelect = props.isMultiSelect, isMultiSelect = _props$isMultiSelect === void 0 ? false : _props$isMultiSelect, _props$hideSearchBar = props.hideSearchBar, hideSearchBar = _props$hideSearchBar === void 0 ? false : _props$hideSearchBar, _props$hideCountersBa = props.hideCountersBar, hideCountersBar = _props$hideCountersBa === void 0 ? false : _props$hideCountersBa, _props$ItemViewName = props.ItemViewName, ItemViewName = _props$ItemViewName === void 0 ? false : _props$ItemViewName, _props$extraClass = props.extraClass, extraClass = _props$extraClass === void 0 ? "" : _props$extraClass;
@@ -23001,18 +21531,24 @@ function ListPicker(props) {
     };
   };
   React__default.useEffect(function() {
+    var returnComponent = window.NetDB.namespace("react").createComponent({
+      componentName: "SetPicker",
+      componentID: "",
+      componentClasses: "inline-set",
+      componentCloseWhenClickingOutsideOfIt: false,
+      componentPortalEl: componentRef.current,
+      componentCallback,
+      options: getOptions()
+    });
     return function() {
+      returnComponent.removeComponent();
     };
   }, []);
-  var componentReturn = React__default.useRef({});
+  React__default.useRef({});
   return /* @__PURE__ */ React__default.createElement("div", {
     className: "setpicker-component-root".concat(extraClass ? " " + extraClass : ""),
     ref: componentRef
-  }, /* @__PURE__ */ React__default.createElement(SetPicker, {
-    options: getOptions(),
-    componentCallback,
-    componentReturn: componentReturn.current
-  }));
+  });
 }
 var elementsPickerHeader = "";
 var elementsPickerList = "";
