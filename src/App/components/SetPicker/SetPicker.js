@@ -45,8 +45,16 @@ const SetPicker = ({...props}) => {
 
     const operationCodes = CONFIG_SETPICKER.operationCodes;
 
-    const pages = React.useRef(toJS(Store.getState(CONSTANTS_SETPICKER.pagesData(listName))));     // страницы (блоки) и доп.информация, полученные с сервера
+//    const pages = React.useRef(toJS(Store.getState(CONSTANTS_SETPICKER.pagesData(listName))));     // страницы (блоки) и доп.информация, полученные с сервера
+    const d = CONSTANTS_SETPICKER.pagesData(listName)
+    console.log('d', d)
+    const s = Store.getState(d)
+    console.log('s', s)
+    const j = toJS(s)
+    console.log('j', j)
+    const pages = React.useRef(j)
     console.log('--------- PAGES ------>', pages)
+
     const changeTimeoutId = React.useRef(null);            // id таймаута смены состояния list
     const requestedPages = React.useRef({});               // pageIndex осуществляемых в данный момент запросов на сервер
     const scrollData = React.useRef({});                   // current стейта скроллбара

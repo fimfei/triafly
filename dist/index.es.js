@@ -23004,13 +23004,15 @@ function ListPicker(props) {
     };
   }, []);
   var componentReturn = React__default.useRef({});
+  var setPickerConnector = React__default.useRef({});
   return /* @__PURE__ */ React__default.createElement("div", {
     className: "setpicker-component-root".concat(extraClass ? " " + extraClass : ""),
     ref: componentRef
   }, /* @__PURE__ */ React__default.createElement(SetPicker, {
     options: getOptions(),
     componentCallback,
-    componentReturn: componentReturn.current
+    componentReturn: componentReturn.current,
+    setPickerConnector: setPickerConnector.current
   }));
 }
 var elementsPickerHeader = "";
