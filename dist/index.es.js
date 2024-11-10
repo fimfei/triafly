@@ -20903,7 +20903,7 @@ var setPicker = "";
 var SetPicker = function SetPicker2(_ref) {
   var _pages$current;
   var props = _extends$h({}, (_objectDestructuringEmpty(_ref), _ref));
-  var options = props.options, setPickerConnector = props.setPickerConnector, componentCallback = props.componentCallback, componentReturn = props.componentReturn;
+  var options = props.options, setPickerConnector = props.setPickerConnector, componentCallback = props.componentCallback, componentReturn = props.componentReturn, initStore = props.initStore;
   var listName = options.listName, request2 = options.request, finalList = options.finalList;
   options.unavailableItemsList;
   var _options$singleChoice = options.singleChoiceOnly, singleChoiceOnly = _options$singleChoice === void 0 ? true : _options$singleChoice;
@@ -20911,23 +20911,24 @@ var SetPicker = function SetPicker2(_ref) {
   var _options$selectable = options.selectable, selectable = _options$selectable === void 0 ? true : _options$selectable, _options$selectedList = options.selectedList, externalSelectedList = _options$selectedList === void 0 ? [] : _options$selectedList, _options$strHeight = options.strHeight, strHeight = _options$strHeight === void 0 ? CONFIG_SETPICKER.lineHeight : _options$strHeight, callbackOnReadyComponentDOM = options.callbackOnReadyComponentDOM, listBlockLength = options.listBlockLength, hideSearchBar = options.hideSearchBar;
   options.hideCountersBar;
   options.ItemViewName;
-  console.log("SetPicker", props);
-  var currentListName = CONSTANTS_SETPICKER.currentListName();
-  if (Store$1.getState(currentListName) !== listName) {
-    Store$1.setState(currentListName, listName);
-  }
-  var setpickerCommonStates = CONSTANTS_SETPICKER.commonStates();
-  if (!toJS(Store$1.getState(setpickerCommonStates))) {
-    Store$1.createStore(setpickerCommonStates, _objectSpread2({}, CONSTANTS_SETPICKER.initCommonStates));
-  }
-  var setpickerPagesData = CONSTANTS_SETPICKER.pagesData(listName);
-  var setpickerStates = CONSTANTS_SETPICKER.states(listName);
-  if (!toJS(Store$1.getState(setpickerPagesData))) {
-    Store$1.createStore(setpickerPagesData, {});
-    Store$1.createStore(setpickerStates, _objectSpread2({}, CONSTANTS_SETPICKER.initStates));
-  }
-  Store$1.setState(CONSTANTS_SETPICKER.currentListName(), listName);
-  Store$1.updateState(CONSTANTS_SETPICKER.listNams(), _defineProperty$7({}, listName, true));
+  React__default.useRef(initStore ? function() {
+    var currentListName = CONSTANTS_SETPICKER.currentListName();
+    if (Store$1.getState(currentListName) !== listName) {
+      Store$1.setState(currentListName, listName);
+    }
+    var setpickerCommonStates = CONSTANTS_SETPICKER.commonStates();
+    if (!toJS(Store$1.getState(setpickerCommonStates))) {
+      Store$1.createStore(setpickerCommonStates, _objectSpread2({}, CONSTANTS_SETPICKER.initCommonStates));
+    }
+    var setpickerPagesData = CONSTANTS_SETPICKER.pagesData(listName);
+    var setpickerStates = CONSTANTS_SETPICKER.states(listName);
+    if (!toJS(Store$1.getState(setpickerPagesData))) {
+      Store$1.createStore(setpickerPagesData, {});
+      Store$1.createStore(setpickerStates, _objectSpread2({}, CONSTANTS_SETPICKER.initStates));
+    }
+    Store$1.setState(CONSTANTS_SETPICKER.currentListName(), listName);
+    Store$1.updateState(CONSTANTS_SETPICKER.listNams(), _defineProperty$7({}, listName, true));
+  }() : null);
   if (!listName)
     console.error("!!! \u0412\u041D\u0418\u041C\u0410\u041D\u0418\u0415 !!! \u041D\u0435 \u043D\u0430\u0437\u043D\u0430\u0447\u0435\u043D\u043E \u0443\u043D\u0438\u043A\u0430\u043B\u044C\u043D\u043E\u0435 \u0438\u043C\u044F \u0441\u043F\u0438\u0441\u043A\u0430 \u0434\u043B\u044F \u0441\u0435\u0442\u043F\u0438\u043A\u0435\u0440\u0430 - \u0432\u043E\u0437\u043C\u043E\u0436\u043D\u0430 \u043F\u0443\u0442\u0430\u043D\u0438\u0446\u0430 \u0432 \u0434\u0430\u043D\u043D\u044B\u0445!!!");
   var utilsCurrent = React__default.useRef(new Utils$1({
@@ -23027,7 +23028,8 @@ function ListPicker(props) {
     options: getOptions(),
     componentCallback,
     componentReturn: componentReturn.current,
-    setPickerConnector: setPickerConnector.current
+    setPickerConnector: setPickerConnector.current,
+    initStore: true
   }));
 }
 var elementsPickerHeader = "";
