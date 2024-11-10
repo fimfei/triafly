@@ -20921,7 +20921,13 @@ var SetPicker = function SetPicker2(_ref) {
   if (listBlockLength)
     CONFIG_API.listBlockLength = listBlockLength;
   var operationCodes = CONFIG_SETPICKER.operationCodes;
-  var pages = React__default.useRef(toJS(Store$1.getState(CONSTANTS_SETPICKER.pagesData(listName))));
+  var d = CONSTANTS_SETPICKER.pagesData(listName);
+  console.log("d", d);
+  var s = Store$1.getState(d);
+  console.log("s", s);
+  var j = toJS(s);
+  console.log("j", j);
+  var pages = React__default.useRef(j);
   console.log("--------- PAGES ------>", pages);
   var changeTimeoutId = React__default.useRef(null);
   var requestedPages = React__default.useRef({});

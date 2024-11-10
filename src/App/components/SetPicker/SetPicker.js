@@ -36,6 +36,11 @@ const SetPicker = ({...props}) => {
     } = options;
     console.log('SetPicker', props)
 
+    if(Store.getState(currentListName) !== listName) {
+        Store.setState(currentListName, listName);
+    }
+
+
     if(!listName) console.error('!!! ВНИМАНИЕ !!! Не назначено уникальное имя списка для сетпикера - возможна путаница в данных!!!');
 
     const utilsCurrent = React.useRef(new Utils({finalList}));
@@ -48,7 +53,11 @@ const SetPicker = ({...props}) => {
 //    const pages = React.useRef(toJS(Store.getState(CONSTANTS_SETPICKER.pagesData(listName))));     // страницы (блоки) и доп.информация, полученные с сервера
     const d = CONSTANTS_SETPICKER.pagesData(listName)
     console.log('d', d)
-    const s = Store.getState(d)
+    let s = Store.getState(d)
+    if(!s) {
+        Store.setState(d, {});
+        s = Store.getState(d);
+    }
     console.log('s', s)
     const j = toJS(s)
     console.log('j', j)
