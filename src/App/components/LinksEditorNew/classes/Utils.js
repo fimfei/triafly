@@ -461,7 +461,7 @@ class Utils {
             options: {
                 numberFixedLeftColumns: 0,
                 tableHasRowsTree: false,
-                showTableSettings: false,
+                showTableSettings: true,
                 saveSettingsInLocaleStorage: false,
                 editableSettings: {
                     bgrEvenRows: false,
