@@ -1,8 +1,8 @@
 {
   "name": "triafly",
-  "version": "1.0.247",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.es.js",
+  "version": "1.0.250",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "scripts": {
     "publish-packag": "git add . && git commit -m 'Table' && npm version patch && vite build && npm publish"
   },
