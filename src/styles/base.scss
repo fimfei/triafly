@@ -169,3 +169,306 @@ hr {
   --layout-aside-navbar-logo-title-color: #ebeff4;
   --layout-aside-navbar-logo-title-font-size: small;
 }
+
+.tf_btn {
+  position: relative;
+  display: inline-block;
+  margin: unset;
+  padding: calc(var(--key-size) * 0.25) calc(var(--key-size) * 0.625);
+  background-color: var(--negative-color-15);
+  border: calc(var(--key-size) * 0.0625) solid transparent;
+  border-radius: calc(var(--key-size) * 0.125);
+  vertical-align: middle;
+  text-align: center;
+  color: var(--negative-color);
+  font-size: var(--key-size);
+  line-height: 1.5;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+}
+.tf_btn:hover {
+  background-color: var(--negative-color-25);
+}
+a.tf_btn:hover {
+  color: inherit;
+  text-decoration: none;
+}
+.tf_btn:disabled {
+  background-color: var(--negative-color-15);
+  color: var(--negative-color-25);
+  pointer-events: none;
+}
+.tf_btn:disabled.active {
+  color: var(--negative-color-50);
+}
+.tf_btn:focus {
+  background-color: var(--negative-color-25);
+  box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--negative-color-50);
+  outline: 0;
+}
+.tf_btn.active {
+  background-color: var(--negative-color-25);
+}
+.tf_btn.tf_btn-drop.used,
+.tf_btn.used {
+  position: relative;
+}
+.tf_btn.tf_btn-drop.used:after,
+.tf_btn.used:after {
+  content: '';
+  position: absolute;
+  top: calc(var(--key-size) * 0.0625);
+  right: calc(var(--key-size) * 0.0625);
+  width: calc(var(--key-size) * 0.5);
+  height: calc(var(--key-size) * 0.5);
+  border-radius: var(--key-size);
+}
+.tf_btn.tf_btn-drop.used:not(.tf_btn-transparent):after,
+.tf_btn.used:not(.tf_btn-transparent):after {
+  background-color: currentColor;
+}
+.tf_btn.tf_btn-drop.used.tf_btn-transparent:after,
+.tf_btn.used.tf_btn-transparent:after {
+  background-color: var(--primary-color);
+}
+.tf_btn-inverse {
+  background-color: var(--negative-color);
+  color: var(--positive-color);
+}
+.tf_btn-inverse:hover {
+  background-color: var(--negative-color-75);
+}
+.tf_btn-inverse:disabled {
+  background-color: var(--negative-color-50);
+  color: var(--positive-color-25);
+}
+.tf_btn-inverse:disabled.active {
+  color: var(--positive-color-50);
+}
+.tf_btn-inverse:focus {
+  background-color: var(--negative-color);
+  box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--negative-color-50);
+}
+.tf_btn-inverse.active {
+  background-color: var(--negative-color-75);
+}
+.tf_btn-transparent {
+  background-color: transparent;
+  color: var(--negative-color-85);
+}
+.tf_btn-transparent:hover {
+  background-color: var(--negative-color-15);
+}
+.tf_btn-transparent:disabled {
+  background-color: transparent;
+  color: var(--negative-color-25);
+}
+.tf_btn-transparent:disabled.active {
+  color: var(--negative-color-50);
+}
+.tf_btn-transparent:focus {
+  background-color: var(--negative-color-15);
+  box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--negative-color-50);
+}
+.tf_btn-transparent.active {
+  background-color: var(--negative-color-15);
+}
+.tf_btn-primary {
+  background-color: var(--primary-color);
+  color: var(--positive-color);
+}
+.tf_btn-primary:hover {
+  background-color: var(--primary-color-d1);
+}
+.tf_btn-primary:disabled {
+  background-color: var(--primary-color-l1);
+  color: var(--primary-color-l2);
+}
+.tf_btn-primary:disabled.active {
+  color: var(--primary-color-l2);
+}
+.tf_btn-primary:focus {
+  background-color: var(--primary-color-d1);
+  box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--primary-color);
+}
+.tf_btn-primary.active {
+  background-color: var(--primary-color-d1);
+}
+.tf_btn-secondary {
+  background-color: var(--secondary-color);
+  color: var(--positive-color);
+}
+.tf_btn-secondary:hover {
+  background-color: var(--secondary-color-d1);
+}
+.tf_btn-secondary:disabled {
+  background-color: var(--secondary-color-l1);
+  color: var(--secondary-color-l2);
+}
+.tf_btn-secondary:disabled.active {
+  color: var(--secondary-color-l2);
+}
+.tf_btn-secondary:focus {
+  background-color: var(--secondary-color-d1);
+  box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--secondary-color);
+}
+.tf_btn-secondary.active {
+  background-color: var(--secondary-color-d1);
+}
+.tf_btn-info {
+  background-color: var(--info-color);
+  color: var(--positive-color);
+}
+.tf_btn-info:hover {
+  background-color: var(--info-color-d1);
+}
+.tf_btn-info:disabled {
+  background-color: var(--info-color-l1);
+  color: var(--info-color-l2);
+}
+.tf_btn-info:disabled.active {
+  color: var(--info-color-l2);
+}
+.tf_btn-info:focus {
+  background-color: var(--info-color-d1);
+  box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--info-color);
+}
+.tf_btn-info.active {
+  background-color: var(--info-color-d1);
+}
+.tf_btn-success {
+  background-color: var(--success-color);
+  color: var(--positive-color);
+}
+.tf_btn-success:hover {
+  background-color: var(--success-color-d1);
+}
+.tf_btn-success:disabled {
+  background-color: var(--success-color-l1);
+  color: var(--success-color-l2);
+}
+.tf_btn-success:disabled.active {
+  color: var(--success-color-l2);
+}
+.tf_btn-success:focus {
+  background-color: var(--success-color-d1);
+  box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--success-color);
+}
+.tf_btn-success.active {
+  background-color: var(--success-color-d1);
+}
+.tf_btn-warning {
+  background-color: var(--warning-color);
+  color: var(--positive-color);
+}
+.tf_btn-warning:hover {
+  background-color: var(--warning-color-d1);
+}
+.tf_btn-warning:disabled {
+  background-color: var(--warning-color-l1);
+  color: var(--warning-color-l2);
+}
+.tf_btn-warning:disabled.active {
+  color: var(--warning-color-l2);
+}
+.tf_btn-warning:focus {
+  background-color: var(--warning-color-d1);
+  box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--warning-color);
+}
+.tf_btn-warning.active {
+  background-color: var(--warning-color-d1);
+}
+.tf_btn-error {
+  background-color: var(--error-color);
+  color: var(--positive-color);
+}
+.tf_btn-error:hover {
+  background-color: var(--error-color-d1);
+}
+.tf_btn-error:disabled {
+  background-color: var(--error-color-l1);
+  color: var(--error-color-l2);
+}
+.tf_btn-error:disabled.active {
+  color: var(--error-color-l2);
+}
+.tf_btn-error:focus {
+  background-color: var(--error-color-d1);
+  box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--error-color);
+}
+.tf_btn-error.active {
+  background-color: var(--error-color-d1);
+}
+.tf_btn-group {
+  display: inline-flex;
+}
+.tf_btn-group > .tf_btn:not(:first-child),
+.tf_btn-group > [class*="tf_drop"]:not(:first-child) > .tf_btn-drop {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.tf_btn-group > .tf_btn:not(:last-child),
+.tf_btn-group > [class*="tf_drop"]:not(:last-child) > .tf_btn-drop {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.tf_btn-xs {
+  --key-size-xs: calc(var(--key-size) * 0.75);
+  padding: calc(var(--key-size-xs) * 0.25) calc(var(--key-size-xs) * 0.625);
+  font-size: var(--key-size-xs);
+}
+.tf_btn-xs.tf_btn-drop.used:after,
+.tf_btn-xs.used:after {
+  top: calc(var(--key-size-xs) * 0.0625);
+  right: calc(var(--key-size-xs) * 0.0625);
+  width: calc(var(--key-size-xs) * 0.5);
+  height: calc(var(--key-size-xs) * 0.5);
+  border-radius: var(--key-size-xs);
+}
+.tf_btn-sm {
+  --key-size-sm: calc(var(--key-size) * 0.875);
+  padding: calc(var(--key-size-sm) * 0.25) calc(var(--key-size-sm) * 0.625);
+  font-size: var(--key-size-sm);
+}
+.tf_btn-sm.tf_btn-drop.used:after,
+.tf_btn-sm.used:after {
+  top: calc(var(--key-size-sm) * 0.0625);
+  right: calc(var(--key-size-sm) * 0.0625);
+  width: calc(var(--key-size-sm) * 0.5);
+  height: calc(var(--key-size-sm) * 0.5);
+  border-radius: var(--key-size-sm);
+}
+.tf_btn-lg {
+  --key-size-lg: calc(var(--key-size) * 1.125);
+  padding: calc(var(--key-size-lg) * 0.25) calc(var(--key-size-lg) * 0.625);
+  font-size: var(--key-size-lg);
+}
+.tf_btn-lg.tf_btn-drop.used:after,
+.tf_btn-lg.used:after {
+  top: calc(var(--key-size-lg) * 0.0625);
+  right: calc(var(--key-size-lg) * 0.0625);
+  width: calc(var(--key-size-lg) * 0.5);
+  height: calc(var(--key-size-lg) * 0.5);
+  border-radius: var(--key-size-lg);
+}
+.tf_btn-icon {
+  min-width: calc(calc(calc(var(--key-size) * 1.5) + 0.125rem) + calc(var(--key-size) * 0.25 * 2));
+  padding: calc(var(--key-size) * 0.25);
+}
+.tf_btn-icon.tf_btn-xs {
+  --key-size-xs: calc(var(--key-size) * 0.75);
+  min-width: calc(calc(calc(var(--key-size-xs) * 1.5) + .125rem) + calc(var(--key-size-xs) * .25 * 2));
+  padding: calc(var(--key-size-xs) * 0.25);
+}
+.tf_btn-icon.tf_btn-sm {
+  --key-size-sm: calc(var(--key-size) * 0.875);
+  min-width: calc(calc(calc(var(--key-size-sm) * 1.5) + .125rem) + calc(var(--key-size-sm) * .25 * 2));
+  padding: calc(var(--key-size-sm) * 0.25);
+}
+.tf_btn-icon.tf_btn-lg {
+  --key-size-lg: calc(var(--key-size) * 1.125);
+  min-width: calc(calc(calc(var(--key-size-lg) * 1.5) + 0.125rem) + calc(var(--key-size-lg) * 0.25 * 2));
+  padding: calc(var(--key-size-lg) * 0.25);
+}
+

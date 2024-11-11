@@ -77,7 +77,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     }
   };
 }
-function _t(e, t, r) {
+function gt(e, t, r) {
   return (t = w0(t)) in e ? Object.defineProperty(e, t, {
     value: r,
     enumerable: !0,
@@ -143,7 +143,7 @@ function U(e) {
   for (var t = 1; t < arguments.length; t++) {
     var r = arguments[t] != null ? arguments[t] : {};
     t % 2 ? Op(Object(r), !0).forEach(function(n) {
-      _t(e, n, r[n]);
+      gt(e, n, r[n]);
     }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r)) : Op(Object(r)).forEach(function(n) {
       Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(r, n));
     });
@@ -3213,12 +3213,12 @@ var Ap = function(t) {
   var re = f.useRef(null), De = f.useRef(null), Y = f.useRef(function() {
   }), He = function(ht) {
     if (document.onmouseup = null, document.onmousemove = null, ht.ctrlKey && !z) {
-      for (var bt in n.sizes.columnsWidth) n.sizes.columnsWidth[bt] = De.current.newWidth;
+      for (var yt in n.sizes.columnsWidth) n.sizes.columnsWidth[yt] = De.current.newWidth;
       r.refreshAllColumns();
     }
     r.refreshTableWidth(), r.saveTableSettingsToLocaleStorage(), r.refreshHeaderRoots();
   }, kt = function(ht) {
-    var bt = De.current, er = bt.cursorX, rt = bt.wrapperWidth, Rt = Math.max(20, rt + (ht.clientX - er));
+    var yt = De.current, er = yt.cursorX, rt = yt.wrapperWidth, Rt = Math.max(20, rt + (ht.clientX - er));
     if (De.current.newWidth = Rt, !z) {
       n.sizes.columnsWidth[i] = Rt, r.refreshColumn(i);
       return;
@@ -3243,16 +3243,16 @@ var Ap = function(t) {
   }, jt = function(ht) {
     return function() {
       if (z) {
-        var bt = ye(r.getEndsByHeaderCell(a)), er;
+        var yt = ye(r.getEndsByHeaderCell(a)), er;
         try {
-          for (bt.s(); !(er = bt.n()).done; ) {
+          for (yt.s(); !(er = yt.n()).done; ) {
             var rt = er.value, Rt = rt._.endIndex;
             n.showColumns[Rt] = ht, r.refreshColumn(Rt);
           }
         } catch (tr) {
-          bt.e(tr);
+          yt.e(tr);
         } finally {
-          bt.f();
+          yt.f();
         }
       } else
         n.showColumns[i] = ht, r.refreshColumn(i);
@@ -5023,17 +5023,17 @@ function $L() {
     }
     function ht(x) {
       try {
-        return bt(x), !1;
+        return yt(x), !1;
       } catch {
         return !0;
       }
     }
-    function bt(x) {
+    function yt(x) {
       return "" + x;
     }
     function er(x) {
       if (ht(x))
-        return y("The provided key is an unsupported type %s. This value must be coerced to a string before before using it here.", It(x)), bt(x);
+        return y("The provided key is an unsupported type %s. This value must be coerced to a string before before using it here.", It(x)), yt(x);
     }
     var rt = b.ReactCurrentOwner, Rt = {
       key: !0,
@@ -5206,7 +5206,7 @@ Check the top-level render call using <` + G + ">.");
         }
       }
     }
-    function yt(x) {
+    function _t(x) {
       {
         var H = x.type;
         if (H == null || typeof H == "string")
@@ -5270,7 +5270,7 @@ Check the top-level render call using <` + G + ">.");
             else
               it(Sr, x);
         }
-        return x === n ? Kt(Tt) : yt(Tt), Tt;
+        return x === n ? Kt(Tt) : _t(Tt), Tt;
       }
     }
     function Gt(x, H, G) {
@@ -16504,33 +16504,33 @@ function U_(e) {
     return U_(ei(e, a));
   }, r;
 }
-const mt = U_(Vs);
-mt.Axios = Va;
-mt.CanceledError = $o;
-mt.CancelToken = ap;
-mt.isCancel = L_;
-mt.VERSION = V_;
-mt.toFormData = hc;
-mt.AxiosError = Se;
-mt.Cancel = mt.CanceledError;
-mt.all = function(t) {
+const bt = U_(Vs);
+bt.Axios = Va;
+bt.CanceledError = $o;
+bt.CancelToken = ap;
+bt.isCancel = L_;
+bt.VERSION = V_;
+bt.toFormData = hc;
+bt.AxiosError = Se;
+bt.Cancel = bt.CanceledError;
+bt.all = function(t) {
   return Promise.all(t);
 };
-mt.spread = RV;
-mt.isAxiosError = PV;
-mt.mergeConfig = ei;
-mt.AxiosHeaders = ir;
-mt.formToJSON = (e) => $_(k.isHTMLForm(e) ? new FormData(e) : e);
-mt.getAdapter = W_.getAdapter;
-mt.HttpStatusCode = cf;
-mt.default = mt;
+bt.spread = RV;
+bt.isAxiosError = PV;
+bt.mergeConfig = ei;
+bt.AxiosHeaders = ir;
+bt.formToJSON = (e) => $_(k.isHTMLForm(e) ? new FormData(e) : e);
+bt.getAdapter = W_.getAdapter;
+bt.HttpStatusCode = cf;
+bt.default = bt;
 var NV = ["url", "headers"], MV = {
   Accept: "application/json, text/javascript, */*; q=0.01",
   "Content-Type": "application/json"
 };
-mt.defaults.withCredentials = !0;
-mt.defaults.xsrfCookieName = "csrftoken";
-mt.defaults.xsrfHeaderName = "X-CSRFToken";
+bt.defaults.withCredentials = !0;
+bt.defaults.xsrfCookieName = "csrftoken";
+bt.defaults.xsrfHeaderName = "X-CSRFToken";
 var AV = /* @__PURE__ */ function() {
   function e() {
     go(this, e);
@@ -16538,7 +16538,7 @@ var AV = /* @__PURE__ */ function() {
   return mo(e, [{
     key: "fetch",
     value: function(r) {
-      return mt.request(U(U({}, r), {}, {
+      return bt.request(U(U({}, r), {}, {
         baseURL: Qi.baseURL,
         headers: U(U({}, MV), r.headers)
       }));
@@ -16668,20 +16668,20 @@ const td = new IV();
 var $V = /* @__PURE__ */ mo(
   function e() {
     var t = this;
-    go(this, e), _t(this, "createStore", function(r, n) {
-      t[r] = n, h_(t, _t({}, r, Pt));
-    }), _t(this, "getStore", function() {
+    go(this, e), gt(this, "createStore", function(r, n) {
+      t[r] = n, h_(t, gt({}, r, Pt));
+    }), gt(this, "getStore", function() {
       return t;
-    }), _t(this, "getState", function(r) {
+    }), gt(this, "getState", function(r) {
       var n = t.getAddress(r), a = n.objName, i = n.index;
       return a[i];
-    }), _t(this, "setState", function(r, n) {
+    }), gt(this, "setState", function(r, n) {
       var a = t.getAddress(r), i = a.objName, o = a.index;
       i[o] = n;
-    }), _t(this, "updateState", function(r, n) {
+    }), gt(this, "updateState", function(r, n) {
       var a = t.getAddress(r), i = a.objName, o = a.index, s = i[o] || {}, l = U(U({}, s), n);
       i[o] = l;
-    }), _t(this, "getAddress", function(r) {
+    }), gt(this, "getAddress", function(r) {
       var n = t, a = r.split("."), i = a.length - 1, o;
       for (var s in a)
         o = a[s], s < i && (n[o] === void 0 && (n[o] = {}), n = n[o]);
@@ -16706,7 +16706,7 @@ var LV = function(t) {
     var pe = ge.commonStates();
     Zt(Oe.getState(pe)) || Oe.createStore(pe, U({}, ge.initCommonStates));
     var Me = ge.pagesData(u), Re = ge.states(u);
-    Zt(Oe.getState(Me)) || (Oe.createStore(Me, {}), Oe.createStore(Re, U({}, ge.initStates))), Oe.setState(ge.currentListName(), u), Oe.updateState(ge.listNams(), _t({}, u, !0));
+    Zt(Oe.getState(Me)) || (Oe.createStore(Me, {}), Oe.createStore(Re, U({}, ge.initStates))), Oe.setState(ge.currentListName(), u), Oe.updateState(ge.listNams(), gt({}, u, !0));
   }() : null), u || console.error("!!! ВНИМАНИЕ !!! Не назначено уникальное имя списка для сетпикера - возможна путаница в данных!!!");
   var C = f.useRef(new yU({
     finalList: d
@@ -16743,7 +16743,7 @@ var LV = function(t) {
     // array с id заселекченых элементов
     searchSelectedList: It(b),
     show: !!(R != null && (r = R.current) !== null && r !== void 0 && r._mainOptions)
-  }), bt = ve(ht, 3), er = bt[0], rt = bt[1], Rt = bt[2], tr = f.useRef(null), Yt = function() {
+  }), yt = ve(ht, 3), er = yt[0], rt = yt[1], Rt = yt[2], tr = f.useRef(null), Yt = function() {
     return Rt(U(U({}, rt.current), {}, {
       show: !0
     }));
@@ -16781,16 +16781,16 @@ var LV = function(t) {
   }, bi = function(pe, Me) {
     var Re = pe.id;
     if (m) {
-      var it = p ? !0 : Me, yt = er.selectedList;
-      p ? yt = [Re] : yt = it ? fe.idArrayIncrease(yt, Re) : fe.idArrayDecrease(yt, Re), Wt({
-        selectedList: yt
+      var it = p ? !0 : Me, _t = er.selectedList;
+      p ? _t = [Re] : _t = it ? fe.idArrayIncrease(_t, Re) : fe.idArrayDecrease(_t, Re), Wt({
+        selectedList: _t
       }), mi({
         code: O.itemSelect,
         item: U(U({}, pe), {}, {
           id: Re
         }),
         isSelected: it,
-        selectedList: yt
+        selectedList: _t
       });
     }
   }, ca = function(pe) {
@@ -16799,7 +16799,7 @@ var LV = function(t) {
       console.error("getBlock error --- page = ".concat(Re, " (trace: ").concat(it, ")"));
       return;
     }
-    var yt = D.getPagesIndex(Ve.current), Kt = D.getPageIndex(yt, Re);
+    var _t = D.getPagesIndex(Ve.current), Kt = D.getPageIndex(_t, Re);
     if (!A[Kt]) {
       A[Kt] = $t.loadingText, jt();
       var Ut = function() {
@@ -16866,12 +16866,12 @@ var LV = function(t) {
       var Re = ge.sessionOptionsIndex(u);
       Oe.updateState(Re, pe);
     }
-    var it = D.getPagesIndex(pe.searchContext, 0), yt = (Me = R.current) === null || Me === void 0 ? void 0 : Me._mainOptions;
-    if (yt && yt[it]) {
+    var it = D.getPagesIndex(pe.searchContext, 0), _t = (Me = R.current) === null || Me === void 0 ? void 0 : Me._mainOptions;
+    if (_t && _t[it]) {
       var Kt = U({}, Zt(Oe.getState(ge.pagesData(u))));
-      Kt._mainOptions = U(U({}, yt), {}, {
+      Kt._mainOptions = U(U({}, _t), {}, {
         totalCount: void 0
-      }, yt[it]), Oe.setState(ge.pagesData(u), Kt);
+      }, _t[it]), Oe.setState(ge.pagesData(u), Kt);
     }
   };
   f.useEffect(function() {
@@ -16887,7 +16887,7 @@ var LV = function(t) {
     I !== void 0 && (V(), ur());
   }, [I]);
   var wr = function(pe) {
-    for (var Me = 0, Re = D.getPagesIndex(Ve.current), it = R.current._rootsOptions[Re], yt = it ? it.childrenItems : 0, Kt = it.pagesCounts.length, Ut = [], Gt = 0; Gt < Kt; Gt++) {
+    for (var Me = 0, Re = D.getPagesIndex(Ve.current), it = R.current._rootsOptions[Re], _t = it ? it.childrenItems : 0, Kt = it.pagesCounts.length, Ut = [], Gt = 0; Gt < Kt; Gt++) {
       var cn = D.getPageIndex(Re, Gt), dn = R.current[cn];
       if (dn != null && dn.length)
         for (var Aa in dn) {
@@ -16901,7 +16901,7 @@ var LV = function(t) {
           }));
         }
       else
-        for (var H = Math.min(yt - Qi.listBlockLength * Gt, Qi.listBlockLength), G = 0; G < H; G++)
+        for (var H = Math.min(_t - Qi.listBlockLength * Gt, Qi.listBlockLength), G = 0; G < H; G++)
           Ut.push({
             i: Me,
             p: Gt
@@ -16915,12 +16915,12 @@ var LV = function(t) {
     var Me = pe.subListTo, Re = pe.subList, it = function(Be, Ke, Pe) {
       var Te = D.getPagesIndex(Be, Ke);
       return D.getPageIndex(Te, Pe);
-    }, yt = Ve.current, Kt = it(yt, 0, 0), Ut = ye(Re), Gt;
+    }, _t = Ve.current, Kt = it(_t, 0, 0), Ut = ye(Re), Gt;
     try {
       for (Ut.s(); !(Gt = Ut.n()).done; ) {
         var cn = Gt.value;
         if (!cn.id) {
-          var dn = cn.i, Aa = cn.p, x = it(yt, dn, Aa);
+          var dn = cn.i, Aa = cn.p, x = it(_t, dn, Aa);
           x !== Kt && ca({
             parentID: dn,
             page: Aa,
@@ -17917,7 +17917,7 @@ ge.listNams = function() {
 var yU = /* @__PURE__ */ function() {
   function e(t) {
     var r = t.finalList;
-    go(this, e), _t(this, "blockDataConverter", function(n) {
+    go(this, e), gt(this, "blockDataConverter", function(n) {
       var a = n.searchContext, i = n.page;
       return function(o) {
         var s = Array.isArray(o) ? o : [o], l = {
@@ -18037,7 +18037,7 @@ var yU = /* @__PURE__ */ function() {
           totalCount: y,
           pagesCounts: v
         };
-        b._mainOptions = U(U(U({}, b._mainOptions), w), {}, _t({}, g, U({}, w)));
+        b._mainOptions = U(U(U({}, b._mainOptions), w), {}, gt({}, g, U({}, w)));
       }
       b._rootsOptions[g] = {
         childrenItems: p,
@@ -18165,7 +18165,7 @@ var yU = /* @__PURE__ */ function() {
         totalItems: i,
         totalCount: i
       }, m = JSON.parse(JSON.stringify(o._mainOptions));
-      o._mainOptions = U(U(U({}, o._mainOptions), v), {}, _t(_t({}, l, U({}, v)), "oldMainOptions", m)), Oe.setState(ge.pagesData(n), o);
+      o._mainOptions = U(U(U({}, o._mainOptions), v), {}, gt(gt({}, l, U({}, v)), "oldMainOptions", m)), Oe.setState(ge.pagesData(n), o);
     }
   }, {
     key: "goFromSelectedListMode",
@@ -19727,7 +19727,7 @@ function Ct(e, t) {
     rest: e.rest
   };
 }
-function gt(e, t) {
+function mt(e, t) {
   const r = t.match(e);
   return r ? {
     value: parseInt(r[0], 10),
@@ -19750,34 +19750,34 @@ function bn(e, t) {
   };
 }
 function dw(e) {
-  return gt(Et.anyDigitsSigned, e);
+  return mt(Et.anyDigitsSigned, e);
 }
 function wt(e, t) {
   switch (e) {
     case 1:
-      return gt(Et.singleDigit, t);
+      return mt(Et.singleDigit, t);
     case 2:
-      return gt(Et.twoDigits, t);
+      return mt(Et.twoDigits, t);
     case 3:
-      return gt(Et.threeDigits, t);
+      return mt(Et.threeDigits, t);
     case 4:
-      return gt(Et.fourDigits, t);
+      return mt(Et.fourDigits, t);
     default:
-      return gt(new RegExp("^\\d{1," + e + "}"), t);
+      return mt(new RegExp("^\\d{1," + e + "}"), t);
   }
 }
 function bu(e, t) {
   switch (e) {
     case 1:
-      return gt(Et.singleDigitSigned, t);
+      return mt(Et.singleDigitSigned, t);
     case 2:
-      return gt(Et.twoDigitsSigned, t);
+      return mt(Et.twoDigitsSigned, t);
     case 3:
-      return gt(Et.threeDigitsSigned, t);
+      return mt(Et.threeDigitsSigned, t);
     case 4:
-      return gt(Et.fourDigitsSigned, t);
+      return mt(Et.fourDigitsSigned, t);
     default:
-      return gt(new RegExp("^-?\\d{1," + e + "}"), t);
+      return mt(new RegExp("^-?\\d{1," + e + "}"), t);
   }
 }
 function up(e) {
@@ -20103,7 +20103,7 @@ class $6 extends Ue {
     switch (n) {
       case "M":
         return Ct(
-          gt(Et.month, r),
+          mt(Et.month, r),
           i
         );
       case "MM":
@@ -20165,7 +20165,7 @@ class L6 extends Ue {
     switch (n) {
       case "L":
         return Ct(
-          gt(Et.month, r),
+          mt(Et.month, r),
           i
         );
       case "LL":
@@ -20229,7 +20229,7 @@ class H6 extends Ue {
   parse(r, n, a) {
     switch (n) {
       case "w":
-        return gt(Et.week, r);
+        return mt(Et.week, r);
       case "wo":
         return a.ordinalNumber(r, { unit: "week" });
       default:
@@ -20271,7 +20271,7 @@ class j6 extends Ue {
   parse(r, n, a) {
     switch (n) {
       case "I":
-        return gt(Et.week, r);
+        return mt(Et.week, r);
       case "Io":
         return a.ordinalNumber(r, { unit: "week" });
       default:
@@ -20322,7 +20322,7 @@ class V6 extends Ue {
   parse(r, n, a) {
     switch (n) {
       case "d":
-        return gt(Et.date, r);
+        return mt(Et.date, r);
       case "do":
         return a.ordinalNumber(r, { unit: "date" });
       default:
@@ -20364,7 +20364,7 @@ class U6 extends Ue {
     switch (n) {
       case "D":
       case "DD":
-        return gt(Et.dayOfYear, r);
+        return mt(Et.dayOfYear, r);
       case "Do":
         return a.ordinalNumber(r, { unit: "date" });
       default:
@@ -20777,7 +20777,7 @@ class eG extends Ue {
   parse(r, n, a) {
     switch (n) {
       case "h":
-        return gt(Et.hour12h, r);
+        return mt(Et.hour12h, r);
       case "ho":
         return a.ordinalNumber(r, { unit: "hour" });
       default:
@@ -20801,7 +20801,7 @@ class tG extends Ue {
   parse(r, n, a) {
     switch (n) {
       case "H":
-        return gt(Et.hour23h, r);
+        return mt(Et.hour23h, r);
       case "Ho":
         return a.ordinalNumber(r, { unit: "hour" });
       default:
@@ -20824,7 +20824,7 @@ class rG extends Ue {
   parse(r, n, a) {
     switch (n) {
       case "K":
-        return gt(Et.hour11h, r);
+        return mt(Et.hour11h, r);
       case "Ko":
         return a.ordinalNumber(r, { unit: "hour" });
       default:
@@ -20847,7 +20847,7 @@ class nG extends Ue {
   parse(r, n, a) {
     switch (n) {
       case "k":
-        return gt(Et.hour24h, r);
+        return mt(Et.hour24h, r);
       case "ko":
         return a.ordinalNumber(r, { unit: "hour" });
       default:
@@ -20871,7 +20871,7 @@ class aG extends Ue {
   parse(r, n, a) {
     switch (n) {
       case "m":
-        return gt(Et.minute, r);
+        return mt(Et.minute, r);
       case "mo":
         return a.ordinalNumber(r, { unit: "minute" });
       default:
@@ -20894,7 +20894,7 @@ class iG extends Ue {
   parse(r, n, a) {
     switch (n) {
       case "s":
-        return gt(Et.second, r);
+        return mt(Et.second, r);
       case "so":
         return a.ordinalNumber(r, { unit: "second" });
       default:
@@ -25673,14 +25673,14 @@ var mz = function(t) {
     delete r._.format, v.current = {}, V(null);
   }, Z = function(Ve, lr, It) {
     var ht = function() {
-    }, bt = function() {
+    }, yt = function() {
       return ht();
     }, er = Zu({
       initiator: I.current,
       id: "",
       minWidth: 0,
       minHeight: 0,
-      onOutsideClick: bt,
+      onOutsideClick: yt,
       notResize: !0,
       autoSize: !0,
       children: /* @__PURE__ */ f.createElement(Py, {
@@ -26087,8 +26087,8 @@ var mz = function(t) {
               answer: In
             }), Me = pe.removeComponent;
             Le.current = Me, setTimeout(function() {
-              var Re = In.randomClass, it = In.direction, yt = it.up, Kt = it.left, Ut = document.querySelector(".".concat(Re));
-              Ut.classList.add(yt ? "up" : "down"), Ut.classList.add(Kt ? "left" : "right");
+              var Re = In.randomClass, it = In.direction, _t = it.up, Kt = it.left, Ut = document.querySelector(".".concat(Re));
+              Ut.classList.add(_t ? "up" : "down"), Ut.classList.add(Kt ? "left" : "right");
             }, 0);
           }
         }, 1e3);
@@ -26103,7 +26103,7 @@ var mz = function(t) {
     (Vt = c.editableCell) !== null && Vt !== void 0 && Vt.cell || (He(!1), Le.current && Le.current());
   }, It = function() {
     u.toggleShowRowTree(h);
-  }, ht = u.getWidthStyle(S[p]), bt = !p && m, er = bt && v.isRoot, rt = u.getFormatByCellIndex(p) || {}, Rt = rt.align, tr = rt.color, Yt = rt.background, ln = rt.wrap;
+  }, ht = u.getWidthStyle(S[p]), yt = !p && m, er = yt && v.isRoot, rt = u.getFormatByCellIndex(p) || {}, Rt = rt.align, tr = rt.color, Yt = rt.background, ln = rt.wrap;
   (Rt === "left" || Rt === "right") && (ht["text-align"] = Rt), tr && (ht.color = tr), Yt && (ht.background = Yt);
   var un = ln ? {
     "white-space": "normal"
@@ -26112,7 +26112,7 @@ var mz = function(t) {
   var Wt = u.getSearchContextByCellIndex(p), An = Wt && b && !se && !g ? fe.textWithSearchContext(String(b), Wt, !0) : {
     html: b
   }, Na = An.html, mi = An.find, bi = U(U({}, t), {}, {
-    isTreeCell: bt,
+    isTreeCell: yt,
     isTreeRoot: er,
     toggleShowRowTree: It,
     valueStyle: un,
@@ -26126,7 +26126,7 @@ var mz = function(t) {
   }) : {
     css: {},
     class: ""
-  }, da = ca.css, Ma = ca.class, wr = "unitable-row-cell".concat(bt ? " is-tree-cell" : "").concat(g ? " is-not-find" : "").concat(mi ? " cell-with-search-context" : "");
+  }, da = ca.css, Ma = ca.class, wr = "unitable-row-cell".concat(yt ? " is-tree-cell" : "").concat(g ? " is-not-find" : "").concat(mi ? " cell-with-search-context" : "");
   return Ma && (wr += " " + Ma), (l = d._) !== null && l !== void 0 && l.invalidValueFormat && (wr += " invalid-format"), /* @__PURE__ */ f.createElement("div", {
     className: wr,
     style: U(U(U(U({}, A), ht), V), da),
@@ -26302,14 +26302,14 @@ var kz = function(t) {
   return /* @__PURE__ */ f.createElement("div", {
     className: "tce-bool",
     ref: a
-  }, r.value, /* @__PURE__ */ dS(/* @__PURE__ */ f.createElement(As, _t(_t(_t({
+  }, r.value, /* @__PURE__ */ dS(/* @__PURE__ */ f.createElement(As, gt(gt(gt(gt({
     initiator: r._.wrapperRefCurrent.current,
     autoSize: !0,
     id: "boolean",
-    minWidth: "200",
-    minHeight: "55",
-    maxHeight: "55"
+    minWidth: "100"
   }, "autoSize", !0), "notResize", !0), "onOutsideClick", function() {
+  }), "style", {
+    padding: "5px"
   }), /* @__PURE__ */ f.createElement(_U, le({}, t, {
     label: "boolean",
     list: a0.map(function(o) {
@@ -29369,21 +29369,21 @@ var nS = function(t) {
 }, dK = /* @__PURE__ */ function() {
   function e(t) {
     var r = this;
-    go(this, e), _t(this, "getHeightStyle", function(I) {
+    go(this, e), gt(this, "getHeightStyle", function(I) {
       var F = isNaN(I) ? I : "".concat(I, "px");
       return {
         height: F,
         minHeight: F,
         maxHeight: F
       };
-    }), _t(this, "getWidthStyle", function(I) {
+    }), gt(this, "getWidthStyle", function(I) {
       var F = isNaN(I) ? I : "".concat(I, "px");
       return {
         width: F,
         minWidth: F,
         maxWidth: F
       };
-    }), _t(this, "getValueByAddress", function(I) {
+    }), gt(this, "getValueByAddress", function(I) {
       var F = r.connector, de = I.split("."), T = ye(de), M;
       try {
         for (T.s(); !(M = T.n()).done; ) {
@@ -29396,11 +29396,11 @@ var nS = function(t) {
         T.f();
       }
       return F;
-    }), _t(this, "setValueByAddress", function(I, F) {
+    }), gt(this, "setValueByAddress", function(I, F) {
       var de = r.connector, T = I.split(".");
       for (var M in T)
         Number(M) === T.length - 1 ? de[T[M]] = F : de = de[T[M]];
-    }), _t(this, "setHoveredCell", function(I, F) {
+    }), gt(this, "setHoveredCell", function(I, F) {
       var de = r.connector, T = de.hovered, M = de.refresh, ie = M.row, z = M.column, V = T.column, oe = T.row, X = function(Q) {
         Q !== null && Array.isArray(z) && r.refreshColumn(Q);
       }, Z = function(Q) {
@@ -30019,7 +30019,7 @@ var nS = function(t) {
             }
           };
           return E(s), _;
-        }, y = JSON.parse(localStorage.getItem("unitables_data") || "{}"), w = U(U({}, y), {}, _t({}, this.tableName, {
+        }, y = JSON.parse(localStorage.getItem("unitables_data") || "{}"), w = U(U({}, y), {}, gt({}, this.tableName, {
           sizes: g,
           showColumns: a,
           orderTree: i,
