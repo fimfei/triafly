@@ -28,12 +28,11 @@ const TableCellEditorBool = props => {
                     initiator={cell._.wrapperRefCurrent.current}
                     autoSize={true}
                     id={'boolean'}
-                    minWidth="200"
-                    minHeight="55"
-                    maxHeight="55"
+                    minWidth="100"
                     autoSize={true}
                     notResize={true}
                     onOutsideClick={() => {}}
+                    style={{padding: '5px'}}
                 >
                     <ListPicker
                         {...props}
