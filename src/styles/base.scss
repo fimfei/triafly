@@ -170,6 +170,52 @@ hr {
   --layout-aside-navbar-logo-title-font-size: small;
 }
 
+/****************************************************************************************************************/
+
+.tf_layout-main {
+  grid-row: 2/3;
+  grid-column: 2/3;
+  position: relative;
+  padding: var(--layout-main-padding, calc(var(--key-size) * 0.5));
+  font-size: var(--layout-main-font-size, calc(var(--key-size) * 0.875));
+  overflow: auto;
+}
+.tf_layout-main > :last-child {
+  margin-bottom: var(--m-3, var(--key-size));
+}
+
+/****************************************************************************************************************/
+
+.p-0 {
+  padding: 0  !important;
+}
+.p-1 {
+  padding: var(--p-1, calc(var(--key-size) * 0.25)) !important;
+}
+.p-2 {
+  padding: var(--p-2, calc(var(--key-size) * 0.5)) !important;
+}
+.p-3 {
+  padding: var(--p-3, calc(var(--key-size) * 0.75)) !important;
+}
+.p-4 {
+  padding: var(--p-4, var(--key-size)) !important;
+}
+.p-5 {
+  padding: var(--p-5, calc(var(--key-size) * 1.25)) !important;
+}
+.p-6 {
+  padding: var(--p-6, calc(var(--key-size) * 1.5)) !important;
+}
+.p-7 {
+  padding: var(--p-7, calc(var(--key-size) * 1.75)) !important;
+}
+.p-8 {
+  padding: var(--p-8, calc(var(--key-size) * 2)) !important;
+}
+
+/****************************************************************************************************************/
+
 .tf_btn {
   position: relative;
   display: inline-block;
