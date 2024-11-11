@@ -2,7 +2,7 @@ import React from "react";
 import {createPortal} from 'react-dom';
 import {ElementsPickerButton} from "./index";
 import {Popup} from "../Popup";
-import {ListPicker} from "../ListPicker";
+import {ListPickerDeprecated} from "../ListPicker";
 
 import './scss/elements-picker-header.scss';
 
@@ -64,7 +64,7 @@ const ElementsPickerHeader = props => {
                 </button>
                 {showPicker && createPortal(
                     <Popup {..._popupOptions} >
-                        <ListPicker {..._listPickerOptions} />
+                        <ListPickerDeprecated {..._listPickerOptions} />
                     </Popup>,
                     document.body
                 )}

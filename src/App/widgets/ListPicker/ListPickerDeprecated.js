@@ -1,9 +1,8 @@
 import React from "react";
-import {SetPicker} from "../../components/SetPicker";
 
 import './scss/list-picker.scss';
 
-function ListPicker(props) {
+function ListPickerDeprecated(props) {
     const {
                                  //
         label = '',              // имя списка для идентификации
@@ -71,23 +70,31 @@ function ListPicker(props) {
         }
     }
 
-    const componentReturn = React.useRef({});
-    const setPickerConnector = React.useRef({});
+    /* eslint-disable */
+    React.useEffect(() => {
+        const returnComponent = window.NetDB.namespace('react').createComponent({
+            componentName: 'SetPicker',
+            componentID: '',
+            componentClasses: 'inline-set',
+//            componentOnRemove,
+            componentCloseWhenClickingOutsideOfIt: false,
+            componentPortalEl: componentRef.current,
+            componentCallback,
+            options: getOptions(),
+        });
+
+        return () => {
+            returnComponent.removeComponent();
+        }
+    }, []);
+    /* eslint-enable */
 
     return (
         <div
             className={`setpicker-component-root${extraClass ? ' ' + extraClass : ''}`}
             ref={componentRef}
-        >
-            <SetPicker
-                options={getOptions()}
-                componentCallback={componentCallback}
-                componentReturn={componentReturn.current}
-                setPickerConnector={setPickerConnector.current}
-                initStore={true}
-            />
-        </div>
+        ></div>
     )
 }
 
-export default ListPicker;
+export default ListPickerDeprecated;

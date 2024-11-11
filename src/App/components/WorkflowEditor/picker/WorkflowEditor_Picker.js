@@ -1,6 +1,6 @@
 import React          from 'react';                        // Вначале все импорты из node_modules
 import {createPortal} from 'react-dom';
-import {Popup, ListPicker}  from '../../../widgets';       // Затем все импорты из внешних компонентов
+import {Popup, ListPickerDeprecated} from '../../../widgets';       // Затем все импорты из внешних компонентов
 // Потом импорты из текущей компоненты
 
 import './scss/workflow-editor-picker.scss';               // В конце через пробельную строку импорт SCSS
@@ -65,7 +65,7 @@ const Picker = ({...props}) => {
                     minHeight="100"
                     onOutsideClick={() => setSelectedPanelIsOpen(false)}
                 >
-                    <ListPicker
+                    <ListPickerDeprecated
                         label="select-workflow-type"
                         list={typeLabels || []}
                         selectedValue={selectedType}

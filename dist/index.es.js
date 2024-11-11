@@ -21781,7 +21781,9 @@ var ScrollbarContainerAll = function ScrollbarContainerAll2(_ref4) {
   var props = _extends$h({}, (_objectDestructuringEmpty(_ref4), _ref4));
   var list = props.list, ItemView = props.ItemView, subListFrom = props.subListFrom;
   return /* @__PURE__ */ React__default.createElement(React__default.Fragment, null, list.map(function(item, index2) {
-    return /* @__PURE__ */ React__default.createElement(ItemView, _extends$h({}, props, {
+    return /* @__PURE__ */ React__default.createElement(ItemView, _extends$h({
+      key: "scrlbr-".concat(index2)
+    }, props, {
       item,
       subListFrom,
       index: index2
