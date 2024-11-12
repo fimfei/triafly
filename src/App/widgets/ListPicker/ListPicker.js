@@ -79,6 +79,7 @@ function ListPicker(props) {
             className={`setpicker-component-root${extraClass ? ' ' + extraClass : ''}`}
             ref={componentRef}
         >
+            <div className="inline-set">
             <SetPicker
                 options={getOptions()}
                 componentCallback={componentCallback}
@@ -86,6 +87,7 @@ function ListPicker(props) {
                 setPickerConnector={setPickerConnector.current}
                 initStore={true}
             />
+            </div>
         </div>
     )
 }

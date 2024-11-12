@@ -1,5 +1,5 @@
 import React from 'react';
-import {ListPickerDeprecated} from "../../widgets";
+import {ListPicker} from "../../widgets";
 
 import './scss/graph-add-node.scss';
 
@@ -26,7 +26,7 @@ const AddNode = props => {
 
     return (
         <div className="add-node">
-            <ListPickerDeprecated
+            <ListPicker
                 label="graphAddNode"
                 list={getList()}
                 onChange={onSelect}

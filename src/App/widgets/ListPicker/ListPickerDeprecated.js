@@ -91,7 +91,7 @@ function ListPickerDeprecated(props) {
 
     return (
         <div
-            className={`setpicker-component-root${extraClass ? ' ' + extraClass : ''}`}
+            className={`setpicker-component-root deprecated${extraClass ? ' ' + extraClass : ''}`}
             ref={componentRef}
         ></div>
     )

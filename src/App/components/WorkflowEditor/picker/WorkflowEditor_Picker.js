@@ -1,33 +1,21 @@
-import React          from 'react';                        // Вначале все импорты из node_modules
+import React from 'react';
 import {createPortal} from 'react-dom';
-import {Popup, ListPickerDeprecated} from '../../../widgets';       // Затем все импорты из внешних компонентов
-// Потом импорты из текущей компоненты
+import {Popup, ListPickerDeprecated} from '../../../widgets';
 
-import './scss/workflow-editor-picker.scss';               // В конце через пробельную строку импорт SCSS
+import './scss/workflow-editor-picker.scss';
 
 const log = console.debug;
 
 const Picker = ({...props}) => {
-    // >>> раскрутка props всегда первой строкой компоненты, а не в середине текста
     const {setLinks, typeLabels, type} = props;
 
-    // >>> После раскрутки пропсов далее идут (по возможности) все стейты:
     const [selectedPanelIsOpen, setSelectedPanelIsOpen] = React.useState(false);
     const [selectedType, setSelectedType] = React.useState(type);
 
     log('Picker -> selectedType:', selectedType);
 
-    // >>> далее все useRef-ы
     const selectRef = React.useRef(null);
 
-    // >>> далее все useEffect-ы
-    React.useEffect(() => {
-        // e.g. setDefault();
-    }, []);
-    // Если в useEffect вторым параметром идёт пустой Array,
-    // то значит он будет выполняться только один раз после первого рендеринга
-
-    // >>> а потом уже пошёл код
     const getLinksByTypeValue = selectedType => {
         log('Picker -> selectedType:', selectedType);
 
@@ -37,10 +25,6 @@ const Picker = ({...props}) => {
     }
 
     const onChange = data => getLinksByTypeValue(data.selectedValues.join(', '));
-    //
-    // Хоть Андрей и настаивал любую функцию оборачивать скобками, мне больше нравится подход Лёхи - если функция
-    // из одной простой понятной строки, то скобки только утяжеляют прочтение. На твоё усмотрение, но я бы сделал так...
-    //
 
     return (
         <React.Fragment>
@@ -64,6 +48,7 @@ const Picker = ({...props}) => {
                     minWidth="200"
                     minHeight="100"
                     onOutsideClick={() => setSelectedPanelIsOpen(false)}
+                    style={{overflow: 'hidden'}}
                 >
                     <ListPickerDeprecated
                         label="select-workflow-type"
