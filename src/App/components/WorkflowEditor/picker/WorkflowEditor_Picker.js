@@ -1,10 +1,8 @@
 import React from 'react';
 import {createPortal} from 'react-dom';
-import {Popup, ListPickerDeprecated} from '../../../widgets';
+import {Popup, ListPicker} from '../../../widgets';
 
 import './scss/workflow-editor-picker.scss';
-
-const log = console.debug;
 
 const Picker = ({...props}) => {
     const {setLinks, typeLabels, type} = props;
@@ -12,13 +10,9 @@ const Picker = ({...props}) => {
     const [selectedPanelIsOpen, setSelectedPanelIsOpen] = React.useState(false);
     const [selectedType, setSelectedType] = React.useState(type);
 
-    log('Picker -> selectedType:', selectedType);
-
     const selectRef = React.useRef(null);
 
     const getLinksByTypeValue = selectedType => {
-        log('Picker -> selectedType:', selectedType);
-
         setSelectedType(selectedType);
         setLinks(selectedType);
         setSelectedPanelIsOpen(false);
@@ -50,7 +44,7 @@ const Picker = ({...props}) => {
                     onOutsideClick={() => setSelectedPanelIsOpen(false)}
                     style={{overflow: 'hidden'}}
                 >
-                    <ListPickerDeprecated
+                    <ListPicker
                         label="select-workflow-type"
                         list={typeLabels || []}
                         selectedValue={selectedType}

@@ -2,7 +2,7 @@ import React from "react";
 import {createPortal} from 'react-dom';
 import {ElementsPickerButton} from "./index";
 import {Popup} from "../Popup";
-import {ListPickerDeprecated} from "../ListPicker";
+import {ListPicker} from "../ListPicker";
 
 import './scss/elements-picker-header.scss';
 
@@ -37,6 +37,7 @@ const ElementsPickerHeader = props => {
         id: 'workflow-popup',
         minWidth: 200,
         minHeight: 100,
+        style: {overflow: 'hidden'},
         onOutsideClick: () => setShowPicker(false),
         ...popupOptions,
     }
@@ -64,7 +65,7 @@ const ElementsPickerHeader = props => {
                 </button>
                 {showPicker && createPortal(
                     <Popup {..._popupOptions} >
-                        <ListPickerDeprecated {..._listPickerOptions} />
+                        <ListPicker {..._listPickerOptions} />
                     </Popup>,
                     document.body
                 )}

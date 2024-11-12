@@ -18215,13 +18215,15 @@ function _U(e) {
   return /* @__PURE__ */ f.createElement("div", {
     className: "setpicker-component-root".concat(S ? " " + S : ""),
     ref: _
+  }, /* @__PURE__ */ f.createElement("div", {
+    className: "inline-set"
   }, /* @__PURE__ */ f.createElement(LV, {
     options: D(),
     componentCallback: E,
     componentReturn: O.current,
     setPickerConnector: R.current,
     initStore: !0
-  }));
+  })));
 }
 function Q_(e) {
   var t, r, n = "";

@@ -83,6 +83,8 @@
                 display: grid;
                 grid-template: 1fr/1fr;
                 padding-right: var(--p-4, var(--key-size));
+                max-width: calc(100% - 16px);
+
                 &:hover {
                     background-color: var(--negative-color-10);
                 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import {createPortal} from 'react-dom';
-import {Popup, ListPickerDeprecated} from "../widgets";
+import {Popup, ListPicker} from "../widgets";
 
 import './scss/select-from-list.scss';
 
@@ -70,8 +70,9 @@ const SelectFromList = ({...props}) => {
                     minWidth="200"
                     minHeight="100"
                     onOutsideClick={closePopupOnOutsideClick ? onOutsideClick : () => {}}
+                    style={{overflow: 'hidden'}}
                 >
-                    <ListPickerDeprecated
+                    <ListPicker
                         {...props}
                         onChange={onChange}
                         selectedValue={value}

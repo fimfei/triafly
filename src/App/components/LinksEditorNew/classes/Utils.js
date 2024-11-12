@@ -1,5 +1,5 @@
 import {LinksEditor_Node_Navigator, LinksEditor_Node_Body, LinksEditor_Edge} from '../';
-import {callPopup, callAlert, ListPickerDeprecated} from '../../../widgets';
+import {callPopup, callAlert, ListPicker} from '../../../widgets';
 
 import {callTable} from "../../Table";
 
@@ -1153,11 +1153,12 @@ class Utils {
 
         const {removeComponent} = callPopup({
             initiator: ref,
-            minWidth: 300,
-            minHeight: 200,
+            minWidth: 200,
+            minHeight: 100,
             extraClass: 'field-type-select-popup',
             onOutsideClick: removePopup,
-            children: <ListPickerDeprecated
+            style: {overflow: 'hidden'},
+            children: <ListPicker
                 label="linksEditorFieldsTypes"
                 list={fieldTypesArr}
                 selectedValues={currentFieldTypeId}
