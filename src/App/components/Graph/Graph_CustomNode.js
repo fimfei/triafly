@@ -120,7 +120,7 @@ const CustomNode = props => {
 
     return (
         <div
-            class={classes}
+            className={classes}
             ref={nodeRef}
             title={isStart ? startNodeTitle : customTitle}
             onClick={clickToNode}
