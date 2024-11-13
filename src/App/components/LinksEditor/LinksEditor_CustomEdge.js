@@ -51,7 +51,7 @@ const CustomEdge = ({...props}) => {
                 markerEnd={markerEnd}
                 style={{
                     stroke: errorLink ? '#f00' : '#000',
-                    'stroke-width': hoverLink ? 2 : 1,
+                    strokeWidth: hoverLink ? 2 : 1,
                 }}
             />
             <EdgeLabelRenderer>

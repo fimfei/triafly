@@ -415,7 +415,7 @@ class Utils {
                         height: 20,
                         width: 20,
                         color: '#000',
-                        'stroke-width': 1,
+                        strokeWidth: 1,
                     },
                 }
                 if (handlesData?.edges && handlesData.edges[id]) {

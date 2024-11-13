@@ -1,3 +1,4 @@
+import React from "react";
 import {getStraightPath} from 'reactflow';
 
 const CustomConnectionLine = ({...props}) => {

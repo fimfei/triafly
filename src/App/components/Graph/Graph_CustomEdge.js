@@ -70,7 +70,7 @@ const CustomEdge = props => {
 
     const style = {
         stroke: selected ? '#000' : '#b1b1b7',
-        'stroke-width': selected ? 1.5 : 1,
+        strokeWidth: selected ? 1.5 : 1,
     };
 
     Object.assign(style, connectingLineStyleCurrent.current);

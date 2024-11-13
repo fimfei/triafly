@@ -19,6 +19,7 @@ const ButtonsPanel = props => {
 
                 return (
                     <button
+                        key={`control-panel-${index}`}
                         className={`tf_btn tf_btn-xs${_class}`}
                         title={title}
                         onClick={() => callback()}
