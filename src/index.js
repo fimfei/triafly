@@ -1,9 +1,8 @@
 import React from 'react';
 
 import {Table, callTable} from './App/components/Table';
-/*
 import {Graph} from './App/components/Graph';
-
+/*
 import {Alert, callAlert} from './App/widgets/Alert';
 import {ColorPicker} from './App/widgets/ColorPicker';
 import {DatePicker} from './App/widgets/DatePicker';
@@ -19,7 +18,7 @@ import {InputBool, InputNumber, InputText, SelectFromList} from './App/forms';
 import './styles/app.scss';
 
 export {
-    Table, callTable,
+    Table, callTable, Graph
 /*
     Graph,
     Alert, callAlert, ColorPicker, DatePicker, ElementsPicker, FilesPicker, ListPicker, PeriodPicker, Popup, callPopup, Prompt, callPrompt,
