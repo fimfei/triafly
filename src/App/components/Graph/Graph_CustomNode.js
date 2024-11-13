@@ -59,7 +59,8 @@ const CustomNode = props => {
     React.useEffect(() => {
         const setSelected = el => el.classList ? el.classList[selected ? 'add' : 'remove']('is-selected') : null;
 
-        const selector = `.react-flow__node[data-id="${id}"] .${customClasses.replace(/ /g, '.')}`;
+        let selector = `.react-flow__node[data-id="${id}"]`;
+        if(customClasses) selector += ` .${customClasses.replace(/ /g, '.')}`;
         const el = document.querySelector(selector);
         setSelected(el);
         setSelected(el.parentNode);
