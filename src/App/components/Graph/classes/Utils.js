@@ -1,3 +1,4 @@
+import React from 'react';
 import {MarkerType} from 'reactflow';
 import dagre from 'dagre';
 import PowerGraph from "./PowerGraph";
