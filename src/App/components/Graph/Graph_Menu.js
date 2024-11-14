@@ -204,7 +204,7 @@ const AdditionalControls = props => {
         <React.Fragment>
             {additionalControls.map((controlsGroup, index) => {
                 return (
-                    <div className="tf_btn-group">
+                    <div className="tf_btn-group" key={`add-control-${index}`}>
                         {controlsGroup.map((control, index) => {
                             const {buttonClasses = '', iconClasses = 'fas fa-question', component: IconComponent = null, title, callback = () => {}, ifSelect} = control;
 
@@ -215,6 +215,7 @@ const AdditionalControls = props => {
 
                             return (
                                 <button
+                                    key={`menu-${index}`}
                                     className={`tf_btn tf_btn-icon tf_btn-xs ${buttonClasses}`}
                                     title={title}
                                     onClick={callback}

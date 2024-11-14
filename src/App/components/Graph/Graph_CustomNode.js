@@ -137,6 +137,7 @@ const CustomNode = props => {
                         const {type, style, handleId, position} = handel;
                         return (
                             <Handle
+                                key={`custom-node-${index}`}
                                 type={type}
                                 style={edgesFromNodeCenter ? {left: '50%', top: '50%'} : style}
                                 position={position}
