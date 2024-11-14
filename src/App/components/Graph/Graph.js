@@ -1,6 +1,7 @@
 import React from 'react';
 import {Utils, GraphRoot} from "./";
 
+import 'reactflow/dist/style.css';
 import './scss/graph.scss';
 
 /*
