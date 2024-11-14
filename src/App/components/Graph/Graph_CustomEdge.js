@@ -92,6 +92,7 @@ const CustomEdge = props => {
                                 target={target}
                                 labelX={labelX}
                                 labelY={labelY}
+                                positionCSS={{transform: `translate(-50%, -50%) translate(${labelX}px,${labelY}px)`}}
                                 edge={edge}
                                 link={edge.data.link}
                                 selected={selected}
