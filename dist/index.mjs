@@ -38885,7 +38885,7 @@ var Coe = function(t) {
     targetPosition: c
   }), G = he(fe, 3), me = G[0], xe = G[1], Z = G[2], _e = m.current[r], te = {
     stroke: P ? "#000" : "#b1b1b7",
-    "stroke-width": P ? 1.5 : 1
+    strokeWidth: P ? 1.5 : 1
   };
   return Object.assign(te, A.current), /* @__PURE__ */ g.createElement(g.Fragment, null, /* @__PURE__ */ g.createElement(nu, {
     _: j,
@@ -38915,12 +38915,12 @@ var Doe = function(t) {
     targetX: i,
     targetY: o
   }), l = he(u, 1), c = l[0];
-  return /* @__PURE__ */ React.createElement("g", null, /* @__PURE__ */ React.createElement("path", {
+  return /* @__PURE__ */ g.createElement("g", null, /* @__PURE__ */ g.createElement("path", {
     style: s,
     fill: "none",
     d: c,
     connectionLineType: "getStraightPath"
-  }), /* @__PURE__ */ React.createElement("circle", {
+  }), /* @__PURE__ */ g.createElement("circle", {
     cx: i,
     cy: o,
     fill: "black",
@@ -38941,6 +38941,7 @@ var Doe = function(t) {
       return null;
     } : f, p = a.disabled, v = p === void 0 ? !1 : p, m = n[d] || "";
     return /* @__PURE__ */ g.createElement("button", {
+      key: "control-panel-".concat(i),
       className: "tf_btn tf_btn-xs".concat(m),
       title: l,
       onClick: function() {
@@ -42797,7 +42798,7 @@ var Qce = /* @__PURE__ */ function() {
               height: 20,
               width: 20,
               color: "#000",
-              "stroke-width": 1
+              strokeWidth: 1
             }
           };
           if (a != null && a.edges && a.edges[c]) {
