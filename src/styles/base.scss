@@ -518,3 +518,56 @@ a.tf_btn:hover {
   padding: calc(var(--key-size-lg) * 0.25);
 }
 
+/*********************************************************************************************************/center
+                                                                                                           .btn,
+                                                                                                           .btn:hover,
+                                                                                                           .btn:focus {
+                                                                                                             background: center no-repeat transparent;
+                                                                                                             box-shadow: none;
+                                                                                                             border-radius: 0;
+                                                                                                             font-size: 14px;
+                                                                                                           }
+.btn.disabled,
+.btn:hover.disabled,
+.btn:focus.disabled,
+.btn[disabled],
+.btn:hover[disabled],
+.btn:focus[disabled] {
+  background-color: #e4e4e4;
+}
+.btn.active,
+.btn:hover.active,
+.btn:focus.active,
+.btn-group.open > .btn[data-toggle="dropdown"]:not(.btn-primary),
+.btn-group.open > .btn:hover[data-toggle="dropdown"]:not(.btn-primary),
+.btn-group.open > .btn:focus[data-toggle="dropdown"]:not(.btn-primary),
+.dropdown.open > .btn[data-toggle="dropdown"],
+.dropdown.open > .btn:hover[data-toggle="dropdown"],
+.dropdown.open > .btn:focus[data-toggle="dropdown"] {
+  box-shadow: none;
+  text-shadow: none;
+  background-color: rgba(0, 0, 0, 0.15);
+  outline: none;
+}
+.btn.btn-primary,
+.btn:hover.btn-primary,
+.btn:focus.btn-primary,
+.btn.btn-danger,
+.btn:hover.btn-danger,
+.btn:focus.btn-danger,
+.btn.do-remove,
+.btn:hover.do-remove,
+.btn:focus.do-remove {
+  background: #2569c9;
+  text-shadow: none;
+  color: white;
+}
+.btn-group > .btn,
+.btn-group > .dropdown-menu,
+.btn-group > .popover {
+  font-size: 14px;
+}
+.btn-group > .btn-small + .dropdown-toggle {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: none;
+}
