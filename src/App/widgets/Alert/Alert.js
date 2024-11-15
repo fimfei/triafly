@@ -44,11 +44,12 @@ const Alert = props => {
                         {children}
                     </div>
                     <div className="modal-footer">
-                        {buttons.map((item, key) => {
+                        {buttons.map((item, index) => {
                             const {text, type, callback} = item;
 
                             return (
                                 <a
+                                    key={`alert-button-${index}`}
                                     href="#"
                                     className={typesClasses[type]}
                                     onClick={onClick(callback)}

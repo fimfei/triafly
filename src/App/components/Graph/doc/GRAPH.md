@@ -4,6 +4,7 @@
 <Graph {...graphProps} />
 ####
 
+
 # ПАРАМЕТРЫ
 
 > graphProps = {\
@@ -51,16 +52,28 @@ states: [
 вызывающему граф коду при обработке каких-то событий. Эти данные не используются
 компонентой и возвращаются неизменными во всех коллбэках
 
+### Назначение states
+Вы можете опустить этот параметр. В любом случае часть полного списка [узлов](thesaurus.md#узел-графа) компонента
+получит из параметра **links** (см. ниже). **Полным списком** [узлов](thesaurus.md#узел-графа) будет список
+полученный из **links** плюс список из **states**
+
+Так зачем-же тогда нужен список [узлов](thesaurus.md#узел-графа) **states**?
+
+В момент добавления нового [узла](thesaurus.md#узел-графа) на графе, компонента проверяет, какие
+[узлы](thesaurus.md#узел-графа) из **полного списка** еще не задействованы в графе
+и позволяет добавить только их. Поэтому, если списка **states**
+не будет, вы не сможете добавить новый [узел](thesaurus.md#узел-графа) на граф
+
 ## links
 Array с описанием [связей](thesaurus.md#связь-графа) между [узлами](thesaurus.md#узел-графа)
 
 ````
 links: [
-    {from: 'country',   to: 'cities',    value: 'text1', ...others...},
-    {from: 'country',   to: 'cpmpanies', value: 'text2', ...others...},
-    {from: 'cities',    to: 'cpmpanies', value: 'text3', ...others...},
-    {from: 'city_type', to: 'cities',    value: 'text4', ...others...},
-    {from: 'city_type', to: 'cpmpanies', value: 'text5', ...others...},
+    {from: 'country',   to: 'cities',    value: 'text1', id: 1, ...others...},
+    {from: 'country',   to: 'cpmpanies', value: 'text2', id: 2, ...others...},
+    {from: 'cities',    to: 'cpmpanies', value: 'text3', id: 3, ...others...},
+    {from: 'city_type', to: 'cities',    value: 'text4', id: 4, ...others...},
+    {from: 'city_type', to: 'cpmpanies', value: 'text5', id: 5, ...others...},
 ]
 ````
 ### from
@@ -69,6 +82,8 @@ links: [
 Обязательный. **ID** (label) входящего [узла](thesaurus.md#узел-графа) [связи](thesaurus.md#связь-графа)
 ### value
 Обязательный. Текст, который (возможно) будет выводиться поверх связи на графе
+### id
+Обязательный. уникальный для каждой записи
 ### others
 В данные по [связям](thesaurus.md#связь-графа) можно добавлять
 любую информацию, которая может понадобиться
@@ -111,6 +126,127 @@ onChangeComponentState: {
 Параметры настройки внешнего вида и поведения графа. 
 Описание смотри в **[options](options.md)**
 >
+&emsp;\
+&emsp;\
+&emsp;\
+&emsp;\
+&emsp;\
+&emsp;\
+&emsp;
+# МИНИМАЛИСТИЧЕСКИЙ ЗАПУСК
+
+## App.jsx
+
+````
+import React from 'react';
+
+import {Graph} from 'triafly-data-components';
+import 'triafly-data-components/dist/style.css';
+
+import './style.scss'
+
+const App = () => {
+
+    const links = [
+        {
+            "from": "companies",
+            "to": "country",
+            label: "ребро companies => country",
+            id: 1
+        },
+        {
+            "from": "country",
+            "to": "companies",
+            label: "ребро country => companies",
+            id: 2
+        },
+        {
+            "from": "country",
+            "to": "cities",
+            label: "ребро country => cities",
+            id: 3
+        },
+    ];
+
+    const states = [
+        {label: "country"},
+        {label: "cities"},
+        {label: "companies"},
+        {label: "address"},
+        {label: "any"},
+    ];
+
+    const Navigator = props => {
+        return (
+            <div className="test-navigator">Navigator for {props.id}</div>
+        )
+    }
+
+    const Body = props => {
+        return (
+            <div className="test-body">Body for {props.id}</div>
+        )
+    }
+
+    const Link = props => {
+        console.log(props)
+        return (
+            <div
+                className="test-link"
+                style={props.positionCSS}
+            >
+                {props.link.label}
+            </div>
+        )
+    }
+
+    return (
+        <Graph
+            graphName="myGraph"
+            links={links}
+            states={states}
+            options={{
+                graphView: {
+                    components: {
+                        navigator: Navigator,
+                        body: Body,
+                        link: Link,
+                    },
+                },
+            }}
+
+        />
+    )
+}
+````
+## style.scss
+````
+.test-body {
+    background: #ff0;
+    padding: 10px;
+    box-shadow: 0px 0px 0px 1px #000;
+    border-radius: 3px;
+}
+
+.test-navigator {
+    background: #ebebeb;
+    padding: 10px;
+    box-shadow: 0px 0px 0px 1px #000;
+    border-radius: 3px;
+}
+
+.test-link {
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px #888;
+    color: #000;
+    font-size: 12px;
+    padding: 2px 5px;
+    pointer-events: all;
+    position: absolute;
+}
+````
+
 &emsp;\
 &emsp;\
 &emsp;\
