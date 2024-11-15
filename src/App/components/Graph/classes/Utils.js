@@ -423,7 +423,7 @@ class Utils {
                     edgeData.sourceHandle = fromHandleId;
                     edgeData.targetHandle = toHandleId;
                 } else {
-                    console.log('?-?-?-?-?-?-?-?-?-?-?-?-')
+//                    console.log('?-?-?-?-?-?-?-?-?-?-?-?-')
                 }
 
                 out.push(edgeData);

@@ -20,7 +20,6 @@ import './styles/app.scss';
 export {
     Table, callTable, Graph
 /*
-    Graph,
     Alert, callAlert, ColorPicker, DatePicker, ElementsPicker, FilesPicker, ListPicker, PeriodPicker, Popup, callPopup, Prompt, callPrompt,
     InputBool, InputNumber, InputText, SelectFromList
 */

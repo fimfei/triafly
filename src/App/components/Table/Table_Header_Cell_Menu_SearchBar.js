@@ -25,7 +25,7 @@ const TableHeaderCellMenuSearchBar = props => {
             return;
         }
 
-        console.log('################### GET PAGE FROM STORE', 0)
+//        console.log('################### GET PAGE FROM STORE', 0)
         utils.refreshBodyWithNewRows({
             newRows: rowsFromStore,
             newPageNum: 0,

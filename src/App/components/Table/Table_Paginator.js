@@ -41,7 +41,7 @@ const TablePaginator = props => {
             return;
 
         }
-        console.log('################### GET PAGE FROM STORE', pageNum)
+//        console.log('################### GET PAGE FROM STORE', pageNum)
         utils.refreshBodyWithNewRows({
             newRows: rowsFromStore,
             newPageNum: pageNum,
@@ -59,7 +59,7 @@ const TablePaginator = props => {
             return;
         }
 
-        console.log('################### GET PAGE FROM STORE', 0)
+//        console.log('################### GET PAGE FROM STORE', 0)
         utils.refreshBodyWithNewRows({
             newRows: utils.storeGetPage({pageNum: 0, pageLength: length}),
             newPageLength: length,

@@ -19103,6 +19103,7 @@ var _M = function(t) {
   }, h.map(function(v, m) {
     var y = v.text, b = v.type, _ = v.callback;
     return /* @__PURE__ */ g.createElement("a", {
+      key: "alert-button-".concat(m),
       href: "#",
       className: f[b],
       onClick: p(_)
@@ -38922,8 +38923,7 @@ var Doe = function(t) {
   return /* @__PURE__ */ g.createElement("g", null, /* @__PURE__ */ g.createElement("path", {
     style: s,
     fill: "none",
-    d: c,
-    connectionLineType: "getStraightPath"
+    d: c
   }), /* @__PURE__ */ g.createElement("circle", {
     cx: i,
     cy: o,

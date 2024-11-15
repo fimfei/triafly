@@ -111,13 +111,13 @@ class Utils {
         setTimeout(() => {
             this.setControlling(getComponentControlling);
         }, 0);
-        console.log('--- Utils --->', this)
+//        console.log('--- Utils --->', this)
     }
 
     getColumnsWidth({tablePortalElCurrent = null, initialSizes = {}}) {
         const defaultWidth = 100;
 
-        console.log('tablePortalElCurrent.current', tablePortalElCurrent.current)
+//        console.log('tablePortalElCurrent.current', tablePortalElCurrent.current)
         let portalWidth = tablePortalElCurrent.current?.getBoundingClientRect ? tablePortalElCurrent.current.getBoundingClientRect().width : null;
         if(portalWidth) {
             const portalStyle = tablePortalElCurrent.current.currentStyle || window.getComputedStyle(tablePortalElCurrent.current);
@@ -1018,8 +1018,8 @@ class Utils {
     }
 
     storeGetPage(props) {
-        console.log('store', toJS(Store.getStore()))
-        console.log('connector', this.connector)
+//        console.log('store', toJS(Store.getStore()))
+//        console.log('connector', this.connector)
         const {pageNum: _pageNum} = props || {};
         const {params} = this.connector;
         let pageId = null;

@@ -151,19 +151,19 @@ const App = () => {
         {
             "from": "companies",
             "to": "country",
-            label: "ребро companies => country",
+            label: "companies => country",
             id: 1
         },
         {
             "from": "country",
             "to": "companies",
-            label: "ребро country => companies",
+            label: "country => companies",
             id: 2
         },
         {
             "from": "country",
             "to": "cities",
-            label: "ребро country => cities",
+            label: "country => cities",
             id: 3
         },
     ];
@@ -178,7 +178,7 @@ const App = () => {
 
     const Navigator = props => {
         return (
-            <div className="test-navigator">Navigator for {props.id}</div>
+            <div className="test-navigator">{props.id}</div>
         )
     }
 
@@ -189,13 +189,12 @@ const App = () => {
     }
 
     const Link = props => {
-        console.log(props)
         return (
             <div
                 className="test-link"
                 style={props.positionCSS}
             >
-                {props.link.label}
+                {`ребро "${props.link.label}"`}
             </div>
         )
     }
@@ -221,29 +220,33 @@ const App = () => {
 ````
 ## style.scss
 ````
-.test-body {
+.test-navigator {
     background: #ff0;
-    padding: 10px;
-    box-shadow: 0px 0px 0px 1px #000;
-    border-radius: 3px;
+    padding: 5px 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
 }
 
-.test-navigator {
-    background: #ebebeb;
+.test-body {
+    background: #fff;
     padding: 10px;
-    box-shadow: 0px 0px 0px 1px #000;
-    border-radius: 3px;
+    box-shadow: inset 0px 1px 0px 0px #888;
 }
 
 .test-link {
-    background: #fff;
     border-radius: 2px;
     box-shadow: 0 0 0 1px #888;
-    color: #000;
     font-size: 12px;
     padding: 2px 5px;
     pointer-events: all;
     position: absolute;
+    background: #575795;
+    color: #fff;
+}
+
+.graph-node-wrapper {
+    box-shadow: 0px 0px 4px 1px #000;
 }
 ````
 

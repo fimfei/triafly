@@ -144,9 +144,9 @@ const Graph = ({...props}) => {
     const utilsCurrent = React.useRef(new Utils(getUtilsData()));
     let utils = utilsCurrent.current;
 
-    setTimeout(() => {
-        console.log('Graph utils', utils)
-    }, 0)
+//    setTimeout(() => {
+//        console.log('Graph utils', utils)
+//    }, 0)
 
     return (
         <GraphRoot {...props} utils={utils} />
