@@ -518,15 +518,17 @@ a.tf_btn:hover {
   padding: calc(var(--key-size-lg) * 0.25);
 }
 
-/*********************************************************************************************************/center
-                                                                                                           .btn,
-                                                                                                           .btn:hover,
-                                                                                                           .btn:focus {
-                                                                                                             background: center no-repeat transparent;
-                                                                                                             box-shadow: none;
-                                                                                                             border-radius: 0;
-                                                                                                             font-size: 14px;
-                                                                                                           }
+/*********************************************************************************************************/
+
+.btn,
+.btn:hover,
+.btn:focus {
+ background: center no-repeat transparent;
+ box-shadow: none;
+ border-radius: 0;
+ font-size: 14px;
+ text-decoration: none;
+}
 .btn.disabled,
 .btn:hover.disabled,
 .btn:focus.disabled,
