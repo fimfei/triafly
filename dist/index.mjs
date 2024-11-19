@@ -43675,8 +43675,10 @@ export {
   _M as Alert,
   ide as Graph,
   Ol as Popup,
+  Vz as Prompt,
   i$ as Table,
   Yz as callAlert,
   Of as callPopup,
+  hu as callPrompt,
   ade as callTable
 };
