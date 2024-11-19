@@ -19064,10 +19064,10 @@ function bM(e) {
 var _M = function(t) {
   var r = t.header, n = r === void 0 ? "Предупреждение" : r, a = t.text, i = t.buttons, o = t.success, s = o === void 0 ? function() {
   } : o, u = t.cancel, l = u === void 0 ? function() {
-  } : u, c = t.removeComponent, d = {
+  } : u, c = t.children, d = t.removeComponent, f = {
     danger: "btn btn-danger",
     cancel: "btn btn-no"
-  }, f = i || [{
+  }, h = i || [{
     text: "Отмена",
     type: "cancel",
     callback: l
@@ -19075,9 +19075,9 @@ var _M = function(t) {
     text: "OK",
     type: "danger",
     callback: s
-  }], h = function(v) {
+  }], p = function(m) {
     return function() {
-      v && v(), c();
+      m && m(), d();
     };
   };
   return /* @__PURE__ */ g.createElement("div", {
@@ -19098,16 +19098,16 @@ var _M = function(t) {
     dangerouslySetInnerHTML: {
       __html: a
     }
-  })), /* @__PURE__ */ g.createElement("div", {
+  }), c), /* @__PURE__ */ g.createElement("div", {
     className: "modal-footer"
-  }, f.map(function(p, v) {
-    var m = p.text, y = p.type, b = p.callback;
+  }, h.map(function(v, m) {
+    var y = v.text, b = v.type, _ = v.callback;
     return /* @__PURE__ */ g.createElement("a", {
-      key: "alert-button-".concat(v),
+      key: "alert-button-".concat(m),
       href: "#",
-      className: d[y],
-      onClick: h(b)
-    }, m);
+      className: f[b],
+      onClick: p(_)
+    }, y);
   })))));
 }, Yz = function(t) {
   var r = document.createElement("div");

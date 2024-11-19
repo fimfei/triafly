@@ -16,7 +16,6 @@
 |-------------------------------|--------------------------------------------|------------------------|-----------------------------------------------------------------|
 | **Popup**<br/>**callPopup**   | Всплывающая панель с кастомным содержимым      | jsx<br/>js  | [Popup<br/>callPopup](src/App/widgets/Popup/doc/POPUP.md#POPUP) |
 | **Alert**<br/>**callAlert**   | Окно с сообщением                          | jsx<br/>js  | [Alert<br/>callAlert](src/App/widgets/Alert/doc/ALERT.md#ALERT) |
-| **Prompt**<br/>**callPrompt** | Окно с предупреждением и вариантами ответа |  jsx<br/>js  |                                                                 |
 | **ListPicker**                | Панель выбора из списка                    |  jsx  |                                                                 |
 | **ElementsPicker**            | Настраиваемая панель выбора из списка      |  jsx  |                                                                 |
 | **DatePicker**                | Панель выбора даты                         |  jsx  |                                                                 |

@@ -2,7 +2,7 @@ import React from 'react';
 import {MarkerType} from 'reactflow';
 import dagre from 'dagre';
 import PowerGraph from "./PowerGraph";
-import {callPrompt, callAlert} from "../../../widgets";
+import {callAlert} from "../../../widgets";
 import {AddNode} from "../";
 import {InputText} from "../../../forms";
 import UTILS from "../../../common/utils";
@@ -958,10 +958,10 @@ class Utils {
 
     addNewNode() {
         const {viewPortCurrent, aloneNodes, states} = this.connector;
-        let promptCallback;
+        let alertCallback;
 
         const onSelect = label => {
-            promptCallback.removeComponent();
+            alertCallback.removeComponent();
             const {x, y, zoom} = viewPortCurrent.current;
             aloneNodes[label] = {position: {x: (x * -1) / zoom + 5, y: (y * -1 + 35) / zoom + 20}};
             this.connector.selectedEdge = '';
@@ -970,7 +970,7 @@ class Utils {
             this.refreshGraph();
         }
 
-        promptCallback = callPrompt({
+        alertCallback = callAlert({
             header: 'Добавить вершину',
             children: <AddNode
                 onSelect={onSelect}
@@ -1055,7 +1055,7 @@ class Utils {
         if(!aloneNodes[id]) buttons.push({text: 'Со всеми повисшими', type: 'cancel', callback: () => removeNode(true)});
         buttons.push({text: aloneNodes[id] ? 'Удалить' : 'Только её', type: 'danger', callback:  () => removeNode(false)});
 
-        callPrompt({
+        callAlert({
             header: `Удаление вершины`,
             text: `${aloneNodes[id] ? 'Удалить' : 'Как Вы хотите удалить'} вершину графа "<b>${id}</b>"?`,
             buttons
@@ -1114,7 +1114,7 @@ class Utils {
             return;
         }
 
-        callPrompt({
+        callAlert({
             header: `Удаление ребра`,
             text: `Вы действительно хотите удалить ребро от вершины<br />"<b>${source}</b>" к вершине "<b>${target}</b>"?`,
             success: _deleteEdge.bind(this),
@@ -1157,7 +1157,7 @@ class Utils {
         const {aloneNodes, links, nodesCurrent, refresh, refreshMenu, selectedNode: id} = this.connector;
         let newName = '';
 
-        callPrompt({
+        callAlert({
             header: `Переименование вершины "${id}"`,
             children: <InputText
                 placeholder="Новое название"
@@ -1232,10 +1232,10 @@ class Utils {
     addNewEdge(props) {
         const {fromCurrent, toCurrent, position} = props;
         const {links, viewPortCurrent, panelRef, nodesCurrent, states} = this.connector;
-        let promptCallback;
+        let alertCallback;
 
         const continueCreateNewNode = label => {
-            promptCallback.removeComponent();
+            alertCallback.removeComponent();
             toCurrent.current = label;
 
             const newLink = {
@@ -1272,7 +1272,7 @@ class Utils {
             });
         }
 
-        promptCallback = callPrompt({
+        alertCallback = callAlert({
             header: 'Добавить вершину',
             children: <AddNode
                 onSelect={continueCreateNewNode}
