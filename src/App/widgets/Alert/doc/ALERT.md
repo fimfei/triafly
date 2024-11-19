@@ -25,7 +25,6 @@
 | buttons | |   |
 | success | |   |
 | cancel | |   |
-| children | |   |
 | removeComponent | |   |
 |  | |   |
 

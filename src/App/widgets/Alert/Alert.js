@@ -11,7 +11,6 @@ const Alert = props => {
         buttons: _buttons,
         success = () => {},
         cancel = () => {},
-        children,
         removeComponent,
     } = props;
 
@@ -41,7 +40,6 @@ const Alert = props => {
                         {text && (
                             <div dangerouslySetInnerHTML={{__html: text}}></div>
                         )}
-                        {children}
                     </div>
                     <div className="modal-footer">
                         {buttons.map((item, index) => {
