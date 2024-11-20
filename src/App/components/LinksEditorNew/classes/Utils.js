@@ -363,9 +363,9 @@ class Utils {
                     height: 'calc(100% - 6px)',
                     background: isEnd ? '#ddc4c4' : '#c7c4dd',
                     display: 'flex',
-                    'justify-content': 'center',
-                    'align-items': 'center',
-                    'font-weight': isEnd ? 'normal' : 'bold',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    fontWeight: isEnd ? 'normal' : 'bold',
                 }}
             >
                 <i

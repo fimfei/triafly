@@ -85,7 +85,7 @@ const SetPickerSmartListHeaderCounts = ({...props}) => {
                         className="text-primary"
                         tabIndex="1"
                         role="button"
-                        style={{'font-weight': showSelectedList === 'search' ? 'bold' : ''}}
+                        style={{fontWeight: showSelectedList === 'search' ? 'bold' : ''}}
                         onClick={() => setShowSelectedList(true, true)}
                     >{searchSelectedList.length || 0}</span>
                     {` из `}
@@ -93,7 +93,7 @@ const SetPickerSmartListHeaderCounts = ({...props}) => {
                         className="text-primary"
                         tabIndex="1"
                         role="button"
-                        style={{'font-weight': !showSelectedList ? 'bold' : ''}}
+                        style={{fontWeight: !showSelectedList ? 'bold' : ''}}
                         onClick={clickToTotalCount}
                     >{totalCountText}</span>
                     {searchContext && (
@@ -103,7 +103,7 @@ const SetPickerSmartListHeaderCounts = ({...props}) => {
                                 className="text-primary"
                                 tabIndex="1"
                                 role="button"
-                                style={{'font-weight': showSelectedList === 'full' ? 'bold' : ''}}
+                                style={{fontWeight: showSelectedList === 'full' ? 'bold' : ''}}
                                 onClick={() => setShowSelectedList(true, false)}
                             >{selectedList.length || 0}</span>
                             {` из `}
