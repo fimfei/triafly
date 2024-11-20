@@ -821,7 +821,6 @@ hr {
 }
 .tf_form-control-secondary:focus {
   border-color: var(--secondary-color-d1);
-  box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--secondary-color);
 }
 .tf_form-control-secondary::placeholder {
   color: var(--secondary-color);
