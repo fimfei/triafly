@@ -186,7 +186,7 @@ class Utils {
     getSearchArr(list, search) {
         if (!search) return list;
         const context = search.toLowerCase();
-        return list.filter(item => ~item.toLowerCase().indexOf(context));
+        return list.filter(item => ~String(item).toLowerCase().indexOf(context));
     }
 
     requestGetPage(props) {

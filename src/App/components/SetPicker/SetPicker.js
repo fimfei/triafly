@@ -111,7 +111,7 @@ const SetPicker = ({...props}) => {
     const getSearchSelectedList = list => {
         if(!currentSearchContext?.current) return list;
         const context = currentSearchContext.current.toLowerCase();
-        return list.filter(item => ~item.toLowerCase().indexOf(context));
+        return list.filter(item => ~String(item).toLowerCase().indexOf(context));
     }
     const [selected, currentSelected, _setSelected] = useCurrentState({
         selectedList: externalSelectedList,        // array с id заселекченых элементов
