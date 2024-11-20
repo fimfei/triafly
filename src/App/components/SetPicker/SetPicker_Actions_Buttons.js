@@ -40,7 +40,7 @@ const SetPickerActionsButtons = ({...props}) => {
 
                 return (
                     <button
-                        index={index}
+                        key={index}
                         className={`tf_btn tf_btn-xs tf_btn-transparent tf_btn-icon ${className}${UTILS.addActiveClassIf(isActive)}`}
                         title={title}
                         onClick={clickToButton(name)}

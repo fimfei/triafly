@@ -17894,32 +17894,32 @@ var zG = function(t) {
     })) : null;
   }));
 }, QG = function(t) {
-  var r = ue({}, (it(t), t)), n = r.actionsMode, a = r.searchContext, i = r.setSearchContext, o = g.useState(a), s = he(o, 2), u = s[0], l = s[1], c = g.useRef(null), d = g.useRef(null), f = function(v) {
-    var m = v.target.value;
-    l(m), c.current && clearTimeout(c.current), c.current = setTimeout(function() {
-      c.current = null, i(m);
+  var r = ue({}, (it(t), t)), n = r.actionsMode, a = r.searchContext, i = a === void 0 ? "" : a, o = r.setSearchContext, s = g.useState(i), u = he(s, 2), l = u[0], c = u[1], d = g.useRef(null), f = g.useRef(null), h = function(m) {
+    var y = m.target.value;
+    c(y), d.current && clearTimeout(d.current), d.current = setTimeout(function() {
+      d.current = null, o(y);
     }, fr.searchTimeout);
-  }, h = function() {
-    l(""), i("");
+  }, p = function() {
+    c(""), o("");
   };
   return g.useEffect(function() {
-    n === fr.actionModes.search && d.current.focus();
+    n === fr.actionModes.search && f.current.focus();
   }, [n]), g.useEffect(function() {
-    a !== u && l(a);
-  }, [a]), /* @__PURE__ */ g.createElement("div", {
+    i !== l && c(i);
+  }, [i]), /* @__PURE__ */ g.createElement("div", {
     className: "c-search tf_input-group flex-grow-1".concat(ye.addHideClassIf(n !== fr.actionModes.search))
   }, /* @__PURE__ */ g.createElement("input", {
     className: "tf_form-control tf_form-control-xs tf_form-control-secondary",
     type: "text",
-    value: u,
+    value: l,
     placeholder: "Поиск...",
-    onChange: f,
+    onChange: h,
     autoFocus: !0,
-    ref: d
+    ref: f
   }), /* @__PURE__ */ g.createElement("button", {
     className: "tf_btn tf_btn-xs tf_btn-secondary tf_btn-icon",
     title: "Очистить",
-    onClick: h
+    onClick: p
   }, /* @__PURE__ */ g.createElement("i", {
     className: "fas fa-backspace fa-fw"
   })));
