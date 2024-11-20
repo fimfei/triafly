@@ -72,7 +72,7 @@ const SetPickerSmartListHeaderCounts = ({...props}) => {
                 {!singleChoiceOnly && !!selectedList.length && (
                     <div className="tf_form-check">
                         <i
-                            className="fas fa-times unselect"
+                            className="fa-times unselect-all"
                             onClick={unselect}
                         ></i>
                     </div>
