@@ -4,7 +4,7 @@ import {CONFIG_SETPICKER} from ".";
 import UTILS from "../../common/utils";
 
 const SetPickerActionsPanelSearch = ({...props}) => {
-    const {actionsMode, searchContext, setSearchContext} = props;
+    const {actionsMode, searchContext = '', setSearchContext} = props;
 
     const [value, setValue] = React.useState(searchContext);
     const timeoutId = React.useRef(null);
