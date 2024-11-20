@@ -12,7 +12,7 @@ const SetPickerSpinner = ({...props}) => {
     return (
         <div
             className="spinner"
-            style={{background: showSpinner ? '' : '#fff'}}
+            style={{visibility: showSpinner ? 'visible' : 'hidden'}}
         ></div>
     );
 }
