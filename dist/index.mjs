@@ -17585,7 +17585,7 @@ var az = function(t) {
     if (!(Ne != null && Ne.current)) return xe;
     var Ue = Ne.current.toLowerCase();
     return xe.filter(function(Ve) {
-      return ~Ve.toLowerCase().indexOf(Ue);
+      return ~String(Ve).toLowerCase().indexOf(Ue);
     });
   }, Ae = pr({
     selectedList: y,
@@ -18911,7 +18911,7 @@ var Hz = /* @__PURE__ */ function() {
       if (!n) return r;
       var a = n.toLowerCase();
       return r.filter(function(i) {
-        return ~i.toLowerCase().indexOf(a);
+        return ~String(i).toLowerCase().indexOf(a);
       });
     }
   }, {

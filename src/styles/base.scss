@@ -186,6 +186,69 @@ hr {
 
 /****************************************************************************************************************/
 
+.inline-set {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.text-lowercase {
+  text-transform: lowercase !important;
+}
+.text-uppercase {
+  text-transform: uppercase !important;
+}
+.text-capitalize {
+  text-transform: capitalize !important;
+}
+.text-decoration-none {
+  text-decoration: none !important;
+}
+.text-decoration-underline {
+  text-decoration: underline !important;
+}
+.text-decoration-line-through {
+  text-decoration: line-through !important;
+}
+.text-smallcaps {
+  font-variant: small-caps !important;
+}
+.text-positive {
+  color: var(--positive-color) !important;
+}
+.text-negative {
+  color: var(--negative-color) !important;
+}
+.text-background {
+  color: var(--background-color) !important;
+}
+.text-primary {
+  color: var(--primary-color) !important;
+}
+.text-secondary {
+  color: var(--secondary-color) !important;
+}
+.text-info {
+  color: var(--info-color) !important;
+}
+.text-success {
+  color: var(--success-color) !important;
+}
+.text-warning {
+  color: var(--warning-color) !important;
+}
+.text-error {
+  color: var(--error-color) !important;
+}
+.text-currentcolor {
+  color: currentColor !important;
+}
 .p-0 {
   padding: 0  !important;
 }
@@ -213,7 +276,556 @@ hr {
 .p-8 {
   padding: var(--p-8, calc(var(--key-size) * 2)) !important;
 }
-
+.py-0 {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+.px-0 {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+.py-1 {
+  padding-top: var(--p-1, calc(var(--key-size) * 0.25)) !important;
+  padding-bottom: var(--p-1, calc(var(--key-size) * 0.25)) !important;
+}
+.px-1 {
+  padding-left: var(--p-1, calc(var(--key-size) * 0.25)) !important;
+  padding-right: var(--p-1, calc(var(--key-size) * 0.25)) !important;
+}
+.py-2 {
+  padding-top: var(--p-2, calc(var(--key-size) * 0.5)) !important;
+  padding-bottom: var(--p-2, calc(var(--key-size) * 0.5)) !important;
+}
+.px-2 {
+  padding-left: var(--p-2, calc(var(--key-size) * 0.5)) !important;
+  padding-right: var(--p-2, calc(var(--key-size) * 0.5)) !important;
+}
+.py-3 {
+  padding-top: var(--p-3, calc(var(--key-size) * 0.75)) !important;
+  padding-bottom: var(--p-3, calc(var(--key-size) * 0.75)) !important;
+}
+.px-3 {
+  padding-left: var(--p-3, calc(var(--key-size) * 0.75)) !important;
+  padding-right: var(--p-3, calc(var(--key-size) * 0.75)) !important;
+}
+.py-4 {
+  padding-top: var(--p-4, var(--key-size)) !important;
+  padding-bottom: var(--p-4, var(--key-size)) !important;
+}
+.px-4 {
+  padding-left: var(--p-4, var(--key-size)) !important;
+  padding-right: var(--p-4, var(--key-size)) !important;
+}
+.py-5 {
+  padding-top: var(--p-5, calc(var(--key-size) * 1.25)) !important;
+  padding-bottom: var(--p-5, calc(var(--key-size) * 1.25)) !important;
+}
+.px-5 {
+  padding-left: var(--p-5, calc(var(--key-size) * 1.25)) !important;
+  padding-right: var(--p-5, calc(var(--key-size) * 1.25)) !important;
+}
+.py-6 {
+  padding-top: var(--p-6, calc(var(--key-size) * 1.5)) !important;
+  padding-bottom: var(--p-6, calc(var(--key-size) * 1.5)) !important;
+}
+.px-6 {
+  padding-left: var(--p-6, calc(var(--key-size) * 1.5)) !important;
+  padding-right: var(--p-6, calc(var(--key-size) * 1.5)) !important;
+}
+.py-7 {
+  padding-top: var(--p-7, calc(var(--key-size) * 1.75)) !important;
+  padding-bottom: var(--p-7, calc(var(--key-size) * 1.75)) !important;
+}
+.px-7 {
+  padding-left: var(--p-7, calc(var(--key-size) * 1.75)) !important;
+  padding-right: var(--p-7, calc(var(--key-size) * 1.75)) !important;
+}
+.py-8 {
+  padding-top: var(--p-8, calc(var(--key-size) * 2)) !important;
+  padding-bottom: var(--p-8, calc(var(--key-size) * 2)) !important;
+}
+.px-8 {
+  padding-left: var(--p-8, calc(var(--key-size) * 2)) !important;
+  padding-right: var(--p-8, calc(var(--key-size) * 2)) !important;
+}
+.pt-0 {
+  padding-top: 0 !important;
+}
+.pr-0 {
+  padding-right: 0 !important;
+}
+.pb-0 {
+  padding-bottom: 0 !important;
+}
+.pl-0 {
+  padding-left: 0 !important;
+}
+.pt-1 {
+  padding-top: var(--p-1, calc(var(--key-size) * 0.25)) !important;
+}
+.pr-1 {
+  padding-right: var(--p-1, calc(var(--key-size) * 0.25)) !important;
+}
+.pb-1 {
+  padding-bottom: var(--p-1, calc(var(--key-size) * 0.25)) !important;
+}
+.pl-1 {
+  padding-left: var(--p-1, calc(var(--key-size) * 0.25)) !important;
+}
+.pt-2 {
+  padding-top: var(--p-2, calc(var(--key-size) * 0.5)) !important;
+}
+.pr-2 {
+  padding-right: var(--p-2, calc(var(--key-size) * 0.5)) !important;
+}
+.pb-2 {
+  padding-bottom: var(--p-2, calc(var(--key-size) * 0.5)) !important;
+}
+.pl-2 {
+  padding-left: var(--p-2, calc(var(--key-size) * 0.5)) !important;
+}
+.pt-3 {
+  padding-top: var(--p-3, calc(var(--key-size) * 0.75)) !important;
+}
+.pr-3 {
+  padding-right: var(--p-3, calc(var(--key-size) * 0.75)) !important;
+}
+.pb-3 {
+  padding-bottom: var(--p-3, calc(var(--key-size) * 0.75)) !important;
+}
+.pl-3 {
+  padding-left: var(--p-3, calc(var(--key-size) * 0.75)) !important;
+}
+.pt-4 {
+  padding-top: var(--p-4, var(--key-size)) !important;
+}
+.pr-4 {
+  padding-right: var(--p-4, var(--key-size)) !important;
+}
+.pb-4 {
+  padding-bottom: var(--p-4, var(--key-size)) !important;
+}
+.pl-4 {
+  padding-left: var(--p-4, var(--key-size)) !important;
+}
+.pt-5 {
+  padding-top: var(--p-5, calc(var(--key-size) * 1.25)) !important;
+}
+.pr-5 {
+  padding-right: var(--p-5, calc(var(--key-size) * 1.25)) !important;
+}
+.pb-5 {
+  padding-bottom: var(--p-5, calc(var(--key-size) * 1.25)) !important;
+}
+.pl-5 {
+  padding-left: var(--p-5, calc(var(--key-size) * 1.25)) !important;
+}
+.pt-6 {
+  padding-top: var(--p-6, calc(var(--key-size) * 1.5)) !important;
+}
+.pr-6 {
+  padding-right: var(--p-6, calc(var(--key-size) * 1.5)) !important;
+}
+.pb-6 {
+  padding-bottom: var(--p-6, calc(var(--key-size) * 1.5)) !important;
+}
+.pl-6 {
+  padding-left: var(--p-6, calc(var(--key-size) * 1.5)) !important;
+}
+.pt-7 {
+  padding-top: var(--p-7, calc(var(--key-size) * 1.75)) !important;
+}
+.pr-7 {
+  padding-right: var(--p-7, calc(var(--key-size) * 1.75)) !important;
+}
+.pb-7 {
+  padding-bottom: var(--p-7, calc(var(--key-size) * 1.75)) !important;
+}
+.pl-7 {
+  padding-left: var(--p-7, calc(var(--key-size) * 1.75)) !important;
+}
+.pt-8 {
+  padding-top: var(--p-8, calc(var(--key-size) * 2)) !important;
+}
+.pr-8 {
+  padding-right: var(--p-8, calc(var(--key-size) * 2)) !important;
+}
+.pb-8 {
+  padding-bottom: var(--p-8, calc(var(--key-size) * 2)) !important;
+}
+.pl-8 {
+  padding-left: var(--p-8, calc(var(--key-size) * 2)) !important;
+}
+.g-0,
+.gap-0 {
+  grid-gap: 0 !important;
+}
+.g-1,
+.gap-1 {
+  grid-gap: var(--g-1, calc(var(--key-size) * 0.25)) !important;
+}
+.g-2,
+.gap-2 {
+  grid-gap: var(--g-2, calc(var(--key-size) * 0.5)) !important;
+}
+.g-3,
+.gap-3 {
+  grid-gap: var(--g-3, calc(var(--key-size) * 0.75)) !important;
+}
+.g-4,
+.gap-4 {
+  grid-gap: var(--g-4, var(--key-size)) !important;
+}
+.g-5,
+.gap-5 {
+  grid-gap: var(--g-5, calc(var(--key-size) * 1.25)) !important;
+}
+.g-6,
+.gap-6 {
+  grid-gap: var(--g-6, calc(var(--key-size) * 1.5)) !important;
+}
+.g-7,
+.gap-7 {
+  grid-gap: var(--g-7, calc(var(--key-size) * 1.75)) !important;
+}
+.g-8,
+.gap-8 {
+  grid-gap: var(--g-8, calc(var(--key-size) * 2)) !important;
+}
+.text-start {
+  text-align: start !important;
+}
+.text-left {
+  text-align: left !important;
+}
+.text-end {
+  text-align: end !important;
+}
+.text-right {
+  text-align: right !important;
+}
+.text-center {
+  text-align: center !important;
+}
+.text-justify {
+  text-align: justify !important;
+}
+.text-wrap {
+  white-space: normal !important;
+}
+.text-nowrap {
+  white-space: nowrap !important;
+}
+.text-break {
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+}
+.visible {
+  visibility: visible;
+}
+.invisible {
+  visibility: hidden;
+}
+.align-baseline {
+  vertical-align: baseline !important;
+}
+.align-top {
+  vertical-align: top !important;
+}
+.align-middle {
+  vertical-align: middle !important;
+}
+.align-bottom {
+  vertical-align: bottom !important;
+}
+.align-text-bottom {
+  vertical-align: text-bottom !important;
+}
+.align-text-top {
+  vertical-align: text-top !important;
+}
+.align-content-around {
+  align-content: space-around !important;
+}
+.align-content-between {
+  align-content: space-between !important;
+}
+.align-content-center {
+  align-content: center !important;
+}
+.align-content-end {
+  align-content: end !important;
+}
+.align-content-evenly {
+  align-content: space-evenly !important;
+}
+.align-content-start {
+  align-content: start !important;
+}
+.align-content-stretch {
+  align-content: stretch !important;
+}
+.align-items-baseline {
+  align-items: baseline !important;
+}
+.align-items-center {
+  align-items: center !important;
+}
+.align-items-end {
+  align-items: end !important;
+}
+.align-items-start {
+  align-items: start !important;
+}
+.align-items-stretch {
+  align-items: stretch !important;
+}
+.align-self-baseline {
+  align-self: baseline !important;
+}
+.align-self-center {
+  align-self: center !important;
+}
+.align-self-end {
+  align-self: end !important;
+}
+.align-self-start {
+  align-self: start !important;
+}
+.align-self-stretch {
+  align-self: stretch !important;
+}
+.overflow-auto {
+  overflow: auto !important;
+}
+.overflow-hidden {
+  overflow: hidden !important;
+}
+.overflow-visible {
+  overflow: visible !important;
+}
+.overflow-scroll {
+  overflow: scroll !important;
+}
+.overflow-clip {
+  overflow: clip !important;
+}
+.overflow-x-auto {
+  overflow-x: auto !important;
+}
+.overflow-y-auto {
+  overflow-y: auto !important;
+}
+.overflow-x-hidden {
+  overflow-x: hidden !important;
+}
+.overflow-y-hidden {
+  overflow-y: hidden !important;
+}
+.overflow-x-visible {
+  overflow-x: visible !important;
+}
+.overflow-y-visible {
+  overflow-y: visible !important;
+}
+.overflow-x-scroll {
+  overflow-x: scroll !important;
+}
+.overflow-y-scroll {
+  overflow-y: scroll !important;
+}
+.overflow-x-clip {
+  overflow-x: clip !important;
+}
+.overflow-y-clip {
+  overflow-y: clip !important;
+}
+.position-static {
+  position: static !important;
+}
+.position-relative {
+  position: relative !important;
+}
+.position-absolute {
+  position: absolute !important;
+}
+.position-fixed {
+  position: fixed !important;
+}
+.position-sticky {
+  position: sticky !important;
+  z-index: 1;
+}
+.d-inline {
+  display: inline !important;
+}
+.d-block {
+  display: block !important;
+}
+.d-inline-block {
+  display: inline-block !important;
+}
+.d-grid {
+  display: grid !important;
+}
+.d-inline-grid {
+  display: inline-grid !important;
+}
+.d-flex {
+  display: flex !important;
+}
+.d-inline-flex {
+  display: inline-flex !important;
+}
+.d-table {
+  display: table;
+}
+.d-table-row {
+  display: table-row !important;
+}
+.d-table-cell {
+  display: table-cell !important;
+}
+.d-none {
+  display: none !important;
+}
+.d-unset {
+  display: unset !important;
+}
+.flex-row {
+  flex-direction: row !important;
+}
+.flex-column {
+  flex-direction: column !important;
+}
+.flex-row-reverse {
+  flex-direction: row-reverse !important;
+}
+.flex-column-reverse {
+  flex-direction: column-reverse !important;
+}
+.flex-wrap {
+  flex-wrap: wrap !important;
+}
+.flex-nowrap {
+  flex-wrap: nowrap !important;
+}
+.flex-wrap-reverse {
+  flex-wrap: wrap-reverse !important;
+}
+.flex-fill {
+  flex: 1 1 auto !important;
+}
+.flex-equal {
+  flex: 1 1 0 !important;
+}
+.flex-grow-0 {
+  flex-grow: 0 !important;
+}
+.flex-grow-1 {
+  flex-grow: 1 !important;
+}
+.flex-shrink-0 {
+  flex-shrink: 0 !important;
+}
+.flex-shrink-1 {
+  flex-shrink: 1 !important;
+}
+.tf_input-group {
+  position: relative;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+.tf_input-group > * {
+  z-index: 0;
+}
+.tf_input-group > *:focus {
+  z-index: 1;
+}
+.tf_input-group > *:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.tf_input-group > *:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.tf_input-group-text {
+  display: inline-grid;
+  justify-items: center;
+  align-items: center;
+  margin: unset;
+  padding: calc(var(--key-size) * 0.25) calc(var(--key-size) * 0.5);
+  min-width: calc(calc(calc(var(--key-size) * 1.5) + 0.125rem) + calc(var(--key-size) * 0.25 * 2));
+  background: var(--negative-color-15);
+  border-radius: calc(var(--key-size) * 0.125);
+  line-height: 1.5;
+  font-size: var(--key-size);
+}
+.tf_input-group-text-xs {
+  --key-size-xs: calc(var(--key-size) * 0.75);
+  min-width: calc(calc(calc(var(--key-size-xs) * 1.5) + 0.125rem) + calc(var(--key-size-xs) * 0.25 * 2));
+  padding: calc(var(--key-size-xs) * 0.25) calc(var(--key-size-xs) * 0.5);
+  font-size: var(--key-size-xs);
+}
+.tf_input-group-text-sm {
+  --key-size-sm: calc(var(--key-size) * 0.875);
+  min-width: calc(calc(calc(var(--key-size-sm) * 1.5) + 0.125rem) + calc(var(--key-size-sm) * 0.25 * 2));
+  padding: calc(var(--key-size-sm) * 0.25) calc(var(--key-size-sm) * 0.5);
+  font-size: var(--key-size-sm);
+}
+.tf_input-group-text-lg {
+  --key-size-lg: calc(var(--key-size) * 1.125);
+  min-width: calc(calc(calc(var(--key-size-lg) * 1.5) + 0.125rem) + calc(var(--key-size-lg) * 0.25 * 2));
+  padding: calc(var(--key-size-lg) * 0.25) calc(var(--key-size-lg) * 0.5);
+  font-size: var(--key-size-lg);
+}
+.tf_input-group .tf_form-control {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  width: auto;
+}
+.tf_form-control {
+  display: block;
+  margin: unset;
+  width: 100%;
+  padding: calc(var(--key-size) * 0.25) calc(var(--key-size) * 0.625);
+  background-color: var(--positive-color);
+  background-clip: padding-box;
+  border: calc(var(--key-size) * 0.0625) solid currentColor;
+  border-radius: calc(var(--key-size) * 0.125);
+  color: inherit;
+  font-size: var(--key-size);
+  line-height: 1.5;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.tf_form-control-xs {
+  --key-size-xs: calc(var(--key-size) * 0.75);
+  padding: calc(var(--key-size-xs) * 0.25) calc(var(--key-size-xs) * 0.625);
+  font-size: var(--key-size-xs);
+}
+.tf_form-control-secondary {
+  border-color: var(--secondary-color);
+  color: var(--secondary-color-d1);
+}
+.tf_form-control-secondary:hover {
+  border-color: var(--secondary-color-d1);
+}
+.tf_form-control-secondary:disabled {
+  border-color: var(--secondary-color-l1);
+  background-color: var(--secondary-color-l2);
+  color: var(--secondary-color-l1);
+}
+.tf_form-control-secondary:focus {
+  border-color: var(--secondary-color-d1);
+  box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--secondary-color);
+}
+.tf_form-control-secondary::placeholder {
+  color: var(--secondary-color);
+}
 /****************************************************************************************************************/
 
 .tf_btn {
