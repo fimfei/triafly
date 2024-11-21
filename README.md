@@ -12,16 +12,16 @@
 
 ## Виджеты
 
-| **Виджет**                    | Назначение                                 | Область<br/>применения | Документация                                                    |
-|-------------------------------|--------------------------------------------|------------------------|-----------------------------------------------------------------|
-| **Popup**<br/>**callPopup**   | Всплывающая панель с кастомным содержимым      | jsx<br/>js  | [Popup<br/>callPopup](src/App/widgets/Popup/doc/POPUP.md#POPUP) |
-| **Alert**<br/>**callAlert**   | Окно с сообщением                          | jsx<br/>js  | [Alert<br/>callAlert](src/App/widgets/Alert/doc/ALERT.md#ALERT) |
-| **ListPicker**                | Панель выбора из списка                    |  jsx  |                                                                 |
-| **ElementsPicker**            | Настраиваемая панель выбора из списка      |  jsx  |                                                                 |
-| **DatePicker**                | Панель выбора даты                         |  jsx  |                                                                 |
-| **PeriodPicker**              | Панель выбора периода                      |  jsx  |                                                                 |
-| **ColorPicker**               | Панель выбора цвета                        |  jsx  |                                                                 |
-| **FilesPicker**               | Панель выбора файлов                       |  jsx  |                                                                 |
+| **Виджет**                    | Назначение                                   | Область<br/>применения | Документация                                                     |
+|-------------------------------|----------------------------------------------|------------------------|------------------------------------------------------------------|
+| **Popup**<br/>**callPopup**   | Всплывающая панель с кастомным содержимым    | jsx<br/>js  | [Popup<br/>callPopup](src/App/widgets/Popup/doc/POPUP.md#POPUP)  |
+| **Alert**<br/>**callAlert**   | Окно с сообщением                            | jsx<br/>js  | [Alert<br/>callAlert](src/App/widgets/Alert/doc/ALERT.md#ALERT)  |
+| **ListPicker**                | Одиночный или множественный выбор из списка |  jsx  | [ListPicker](src/App/widgets/ListPicker/doc/LISTPICKER.md#LISTPICKER) |
+| **ElementsPicker**            | Настраиваемая панель выбора из списка        |  jsx  |                                                                  |
+| **DatePicker**                | Панель выбора даты                           |  jsx  |                                                                  |
+| **PeriodPicker**              | Панель выбора периода                        |  jsx  |                                                                  |
+| **ColorPicker**               | Панель выбора цвета                          |  jsx  |                                                                  |
+| **FilesPicker**               | Панель выбора файлов                         |  jsx  |                                                                  |
 
 ## Формы
 | **Форма**                     | Назначение                                 | Область<br/>применения | Документация                                                        |

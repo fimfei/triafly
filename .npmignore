@@ -1,6 +1,8 @@
 node_modules/
 src/
+doc/
 .idea/
 .babelrc
 webpack.config.js
 vite.config.js
+README.md
