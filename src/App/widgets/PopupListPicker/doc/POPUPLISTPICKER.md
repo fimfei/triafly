@@ -6,9 +6,11 @@
 <PopupListPicker {...popupListPickerProps}>
 ````
 
+![img.png](img.png)
+
 # ПАРАМЕТРЫ popupListPickerProps
 
-Параметры компоненты условно можно разделить на две группы:
+Параметры компоненты условно можно разделить на три группы:
 
 - **параметры для всплывающего окна**
 
@@ -39,3 +41,10 @@
 | listHideSearchBar   | [hideSearchBar](../../ListPicker/doc/LISTPICKER.md#hidesearchbar)            | Bool      | признак отрисовки области поиска                            |
 | listHideCountersBar | [hideCountersBar](../../ListPicker/doc/LISTPICKER.md#hidecountersbar)        | Bool      | признак отрисовки области счётчиков                         |
 | listItemView        | [ItemView](../../ListPicker/doc/LISTPICKER.md#itemview)                      | Component | Кастомныое представление строки списка                      |
+
+- **параметры для кнопок**
+
+
+| Параметр | Аналог параметра [Alert](../../Alert/doc/ALERT.md#alert)   | Тип      | Назначение                 |
+|----------|------------------------------------------------------------|----------|----------------------------|
+| buttons  | [buttons](../../Alert/doc/ALERT.md#buttons)                | Array    | Описание кастомных кнопок  |
