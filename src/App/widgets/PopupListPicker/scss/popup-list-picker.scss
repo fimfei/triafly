@@ -1,8 +1,8 @@
-.lp-wrapper {
+.plp-wrapper.with-buttons {
     width: 100%;
     height: 100%;
 
-    .lp-list-picker {
+    .plp-list-picker {
         width: 100%;
         height: calc(100% - 60px);
 
@@ -17,7 +17,7 @@
         }
     }
 
-    .lp-buttons {
+    .plp-buttons {
         width: 100%;
         height: 60px;
     }
