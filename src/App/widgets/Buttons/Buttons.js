@@ -17,7 +17,7 @@ const Buttons = props => {
     if(!buttons?.length) return null;
 
     return (
-        <div className="modal-footer">
+        <React.Fragment>
             {buttons.map((item, index) => {
                 const {text, type, callback} = item;
 
@@ -32,7 +32,7 @@ const Buttons = props => {
                     </a>
                 )
             })}
-        </div>
+        </React.Fragment>
     )
 }
 
