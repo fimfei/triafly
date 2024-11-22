@@ -1,6 +1,6 @@
 import React from "react";
 import {createPortal} from "react-dom";
-import {Popup, ListPicker} from "../index.js";
+import {Popup, ListPicker, Buttons} from "../index.js";
 
 function PopupListPicker(props) {
 
@@ -29,6 +29,8 @@ function PopupListPicker(props) {
         listHideSearchBar: hideSearchBar = false,        // панель поиска
         listHideCountersBar: hideCountersBar = false,    // панель счётчиков
         listItemView: ItemView = false,                  // вьюха строки
+
+        buttons,
     } = props;
 
     const popupProps = {initiator, id, style, minWidth, minHeight, maxWidth, maxHeight, extraClass, onOutsideClick, notResize, autoSize};
@@ -42,6 +44,9 @@ function PopupListPicker(props) {
                 {...listPickerProps}
                 label="popupListPicker"
             />
+            {buttons?.length && (
+                <Buttons buttons={buttons} />
+            )}
         </Popup>,
         document.body
     )

@@ -5,32 +5,23 @@
 # Состав пакета
 ## Компоненты
 
-| **Компонента**                  | Назначение            | Область<br/>применения | Документация                                                        |
-|-----------------------------|-----------------------|------------------------|---------------------------------------------------------------------|
-| **Table**<br/>**callTable** | Универсальная таблица | jsx<br/>js             | [Table<br/>callTable](src/App/components/Table/doc/TABLE.md#TABLE) |
-| **Graph**                    | Редактор графов       | jsx                    |           [Graph](src/App/components/Graph/doc/GRAPH.md#GRAPH)                                                          |
+| **Компонента**              | Назначение             | Область<br/>применения | Документация                                                       |
+|-----------------------------|------------------------|------------------------|--------------------------------------------------------------------|
+| **Table**<br/>**callTable** | Универсальная таблица  | jsx<br/>js             | [Table<br/>callTable](src/App/components/Table/doc/TABLE.md#table) |
+| **Graph**                   | Редактор графов        | jsx                    | [Graph](src/App/components/Graph/doc/GRAPH.md#graph)               |
 
 ## Виджеты
 
-| **Виджет**                    | Назначение                                   | Область<br/>применения | Документация                                                     |
-|-------------------------------|----------------------------------------------|------------------------|------------------------------------------------------------------|
-| **Popup**<br/>**callPopup**   | Всплывающая панель с кастомным содержимым    | jsx<br/>js  | [Popup<br/>callPopup](src/App/widgets/Popup/doc/POPUP.md#POPUP)  |
-| **Alert**<br/>**callAlert**   | Окно с сообщением                            | jsx<br/>js  | [Alert<br/>callAlert](src/App/widgets/Alert/doc/ALERT.md#ALERT)  |
-| **ListPicker**                | Одиночный или множественный выбор из списка |  jsx  | [ListPicker](src/App/widgets/ListPicker/doc/LISTPICKER.md#LISTPICKER) |
-| **ElementsPicker**            | Настраиваемая панель выбора из списка        |  jsx  |                                                                  |
-| **DatePicker**                | Панель выбора даты                           |  jsx  |                                                                  |
-| **PeriodPicker**              | Панель выбора периода                        |  jsx  |                                                                  |
-| **ColorPicker**               | Панель выбора цвета                          |  jsx  |                                                                  |
-| **FilesPicker**               | Панель выбора файлов                         |  jsx  |                                                                  |
-
-## Формы
-| **Форма**                     | Назначение                                 | Область<br/>применения | Документация                                                        |
-|-------------------------------|--------------------------------------------|------------------------|---------------------------------------------------------------------|
-| InputBool   |      | jsx |  |
-| InputNumber   |      | jsx |  |
-| InputText   |      | jsx |  |
-| SelectFromList   |      | jsx |  |
-
+| **Виджет**                  | Назначение                                                        | Область<br/>применения                                                     | Документация                                                                               |
+|-----------------------------|-------------------------------------------------------------------|----------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|
+| **Popup**<br/>**callPopup** | Всплывающая панель с кастомным содержимым                         | jsx<br/>js                                                                 | [Popup<br/>callPopup](src/App/widgets/Popup/doc/POPUP.md#popup)                            |
+| **Alert**<br/>**callAlert** | Окно с сообщением                                                 | jsx<br/>js                                                                 | [Alert<br/>callAlert](src/App/widgets/Alert/doc/ALERT.md#alert)                            |
+| **ListPicker**              | Одиночный или множественный выбор из списка                       | jsx                                                                        | [ListPicker](src/App/widgets/ListPicker/doc/LISTPICKER.md#listpicker)                      |
+| **PopupListPicker**         | Всплывающая панель одиночного или множественного выбора из списка | jsx                                                                        | [PopupListPicker](src/App/widgets/PopupListPicker/doc/POPUPLISTPICKER.md#popuplistpicker)  |
+| **DatePicker**              | Панель выбора даты                                                | jsx                                                                        |                                                                                            |
+| **PeriodPicker**            | Панель выбора периода                                             | jsx                                                                        |                                                                                            |
+| **ColorPicker**             | Панель выбора цвета                                               | jsx                                                                        |                                                                                            |
+| **FilesPicker**             | Панель выбора файлов                                              | jsx                                                                        |                                                                                            |
 
 # Синхронизация обновлений пакета
 
