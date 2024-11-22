@@ -2,6 +2,8 @@ import React from "react";
 import {createPortal} from "react-dom";
 import {Popup, ListPicker, Buttons} from "../index.js";
 
+import './scss/popup-list-picker.scss'
+
 function PopupListPicker(props) {
 
     const {
