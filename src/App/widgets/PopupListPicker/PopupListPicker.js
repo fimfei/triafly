@@ -35,8 +35,13 @@ function PopupListPicker(props) {
     const listPickerProps = {list, selectedValue, selectedValues, onChange, isMultiSelect, hideSearchBar, hideCountersBar, ItemView};
 
     return createPortal(
-        <Popup {...popupProps}>
-            <ListPicker {...listPickerProps} />
+        <Popup
+            {...popupProps}
+        >
+            <ListPicker
+                {...listPickerProps}
+                label="popupListPicker"
+            />
         </Popup>,
         document.body
     )
