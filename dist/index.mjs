@@ -19070,9 +19070,7 @@ var _M = function(t) {
       o && o();
     };
   };
-  return r != null && r.length ? /* @__PURE__ */ g.createElement("div", {
-    className: "modal-footer"
-  }, r.map(function(i, o) {
+  return r != null && r.length ? /* @__PURE__ */ g.createElement(g.Fragment, null, r.map(function(i, o) {
     var s = i.text, u = i.type, l = i.callback;
     return /* @__PURE__ */ g.createElement("a", {
       key: "alert-button-".concat(o),
