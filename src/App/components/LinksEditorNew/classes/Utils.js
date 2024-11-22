@@ -1173,7 +1173,7 @@ class Utils {
                 isMultiSelect={false}
                 hideSearchBar={true}
                 hideCountersBar={true}
-                ItemViewName={props => {
+                ItemView={props => {
                     const {item: {id}/*, checked: selected*/} = props;
                     const {title, iconClass} = fieldTypes[id]
 

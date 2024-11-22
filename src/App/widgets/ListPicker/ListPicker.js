@@ -19,7 +19,7 @@ function ListPicker(props) {
         isMultiSelect = false,   // признак множественного выбора
         hideSearchBar = false,   // панель поиска
         hideCountersBar = false, // панель счётчиков
-        ItemViewName = false,    // вьюха строки
+        ItemView = false,        // вьюха строки
         extraClass = '',         // класс, добавляемый к корню
                                  //
     } = props;
@@ -67,7 +67,7 @@ function ListPicker(props) {
             listBlockLength: list.length,
             hideSearchBar,
             hideCountersBar,
-            ItemViewName,
+            ItemView,
         }
     }
 

@@ -16,13 +16,13 @@
 |-------------------------------------|-----------|------------------------------|
 | label                               | String    | имя списка для идентификации |
 | [list](#list)                       | Array     | список элементов для выбора  |
-| [selectedValue](#selectedValue)     | String    | Список выбранных элементов  |
-| [selectedValues](#selectedValues)   | Array     | Список выбранных элементов (альтернатива selectedValue)  |
-| [onChange](#onChange)               | Function  | колбэк, вызываемый при изменении списка выбранных элементов   |
+| [selectedValue](#selectedvalue)     | String    | Список выбранных элементов  |
+| [selectedValues](#selectedvalues)   | Array     | Список выбранных элементов (альтернатива selectedValue)  |
+| [onChange](#onchange)               | Function  | колбэк, вызываемый при изменении списка выбранных элементов   |
 | isMultiSelect                       | Bool      | признак множественного выбора |
-| [hideSearchBar](#hideSearchBar)     | Bool      | признак отрисовки области поиска |
-| [hideCountersBar](#hideCountersBar) | Bool      | признак отрисовки области счётчиков |
-| [ItemViewName](#ItemViewName)       | Component | Кастомныое представление строки списка  |
+| [hideSearchBar](#hidesearchbar)     | Bool      | признак отрисовки области поиска |
+| [hideCountersBar](#hidecountersbar) | Bool      | признак отрисовки области счётчиков |
+| [ItemView](#itemview)               | Component | Кастомныое представление строки списка  |
 | extraClass                          | String    | дополнительные классы обёртки компоненты |
 
 ## list
@@ -108,12 +108,12 @@ selectedValues={['Я из лесу вышел', 'Однажды', 'Гляжу']}
 
 Если установлен флаг **hideCountersBar**, то область счётчиков отображаться не будет.
 
-## ItemViewName
+## ItemView
 
 Кастомное представление строки списка
 
 ````
-ItemViewName={props => <div>{`<<< ${props.item.label} >>>`}</div>}
+ItemView={props => <div>{`<<< ${props.item.label} >>>`}</div>}
 ````
 
 ![img_4.png](img_4.png)

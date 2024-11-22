@@ -3,6 +3,7 @@ export {default as ColorPicker          } from './ColorPicker/ColorPicker';
 export {default as ElementsPicker       } from './ElementsPicker/ElementsPicker';
 
 export {default as ListPicker           } from './ListPicker/ListPicker';
+export {default as PopupListPicker      } from './PopupListPicker/PopupListPicker';
 
 export {default as Alert                } from './Alert/Alert';
 export {default as callAlert            } from './Alert/callAlert';

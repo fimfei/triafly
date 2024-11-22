@@ -5,7 +5,7 @@ import {UTILS} from "../../common";
 
 const SetPickerItemView = ({...props}) => {
     const {item, selected, options, index, onClickToLineCheckbox} = props;
-    const {componentContent, strHeight, highlightNodes, singleChoiceOnly, unavailableItemsList, ItemViewName} = options;
+    const {componentContent, strHeight, highlightNodes, singleChoiceOnly, unavailableItemsList, ItemView} = options;
     const {id, hasChildren} = item;
 
     const skeletonSpace = 4;
@@ -68,7 +68,7 @@ const SetPickerItemView = ({...props}) => {
     const itemHasChildrenClass = hasChildren && highlightNodes ? ' item-has-children' : '';
     const itemIsUnavailableClass = itemIsUnavailable ? ' item-is-unavailable' : '';
 
-    const CurrentItemViewName = ItemViewName ? ItemViewName : SetPickerItemViewName;
+    const CurrentItemViewName = ItemView ? ItemView : SetPickerItemViewName;
 
     return (
         <React.Fragment>

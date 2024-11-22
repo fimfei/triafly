@@ -33,7 +33,7 @@ const SetPicker = ({...props}) => {
         listBlockLength,                                   // длина блока списков для пагинации
         hideSearchBar,                                     // скрывать строку контекстного поиска
         hideCountersBar,                                   // скрывать строку со счётчиками
-        ItemViewName,                                      // внешняя вьюха имени в строке
+        ItemView,                                          // внешняя вьюха имени в строке
     } = options;
 
     const _ = React.useRef(initStore ? (() => {
