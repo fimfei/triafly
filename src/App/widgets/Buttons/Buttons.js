@@ -10,6 +10,10 @@ const Buttons = props => {
         cancel: 'btn btn-no',
     }
 
+    const onClick = callback => () => {
+        if(callback) callback();
+    }
+
     if(!buttons?.length) return null;
 
     return (
