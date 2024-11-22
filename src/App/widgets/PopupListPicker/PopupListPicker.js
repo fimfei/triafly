@@ -40,13 +40,19 @@ function PopupListPicker(props) {
         <Popup
             {...popupProps}
         >
-            <ListPicker
-                {...listPickerProps}
-                label="popupListPicker"
-            />
-            {buttons?.length && (
-                <Buttons buttons={buttons} />
-            )}
+            <div className="lp-wrapper">
+                <div className="lp-list-picker">
+                    <ListPicker
+                        {...listPickerProps}
+                        label="popupListPicker"
+                    />
+                </div>
+                <div className="lp-buttons">
+                    {buttons?.length && (
+                        <Buttons buttons={buttons} />
+                    )}
+                </div>
+            </div>
         </Popup>,
         document.body
     )
