@@ -3,6 +3,7 @@
 import React from 'react';
 
 import './scss/alert.scss';
+import {Buttons} from "../index";
 
 const Alert = props => {
     const {
@@ -12,23 +13,12 @@ const Alert = props => {
         success = () => {},
         cancel = () => {},
         children,
-        removeComponent,
     } = props;
-
-    const typesClasses = {
-        danger: 'btn btn-danger',
-        cancel: 'btn btn-no',
-    }
 
     const buttons = _buttons ? _buttons : [
         {text: 'Отмена', type: 'cancel', callback: cancel},
         {text: 'OK', type: 'danger', callback: success},
     ]
-
-    const onClick = callback => () => {
-        if(callback) callback();
-        removeComponent();
-    }
 
     return (
         <div className="rct-alert">
@@ -44,20 +34,9 @@ const Alert = props => {
                         {children}
                     </div>
                     <div className="modal-footer">
-                        {buttons.map((item, index) => {
-                            const {text, type, callback} = item;
-
-                            return (
-                                <a
-                                    key={`alert-button-${index}`}
-                                    href="#"
-                                    className={typesClasses[type]}
-                                    onClick={onClick(callback)}
-                                >
-                                    {text}
-                                </a>
-                            )
-                        })}
+                        {buttons?.length && (
+                            <Buttons buttons={buttons} />
+                        )}
                     </div>
                 </div>
             </div>

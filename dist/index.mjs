@@ -19108,13 +19108,13 @@ function rde(e) {
     ItemView: T
   };
   return /* @__PURE__ */ bb(/* @__PURE__ */ g.createElement(Ks, B, /* @__PURE__ */ g.createElement("div", {
-    className: "lp-wrapper"
+    className: "plp-wrapper".concat(P != null && P.length ? " with-buttons" : "")
   }, /* @__PURE__ */ g.createElement("div", {
-    className: "lp-list-picker"
+    className: "plp-list-picker"
   }, /* @__PURE__ */ g.createElement(K_, ue({}, I, {
     label: "popupListPicker"
   }))), /* @__PURE__ */ g.createElement("div", {
-    className: "lp-buttons"
+    className: "plp-buttons"
   }, (P == null ? void 0 : P.length) && /* @__PURE__ */ g.createElement(Hz, {
     buttons: P
   })))), document.body);
