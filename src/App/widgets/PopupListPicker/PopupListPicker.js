@@ -32,7 +32,8 @@ function PopupListPicker(props) {
         listHideCountersBar: hideCountersBar = false,    // панель счётчиков
         listItemView: ItemView = false,                  // вьюха строки
 
-        buttons,
+        buttons,                                         // список кнопок
+        removeComponent,                                 // если эта функция есть, то она закрывает компоненту (будет использоваться при клике на любую кнопку)
     } = props;
 
     const popupProps = {initiator, id, style, minWidth, minHeight, maxWidth, maxHeight, extraClass, onOutsideClick, notResize, autoSize};
@@ -52,7 +53,7 @@ function PopupListPicker(props) {
                 <div className="plp-buttons">
                     <div className="modal-footer">
                         {buttons?.length && (
-                            <Buttons buttons={buttons} />
+                            <Buttons buttons={buttons} removeComponent={removeComponent} />
                         )}
                     </div>
                 </div>
