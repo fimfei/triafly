@@ -1,12 +1,12 @@
 /* eslint-disable no-useless-constructor */
 /* eslint-disable import/no-anonymous-default-export */
 
-import {observable, makeObservable/*, makeAutoObservable*/} from "mobx";
+import {observable, makeObservable, makeAutoObservable} from "mobx";
 //import {toJS} from 'mobx';
 
 class Store {
     constructor() {
-//        makeAutoObservable(this, {}, {autoBind: true});
+        makeAutoObservable(this, {}, {autoBind: true});
     }
 
     createStore = (name, data) => {
