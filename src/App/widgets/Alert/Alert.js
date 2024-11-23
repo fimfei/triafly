@@ -1,9 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
+import {Buttons} from "../index";
 
 import './scss/alert.scss';
-import {Buttons} from "../index";
 
 const Alert = props => {
     const {
@@ -13,6 +13,7 @@ const Alert = props => {
         success = () => {},
         cancel = () => {},
         children,
+        removeComponent,
     } = props;
 
     const buttons = _buttons ? _buttons : [
@@ -35,7 +36,7 @@ const Alert = props => {
                     </div>
                     <div className="modal-footer">
                         {buttons?.length && (
-                            <Buttons buttons={buttons} />
+                            <Buttons buttons={buttons} removeComponent={removeComponent} />
                         )}
                     </div>
                 </div>

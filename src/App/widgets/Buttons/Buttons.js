@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const Buttons = props => {
-    const {buttons} = props
+    const {buttons, removeComponent} = props
 
 
     const typesClasses = {
@@ -12,6 +12,7 @@ const Buttons = props => {
 
     const onClick = callback => () => {
         if(callback) callback();
+        if(removeComponent) removeComponent();
     }
 
     if(!buttons?.length) return null;
