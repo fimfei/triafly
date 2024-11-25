@@ -14,6 +14,7 @@ const DateTimePicker = props => {
         onChange = () => {},  // коллбэк при выборе новой даты
         className = '',       // кастомный класс обёртки компоненты
         withTime = false,     // формат "дата" или "дата, время"
+        autoOpen = false,     // открывать сразу при построении
         settings = {}         // дополнительные параметры react-datepicker
     } = props;
     const format = withTime ? COMMON_UTILS.formats.dateTime : COMMON_UTILS.formats.date;
@@ -30,7 +31,7 @@ const DateTimePicker = props => {
     const [date, setDate] = useState(startDate);
 
     useEffect(() =>{
-//        calendar.setOpen(true);
+        if(autoOpen) calendar.setOpen(true);
     });
 
     return (
