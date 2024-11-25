@@ -43,9 +43,7 @@ const DateTimePicker = props => {
                     setDate(date);
                     onChange(moment(date).format(format));
                 }}
-                onCalendarClose={() => {
-                    onChange(moment(date).format(format));
-                }}
+                onCalendarClose={() => onChange(null)}
                 showTimeInput={withTime}
                 timeFormat="p"
                 ref={(c) => calendar = c}
