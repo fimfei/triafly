@@ -26293,9 +26293,6 @@ var HQ = function(t) {
     onChange: function(b) {
       m(b), a(se(b).format(l));
     },
-    onCalendarClose: function() {
-      return a(null);
-    },
     showTimeInput: u,
     timeFormat: "p",
     ref: function(b) {
