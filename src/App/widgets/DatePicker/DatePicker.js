@@ -14,6 +14,7 @@ const DateTimePicker = props => {
         onChange = () => {},  // коллбэк при выборе новой даты
         className = '',       // кастомный класс обёртки компоненты
         withTime = false,     // формат "дата" или "дата, время"
+        settings = {}         // дополнительные параметры react-datepicker
     } = props;
     const format = withTime ? COMMON_UTILS.formats.dateTime : COMMON_UTILS.formats.date;
     const validator = withTime ? COMMON_UTILS.validators.dateTime : COMMON_UTILS.validators.date;
@@ -48,6 +49,7 @@ const DateTimePicker = props => {
                 timeFormat="p"
                 ref={(c) => calendar = c}
                 renderCustomHeader={UTILS.renderCustomHeader}
+                {...settings}
             />
         </div>
     );
