@@ -5,6 +5,8 @@ const TableCellEditorDate = props => {
     const {cell} = props;
 
     const onChange = date => {
+        if(date == null) return;
+
         cell.value = date;
         cell._.refreshCell();
     }
@@ -14,6 +16,7 @@ const TableCellEditorDate = props => {
             value={cell.value}
             onChange={onChange}
             withTime={true}
+            autoOpen={true}
         />
     );
 };

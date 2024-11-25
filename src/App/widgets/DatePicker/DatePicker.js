@@ -15,10 +15,16 @@ const DateTimePicker = props => {
         className = '',       // кастомный класс обёртки компоненты
         withTime = false,     // формат "дата" или "дата, время"
         autoOpen = false,     // открывать сразу при построении
-        settings = {}         // дополнительные параметры react-datepicker
     } = props;
+
     const format = withTime ? COMMON_UTILS.formats.dateTime : COMMON_UTILS.formats.date;
     const validator = withTime ? COMMON_UTILS.validators.dateTime : COMMON_UTILS.validators.date;
+    const isDateSelect = React.useRef(false);
+
+    useEffect(() =>{
+        if(autoOpen) calendar.setOpen(true);
+    });
+
 
     let startDate;
     let calendar;
@@ -30,10 +36,6 @@ const DateTimePicker = props => {
     }
     const [date, setDate] = useState(startDate);
 
-    useEffect(() =>{
-        if(autoOpen) calendar.setOpen(true);
-    });
-
     return (
         <div className={`rct-date-picker${className ? ' ' + className : ''}`}>
             <DatePicker
@@ -43,14 +45,17 @@ const DateTimePicker = props => {
                 selected={date}
                 onChange={date => {
                     setDate(date);
+                    isDateSelect.current = true;
+                    setTimeout(() => isDateSelect.current = false)
                     onChange(moment(date).format(format));
                 }}
-                onCalendarClose={() => onChange(null)}
+                onCalendarClose={() => {
+                    if(!isDateSelect.current) onChange(null);
+                }}
                 showTimeInput={withTime}
                 timeFormat="p"
                 ref={(c) => calendar = c}
                 renderCustomHeader={UTILS.renderCustomHeader}
-                {...settings}
             />
         </div>
     );

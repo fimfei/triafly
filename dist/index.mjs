@@ -26278,31 +26278,31 @@ rl.renderCustomHeader = function(e) {
 };
 var HQ = function(t) {
   var r = t.value, n = t.onChange, a = n === void 0 ? function() {
-  } : n, i = t.className, o = i === void 0 ? "" : i, s = t.withTime, u = s === void 0 ? !1 : s, l = t.settings, c = l === void 0 ? {} : l, d = u ? ye.formats.dateTime : ye.formats.date, f = u ? ye.validators.dateTime : ye.validators.date, h, p;
-  f(r) ? h = new Date(ue(r, d).format()) : h = /* @__PURE__ */ new Date();
-  var v = ha(h), m = he(v, 2), y = m[0], b = m[1];
+  } : n, i = t.className, o = i === void 0 ? "" : i, s = t.withTime, u = s === void 0 ? !1 : s, l = t.autoOpen, c = l === void 0 ? !1 : l, d = t.settings, f = d === void 0 ? {} : d, h = u ? ye.formats.dateTime : ye.formats.date, p = u ? ye.validators.dateTime : ye.validators.date, v, m;
+  p(r) ? v = new Date(ue(r, h).format()) : v = /* @__PURE__ */ new Date();
+  var y = ha(v), b = he(y, 2), _ = b[0], w = b[1];
   return at(function() {
-    p.setOpen(!0);
+    c && m.setOpen(!0);
   }), /* @__PURE__ */ g.createElement("div", {
     className: "rct-date-picker".concat(o ? " " + o : "")
   }, /* @__PURE__ */ g.createElement(sA, se({
     popperPlacement: "top-end",
     dateFormat: u ? "Pp" : "P",
     locale: uA,
-    selected: y,
-    onChange: function(w) {
-      b(w), a(ue(w).format(d));
+    selected: _,
+    onChange: function(x) {
+      w(x), a(ue(x).format(h));
     },
     onCalendarClose: function() {
       return a(null);
     },
     showTimeInput: u,
     timeFormat: "p",
-    ref: function(w) {
-      return p = w;
+    ref: function(x) {
+      return m = x;
     },
     renderCustomHeader: rl.renderCustomHeader
-  }, c)));
+  }, f)));
 }, YQ = function(t) {
   var r = t.value, n = t.onClick, a = n === void 0 ? function() {
   } : n, i = t.onChange, o = i === void 0 ? function() {
