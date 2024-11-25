@@ -30,7 +30,7 @@ const DateTimePicker = props => {
     const [date, setDate] = useState(startDate);
 
     useEffect(() =>{
-        calendar.setOpen(true);
+//        calendar.setOpen(true);
     });
 
     return (
