@@ -20,6 +20,7 @@ function Popup(props) {
         notResize = false,           // запрет ресайза и сохранения размеров в localeStorage
 //      autoSize = false,            // не задавать размеры попапа
         answer = {},                 // сюда компонента положит всякие разные данные о себе
+//      popupOffset = {},            // смещение попапа
     } = props;
 
     const utilsCurrent = React.useRef(new Utils({props}));
