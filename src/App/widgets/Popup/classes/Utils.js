@@ -10,7 +10,7 @@ class Utils {
     }
 
     getPosition() {
-        const {initiator, minWidth, minHeight, id, autoSize, fitToParent, popupOffset = {}} = this.props;
+        const {initiator, minWidth, minHeight, id, autoSize, fitToParent, verticalOffset = 0} = this.props;
         const {width, height, left, right, top, bottom} = initiator.getBoundingClientRect();
         let {width: oldWidth, height: oldHeight} = this.position;
 
@@ -44,10 +44,14 @@ class Utils {
         this.position = {
             downDirection,
             rightDirection,
-            left: (fitToParent ? left : (rightDirection ? left : right - popupWidth)) + (popupOffset.left || 0),
-            top: (fitToParent ? top : (downDirection ? bottom : top - popupHeight)) + (popupOffset.left || 0),
-            width: (fitToParent ? width : popupWidth) + (popupOffset.left || 0),
-            height: (fitToParent ? height : popupHeight) + (popupOffset.left || 0),
+            left: fitToParent ? left : (rightDirection ? left : right - popupWidth),
+            top: fitToParent ? top : (downDirection ? bottom : top - popupHeight),
+            width: fitToParent ? width : popupWidth,
+            height: fitToParent ? height : popupHeight,
+        }
+
+        if(verticalOffset) {
+            this.position.top += verticalOffset * (downDirection ? 1 : -1);
         }
 
         return this.position
