@@ -12,6 +12,7 @@ const PeriodPicker = props => {
         onChange = () => {},    // когда в пикере период выбран
         className = '',         // кастомный класс обёртки компоненты
         autoOpen = false,       // открывать сразу при построении
+        isClearable = false,    // наличие иконки очистки поля
     } = props;
 
     const formatPeriodArray = periodArr => {
@@ -55,7 +56,7 @@ const PeriodPicker = props => {
                 endDate={endDate}
                 dateFormat='dd.MM.yyyy'
                 onChange={_onChange}
-                isClearable={true}
+                isClearable={isClearable}
                 locale={ru}
                 ref={c => calendar = c}
                 renderCustomHeader={UTILS.renderCustomHeader}
