@@ -11,6 +11,7 @@ const PeriodPicker = props => {
         onClick = () => {},     // когда в пикере происходит очередной клик, но период еще не задан
         onChange = () => {},    // когда в пикере период выбран
         className = '',         // кастомный класс обёртки компоненты
+        autoOpen = false,       // открывать сразу при построении
     } = props;
 
     const formatPeriodArray = periodArr => {
@@ -41,7 +42,9 @@ const PeriodPicker = props => {
     }
 
     useEffect(() =>{
-        calendar.setOpen(true);
+        if(autoOpen) {
+            calendar.setOpen(true);
+        }
     });
 
     return (
