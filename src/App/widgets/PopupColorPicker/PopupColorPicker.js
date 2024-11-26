@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Popup, ColorPicker} from 'triafly';
+import {Popup, ColorPicker} from '../';
 import 'triafly/dist/style.css';
 
 const PopupColorPicker = props => {
