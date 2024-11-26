@@ -15,6 +15,7 @@ const DateTimePicker = props => {
         className = '',       // кастомный класс обёртки компоненты
         withTime = false,     // формат "дата" или "дата, время"
         autoOpen = false,     // открывать сразу при построении
+        isClearable = false,  // наличие иконки очистки поля
     } = props;
 
     const format = withTime ? COMMON_UTILS.formats.dateTime : COMMON_UTILS.formats.date;
@@ -56,6 +57,7 @@ const DateTimePicker = props => {
                 timeFormat="p"
                 ref={(c) => calendar = c}
                 renderCustomHeader={UTILS.renderCustomHeader}
+                isClearable={isClearable}
             />
         </div>
     );

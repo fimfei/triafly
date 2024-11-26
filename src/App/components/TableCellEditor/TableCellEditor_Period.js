@@ -13,6 +13,7 @@ const TableCellEditorPeriod = props => {
         <PeriodPicker
             value={cell.value}
             onChange={onChange}
+            autoOpen={true}
         />
     );
 };
