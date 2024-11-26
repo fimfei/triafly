@@ -497,11 +497,11 @@ class Utils {
                     rowsHeight: 30,
                 },
                 columnsMenu: {
-                    hasHideIcon: false,
-                    hasOrderIcon: false,
-                    hasSearchIcon: false,
-                    hasFormatIcon: false,
-                    hasSortIcon: false,
+                    hasHideIcon: true,
+                    hasOrderIcon: true,
+                    hasSearchIcon: true,
+                    hasFormatIcon: true,
+                    hasSortIcon: true,
                 },
                 paginator: {
                     rowsByPage: [25, 50, 100],

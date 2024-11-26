@@ -26,7 +26,6 @@ const PopupColorPicker = props => {
 
     const onClickOutside = () => {
         setShow(false);
-        console.log('onClickOutside')
     }
 
     const onClick = () => {
@@ -34,7 +33,6 @@ const PopupColorPicker = props => {
     }
 
     const onChangeColor = color => {
-        console.log('onChangeColor', color)
         setColor(color);
         onChange(color);
     }
