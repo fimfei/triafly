@@ -1,7 +1,7 @@
 import React from 'react';
 import {Popup, FilesPicker} from '../';
 
-import './popup-files-picker.scss'
+import './scss/popup-files-picker.scss'
 
 const PopupFilesPicker = props => {
     const {value: startValue = '', className = '', isMultiple = false, onChange, maxHeightMultiList = 150, style = {}} = props;
