@@ -75,6 +75,7 @@ const FilesPicker = props => {
                             {files.map((fileName, index) => {
                                 return (
                                     <File
+                                        key={`files-list-item-${index}`}
                                         fileName={fileName}
                                         index={index}
                                         files={files}
