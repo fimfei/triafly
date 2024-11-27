@@ -25713,12 +25713,12 @@ var Qre = function(t) {
     className: "p-1 rct-files-menu"
   }, /* @__PURE__ */ g.createElement("button", {
     className: "tf_btn tf_btn-transparent tf_btn-sm tf_btn-icon add-file",
-    title: "Добавить еще файлов"
-  }, /* @__PURE__ */ g.createElement("i", {
-    className: "fas fa-plus fa-fw",
+    title: "Добавить еще файлов",
     onClick: function() {
       return y.current.click();
     }
+  }, /* @__PURE__ */ g.createElement("i", {
+    className: "fas fa-plus fa-fw"
   })), /* @__PURE__ */ g.createElement("button", {
     className: "tf_btn tf_btn-sm tf_btn-primary ok",
     onClick: _

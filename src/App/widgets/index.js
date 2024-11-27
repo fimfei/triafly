@@ -11,3 +11,4 @@ export {default as callPopup            } from './Popup/callPopup';
 export {default as Popup                } from './Popup/Popup';
 export {default as PopupListPicker      } from './PopupListPicker/PopupListPicker';
 export {default as PopupColorPicker     } from './PopupColorPicker/PopupColorPicker';
+export {default as PopupFilesPicker     } from './PopupFilesPicker/PopupFilesPicker';
