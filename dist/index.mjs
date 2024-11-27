@@ -25697,6 +25697,7 @@ var Qre = function(t) {
     className: "rct-files"
   }, d.map(function(_, w) {
     return /* @__PURE__ */ g.createElement(Jre, {
+      key: "files-list-item-".concat(w),
       fileName: _,
       index: w,
       files: d,
@@ -25780,11 +25781,11 @@ var gge = function(t) {
       height: 95
     }
   }, F = function() {
-    D(!1), console.log("onClickOutside");
+    D(!1);
   }, L = function() {
     D(!0);
   }, E = function(k) {
-    console.log("onChangeColor", k), S(k), s(k);
+    S(k), s(k);
   }, M = J({}, d);
   h && (M.color = w), v && (M.backgroundColor = w);
   var T = P[i], R = T.width, B = T.height;

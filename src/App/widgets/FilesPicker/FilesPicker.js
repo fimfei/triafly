@@ -6,10 +6,11 @@ import './scss/files-picker.scss';
 
 const FilesPicker = props => {
     const {
-        className,           // кастомный класс обёртки компоненты
-        value = '',          // на вход подаётся строка типа "file1.js, file2.js, ..." с сепаратором ", "
-        isMultiple = false,  // признак множественного выбора файла
-        onChange,            // когда в пикере файлы выбраны
+        className,                // кастомный класс обёртки компоненты
+        value = '',               // на вход подаётся строка типа "file1.js, file2.js, ..." с сепаратором ", "
+        isMultiple = false,       // признак множественного выбора файла
+        onChange,                 // когда в пикере файлы выбраны
+        maxHeightMultiList = 150, // максимальная высота в px списка файлов
     } = props;
 
     const filesStringToArray = list => {
@@ -70,7 +71,7 @@ const FilesPicker = props => {
         <React.Fragment>
             {isMultiple && (
                 <div className={`rct-files-picker${className ? ' ' + className : ''}`}>
-                    <div className="rct-files-wrapper">
+                    <div className="rct-files-wrapper" style={{maxHeight: `${maxHeightMultiList}px`}}>
                         <div className="rct-files">
                             {files.map((fileName, index) => {
                                 return (
