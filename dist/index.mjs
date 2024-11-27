@@ -25653,58 +25653,61 @@ var Qre = function(t) {
     onClick: l
   }));
 }, ene = function(t) {
-  var r = t.className, n = t.value, a = n === void 0 ? "" : n, i = t.isMultiple, o = i === void 0 ? !1 : i, s = t.onChange, u = function(w) {
-    var S = w.split(", ");
-    return S.length === 1 && !S[0] ? [] : S;
-  }, l = gr(u(a)), c = de(l, 3), d = c[0], f = c[1], h = c[2], p = g.useRef({}), v = g.useRef(null), m = g.useRef(0), y = function() {
-    m.current = setTimeout(function() {
-      m.current = 0;
+  var r = t.className, n = t.value, a = n === void 0 ? "" : n, i = t.isMultiple, o = i === void 0 ? !1 : i, s = t.onChange, u = t.maxHeightMultiList, l = u === void 0 ? 150 : u, c = function(x) {
+    var C = x.split(", ");
+    return C.length === 1 && !C[0] ? [] : C;
+  }, d = gr(c(a)), f = de(d, 3), h = f[0], p = f[1], v = f[2], m = g.useRef({}), y = g.useRef(null), b = g.useRef(0), _ = function() {
+    b.current = setTimeout(function() {
+      b.current = 0;
     }, 100), s({
-      value: f.current.join(", "),
-      files: f.current,
-      newFilesData: p.current
+      value: p.current.join(", "),
+      files: p.current,
+      newFilesData: m.current
     });
   };
   g.useEffect(function() {
-    return (!o || !d.length) && v.current.click(), function() {
-      m.current || y();
+    return (!o || !h.length) && y.current.click(), function() {
+      b.current || _();
     };
   }, []);
-  var b = function(w) {
-    var S = w.target.files, x = o ? Mr(d) : [];
-    if (S != null && S.length) {
-      var C = ce(S), O;
+  var w = function(x) {
+    var C = x.target.files, O = o ? Mr(h) : [];
+    if (C != null && C.length) {
+      var D = ce(C), N;
       try {
-        for (C.s(); !(O = C.n()).done; ) {
-          var D = O.value, N = D.name;
-          p.current[N] = D, x.push(N);
+        for (D.s(); !(N = D.n()).done; ) {
+          var P = N.value, F = P.name;
+          m.current[F] = P, O.push(F);
         }
-      } catch (P) {
-        C.e(P);
+      } catch (L) {
+        D.e(L);
       } finally {
-        C.f();
+        D.f();
       }
       setTimeout(function() {
-        h(x), o || y();
+        v(O), o || _();
       }, 0);
     }
   };
   return /* @__PURE__ */ g.createElement(g.Fragment, null, o && /* @__PURE__ */ g.createElement("div", {
     className: "rct-files-picker".concat(r ? " " + r : "")
   }, /* @__PURE__ */ g.createElement("div", {
-    className: "rct-files-wrapper"
+    className: "rct-files-wrapper",
+    style: {
+      maxHeight: "".concat(l, "px")
+    }
   }, /* @__PURE__ */ g.createElement("div", {
     className: "rct-files"
-  }, d.map(function(_, w) {
+  }, h.map(function(S, x) {
     return /* @__PURE__ */ g.createElement(Jre, {
-      key: "files-list-item-".concat(w),
-      fileName: _,
-      index: w,
-      files: d,
-      setFiles: h,
-      filesDataCurrent: p
+      key: "files-list-item-".concat(x),
+      fileName: S,
+      index: x,
+      files: h,
+      setFiles: v,
+      filesDataCurrent: m
     });
-  }), !d.length && /* @__PURE__ */ g.createElement("div", {
+  }), !h.length && /* @__PURE__ */ g.createElement("div", {
     className: "empty-files-list"
   }, "Пока ничего не выбрано"))), /* @__PURE__ */ g.createElement("div", {
     className: "p-1 rct-files-menu"
@@ -25714,18 +25717,18 @@ var Qre = function(t) {
   }, /* @__PURE__ */ g.createElement("i", {
     className: "fas fa-plus fa-fw",
     onClick: function() {
-      return v.current.click();
+      return y.current.click();
     }
   })), /* @__PURE__ */ g.createElement("button", {
     className: "tf_btn tf_btn-sm tf_btn-primary ok",
-    onClick: y
+    onClick: _
   }, "OK"))), /* @__PURE__ */ g.createElement("input", {
     type: "file",
     style: {
       display: "none"
     },
-    ref: v,
-    onChange: b,
+    ref: y,
+    onChange: w,
     multiple: o
   }));
 };

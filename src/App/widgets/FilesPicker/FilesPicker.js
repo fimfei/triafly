@@ -89,11 +89,12 @@ const FilesPicker = props => {
                         </div>
                     </div>
                     <div className="p-1 rct-files-menu">
-                        <button className="tf_btn tf_btn-transparent tf_btn-sm tf_btn-icon add-file" title="Добавить еще файлов">
-                            <i
-                                className="fas fa-plus fa-fw"
-                                onClick={() => inputRef.current.click()}
-                            ></i>
+                        <button
+                            className="tf_btn tf_btn-transparent tf_btn-sm tf_btn-icon add-file"
+                            title="Добавить еще файлов"
+                            onClick={() => inputRef.current.click()}
+                        >
+                            <i className="fas fa-plus fa-fw"></i>
                         </button>
                         <button
                             className="tf_btn tf_btn-sm tf_btn-primary ok"
