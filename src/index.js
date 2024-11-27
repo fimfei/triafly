@@ -6,7 +6,7 @@ import {Graph} from './App/components/Graph';
 import {
     Popup, callPopup, Alert, callAlert, ListPicker,
     PopupListPicker, DatePicker, PeriodPicker, ColorPicker,
-    PopupColorPicker, FilesPicker, PopupFilesPicker
+    PopupColorPicker, PopupFilesPicker,
 } from './App/widgets';
 
 import './styles/app.scss';
@@ -17,5 +17,5 @@ export {
     ListPicker, PopupListPicker,
     DatePicker, PeriodPicker,
     ColorPicker, PopupColorPicker,
-    FilesPicker, PopupFilesPicker,
+    PopupFilesPicker,
 };
