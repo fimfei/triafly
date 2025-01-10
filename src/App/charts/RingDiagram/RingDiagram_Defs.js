@@ -2,8 +2,9 @@ import React from 'react';
 
 const RingDiagramDefs = () => {
 
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
     return (
-        <svg width="100%" height="100%">
         <defs>
             <radialGradient id="edge-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
                 <stop offset="0%" style={{ stopColor: '#fff', stopOpacity: 0 }} />
@@ -19,7 +20,6 @@ const RingDiagramDefs = () => {
                 <stop offset="100%" stopColor="#fff" />
             </linearGradient>
         </defs>
-        </svg>
     );
 };
 export default RingDiagramDefs;

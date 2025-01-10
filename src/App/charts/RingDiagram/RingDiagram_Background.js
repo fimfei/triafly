@@ -4,8 +4,9 @@ const RingDiagramBackground = props => {
     const {connector,  stroke: externalStroke, strokeWidth: externalStrokeWidth, fill: externalFill, className = '', style = {}} = props;
     const {diagramSize} = connector.options;
 
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
     return (
-        <svg width="100%" height="100%">
             <rect
                 className={`ring-diagram-background${className ? ' ' + className : ''}`}
                 x="0"
@@ -17,7 +18,6 @@ const RingDiagramBackground = props => {
                 strokeWidth={externalStrokeWidth || 1}
                 style={style}
             />
-        </svg>
     )
 }
 
