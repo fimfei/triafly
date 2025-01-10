@@ -43971,7 +43971,7 @@ var ide = /* @__PURE__ */ function() {
   return n ? /* @__PURE__ */ p.createElement(cde, h) : /* @__PURE__ */ p.createElement(dde, h);
 }, cde = function(t) {
   var r = t.radius, n = t.stroke, a = n === void 0 ? "#888" : n, i = t.strokeWidth, o = i === void 0 ? 1 : i, s = t.className, l = s === void 0 ? "" : s, u = t.style, c = u === void 0 ? {} : u, d = t.fill, f = d === void 0 ? "none" : d, h = t.getRadius, v = t.centerX, g = t.centerY, m = h(r);
-  return /* @__PURE__ */ p.createElement("circle", {
+  return /* @__PURE__ */ p.createElement("svg", null, /* @__PURE__ */ p.createElement("circle", {
     className: l,
     cx: v,
     cy: g,
@@ -43980,10 +43980,10 @@ var ide = /* @__PURE__ */ function() {
     stroke: a,
     strokeWidth: o,
     style: c
-  });
+  }));
 }, dde = function(t) {
   var r = t.innerRadius, n = t.outerRadius, a = t.stroke, i = a === void 0 ? "#888" : a, o = t.fill, s = o === void 0 ? "#eee" : o, l = t.strokeWidth, u = l === void 0 ? 1 : l, c = t.className, d = c === void 0 ? "" : c, f = t.style, h = f === void 0 ? {} : f, v = t.getRadius, g = t.centerX, m = t.centerY, y = v(r), b = v(n), _ = "M ".concat(g, ",").concat(m - b);
-  return _ += "A ".concat(b, ",").concat(b, " 0 1,1 ").concat(g, ",").concat(m + b), _ += "A ".concat(b, ",").concat(b, " 0 1,1 ").concat(g, ",").concat(m - b), _ += "Z", _ += "M ".concat(g, ",").concat(m - y), _ += "A ".concat(y, ",").concat(y, " 0 1,0 ").concat(g, ",").concat(m + y), _ += "A ".concat(y, ",").concat(y, " 0 1,0 ").concat(g, ",").concat(m - y), _ += "Z", /* @__PURE__ */ p.createElement(p.Fragment, null, /* @__PURE__ */ p.createElement("path", et(et(et(et({
+  return _ += "A ".concat(b, ",").concat(b, " 0 1,1 ").concat(g, ",").concat(m + b), _ += "A ".concat(b, ",").concat(b, " 0 1,1 ").concat(g, ",").concat(m - b), _ += "Z", _ += "M ".concat(g, ",").concat(m - y), _ += "A ".concat(y, ",").concat(y, " 0 1,0 ").concat(g, ",").concat(m + y), _ += "A ".concat(y, ",").concat(y, " 0 1,0 ").concat(g, ",").concat(m - y), _ += "Z", /* @__PURE__ */ p.createElement("svg", null, /* @__PURE__ */ p.createElement("path", et(et(et(et({
     className: d,
     d: _,
     fill: s,
@@ -44160,7 +44160,7 @@ var zde = function(t) {
     style: u
   }));
 }, hde = function() {
-  return /* @__PURE__ */ p.createElement("defs", null, /* @__PURE__ */ p.createElement("radialGradient", {
+  return /* @__PURE__ */ p.createElement("svg", null, /* @__PURE__ */ p.createElement("defs", null, /* @__PURE__ */ p.createElement("radialGradient", {
     id: "edge-gradient",
     cx: "50%",
     cy: "50%",
@@ -44211,19 +44211,19 @@ var zde = function(t) {
   }), /* @__PURE__ */ p.createElement("stop", {
     offset: "100%",
     stopColor: "#fff"
-  })));
+  }))));
 }, pde = function(t) {
   var r = t.connector, n = t.id;
   t.realOuterRadius, t.fillColor;
   var a = t.path, i = t.clipRef;
   t.defectGradientColor;
   var o = r.options, s = r.data;
-  return s.centerX, s.centerY, o.innerRadius, /* @__PURE__ */ p.createElement("defs", null, /* @__PURE__ */ p.createElement("clipPath", {
+  return s.centerX, s.centerY, o.innerRadius, /* @__PURE__ */ p.createElement("svg", null, /* @__PURE__ */ p.createElement("defs", null, /* @__PURE__ */ p.createElement("clipPath", {
     id: "clip-".concat(n)
   }, /* @__PURE__ */ p.createElement("path", {
     d: a.current,
     ref: i
-  })));
+  }))));
 }, vde = /* @__PURE__ */ function() {
   function e(t) {
     tn(this, e), et(this, "round", function(r) {
