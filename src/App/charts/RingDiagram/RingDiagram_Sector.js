@@ -107,9 +107,8 @@ const RingDiagramSector = props => {
     if(style.fill) {
  //       console.log(style, fillColor, utils.getStyle({style, color: fillColor}))
     }
-    return (
-        <svg width="100%" height="100%">
-            <RingDiagramSectorDefs {...{connector, id, realOuterRadius, fillColor, path, clipRef}} />
+    return [
+        <RingDiagramSectorDefs {...{connector, id, realOuterRadius, fillColor, path, clipRef}} />,
             <circle
                 className={`ring-diagram-sector${className ? ' ' + className : ''}`}
                 style={utils.getStyle({style, color: fillColor})}
@@ -123,8 +122,8 @@ const RingDiagramSector = props => {
                 onMouseUp={() => drag.current = null}
                 onMouseLeave={() => drag.current = null}
                 onMouseMove={onMouseMove}
-            />
-            {sectorBorderWidth && (
+        />,
+        !!sectorBorderWidth && (
                 <path
                     ref={pathRef}
                     id={`path-${id}`}
@@ -133,10 +132,8 @@ const RingDiagramSector = props => {
                     stroke={sectorBorderColor}
                     strokeWidth={sectorBorderWidth}
                 />
-            )}
-        </svg>
-
-    );
+        ),
+    ]
 };
 
 export default RingDiagramSector;
