@@ -6,19 +6,22 @@ const RingDiagramBackground = props => {
 
     //!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-    return (
-            <rect
-                className={`ring-diagram-background${className ? ' ' + className : ''}`}
-                x="0"
-                y="0"
-                width={diagramSize}
-                height={diagramSize}
-                fill={externalFill || 'none'}
-                stroke={externalStroke || '#888'}
-                strokeWidth={externalStrokeWidth || 1}
-                style={style}
-            />
-    )
+    return React.createElement(
+        'rect',
+        {
+            className: `ring-diagram-background${className ? ' ' + className : ''}`,
+            x: 0,
+            y: 0,
+            width: diagramSize,
+            height: diagramSize,
+            fill: externalFill || 'none',
+            stroke: externalStroke || '#888',
+            strokeWidth: externalStrokeWidth || 1,
+            style,
+        },
+        null,
+        'http://www.w3.org/2000/svg',
+    );
 }
 
 export default RingDiagramBackground;
