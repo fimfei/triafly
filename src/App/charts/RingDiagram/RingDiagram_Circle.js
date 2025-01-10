@@ -50,6 +50,7 @@ const Circle = props => {
     const radius = getRadius(externalRadius);
 
     return (
+        <svg>
         <circle
             className={className}
             cx={centerX}
@@ -60,6 +61,7 @@ const Circle = props => {
             strokeWidth={strokeWidth}
             style={style}
         />
+        </svg>
     )
 }
 
@@ -90,7 +92,7 @@ const Ring = props => {
     d += `Z`;
 
     return (
-        <React.Fragment>
+        <svg>
             <path
                 className={className}
                 d={d}
@@ -102,7 +104,7 @@ const Ring = props => {
                 strokeWidth={strokeWidth}
                 style={style}
             />
-        </React.Fragment>
+        </svg>
     )
 }
 

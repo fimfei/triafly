@@ -44148,17 +44148,17 @@ var zde = function(t) {
   }, s));
 }, Kde = function(t) {
   var r = t.connector, n = t.stroke, a = t.strokeWidth, i = t.fill, o = t.className, s = o === void 0 ? "" : o, l = t.style, u = l === void 0 ? {} : l, c = r.options.diagramSize;
-  return /* @__PURE__ */ p.createElement("rect", {
+  return /* @__PURE__ */ p.createElement("svg", null, /* @__PURE__ */ p.createElement("rect", {
     className: "ring-diagram-background".concat(s ? " " + s : ""),
-    x: 0,
-    y: 0,
+    x: "0",
+    y: "0",
     width: c,
     height: c,
     fill: i || "none",
     stroke: n || "#888",
     strokeWidth: a || 1,
     style: u
-  });
+  }));
 }, hde = function() {
   return /* @__PURE__ */ p.createElement("defs", null, /* @__PURE__ */ p.createElement("radialGradient", {
     id: "edge-gradient",
