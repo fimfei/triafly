@@ -108,7 +108,7 @@ const RingDiagramSector = props => {
  //       console.log(style, fillColor, utils.getStyle({style, color: fillColor}))
     }
     return (
-        <React.Fragment>
+        <svg>
             <RingDiagramSectorDefs {...{connector, id, realOuterRadius, fillColor, path, clipRef}} />
             <circle
                 className={`ring-diagram-sector${className ? ' ' + className : ''}`}
@@ -134,7 +134,8 @@ const RingDiagramSector = props => {
                     strokeWidth={sectorBorderWidth}
                 />
             )}
-        </React.Fragment>
+        </svg>
+
     );
 };
 
