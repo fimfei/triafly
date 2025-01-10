@@ -5,17 +5,19 @@ const RingDiagramBackground = props => {
     const {diagramSize} = connector.options;
 
     return (
-        React.createElement('rect', {
-            className: `ring-diagram-background${className ? ' ' + className : ''}`,
-            x: 0,
-            y: 0,
-            width: diagramSize,
-            height: diagramSize,
-            fill: externalFill || 'none',
-            stroke: externalStroke || '#888',
-            strokeWidth: externalStrokeWidth || 1,
-            style,
-        })
+        <svg>
+            <rect
+                className={`ring-diagram-background${className ? ' ' + className : ''}`}
+                x="0"
+                y="0"
+                width={diagramSize}
+                height={diagramSize}
+                fill={externalFill || 'none'}
+                stroke={externalStroke || '#888'}
+                strokeWidth={externalStrokeWidth || 1}
+                style={style}
+            />
+        </svg>
     )
 }
 
