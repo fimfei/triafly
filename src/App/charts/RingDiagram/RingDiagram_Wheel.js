@@ -51,11 +51,6 @@ const RingDiagramWheel = props => {
                         })}
                     </React.Fragment>
                 )
-
-                return (
-                    <React.Fragment key={`ring-diagram-${index}`}>
-                    </React.Fragment>
-                )
             })}
         </React.Fragment>
     )
