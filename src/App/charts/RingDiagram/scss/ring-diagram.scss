@@ -1,0 +1,19 @@
+.ring-diagram {
+    position: relative;
+    user-select: none;
+
+    .ring {
+        width: 200px;
+        height: 200px;
+    }
+
+    .outer-circle {
+        stroke: url(#texture-gradient);
+        stroke-width: 20;
+    }
+
+    .inner-circle {
+        stroke: #fff;
+        stroke-width: 20;
+    }
+}

@@ -1,0 +1,8 @@
+.chords-sector-circle,
+.chords-sector-text {
+    cursor: pointer;
+
+    &:hover {
+        opacity: 1;
+    }
+}

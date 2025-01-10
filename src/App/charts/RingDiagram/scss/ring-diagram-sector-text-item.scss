@@ -1,0 +1,21 @@
+.ring-diagram-text-item {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .ring-diagram-value {
+        padding: 2px 5px;
+        line-height: 16px;
+        font-size: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-size: 14px;
+        font-weight: bold;
+        text-shadow: 0px 0px 2px #000, 0px 0px 2px #000, 0px 0px 2px #000;
+    }
+}

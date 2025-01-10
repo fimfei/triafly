@@ -1,0 +1,50 @@
+.coordinates-panel-scale-x {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    box-shadow: inset 0px 1px 0px 0px #000;
+
+    .coordinates-panel-scale-x-item {
+        position: absolute;
+        height: 100%;
+        top: 0;
+
+        .scale-x-item-dash {
+            height: 7px;
+            position: absolute;
+            top: 0;
+
+            &.line {
+                width: 1px;
+                background: #888;
+                left: calc(50% - 1px);
+            }
+
+            &.area {
+                width: 100%;
+                background: transparent;
+                left: 0;
+                box-shadow: -1px 0px 0px 0px #888, inset -1px 0px 0px 0px #888;
+            }
+        }
+
+        .scale-x-item-text {
+            flex: 1;
+            justify-content: center;
+            align-items: flex-start;
+            display: flex;
+            text-align: center;
+            margin-top: 10px;
+            overflow: hidden;
+
+            &.rotate {
+                justify-content: right;
+                margin-top: 5px;
+                transform-origin: right top;
+                white-space: nowrap;
+                overflow:visible;
+            }
+        }
+    }
+}

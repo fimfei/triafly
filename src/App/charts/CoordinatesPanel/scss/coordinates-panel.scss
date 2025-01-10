@@ -1,0 +1,114 @@
+.coordinates-panel {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    .coordinates-panel-top-group {
+        flex: 1;
+        height: 100%;
+        display: flex;
+
+        .coordinates-panel-scale-y-wrapper {
+            height: 100%;
+
+            .coordinates-panel-scale-y {
+                height: 100%;
+            }
+        }
+
+        .coordinates-panel-body-wrapper {
+            flex: 1;
+
+            .coordinates-panel-body-inner {
+                position: relative;
+                width: 100%;
+                height: 100%;
+
+                .coordinates-panel-grid-x,
+                .coordinates-panel-grid-y {
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+
+    .coordinates-panel-bottom-group {
+        display: flex;
+
+        .coordinates-panel-plug {
+
+        }
+
+        .coordinates-panel-scale-x-root {
+            flex: 1;
+            width: 100%;
+            height: 100%;
+            position: relative;
+
+            .coordinates-panel-scale-x-wrapper {
+                position: absolute;
+                left: 0;
+                top: -1px;
+                width: 100%;
+                height: 100%;
+
+                .coordinates-panel-scale-x-inner {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+
+                    .coordinates-panel-scale-x {
+                    }
+                }
+            }
+
+            .coordinates-panel-scrollbar-wrapper {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 17px;
+                background: transparent;
+                overflow-x: auto;
+                overflow-y: hidden;
+                opacity: .5;
+                cursor: pointer;
+
+                &:hover {
+                    opacity: 1;
+                }
+
+                .coordinates-panel-scrollbar-inner {
+                    height: 10px;
+                    background: transparent;
+                }
+            }
+
+        }
+    }
+
+    .coordinates-panel-external-children {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.coordinates-panel-svg-root {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+

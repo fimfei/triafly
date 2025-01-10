@@ -1,0 +1,7 @@
+.ring-diagram-sector {
+    cursor: pointer;
+
+    &:hover {
+        opacity: .5 !important;
+    }
+}

@@ -1,0 +1,10 @@
+.parallel-sets-text {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .parallel-sets-text-item {
+        width: 100%;
+    }
+}
