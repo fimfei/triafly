@@ -44155,15 +44155,15 @@ var zde = function(t) {
   //!!!!!!!!!!!!!!!!!!!!!!!!!!!
   return /* @__PURE__ */ p.createElement("rect", {
     className: "ring-diagram-background".concat(s ? " " + s : ""),
-    x: "0",
-    y: "0",
+    x: 0,
+    y: 0,
     width: c,
     height: c,
     fill: i || "none",
     stroke: n || "#888",
     strokeWidth: a || 1,
     style: u
-  });
+  }, null, "http://www.w3.org/2000/svg");
 }, hde = function() {
   //!!!!!!!!!!!!!!!!!!!!!!!!!!!
   return /* @__PURE__ */ p.createElement("defs", null, /* @__PURE__ */ p.createElement("radialGradient", {
