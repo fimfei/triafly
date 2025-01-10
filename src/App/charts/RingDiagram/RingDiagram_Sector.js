@@ -108,7 +108,7 @@ const RingDiagramSector = props => {
  //       console.log(style, fillColor, utils.getStyle({style, color: fillColor}))
     }
     return (
-        <svg>
+        <svg width="100%" height="100%">
             <RingDiagramSectorDefs {...{connector, id, realOuterRadius, fillColor, path, clipRef}} />
             <circle
                 className={`ring-diagram-sector${className ? ' ' + className : ''}`}

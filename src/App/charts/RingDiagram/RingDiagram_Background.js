@@ -5,7 +5,7 @@ const RingDiagramBackground = props => {
     const {diagramSize} = connector.options;
 
     return (
-        <svg>
+        <svg width="100%" height="100%">
             <rect
                 className={`ring-diagram-background${className ? ' ' + className : ''}`}
                 x="0"

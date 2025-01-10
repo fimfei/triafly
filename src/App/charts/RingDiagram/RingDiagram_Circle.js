@@ -50,7 +50,7 @@ const Circle = props => {
     const radius = getRadius(externalRadius);
 
     return (
-        <svg>
+        <svg width="100%" height="100%">
         <circle
             className={className}
             cx={centerX}
@@ -92,7 +92,7 @@ const Ring = props => {
     d += `Z`;
 
     return (
-        <svg>
+        <svg width="100%" height="100%">
             <path
                 className={className}
                 d={d}

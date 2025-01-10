@@ -7,7 +7,7 @@ const RingDiagramSectorDefs = props => {
     const {innerRadius} = options;
 
     return (
-        <svg>
+        <svg width="100%" height="100%">
             <defs>
                 <clipPath id={`clip-${id}`}>
                     <path
