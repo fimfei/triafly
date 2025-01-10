@@ -1,6 +1,6 @@
 {
   "name": "triafly",
-  "version": "1.0.347",
+  "version": "1.0.348",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "scripts": {
