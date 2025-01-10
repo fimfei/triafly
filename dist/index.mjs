@@ -43910,10 +43910,7 @@ var ide = /* @__PURE__ */ function() {
       part: S[n].parts[a]
     });
   };
-  return g.fill, /* @__PURE__ */ p.createElement("svg", {
-    width: "100%",
-    height: "100%"
-  }, /* @__PURE__ */ p.createElement(pde, {
+  return g.fill, [/* @__PURE__ */ p.createElement(pde, {
     connector: r,
     id: P,
     realOuterRadius: c,
@@ -43940,14 +43937,14 @@ var ide = /* @__PURE__ */ function() {
       return B.current = null;
     },
     onMouseMove: j
-  }), T && /* @__PURE__ */ p.createElement("path", {
+  }), !!T && /* @__PURE__ */ p.createElement("path", {
     ref: F,
     id: "path-".concat(P),
     d: N.current,
     fill: "none",
     stroke: O,
     strokeWidth: T
-  }));
+  })];
 }, Gde = function(t) {
   var r = t.connector, n = t.radius, a = t.innerRadius, i = t.outerRadius, o = t.className;
   if (!n && !a && !i || n && (a || i) || a && !i || !a && i) return null;
