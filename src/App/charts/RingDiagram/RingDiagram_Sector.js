@@ -107,7 +107,7 @@ const RingDiagramSector = props => {
     //!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     return (
-        <g>
+        <React.Fragment>
             <RingDiagramSectorDefs {...{connector, id, realOuterRadius, fillColor, path, clipRef}} />
             <circle
                 className={`ring-diagram-sector${className ? ' ' + className : ''}`}
@@ -133,7 +133,7 @@ const RingDiagramSector = props => {
                     strokeWidth={sectorBorderWidth}
                 />
             )}
-        </g>
+        </React.Fragment>
 
     );
 };

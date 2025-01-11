@@ -7,7 +7,6 @@ const RingDiagramBackground = props => {
     //!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     return (
-        <g>
             <rect
                 className={`ring-diagram-background${className ? ' ' + className : ''}`}
                 x="0"
@@ -19,7 +18,6 @@ const RingDiagramBackground = props => {
                 strokeWidth={externalStrokeWidth || 1}
                 style={style}
             />
-        </g>
     )
 }
 

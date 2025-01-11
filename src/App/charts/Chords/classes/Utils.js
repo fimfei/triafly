@@ -18,6 +18,7 @@ class Utils {
 
     getFractionsData() {
         const {fractions, dataKey, colorKey, labelKey, sectorBorderAngleGap = 0, rotate = 0} = this.connector.options;
+        this.versatileChords = true;
 
         let totalValue = 0;
         const values = [];
@@ -35,18 +36,27 @@ class Utils {
 
             colors.push(color);
             labels.push(label);
-            values.push(data);
+            values.push([...data]);
 
-            for(let j in data) {
+            for (let j in data) {
                 const val = data[j];
-                if(val) {
+                const _val = fractions[j][i];
+
+                if (val) {
                     if (i === j) {
                         console.error(`ОШИБКА -- данные строк и столбцов на диагонали недопустимы`)
                     } else {
-                        totalValues[i] = totalValues[i] || 0;
-                        totalValues[i] += val;
+                        if (this.versatileChords) {
                         totalValues[j] = totalValues[j] || 0;
                         totalValues[j] += val;
+                        } else {
+                            totalValues[j] = totalValues[j] || 0;
+                            totalValues[j] += val;
+
+                            totalValues[i] = totalValues[i] || 0;
+                            totalValues[i] += val;
+                        }
+
                     }
                 }
             }
@@ -99,6 +109,7 @@ class Utils {
     }
 
     getLinks(sectorsAngles, values, totalValues, colors) {
+        console.log('???????', sectorsAngles, values, totalValues, colors)
         const {optimizeShortLinksFirst = false} = this.connector.options;
         const links = [];
         const sectorContent = [];
@@ -120,20 +131,22 @@ class Utils {
 
                 maxDistance = Math.max(maxDistance, distance);
 
-                if(value) {
+                if(value && (!this.versatileChords || (j < i))) {
+                    const _value = this.versatileChords ? values[j][i] : value;
                     links.push({
-                        from: {index: Number(i), totalValue: totalValues[i], id, subSectorAngle: getAngle(i, value), color: colors[i]},
+                        from: {index: Number(i), totalValue: totalValues[i], id, subSectorAngle: getAngle(i, _value), color: colors[i]},
                         to: {index: Number(j), totalValue: totalValues[j], id, subSectorAngle: getAngle(j, value), color: colors[j]},
                         distance,
                         value,
-
                     });
+
                     sectorContent[i] = sectorContent[i] || {
                         from: sectorsAngles[i].from,
                         to: sectorsAngles[i].to,
                         parts: {},
                     };
-                    sectorContent[i].parts[id] = {value, subSectorAngle: getAngle(i, value)};
+                    sectorContent[i].parts[id] = {value, subSectorAngle: getAngle(i, _value)};
+
                     sectorContent[j] = sectorContent[j] || {
                         from: sectorsAngles[j].from,
                         to: sectorsAngles[j].to,
