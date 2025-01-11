@@ -27,13 +27,15 @@ const RingDiagram = props => {
     const svgRef = React.useRef(null);
     const connector = utils.connector;
 
-    const svgComponents = ['RingDiagramBackground', 'RingDiagramCircle', 'RingDiagramWheel', 'RingDiagramRays'];
+    const svgComponents = ['RingDiagramBackground', 'RingDiagramCircle', 'RingDiagramWheel'];
 
     const getChildProps = child => {
         if(typeof child.type === 'string') return {};
         const {fractions: childFractions} = child.props;
         return {connector, chartControllingRef, fractions: childFractions || fractions};
     }
+
+    console.log('========================>', React.Children.toArray(children))
 
     return (
         <div
@@ -45,6 +47,7 @@ const RingDiagram = props => {
             }}
         >
             {React.Children.map(children, child => {
+                console.log('--->', child.type.name)
                 if(svgComponents.includes(child.type.name)) {
                     firstChildren.current = false;
                     return null;

@@ -123,7 +123,7 @@ const RingDiagramSector = props => {
                 onMouseLeave={() => drag.current = null}
                 onMouseMove={onMouseMove}
             />
-            {sectorBorderWidth && (
+            {!!sectorBorderWidth && (
                 <path
                     ref={pathRef}
                     id={`path-${id}`}
