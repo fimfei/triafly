@@ -35,5 +35,7 @@ const RingDiagramSectorText = props => {
     )
 }
 
+RingDiagramSectorText.displayName = 'RingDiagramSectorText';
+
 export default RingDiagramSectorText
 

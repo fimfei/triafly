@@ -35,6 +35,8 @@ const RingDiagram = props => {
         return {connector, chartControllingRef, fractions: childFractions || fractions};
     }
 
+    const isSvgComponent = child => child.type.displayName && svgComponents.includes(child.type.displayName);
+
     console.log('========================>', React.Children.toArray(children))
 
     return (
@@ -47,8 +49,8 @@ const RingDiagram = props => {
             }}
         >
             {React.Children.map(children, child => {
-                console.log('--->', child.type.name)
-                if(svgComponents.includes(child.type.name)) {
+                console.log('--->', child.type.name, child.type.displayName)
+                if(isSvgComponent(child)) {
                     firstChildren.current = false;
                     return null;
                 }
@@ -59,7 +61,7 @@ const RingDiagram = props => {
                 <RingDiagramDefs />
                 {React.Children.map(children, child => {
                     firstChildren.current = true;
-                    if(svgComponents.includes(child.type.name)) return React.cloneElement(child, getChildProps(child));
+                    if(isSvgComponent(child)) return React.cloneElement(child, getChildProps(child));
                     return;
                 })}
             </svg>
@@ -67,7 +69,7 @@ const RingDiagram = props => {
             <RingDiagramSectorValue connector={connector} />
 
             {React.Children.map(children, child => {
-                if(svgComponents.includes(child.type.name)) {
+                if(isSvgComponent(child)) {
                     firstChildren.current = false;
                     return null;
                 }

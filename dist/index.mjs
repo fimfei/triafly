@@ -26434,7 +26434,7 @@ var KQ = function(t) {
     multiple: o
   }));
 };
-function Hde(e) {
+function qde(e) {
   var t = e.popupInitiator, r = e.popupName, n = e.popupStyle, a = n === void 0 ? {} : n, i = e.popupMinWidth, o = e.popupMinHeight, s = e.popupMaxWidth, l = e.popupMaxHeight, u = e.popupExtraClass, c = u === void 0 ? "" : u, d = e.popupOnOutsideClick, f = d === void 0 ? function() {
   } : d, h = e.popupNotResize, v = h === void 0 ? !1 : h, g = e.popupAutoSize, m = g === void 0 ? !1 : g, y = e.list, b = y === void 0 ? [] : y, _ = e.listSelectedValue, w = _ === void 0 ? "" : _, S = e.listSelectedValues, x = S === void 0 ? [] : S, E = e.listOnChange, C = E === void 0 ? function() {
   } : E, O = e.listIsMultiSelect, k = O === void 0 ? !1 : O, T = e.listHideSearchBar, A = T === void 0 ? !1 : T, I = e.listHideCountersBar, D = I === void 0 ? !1 : I, P = e.listItemView, N = P === void 0 ? !1 : P, M = e.buttons, F = e.removeComponent, L = {
@@ -26474,7 +26474,7 @@ function Hde(e) {
     removeComponent: F
   }))))), document.body);
 }
-var Vde = function(t) {
+var Wde = function(t) {
   var r = t.color, n = r === void 0 ? "#fff" : r, a = t.pickerType, i = a === void 0 ? "sketch" : a, o = t.onChange, s = o === void 0 ? function() {
   } : o, l = t.className, u = l === void 0 ? "" : l, c = t.style, d = c === void 0 ? {} : c, f = t.setTextColor, h = f === void 0 ? !1 : f, v = t.setBackgroundColor, g = v === void 0 ? !1 : v, m = t.children, y = m === void 0 ? "" : m, b = p.useState(n), _ = se(b, 2), w = _[0], S = _[1], x = p.useState(!1), E = se(x, 2), C = E[0], O = E[1], k = p.useRef(null), T = {
     sketch: {
@@ -26519,7 +26519,7 @@ var Vde = function(t) {
     notResize: !0,
     verticalOffset: 5
   }));
-}, Yde = function(t) {
+}, jde = function(t) {
   var r = t.value, n = r === void 0 ? "" : r, a = t.className, i = a === void 0 ? "" : a, o = t.isMultiple, s = o === void 0 ? !1 : o, l = t.onChange, u = t.maxHeightMultiList, c = u === void 0 ? 150 : u, d = t.style, f = d === void 0 ? {} : d, h = p.useState(n), v = se(h, 2), g = v[0], m = v[1], y = p.useState(!1), b = se(y, 2), _ = b[0], w = b[1], S = p.useRef(null);
   return /* @__PURE__ */ p.createElement("div", {
     className: "popup-files-picker ".concat(i),
@@ -30424,7 +30424,7 @@ var BA = function(t) {
     className: "order-list-item",
     ref: h
   }, r);
-}, qde = function(t, r) {
+}, Ude = function(t, r) {
   var n = document.createElement("div");
   n.className = "call-unitable-wrapper", t.appendChild(n);
   var a = eu(n), i = function() {
@@ -31618,7 +31618,7 @@ var BA = function(t) {
       }, 1e3));
     }
   }]);
-}(), Wde = function(t) {
+}(), Gde = function(t) {
   var r = ne({}, (lt(t), t)), n = r.graphName, a = n === void 0 ? "" : n, i = r.links, o = i === void 0 ? [] : i, s = r.states, l = s === void 0 ? [] : s, u = r.getComponentControlling, c = u === void 0 ? function() {
     return null;
   } : u, d = r.onChangeComponentState, f = d === void 0 ? {} : d, h = r.options, v = h === void 0 ? {} : h, g = r.connectorStartingValues, m = g === void 0 ? {} : g, y = function() {
@@ -43823,7 +43823,7 @@ var ide = /* @__PURE__ */ function() {
       }, 150);
     }
   }]);
-}(), jde = function(t) {
+}(), zde = function(t) {
   var r = t.fractions, n = r === void 0 ? [] : r, a = t.chartControllingRef, i = t.children, o = t.className, s = o === void 0 ? "" : o, l = function(c) {
     if (typeof c.type == "string") return {};
     var d = c.props.fractions;
@@ -43837,7 +43837,73 @@ var ide = /* @__PURE__ */ function() {
   }, p.Children.map(i, function(u) {
     return /* @__PURE__ */ p.cloneElement(u, l(u));
   }));
-}, Ude = function(t) {
+}, ude = function(t) {
+  var r = t.connector, n = t.stroke, a = t.strokeWidth, i = t.fill, o = t.className, s = o === void 0 ? "" : o, l = t.style, u = l === void 0 ? {} : l, c = r.options.diagramSize;
+  //!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  return /* @__PURE__ */ p.createElement("rect", {
+    className: "ring-diagram-background".concat(s ? " " + s : ""),
+    x: "0",
+    y: "0",
+    width: c,
+    height: c,
+    fill: i || "none",
+    stroke: n || "#888",
+    strokeWidth: a || 1,
+    style: u
+  });
+};
+ude.displayName = "RingDiagramBackground";
+var cde = function(t) {
+  var r = t.connector, n = t.radius, a = t.innerRadius, i = t.outerRadius, o = t.className;
+  if (!n && !a && !i || n && (a || i) || a && !i || !a && i) return null;
+  var s = r.options, l = s.innerRadius, u = s.outerRadius, c = r.options.diagramSize / 2, d = c, f = function(g) {
+    var m;
+    switch (g) {
+      case "innerRadius":
+        m = l;
+        break;
+      case "outerRadius":
+        m = u;
+        break;
+      default:
+        m = g;
+        break;
+    }
+    return m;
+  }, h = Q(Q({}, t), {}, {
+    getRadius: f,
+    centerX: c,
+    centerY: d,
+    className: "ring-diagram-circle".concat(o ? " " + o : "")
+  });
+  return n ? /* @__PURE__ */ p.createElement(dde, h) : /* @__PURE__ */ p.createElement(fde, h);
+}, dde = function(t) {
+  var r = t.radius, n = t.stroke, a = n === void 0 ? "#888" : n, i = t.strokeWidth, o = i === void 0 ? 1 : i, s = t.className, l = s === void 0 ? "" : s, u = t.style, c = u === void 0 ? {} : u, d = t.fill, f = d === void 0 ? "none" : d, h = t.getRadius, v = t.centerX, g = t.centerY, m = h(r);
+  //!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  return /* @__PURE__ */ p.createElement("circle", {
+    className: l,
+    cx: v,
+    cy: g,
+    r: m,
+    fill: f,
+    stroke: a,
+    strokeWidth: o,
+    style: c
+  });
+}, fde = function(t) {
+  var r = t.innerRadius, n = t.outerRadius, a = t.stroke, i = a === void 0 ? "#888" : a, o = t.fill, s = o === void 0 ? "#eee" : o, l = t.strokeWidth, u = l === void 0 ? 1 : l, c = t.className, d = c === void 0 ? "" : c, f = t.style, h = f === void 0 ? {} : f, v = t.getRadius, g = t.centerX, m = t.centerY, y = v(r), b = v(n), _ = "M ".concat(g, ",").concat(m - b);
+  _ += "A ".concat(b, ",").concat(b, " 0 1,1 ").concat(g, ",").concat(m + b), _ += "A ".concat(b, ",").concat(b, " 0 1,1 ").concat(g, ",").concat(m - b), _ += "Z", _ += "M ".concat(g, ",").concat(m - y), _ += "A ".concat(y, ",").concat(y, " 0 1,0 ").concat(g, ",").concat(m + y), _ += "A ".concat(y, ",").concat(y, " 0 1,0 ").concat(g, ",").concat(m - y), _ += "Z";
+  //!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  return /* @__PURE__ */ p.createElement("path", tt(tt(tt(tt({
+    className: d,
+    d: _,
+    fill: s,
+    stroke: i,
+    strokeWidth: u
+  }, "fill", s), "stroke", i), "strokeWidth", u), "style", h));
+};
+cde.displayName = "RingDiagramCircle";
+var hde = function(t) {
   var r = t.toCalculateAnglesKey, n = r === void 0 ? "value" : r, a = t.maximumValue, i = a === void 0 ? 0 : a, o = t.sectorParts;
   t.connector.utils.fractionsToAngles({
     toCalculateAnglesKey: n,
@@ -43863,7 +43929,7 @@ var ide = /* @__PURE__ */ function() {
       key: "ring-diagram-".concat(y)
     }, S.map(function(E, C) {
       var O = E.realInnerRadius, k = E.realOuterRadius, T = E.color, A = E.className, I = E.sectorStyle;
-      return O >= k ? null : /* @__PURE__ */ p.createElement(ude, ne({
+      return O >= k ? null : /* @__PURE__ */ p.createElement(pde, ne({
         key: "ring-diagram-".concat(y, "-").concat(C)
       }, x, {
         partIndex: C,
@@ -43875,7 +43941,9 @@ var ide = /* @__PURE__ */ function() {
       }));
     }));
   }));
-}, ude = function(t) {
+};
+hde.displayName = "RingDiagramWheel";
+var pde = function(t) {
   var r = t.connector, n = t.index, a = t.partIndex, i = t.isLastSector, o = t.fillColor, s = t.startAngle, l = t.endAngle, u = t.realInnerRadius, c = t.realOuterRadius, d = t.onClickToSector, f = t.className, h = f === void 0 ? "" : f, v = t.style, g = v === void 0 ? {} : v, m = r.options, y = r.data, b = r.utils, _ = y.centerX, w = y.centerY, S = y.angles, x = m.id, E = m.fractions, C = m.sectorBorderColor, O = C === void 0 ? "#000" : C, k = m.sectorBorderWidth, T = k === void 0 ? 0 : k, A = m.sectorBorderAngleGap, I = A === void 0 ? 0 : A, D = p.useRef(Math.round(Math.random() * 1e5)), P = D.current, N = p.useRef(b.getSectorPath({
     innerRadius: u,
     outerRadius: c,
@@ -43926,7 +43994,7 @@ var ide = /* @__PURE__ */ function() {
     });
   };
   //!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  return /* @__PURE__ */ p.createElement(p.Fragment, null, /* @__PURE__ */ p.createElement(pde, {
+  return /* @__PURE__ */ p.createElement(p.Fragment, null, /* @__PURE__ */ p.createElement(mde, {
     connector: r,
     id: P,
     realOuterRadius: c,
@@ -43961,55 +44029,7 @@ var ide = /* @__PURE__ */ function() {
     stroke: O,
     strokeWidth: T
   }));
-}, Gde = function(t) {
-  var r = t.connector, n = t.radius, a = t.innerRadius, i = t.outerRadius, o = t.className;
-  if (!n && !a && !i || n && (a || i) || a && !i || !a && i) return null;
-  var s = r.options, l = s.innerRadius, u = s.outerRadius, c = r.options.diagramSize / 2, d = c, f = function(g) {
-    var m;
-    switch (g) {
-      case "innerRadius":
-        m = l;
-        break;
-      case "outerRadius":
-        m = u;
-        break;
-      default:
-        m = g;
-        break;
-    }
-    return m;
-  }, h = Q(Q({}, t), {}, {
-    getRadius: f,
-    centerX: c,
-    centerY: d,
-    className: "ring-diagram-circle".concat(o ? " " + o : "")
-  });
-  return n ? /* @__PURE__ */ p.createElement(cde, h) : /* @__PURE__ */ p.createElement(dde, h);
-}, cde = function(t) {
-  var r = t.radius, n = t.stroke, a = n === void 0 ? "#888" : n, i = t.strokeWidth, o = i === void 0 ? 1 : i, s = t.className, l = s === void 0 ? "" : s, u = t.style, c = u === void 0 ? {} : u, d = t.fill, f = d === void 0 ? "none" : d, h = t.getRadius, v = t.centerX, g = t.centerY, m = h(r);
-  //!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  return /* @__PURE__ */ p.createElement("circle", {
-    className: l,
-    cx: v,
-    cy: g,
-    r: m,
-    fill: f,
-    stroke: a,
-    strokeWidth: o,
-    style: c
-  });
-}, dde = function(t) {
-  var r = t.innerRadius, n = t.outerRadius, a = t.stroke, i = a === void 0 ? "#888" : a, o = t.fill, s = o === void 0 ? "#eee" : o, l = t.strokeWidth, u = l === void 0 ? 1 : l, c = t.className, d = c === void 0 ? "" : c, f = t.style, h = f === void 0 ? {} : f, v = t.getRadius, g = t.centerX, m = t.centerY, y = v(r), b = v(n), _ = "M ".concat(g, ",").concat(m - b);
-  _ += "A ".concat(b, ",").concat(b, " 0 1,1 ").concat(g, ",").concat(m + b), _ += "A ".concat(b, ",").concat(b, " 0 1,1 ").concat(g, ",").concat(m - b), _ += "Z", _ += "M ".concat(g, ",").concat(m - y), _ += "A ".concat(y, ",").concat(y, " 0 1,0 ").concat(g, ",").concat(m + y), _ += "A ".concat(y, ",").concat(y, " 0 1,0 ").concat(g, ",").concat(m - y), _ += "Z";
-  //!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  return /* @__PURE__ */ p.createElement("path", tt(tt(tt(tt({
-    className: d,
-    d: _,
-    fill: s,
-    stroke: i,
-    strokeWidth: u
-  }, "fill", s), "stroke", i), "strokeWidth", u), "style", h));
-}, fde = function(t) {
+}, vde = function(t) {
   var r = t.connector, n = r.data.angles;
   return /* @__PURE__ */ p.createElement(p.Fragment, null, n.map(function(a, i) {
     var o = a.parts, s = a.from, l = a.to;
@@ -44116,7 +44136,7 @@ Oe.getSectorPath = function(e) {
   }), m = g.x1, y = g.y1, b = g.x2, _ = g.y2;
   return ["M ".concat(o + m, " ").concat(l + y), "L ".concat(o + d, " ").concat(l + f), "A ".concat(r, " ").concat(r, " 0 ").concat(u, " 1 ").concat(o + h, " ").concat(l + v), "L ".concat(o + b, " ").concat(l + _), "A ".concat(t, " ").concat(t, " 0 ").concat(u, " 0 ").concat(o + m, " ").concat(l + y), "Z"].join(" ");
 };
-var zde = function(t) {
+var Kde = function(t) {
   var r = t.connector, n = t.format, a = n === void 0 ? "value" : n, i = t.colorKey, o = i === void 0 ? "color" : i, s = t.className, l = t.style, u = r.data, c = r.options;
   r.utils;
   var d = c.innerRadius, f = c.outerRadius, h = u.angles;
@@ -44165,21 +44185,7 @@ var zde = function(t) {
       color: f
     })
   }, s));
-}, Kde = function(t) {
-  var r = t.connector, n = t.stroke, a = t.strokeWidth, i = t.fill, o = t.className, s = o === void 0 ? "" : o, l = t.style, u = l === void 0 ? {} : l, c = r.options.diagramSize;
-  //!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  return /* @__PURE__ */ p.createElement("rect", {
-    className: "ring-diagram-background".concat(s ? " " + s : ""),
-    x: "0",
-    y: "0",
-    width: c,
-    height: c,
-    fill: i || "none",
-    stroke: n || "#888",
-    strokeWidth: a || 1,
-    style: u
-  });
-}, hde = function() {
+}, gde = function() {
   //!!!!!!!!!!!!!!!!!!!!!!!!!!!
   return /* @__PURE__ */ p.createElement("defs", null, /* @__PURE__ */ p.createElement("radialGradient", {
     id: "edge-gradient",
@@ -44233,7 +44239,7 @@ var zde = function(t) {
     offset: "100%",
     stopColor: "#fff"
   })));
-}, pde = function(t) {
+}, mde = function(t) {
   var r = t.connector, n = t.id;
   t.realOuterRadius, t.fillColor;
   var a = t.path, i = t.clipRef;
@@ -44247,7 +44253,7 @@ var zde = function(t) {
     d: a.current,
     ref: i
   })));
-}, vde = /* @__PURE__ */ function() {
+}, yde = /* @__PURE__ */ function() {
   function e(t) {
     rn(this, e), tt(this, "round", function(r) {
       return Math.round(Number(r) * 10) / 10;
@@ -44404,7 +44410,7 @@ var zde = function(t) {
       rotate: f.rotateDiagram.bind(f)
     });
   }, []);
-  var c = p.useRef(new vde(Q(Q({}, t), {}, {
+  var c = p.useRef(new yde(Q(Q({}, t), {}, {
     fractions: i
   }))), d = p.useRef(!0), f = c.current, h = p.useRef(null), v = f.connector, g = ["RingDiagramBackground", "RingDiagramCircle", "RingDiagramWheel"], m = function(b) {
     if (typeof b.type == "string") return {};
@@ -44427,9 +44433,9 @@ var zde = function(t) {
     width: u,
     height: u,
     ref: h
-  }, /* @__PURE__ */ p.createElement(hde, null), p.Children.map(o, function(y) {
+  }, /* @__PURE__ */ p.createElement(gde, null), p.Children.map(o, function(y) {
     if (d.current = !0, g.includes(y.type.name)) return /* @__PURE__ */ p.cloneElement(y, m(y));
-  })), /* @__PURE__ */ p.createElement(fde, {
+  })), /* @__PURE__ */ p.createElement(vde, {
     connector: v
   }), p.Children.map(o, function(y) {
     if (g.includes(y.type.name))
@@ -44574,7 +44580,7 @@ var zde = function(t) {
   return /* @__PURE__ */ p.createElement(Z4, ne({}, t, {
     linkToScale: "right"
   }));
-}, gde = /* @__PURE__ */ function() {
+}, bde = /* @__PURE__ */ function() {
   function e(t) {
     rn(this, e), this.connector = {
       options: Q(Q({}, t), {}, {
@@ -44662,7 +44668,7 @@ var zde = function(t) {
       ee.unobserve(J);
     };
   }, []);
-  var x = p.useRef(new gde(t)), E = x.current, C = p.useRef(null), O = p.useRef(null), k = p.useRef(null), T = E.connector, A = function() {
+  var x = p.useRef(new bde(t)), E = x.current, C = p.useRef(null), O = p.useRef(null), k = p.useRef(null), T = E.connector, A = function() {
     return T.data.children ? T.data.children : (E.calcMaxValue(), E.getChildrenData(r));
   }, I = p.useRef(A()), D = I.current, P = D.internalChildrenObj, N = D.externalChildren, M = P.CoordinatesPanelScaleX, F = P.CoordinatesPanelScaleYLeft, L = P.CoordinatesPanelScaleYRight, R = P.diagrams, $ = P.CoordinatesPanelGridX, B = P.CoordinatesPanelGridYLeft, q = P.CoordinatesPanelGridYRight, V = P.Heatmap, j = P.Candlestick, W = function(pe) {
     var ee = pe.currentTarget.scrollLeft;
@@ -44786,7 +44792,7 @@ var zde = function(t) {
   return /* @__PURE__ */ p.createElement(p.Fragment, null, p.Children.map(r, function(a) {
     return /* @__PURE__ */ p.cloneElement(a, n);
   }));
-}, mde = function(t) {
+}, _de = function(t) {
   var r = t.connector, n = t.indicators, a = t.barDiagramId, i = r[a].barDiagramUtils;
   return /* @__PURE__ */ p.createElement("defs", null, n.map(function(o, s) {
     var l = o.type, u = o.color, c = u, d = "transparent", f = "transparent";
@@ -44839,7 +44845,7 @@ var zde = function(t) {
       stopColor: c
     }));
   }));
-}, yde = function(t) {
+}, wde = function(t) {
   var r = t.connector, n = t.fraction, a = t.indicators, i = t.sectorIndex, o = t.sectorWidth, s = t.sectorItemsWidthPercent, l = t.barDiagramId, u = 0, c = 0;
   return /* @__PURE__ */ p.createElement(p.Fragment, null, a.map(function(d, f) {
     var h = s[f], v = h.left, g = h.width, m = h.right;
@@ -44853,7 +44859,7 @@ var zde = function(t) {
       width: b,
       height: "100%",
       overflow: "visible"
-    }, /* @__PURE__ */ p.createElement(bde, {
+    }, /* @__PURE__ */ p.createElement(Sde, {
       key: "bar-diagram-sector-item-".concat(i, "-").concat(f),
       connector: r,
       fraction: n,
@@ -44861,7 +44867,7 @@ var zde = function(t) {
       sectorIndex: i,
       indicatorIndex: f,
       barDiagramId: l
-    }), /* @__PURE__ */ p.createElement(wde, {
+    }), /* @__PURE__ */ p.createElement(Ede, {
       key: "bar-diagram-sector-text-".concat(i, "-").concat(f),
       connector: r,
       fraction: n,
@@ -44871,7 +44877,7 @@ var zde = function(t) {
       barDiagramId: l
     }));
   }));
-}, bde = function(t) {
+}, Sde = function(t) {
   var r = t.connector, n = t.fraction, a = t.indicator, i = t.indicatorIndex, o = t.sectorIndex, s = t.barDiagramId, l = r[s], u = l.maxValue, c = l.minValue, d = a.valueKey, f = a.style, h = f === void 0 ? {} : f, v = a.className, g = v === void 0 ? "" : v, m = a.multiplier, y = m === void 0 ? 1 : m, b = a.histogram, _ = b === void 0 ? {
     portion: 0,
     gap: 0
@@ -44885,7 +44891,7 @@ var zde = function(t) {
     fill: "url(#indicator-".concat(s, "-").concat(i, ")"),
     style: O
   };
-  return /* @__PURE__ */ p.createElement(p.Fragment, null, _.portion ? /* @__PURE__ */ p.createElement(_de, ne({}, k, {
+  return /* @__PURE__ */ p.createElement(p.Fragment, null, _.portion ? /* @__PURE__ */ p.createElement(xde, ne({}, k, {
     svgStyles: C,
     histogram: _,
     sectorIndex: o
@@ -44894,7 +44900,7 @@ var zde = function(t) {
   }, C, {
     onClick: x
   })));
-}, _de = function(t) {
+}, xde = function(t) {
   for (var r = t.height, n = t.histogram, a = t.fill, i = t.svgStyles, o = t.style, s = t.sectorIndex, l = t.className, u = n.portion, c = n.gap, d = [], f = Math.floor((r + u) / (u + c)), h = 0, v = 0; v < f; v++) {
     var g = Math.min(u, r - h);
     d.push({
@@ -44917,7 +44923,7 @@ var zde = function(t) {
       style: o
     }));
   }));
-}, wde = function(t) {
+}, Ede = function(t) {
   var r = t.connector, n = t.fraction, a = t.indicator;
   t.indicatorIndex, t.sectorIndex;
   var i = t.barDiagramId, o = r[i], s = o.maxValue, l = o.minValue, u = r[i], c = u.svgData, d = u.barDiagramUtils, f = a.multiplier, h = f === void 0 ? 1 : f, v = a.valueKey, g = a.format, m = g === void 0 ? "[VALUE]" : g, y = a.color, b = a.showValue, _ = b === void 0 ? !1 : b, w = a.offsetPercent, S = w === void 0 ? 100 : w, x = a.offsetNumber, E = x === void 0 ? 10 : x, C = a.className, O = C === void 0 ? "" : C, k = a.valueStyle, T = k === void 0 ? {} : k, A = a.textRotate, I = A === void 0 ? 0 : A, D = p.useRef(null), P = function() {
@@ -44940,7 +44946,7 @@ var zde = function(t) {
     style: T,
     color: y
   })), F));
-}, Sde = /* @__PURE__ */ function() {
+}, Cde = /* @__PURE__ */ function() {
   function e(t) {
     rn(this, e), tt(this, "getTotalWidthPercent", function(r) {
       var n = 0, a = [], i = le(r), o;
@@ -45031,7 +45037,7 @@ var zde = function(t) {
     }
   }]);
 }(), ife = function(t) {
-  var r = t.connector, n = t.svgData, a = t.indicators, i = a === void 0 ? [] : a, o = t.linkToScale, s = o === void 0 ? "left" : o, l = r.options, u = r.data, c = l.fractions, d = l.scaleTypeX, f = u.maxValueLeft, h = u.maxValueRight, v = u.maxValueLeftDelta, g = u.maxValueRightDelta, m = u.maxValueLeftArr, y = u.maxValueRightArr, b = u.minValueLeft, _ = u.minValueRight, w = s === "left", S = p.useRef("BarDiagram-".concat(Math.round(Math.random() * 1e5))), x = S.current, E = p.useRef(new Sde(t)), C = E.current;
+  var r = t.connector, n = t.svgData, a = t.indicators, i = a === void 0 ? [] : a, o = t.linkToScale, s = o === void 0 ? "left" : o, l = r.options, u = r.data, c = l.fractions, d = l.scaleTypeX, f = u.maxValueLeft, h = u.maxValueRight, v = u.maxValueLeftDelta, g = u.maxValueRightDelta, m = u.maxValueLeftArr, y = u.maxValueRightArr, b = u.minValueLeft, _ = u.minValueRight, w = s === "left", S = p.useRef("BarDiagram-".concat(Math.round(Math.random() * 1e5))), x = S.current, E = p.useRef(new Cde(t)), C = E.current;
   if (w && f === void 0 || !w && h === void 0)
     return console.error('BarDiagram -- Ошибка входных параметров. Невозможно вычислить "maxValue"'), null;
   if (r[x] = {
@@ -45045,7 +45051,7 @@ var zde = function(t) {
     minValue: w ? b : _
   }, !i.length) return null;
   var O = C.getTotalWidthPercent(i), k = d === "line" ? n.width / (c.length - 1) : n.width / c.length, T = d === "line" ? k / 2 * -1 : 0;
-  return /* @__PURE__ */ p.createElement(p.Fragment, null, /* @__PURE__ */ p.createElement(mde, {
+  return /* @__PURE__ */ p.createElement(p.Fragment, null, /* @__PURE__ */ p.createElement(_de, {
     connector: r,
     indicators: i,
     barDiagramId: x
@@ -45059,7 +45065,7 @@ var zde = function(t) {
       width: k,
       height: "100%",
       overflow: "visible"
-    }, /* @__PURE__ */ p.createElement(yde, ne({}, t, {
+    }, /* @__PURE__ */ p.createElement(wde, ne({}, t, {
       svgData: n,
       sectorIndex: I,
       connector: r,
@@ -45070,9 +45076,9 @@ var zde = function(t) {
       barDiagramId: x
     })));
   }));
-}, xde = function(t) {
+}, Dde = function(t) {
   var r = t.fractions, n = t.indicator, a = t.maxValue, i = t.minValue, o = t.lineStartOffset, s = t.distanceBetweenLines, l = t.indicatorIndex, u = t.svgData;
-  return /* @__PURE__ */ p.createElement(p.Fragment, null, /* @__PURE__ */ p.createElement(kde, t), r.map(function(c, d) {
+  return /* @__PURE__ */ p.createElement(p.Fragment, null, /* @__PURE__ */ p.createElement(Rde, t), r.map(function(c, d) {
     var f = n.valueKey, h = n.pointStyle, v = h === void 0 ? {} : h, g = n.pointType, m = g === void 0 ? "circle" : g, y = n.pointSize, b = y === void 0 ? 10 : y, _ = n.pointRotate, w = _ === void 0 ? 0 : _, S = n.showValue, x = S === void 0 ? !1 : S, E = n.valueFormat, C = E === void 0 ? "[VALUE]" : E, O = n.valueStyle, k = n.valueOffset, T = n.color, A = T === void 0 ? "#000" : T, I = Oe.replaceValues(c, f), D = (I - i) * 100 / (a - i), P = Math.round(o + s * d), N = Math.round(P), M = Math.round((100 - D) * u.height / 100), F = Oe.splitStyles(v), L = F.svgStyles, R = F.htmlStyles, $ = {
       lineOffsetX: P,
       height: D,
@@ -45095,9 +45101,9 @@ var zde = function(t) {
     };
     return /* @__PURE__ */ p.createElement(p.Fragment, {
       key: "graph-diagram-item-".concat(l, "-").concat(d)
-    }, x && /* @__PURE__ */ p.createElement(p.Fragment, null, m === "circle" && /* @__PURE__ */ p.createElement(Ede, $), m === "square" && /* @__PURE__ */ p.createElement(Cde, $), m === "rhomb" && /* @__PURE__ */ p.createElement(Dde, $), /* @__PURE__ */ p.createElement(Ode, B)));
+    }, x && /* @__PURE__ */ p.createElement(p.Fragment, null, m === "circle" && /* @__PURE__ */ p.createElement(Ode, $), m === "square" && /* @__PURE__ */ p.createElement(kde, $), m === "rhomb" && /* @__PURE__ */ p.createElement(Tde, $), /* @__PURE__ */ p.createElement(Nde, B)));
   }));
-}, Ede = function(t) {
+}, Ode = function(t) {
   var r = t.lineOffsetX, n = t.height, a = t.svgStyles, i = t.htmlStyles, o = t.pointSize, s = t.color;
   return /* @__PURE__ */ p.createElement("circle", ne({
     cx: r,
@@ -45109,7 +45115,7 @@ var zde = function(t) {
   }, a, {
     style: i
   }));
-}, Cde = function(t) {
+}, kde = function(t) {
   var r = t.lineOffsetX, n = t.height, a = t.svgStyles, i = t.htmlStyles, o = t.pointSize, s = t.svgData, l = t.color, u = Math.round((100 - n) * s.height / 100) - o / 2;
   return /* @__PURE__ */ p.createElement("rect", ne({
     x: Math.round(r - o / 2),
@@ -45122,7 +45128,7 @@ var zde = function(t) {
   }, a, {
     style: i
   }));
-}, Dde = function(t) {
+}, Tde = function(t) {
   var r = t.svgStyles, n = t.htmlStyles, a = t.pointSize, i = t.x, o = t.y, s = t.color, l = a / 2, u = "".concat(i, ",").concat(o - l, " ");
   return u += "".concat(i + l, ",").concat(o, " "), u += "".concat(i, ",").concat(o + l, " "), u += "".concat(i - l, ",").concat(o), /* @__PURE__ */ p.createElement("polygon", ne({
     points: u,
@@ -45132,7 +45138,7 @@ var zde = function(t) {
   }, r, {
     style: n
   }));
-}, Ode = function(t) {
+}, Nde = function(t) {
   var r = t.value, n = t.valueFormat, a = n === void 0 ? "[VALUE]" : n, i = t.valueStyle, o = i === void 0 ? {} : i, s = t.valueOffset, l = s === void 0 ? 0 : s, u = t.x, c = t.y, d = t.color, f = a.replace("[VALUE]", r), h = Oe.splitStyles(o), v = h.svgStyles, g = h.htmlStyles;
   return /* @__PURE__ */ p.createElement(p.Fragment, null, /* @__PURE__ */ p.createElement("text", ne({
     x: u,
@@ -45143,7 +45149,7 @@ var zde = function(t) {
   }, v, {
     style: g
   }), f));
-}, kde = function(t) {
+}, Rde = function(t) {
   var r = t.fractions, n = t.indicator, a = t.maxValue, i = t.minValue, o = t.lineStartOffset, s = t.distanceBetweenLines;
   t.indicatorIndex;
   var l = t.svgData;
@@ -45193,7 +45199,7 @@ var zde = function(t) {
       indicatorIndex: C,
       svgData: n
     };
-    return /* @__PURE__ */ p.createElement(xde, ne({}, D, {
+    return /* @__PURE__ */ p.createElement(Dde, ne({}, D, {
       key: "graph-diagram-".concat(C)
     }));
   })) : null;
@@ -45369,7 +45375,7 @@ Er.fractionsToColors = function(e) {
   }, y = ["both", "super-both", "extra-both"];
   return y.includes(i) ? m() : o;
 };
-var Tde = function(t) {
+var Pde = function(t) {
   var r = t.temperature, n = t.minMax, a = t.className, i = t.coordinatesPanelId, o = t.temperaturePanel, s = o.type, l = s === void 0 ? "horizontal" : s;
   o.style;
   var u = l === "vertical";
@@ -45447,7 +45453,7 @@ var Tde = function(t) {
         }
       });
     }));
-  })), I && /* @__PURE__ */ p.createElement(Tde, {
+  })), I && /* @__PURE__ */ p.createElement(Pde, {
     temperature: l,
     minMax: M,
     className: g,
@@ -45534,7 +45540,7 @@ var Tde = function(t) {
         minHeight: x,
         maxHeight: x
       }
-    }, /* @__PURE__ */ p.createElement(Nde, ne({}, _, {
+    }, /* @__PURE__ */ p.createElement(Mde, ne({}, _, {
       childrenPercent: m[S].percents,
       childrenValue: m[S].items,
       itemIndex: S,
@@ -45548,7 +45554,7 @@ var Tde = function(t) {
       height: b
     }
   }));
-}, Nde = function(t) {
+}, Mde = function(t) {
   var r = t.connector, n = t.isLeft, a = t.itemIndex, i = t.itemId, o = t.childrenPercent, s = t.childrenValue, l = t.label, u = t.totalPercent, c = t.selectedId, d = r.data, f = null, h = null;
   if (c && i !== c) {
     var v = d.selectedIdInfo, g = v.children, m = v.index, y = v.isLeft;
@@ -45578,7 +45584,7 @@ var Tde = function(t) {
   }, l), /* @__PURE__ */ p.createElement("div", {
     className: "text-item-percents ".concat(b)
   }, "".concat(u, "%"))));
-}, Rde = function(t) {
+}, Ade = function(t) {
   return /* @__PURE__ */ p.createElement("div", {
     className: "parallel-sets-center"
   }, /* @__PURE__ */ p.createElement("svg", {
@@ -45589,7 +45595,7 @@ var Tde = function(t) {
     preserveAspectRatio: "none"
   }, /* @__PURE__ */ p.createElement(tN, ne({}, t, {
     side: "left"
-  })), /* @__PURE__ */ p.createElement(Pde, t), /* @__PURE__ */ p.createElement(tN, ne({}, t, {
+  })), /* @__PURE__ */ p.createElement(Ide, t), /* @__PURE__ */ p.createElement(tN, ne({}, t, {
     side: "right"
   }))));
 }, tN = function(t) {
@@ -45618,7 +45624,7 @@ var Tde = function(t) {
       opacity: C
     }));
   }));
-}, Pde = function(t) {
+}, Ide = function(t) {
   var r = t.connector, n = t.selectedId, a = r.utils, i = r.data, o = i.linksData;
   return /* @__PURE__ */ p.createElement(p.Fragment, null, o.map(function(s, l) {
     var u = s.left.fill, c = n ? s.id[n] ? 0.5 : 0.05 : 0.5;
@@ -45629,7 +45635,7 @@ var Tde = function(t) {
       opacity: c
     });
   }));
-}, Mde = /* @__PURE__ */ function() {
+}, Lde = /* @__PURE__ */ function() {
   function e(t) {
     rn(this, e), this.connector = {
       utils: this,
@@ -45811,7 +45817,7 @@ var Tde = function(t) {
     }
   }]);
 }(), ufe = function(t) {
-  var r = p.useRef(new Mde(t)), n = r.current, a = n.connector, i = p.useState(1), o = se(i, 2), s = o[0], l = o[1];
+  var r = p.useRef(new Lde(t)), n = r.current, a = n.connector, i = p.useState(1), o = se(i, 2), s = o[0], l = o[1];
   a.refresh = function() {
     return l(Math.round(Math.random() * 1e5));
   };
@@ -45836,10 +45842,10 @@ var Tde = function(t) {
     className: "parallel-sets-wrapper"
   }, /* @__PURE__ */ p.createElement(eN, ne({
     side: "left"
-  }, v)), /* @__PURE__ */ p.createElement(Rde, ne({}, t, v)), /* @__PURE__ */ p.createElement(eN, ne({
+  }, v)), /* @__PURE__ */ p.createElement(Ade, ne({}, t, v)), /* @__PURE__ */ p.createElement(eN, ne({
     side: "right"
   }, v)));
-}, Ade = function(t) {
+}, $de = function(t) {
   var r = t.connector, n = t.angles, a = t.index, i = t.fontSize, o = t.selectedSector, s = t.setSelectedSector, l = r.options, u = r.data, c = l.ringWidthPercent, d = c === void 0 ? 0 : c, f = n.from, h = n.to, v = Oe.getSectorPath({
     innerRadius: 50 - d,
     outerRadius: 50,
@@ -45882,7 +45888,7 @@ var Tde = function(t) {
     textAnchor: "middle",
     opacity: 0.8
   }, u.labels[a])));
-}, Ide = function(t) {
+}, Fde = function(t) {
   var r = t.connector, n = t.link, a = t.selectedSector, i = r.options, o = i.ringWidthPercent, s = o === void 0 ? 0 : o, l = n.from, u = n.to, c = function() {
     if (!l.angles) return null;
     var v = Oe.getArcPath({
@@ -45905,7 +45911,7 @@ var Tde = function(t) {
     fill: "#ff0",
     opacity: f
   }, "fill", l.color)));
-}, Lde = /* @__PURE__ */ function() {
+}, Bde = /* @__PURE__ */ function() {
   function e(t) {
     rn(this, e), this.connector = {
       utils: this,
@@ -46113,7 +46119,7 @@ var Tde = function(t) {
   }]);
 }(), cfe = function(t) {
   t.dyText;
-  var r = t.className, n = r === void 0 ? "" : r, a = t.fontSize, i = a === void 0 ? 16 : a, o = p.useRef(new Lde(t)), s = o.current, l = s.connector, u = p.useState(i), c = se(u, 2), d = c[0], f = c[1], h = p.useState(null), v = se(h, 2), g = v[0], m = v[1];
+  var r = t.className, n = r === void 0 ? "" : r, a = t.fontSize, i = a === void 0 ? 16 : a, o = p.useRef(new Bde(t)), s = o.current, l = s.connector, u = p.useState(i), c = se(u, 2), d = c[0], f = c[1], h = p.useState(null), v = se(h, 2), g = v[0], m = v[1];
   return p.useEffect(function() {
     var y = n ? ".".concat(n.replace(/\s+/g, " ").trim().replace(/ /g, ".")) : "", b = ".chords-wrapper".concat(y, " svg"), _ = function() {
       var S = document.querySelector(b), x = S.clientWidth, E = S.clientHeight, C = Math.min(x / 100, E / 100);
@@ -46134,7 +46140,7 @@ var Tde = function(t) {
   }, l.data.sectorsAngles.map(function(y, b) {
     return /* @__PURE__ */ p.createElement(p.Fragment, {
       key: "circle-sector-".concat(b)
-    }, /* @__PURE__ */ p.createElement(Ade, {
+    }, /* @__PURE__ */ p.createElement($de, {
       connector: l,
       angles: y,
       index: b,
@@ -46145,7 +46151,7 @@ var Tde = function(t) {
   }), l.data.links.map(function(y, b) {
     return /* @__PURE__ */ p.createElement(p.Fragment, {
       key: "circle-link-".concat(b)
-    }, /* @__PURE__ */ p.createElement(Ide, {
+    }, /* @__PURE__ */ p.createElement(Fde, {
       connector: l,
       link: y,
       selectedSector: g
@@ -46156,7 +46162,7 @@ export {
   Zz as Alert,
   ife as BarDiagram,
   lfe as Candlestick,
-  jde as Chart,
+  zde as Chart,
   cfe as Chords,
   q_ as ColorPicker,
   afe as CoordinatesPanel,
@@ -46167,7 +46173,7 @@ export {
   rfe as CoordinatesPanelScaleYLeft,
   nfe as CoordinatesPanelScaleYRight,
   KQ as DatePicker,
-  Wde as Graph,
+  Gde as Graph,
   ofe as GraphDiagram,
   sfe as Heatmap,
   Qde as Legend,
@@ -46175,16 +46181,16 @@ export {
   ufe as ParallelSets,
   XQ as PeriodPicker,
   Fi as Popup,
-  Vde as PopupColorPicker,
-  Yde as PopupFilesPicker,
-  Hde as PopupListPicker,
+  Wde as PopupColorPicker,
+  jde as PopupFilesPicker,
+  qde as PopupListPicker,
   Xde as RingDiagram,
-  Kde as RingDiagramBackground,
-  Gde as RingDiagramCircle,
-  zde as RingDiagramSectorText,
-  Ude as RingDiagramWheel,
+  ude as RingDiagramBackground,
+  cde as RingDiagramCircle,
+  Kde as RingDiagramSectorText,
+  hde as RingDiagramWheel,
   gF as Table,
   $o as callAlert,
   Af as callPopup,
-  qde as callTable
+  Ude as callTable
 };
