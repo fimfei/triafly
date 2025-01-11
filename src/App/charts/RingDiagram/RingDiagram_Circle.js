@@ -1,4 +1,5 @@
 import React from "react";
+import RingDiagramBackground from "./RingDiagram_Background";
 
 const RingDiagramCircle = props => {
     const {connector, radius, innerRadius, outerRadius, className} = props;
@@ -107,5 +108,7 @@ const Ring = props => {
             />
     )
 }
+
+RingDiagramCircle.displayName = 'RingDiagramCircle';
 
 export default RingDiagramCircle;

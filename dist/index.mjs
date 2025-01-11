@@ -43953,7 +43953,7 @@ var ide = /* @__PURE__ */ function() {
       return B.current = null;
     },
     onMouseMove: j
-  }), T && /* @__PURE__ */ p.createElement("path", {
+  }), !!T && /* @__PURE__ */ p.createElement("path", {
     ref: F,
     id: "path-".concat(P),
     d: N.current,
@@ -44406,7 +44406,7 @@ var zde = function(t) {
   }, []);
   var c = p.useRef(new vde(Q(Q({}, t), {}, {
     fractions: i
-  }))), d = p.useRef(!0), f = c.current, h = p.useRef(null), v = f.connector, g = ["RingDiagramBackground", "RingDiagramCircle", "RingDiagramWheel", "RingDiagramRays"], m = function(b) {
+  }))), d = p.useRef(!0), f = c.current, h = p.useRef(null), v = f.connector, g = ["RingDiagramBackground", "RingDiagramCircle", "RingDiagramWheel"], m = function(b) {
     if (typeof b.type == "string") return {};
     var _ = b.props.fractions;
     return {
@@ -44415,14 +44415,14 @@ var zde = function(t) {
       fractions: _ || i
     };
   };
-  return /* @__PURE__ */ p.createElement("div", {
+  return console.log("========================>", p.Children.toArray(o)), /* @__PURE__ */ p.createElement("div", {
     className: "ring-diagram",
     style: Q(Q({}, l), {}, {
       width: "".concat(u, "px"),
       height: "".concat(u, "px")
     })
   }, p.Children.map(o, function(y) {
-    return g.includes(y.type.name) ? (d.current = !1, null) : d.current ? /* @__PURE__ */ p.cloneElement(y, m(y)) : null;
+    return console.log("--->", y.type.name), g.includes(y.type.name) ? (d.current = !1, null) : d.current ? /* @__PURE__ */ p.cloneElement(y, m(y)) : null;
   }), /* @__PURE__ */ p.createElement("svg", {
     width: u,
     height: u,

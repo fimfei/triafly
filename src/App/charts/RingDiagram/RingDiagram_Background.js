@@ -21,4 +21,6 @@ const RingDiagramBackground = props => {
     )
 }
 
+RingDiagramBackground.displayName = 'RingDiagramBackground';
+
 export default RingDiagramBackground;

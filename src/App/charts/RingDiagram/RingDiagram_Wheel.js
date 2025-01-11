@@ -1,5 +1,6 @@
 import React from 'react';
 import {RingDiagramSector} from '.';
+import RingDiagramCircle from "./RingDiagram_Circle";
 
 const RingDiagramWheel = props => {
     const {toCalculateAnglesKey = 'value', maximumValue = 0, sectorParts} = props;
@@ -55,5 +56,7 @@ const RingDiagramWheel = props => {
         </React.Fragment>
     )
 }
+
+RingDiagramWheel.displayName = 'RingDiagramWheel';
 
 export default RingDiagramWheel;
