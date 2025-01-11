@@ -43911,7 +43911,7 @@ var ide = /* @__PURE__ */ function() {
     });
   };
   //!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  return [/* @__PURE__ */ p.createElement(pde, {
+  return /* @__PURE__ */ p.createElement("g", null, /* @__PURE__ */ p.createElement(pde, {
     connector: r,
     id: P,
     realOuterRadius: c,
@@ -43945,7 +43945,7 @@ var ide = /* @__PURE__ */ function() {
     fill: "none",
     stroke: O,
     strokeWidth: T
-  })];
+  }));
 }, Gde = function(t) {
   var r = t.connector, n = t.radius, a = t.innerRadius, i = t.outerRadius, o = t.className;
   if (!n && !a && !i || n && (a || i) || a && !i || !a && i) return null;
