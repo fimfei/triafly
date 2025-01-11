@@ -1,4 +1,6 @@
 import React from 'react';
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 
 import {Table, callTable} from './App/components/Table';
 
