@@ -2,8 +2,6 @@ import React from 'react';
 
 const RingDiagramDefs = () => {
 
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
     return (
         <defs>
             <radialGradient id="edge-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">

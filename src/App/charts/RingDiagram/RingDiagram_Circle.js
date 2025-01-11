@@ -1,5 +1,4 @@
 import React from "react";
-import RingDiagramBackground from "./RingDiagram_Background";
 
 const RingDiagramCircle = props => {
     const {connector, radius, innerRadius, outerRadius, className} = props;
@@ -50,8 +49,6 @@ const Circle = props => {
 
     const radius = getRadius(externalRadius);
 
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
     return (
         <circle
             className={className}
@@ -91,8 +88,6 @@ const Ring = props => {
     d += `A ${innerRadius},${innerRadius} 0 1,0 ${centerX},${centerY + innerRadius}`;
     d += `A ${innerRadius},${innerRadius} 0 1,0 ${centerX},${centerY - innerRadius}`;
     d += `Z`;
-
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     return (
             <path

@@ -26434,7 +26434,7 @@ var KQ = function(t) {
     multiple: o
   }));
 };
-function qde(e) {
+function Wde(e) {
   var t = e.popupInitiator, r = e.popupName, n = e.popupStyle, a = n === void 0 ? {} : n, i = e.popupMinWidth, o = e.popupMinHeight, s = e.popupMaxWidth, l = e.popupMaxHeight, u = e.popupExtraClass, c = u === void 0 ? "" : u, d = e.popupOnOutsideClick, f = d === void 0 ? function() {
   } : d, h = e.popupNotResize, v = h === void 0 ? !1 : h, g = e.popupAutoSize, m = g === void 0 ? !1 : g, y = e.list, b = y === void 0 ? [] : y, _ = e.listSelectedValue, w = _ === void 0 ? "" : _, S = e.listSelectedValues, x = S === void 0 ? [] : S, E = e.listOnChange, C = E === void 0 ? function() {
   } : E, O = e.listIsMultiSelect, k = O === void 0 ? !1 : O, T = e.listHideSearchBar, A = T === void 0 ? !1 : T, I = e.listHideCountersBar, D = I === void 0 ? !1 : I, P = e.listItemView, N = P === void 0 ? !1 : P, M = e.buttons, F = e.removeComponent, L = {
@@ -26474,7 +26474,7 @@ function qde(e) {
     removeComponent: F
   }))))), document.body);
 }
-var Wde = function(t) {
+var jde = function(t) {
   var r = t.color, n = r === void 0 ? "#fff" : r, a = t.pickerType, i = a === void 0 ? "sketch" : a, o = t.onChange, s = o === void 0 ? function() {
   } : o, l = t.className, u = l === void 0 ? "" : l, c = t.style, d = c === void 0 ? {} : c, f = t.setTextColor, h = f === void 0 ? !1 : f, v = t.setBackgroundColor, g = v === void 0 ? !1 : v, m = t.children, y = m === void 0 ? "" : m, b = p.useState(n), _ = se(b, 2), w = _[0], S = _[1], x = p.useState(!1), E = se(x, 2), C = E[0], O = E[1], k = p.useRef(null), T = {
     sketch: {
@@ -26519,7 +26519,7 @@ var Wde = function(t) {
     notResize: !0,
     verticalOffset: 5
   }));
-}, jde = function(t) {
+}, Ude = function(t) {
   var r = t.value, n = r === void 0 ? "" : r, a = t.className, i = a === void 0 ? "" : a, o = t.isMultiple, s = o === void 0 ? !1 : o, l = t.onChange, u = t.maxHeightMultiList, c = u === void 0 ? 150 : u, d = t.style, f = d === void 0 ? {} : d, h = p.useState(n), v = se(h, 2), g = v[0], m = v[1], y = p.useState(!1), b = se(y, 2), _ = b[0], w = b[1], S = p.useRef(null);
   return /* @__PURE__ */ p.createElement("div", {
     className: "popup-files-picker ".concat(i),
@@ -30424,7 +30424,7 @@ var BA = function(t) {
     className: "order-list-item",
     ref: h
   }, r);
-}, Ude = function(t, r) {
+}, Gde = function(t, r) {
   var n = document.createElement("div");
   n.className = "call-unitable-wrapper", t.appendChild(n);
   var a = eu(n), i = function() {
@@ -31618,7 +31618,7 @@ var BA = function(t) {
       }, 1e3));
     }
   }]);
-}(), Gde = function(t) {
+}(), zde = function(t) {
   var r = ne({}, (lt(t), t)), n = r.graphName, a = n === void 0 ? "" : n, i = r.links, o = i === void 0 ? [] : i, s = r.states, l = s === void 0 ? [] : s, u = r.getComponentControlling, c = u === void 0 ? function() {
     return null;
   } : u, d = r.onChangeComponentState, f = d === void 0 ? {} : d, h = r.options, v = h === void 0 ? {} : h, g = r.connectorStartingValues, m = g === void 0 ? {} : g, y = function() {
@@ -43823,7 +43823,7 @@ var ide = /* @__PURE__ */ function() {
       }, 150);
     }
   }]);
-}(), zde = function(t) {
+}(), Kde = function(t) {
   var r = t.fractions, n = r === void 0 ? [] : r, a = t.chartControllingRef, i = t.children, o = t.className, s = o === void 0 ? "" : o, l = function(c) {
     if (typeof c.type == "string") return {};
     var d = c.props.fractions;
@@ -43994,7 +43994,7 @@ var pde = function(t) {
     });
   };
   //!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  return /* @__PURE__ */ p.createElement(p.Fragment, null, /* @__PURE__ */ p.createElement(mde, {
+  return /* @__PURE__ */ p.createElement(p.Fragment, null, /* @__PURE__ */ p.createElement(yde, {
     connector: r,
     id: P,
     realOuterRadius: c,
@@ -44136,7 +44136,7 @@ Oe.getSectorPath = function(e) {
   }), m = g.x1, y = g.y1, b = g.x2, _ = g.y2;
   return ["M ".concat(o + m, " ").concat(l + y), "L ".concat(o + d, " ").concat(l + f), "A ".concat(r, " ").concat(r, " 0 ").concat(u, " 1 ").concat(o + h, " ").concat(l + v), "L ".concat(o + b, " ").concat(l + _), "A ".concat(t, " ").concat(t, " 0 ").concat(u, " 0 ").concat(o + m, " ").concat(l + y), "Z"].join(" ");
 };
-var Kde = function(t) {
+var gde = function(t) {
   var r = t.connector, n = t.format, a = n === void 0 ? "value" : n, i = t.colorKey, o = i === void 0 ? "color" : i, s = t.className, l = t.style, u = r.data, c = r.options;
   r.utils;
   var d = c.innerRadius, f = c.outerRadius, h = u.angles;
@@ -44157,7 +44157,9 @@ var Kde = function(t) {
       key: "item-real-text-".concat(g)
     }, _));
   }));
-}, X4 = function(t) {
+};
+gde.displayName = "RingDiagramSectorText";
+var X4 = function(t) {
   var r = t.connector, n = t.offsetPercent, a = n === void 0 ? 50 : n, i = t.offsetNumber, o = i === void 0 ? 0 : i, s = t.value, l = t.startAngle, u = t.endAngle, c = t.innerRadius, d = t.outerRadius, f = t.color, h = t.style, v = h === void 0 ? {} : h, g = t.className, m = g === void 0 ? "" : g, y = r.data, b = r.utils, _ = y.centerX, w = y.centerY, S = p.useRef(Math.round(Math.random() * 1e5)), x = S.current, E = function() {
     var D = (u + l) / 2 + r.totalAngle + r.moveProgressAngle, P = c + (a / 100 * (d - c) + o), N = _ + P * Math.cos(D * (Math.PI / 180)), M = w + P * Math.sin(D * (Math.PI / 180));
     return {
@@ -44185,7 +44187,7 @@ var Kde = function(t) {
       color: f
     })
   }, s));
-}, gde = function() {
+}, mde = function() {
   //!!!!!!!!!!!!!!!!!!!!!!!!!!!
   return /* @__PURE__ */ p.createElement("defs", null, /* @__PURE__ */ p.createElement("radialGradient", {
     id: "edge-gradient",
@@ -44239,7 +44241,7 @@ var Kde = function(t) {
     offset: "100%",
     stopColor: "#fff"
   })));
-}, mde = function(t) {
+}, yde = function(t) {
   var r = t.connector, n = t.id;
   t.realOuterRadius, t.fillColor;
   var a = t.path, i = t.clipRef;
@@ -44253,7 +44255,7 @@ var Kde = function(t) {
     d: a.current,
     ref: i
   })));
-}, yde = /* @__PURE__ */ function() {
+}, bde = /* @__PURE__ */ function() {
   function e(t) {
     rn(this, e), tt(this, "round", function(r) {
       return Math.round(Number(r) * 10) / 10;
@@ -44410,16 +44412,18 @@ var Kde = function(t) {
       rotate: f.rotateDiagram.bind(f)
     });
   }, []);
-  var c = p.useRef(new yde(Q(Q({}, t), {}, {
+  var c = p.useRef(new bde(Q(Q({}, t), {}, {
     fractions: i
-  }))), d = p.useRef(!0), f = c.current, h = p.useRef(null), v = f.connector, g = ["RingDiagramBackground", "RingDiagramCircle", "RingDiagramWheel"], m = function(b) {
-    if (typeof b.type == "string") return {};
-    var _ = b.props.fractions;
+  }))), d = p.useRef(!0), f = c.current, h = p.useRef(null), v = f.connector, g = ["RingDiagramBackground", "RingDiagramCircle", "RingDiagramWheel"], m = function(_) {
+    if (typeof _.type == "string") return {};
+    var w = _.props.fractions;
     return {
       connector: v,
       chartControllingRef: a,
-      fractions: _ || i
+      fractions: w || i
     };
+  }, y = function(_) {
+    return _.type.displayName && g.includes(_.type.displayName);
   };
   return console.log("========================>", p.Children.toArray(o)), /* @__PURE__ */ p.createElement("div", {
     className: "ring-diagram",
@@ -44427,21 +44431,21 @@ var Kde = function(t) {
       width: "".concat(u, "px"),
       height: "".concat(u, "px")
     })
-  }, p.Children.map(o, function(y) {
-    return console.log("--->", y.type.name), g.includes(y.type.name) ? (d.current = !1, null) : d.current ? /* @__PURE__ */ p.cloneElement(y, m(y)) : null;
+  }, p.Children.map(o, function(b) {
+    return console.log("--->", b.type.name, b.type.displayName), y(b) ? (d.current = !1, null) : d.current ? /* @__PURE__ */ p.cloneElement(b, m(b)) : null;
   }), /* @__PURE__ */ p.createElement("svg", {
     width: u,
     height: u,
     ref: h
-  }, /* @__PURE__ */ p.createElement(gde, null), p.Children.map(o, function(y) {
-    if (d.current = !0, g.includes(y.type.name)) return /* @__PURE__ */ p.cloneElement(y, m(y));
+  }, /* @__PURE__ */ p.createElement(mde, null), p.Children.map(o, function(b) {
+    if (d.current = !0, y(b)) return /* @__PURE__ */ p.cloneElement(b, m(b));
   })), /* @__PURE__ */ p.createElement(vde, {
     connector: v
-  }), p.Children.map(o, function(y) {
-    if (g.includes(y.type.name))
+  }), p.Children.map(o, function(b) {
+    if (y(b))
       return d.current = !1, null;
     if (!d.current)
-      return /* @__PURE__ */ p.cloneElement(y, m(y));
+      return /* @__PURE__ */ p.cloneElement(b, m(b));
   }));
 }, Qde = function(t) {
   var r, n = t.connector;
@@ -44580,7 +44584,7 @@ var Kde = function(t) {
   return /* @__PURE__ */ p.createElement(Z4, ne({}, t, {
     linkToScale: "right"
   }));
-}, bde = /* @__PURE__ */ function() {
+}, _de = /* @__PURE__ */ function() {
   function e(t) {
     rn(this, e), this.connector = {
       options: Q(Q({}, t), {}, {
@@ -44668,7 +44672,7 @@ var Kde = function(t) {
       ee.unobserve(J);
     };
   }, []);
-  var x = p.useRef(new bde(t)), E = x.current, C = p.useRef(null), O = p.useRef(null), k = p.useRef(null), T = E.connector, A = function() {
+  var x = p.useRef(new _de(t)), E = x.current, C = p.useRef(null), O = p.useRef(null), k = p.useRef(null), T = E.connector, A = function() {
     return T.data.children ? T.data.children : (E.calcMaxValue(), E.getChildrenData(r));
   }, I = p.useRef(A()), D = I.current, P = D.internalChildrenObj, N = D.externalChildren, M = P.CoordinatesPanelScaleX, F = P.CoordinatesPanelScaleYLeft, L = P.CoordinatesPanelScaleYRight, R = P.diagrams, $ = P.CoordinatesPanelGridX, B = P.CoordinatesPanelGridYLeft, q = P.CoordinatesPanelGridYRight, V = P.Heatmap, j = P.Candlestick, W = function(pe) {
     var ee = pe.currentTarget.scrollLeft;
@@ -44792,7 +44796,7 @@ var Kde = function(t) {
   return /* @__PURE__ */ p.createElement(p.Fragment, null, p.Children.map(r, function(a) {
     return /* @__PURE__ */ p.cloneElement(a, n);
   }));
-}, _de = function(t) {
+}, wde = function(t) {
   var r = t.connector, n = t.indicators, a = t.barDiagramId, i = r[a].barDiagramUtils;
   return /* @__PURE__ */ p.createElement("defs", null, n.map(function(o, s) {
     var l = o.type, u = o.color, c = u, d = "transparent", f = "transparent";
@@ -44845,7 +44849,7 @@ var Kde = function(t) {
       stopColor: c
     }));
   }));
-}, wde = function(t) {
+}, Sde = function(t) {
   var r = t.connector, n = t.fraction, a = t.indicators, i = t.sectorIndex, o = t.sectorWidth, s = t.sectorItemsWidthPercent, l = t.barDiagramId, u = 0, c = 0;
   return /* @__PURE__ */ p.createElement(p.Fragment, null, a.map(function(d, f) {
     var h = s[f], v = h.left, g = h.width, m = h.right;
@@ -44859,7 +44863,7 @@ var Kde = function(t) {
       width: b,
       height: "100%",
       overflow: "visible"
-    }, /* @__PURE__ */ p.createElement(Sde, {
+    }, /* @__PURE__ */ p.createElement(xde, {
       key: "bar-diagram-sector-item-".concat(i, "-").concat(f),
       connector: r,
       fraction: n,
@@ -44867,7 +44871,7 @@ var Kde = function(t) {
       sectorIndex: i,
       indicatorIndex: f,
       barDiagramId: l
-    }), /* @__PURE__ */ p.createElement(Ede, {
+    }), /* @__PURE__ */ p.createElement(Cde, {
       key: "bar-diagram-sector-text-".concat(i, "-").concat(f),
       connector: r,
       fraction: n,
@@ -44877,7 +44881,7 @@ var Kde = function(t) {
       barDiagramId: l
     }));
   }));
-}, Sde = function(t) {
+}, xde = function(t) {
   var r = t.connector, n = t.fraction, a = t.indicator, i = t.indicatorIndex, o = t.sectorIndex, s = t.barDiagramId, l = r[s], u = l.maxValue, c = l.minValue, d = a.valueKey, f = a.style, h = f === void 0 ? {} : f, v = a.className, g = v === void 0 ? "" : v, m = a.multiplier, y = m === void 0 ? 1 : m, b = a.histogram, _ = b === void 0 ? {
     portion: 0,
     gap: 0
@@ -44891,7 +44895,7 @@ var Kde = function(t) {
     fill: "url(#indicator-".concat(s, "-").concat(i, ")"),
     style: O
   };
-  return /* @__PURE__ */ p.createElement(p.Fragment, null, _.portion ? /* @__PURE__ */ p.createElement(xde, ne({}, k, {
+  return /* @__PURE__ */ p.createElement(p.Fragment, null, _.portion ? /* @__PURE__ */ p.createElement(Ede, ne({}, k, {
     svgStyles: C,
     histogram: _,
     sectorIndex: o
@@ -44900,7 +44904,7 @@ var Kde = function(t) {
   }, C, {
     onClick: x
   })));
-}, xde = function(t) {
+}, Ede = function(t) {
   for (var r = t.height, n = t.histogram, a = t.fill, i = t.svgStyles, o = t.style, s = t.sectorIndex, l = t.className, u = n.portion, c = n.gap, d = [], f = Math.floor((r + u) / (u + c)), h = 0, v = 0; v < f; v++) {
     var g = Math.min(u, r - h);
     d.push({
@@ -44923,7 +44927,7 @@ var Kde = function(t) {
       style: o
     }));
   }));
-}, Ede = function(t) {
+}, Cde = function(t) {
   var r = t.connector, n = t.fraction, a = t.indicator;
   t.indicatorIndex, t.sectorIndex;
   var i = t.barDiagramId, o = r[i], s = o.maxValue, l = o.minValue, u = r[i], c = u.svgData, d = u.barDiagramUtils, f = a.multiplier, h = f === void 0 ? 1 : f, v = a.valueKey, g = a.format, m = g === void 0 ? "[VALUE]" : g, y = a.color, b = a.showValue, _ = b === void 0 ? !1 : b, w = a.offsetPercent, S = w === void 0 ? 100 : w, x = a.offsetNumber, E = x === void 0 ? 10 : x, C = a.className, O = C === void 0 ? "" : C, k = a.valueStyle, T = k === void 0 ? {} : k, A = a.textRotate, I = A === void 0 ? 0 : A, D = p.useRef(null), P = function() {
@@ -44946,7 +44950,7 @@ var Kde = function(t) {
     style: T,
     color: y
   })), F));
-}, Cde = /* @__PURE__ */ function() {
+}, Dde = /* @__PURE__ */ function() {
   function e(t) {
     rn(this, e), tt(this, "getTotalWidthPercent", function(r) {
       var n = 0, a = [], i = le(r), o;
@@ -45037,7 +45041,7 @@ var Kde = function(t) {
     }
   }]);
 }(), ife = function(t) {
-  var r = t.connector, n = t.svgData, a = t.indicators, i = a === void 0 ? [] : a, o = t.linkToScale, s = o === void 0 ? "left" : o, l = r.options, u = r.data, c = l.fractions, d = l.scaleTypeX, f = u.maxValueLeft, h = u.maxValueRight, v = u.maxValueLeftDelta, g = u.maxValueRightDelta, m = u.maxValueLeftArr, y = u.maxValueRightArr, b = u.minValueLeft, _ = u.minValueRight, w = s === "left", S = p.useRef("BarDiagram-".concat(Math.round(Math.random() * 1e5))), x = S.current, E = p.useRef(new Cde(t)), C = E.current;
+  var r = t.connector, n = t.svgData, a = t.indicators, i = a === void 0 ? [] : a, o = t.linkToScale, s = o === void 0 ? "left" : o, l = r.options, u = r.data, c = l.fractions, d = l.scaleTypeX, f = u.maxValueLeft, h = u.maxValueRight, v = u.maxValueLeftDelta, g = u.maxValueRightDelta, m = u.maxValueLeftArr, y = u.maxValueRightArr, b = u.minValueLeft, _ = u.minValueRight, w = s === "left", S = p.useRef("BarDiagram-".concat(Math.round(Math.random() * 1e5))), x = S.current, E = p.useRef(new Dde(t)), C = E.current;
   if (w && f === void 0 || !w && h === void 0)
     return console.error('BarDiagram -- Ошибка входных параметров. Невозможно вычислить "maxValue"'), null;
   if (r[x] = {
@@ -45051,7 +45055,7 @@ var Kde = function(t) {
     minValue: w ? b : _
   }, !i.length) return null;
   var O = C.getTotalWidthPercent(i), k = d === "line" ? n.width / (c.length - 1) : n.width / c.length, T = d === "line" ? k / 2 * -1 : 0;
-  return /* @__PURE__ */ p.createElement(p.Fragment, null, /* @__PURE__ */ p.createElement(_de, {
+  return /* @__PURE__ */ p.createElement(p.Fragment, null, /* @__PURE__ */ p.createElement(wde, {
     connector: r,
     indicators: i,
     barDiagramId: x
@@ -45065,7 +45069,7 @@ var Kde = function(t) {
       width: k,
       height: "100%",
       overflow: "visible"
-    }, /* @__PURE__ */ p.createElement(wde, ne({}, t, {
+    }, /* @__PURE__ */ p.createElement(Sde, ne({}, t, {
       svgData: n,
       sectorIndex: I,
       connector: r,
@@ -45076,9 +45080,9 @@ var Kde = function(t) {
       barDiagramId: x
     })));
   }));
-}, Dde = function(t) {
+}, Ode = function(t) {
   var r = t.fractions, n = t.indicator, a = t.maxValue, i = t.minValue, o = t.lineStartOffset, s = t.distanceBetweenLines, l = t.indicatorIndex, u = t.svgData;
-  return /* @__PURE__ */ p.createElement(p.Fragment, null, /* @__PURE__ */ p.createElement(Rde, t), r.map(function(c, d) {
+  return /* @__PURE__ */ p.createElement(p.Fragment, null, /* @__PURE__ */ p.createElement(Pde, t), r.map(function(c, d) {
     var f = n.valueKey, h = n.pointStyle, v = h === void 0 ? {} : h, g = n.pointType, m = g === void 0 ? "circle" : g, y = n.pointSize, b = y === void 0 ? 10 : y, _ = n.pointRotate, w = _ === void 0 ? 0 : _, S = n.showValue, x = S === void 0 ? !1 : S, E = n.valueFormat, C = E === void 0 ? "[VALUE]" : E, O = n.valueStyle, k = n.valueOffset, T = n.color, A = T === void 0 ? "#000" : T, I = Oe.replaceValues(c, f), D = (I - i) * 100 / (a - i), P = Math.round(o + s * d), N = Math.round(P), M = Math.round((100 - D) * u.height / 100), F = Oe.splitStyles(v), L = F.svgStyles, R = F.htmlStyles, $ = {
       lineOffsetX: P,
       height: D,
@@ -45101,9 +45105,9 @@ var Kde = function(t) {
     };
     return /* @__PURE__ */ p.createElement(p.Fragment, {
       key: "graph-diagram-item-".concat(l, "-").concat(d)
-    }, x && /* @__PURE__ */ p.createElement(p.Fragment, null, m === "circle" && /* @__PURE__ */ p.createElement(Ode, $), m === "square" && /* @__PURE__ */ p.createElement(kde, $), m === "rhomb" && /* @__PURE__ */ p.createElement(Tde, $), /* @__PURE__ */ p.createElement(Nde, B)));
+    }, x && /* @__PURE__ */ p.createElement(p.Fragment, null, m === "circle" && /* @__PURE__ */ p.createElement(kde, $), m === "square" && /* @__PURE__ */ p.createElement(Tde, $), m === "rhomb" && /* @__PURE__ */ p.createElement(Nde, $), /* @__PURE__ */ p.createElement(Rde, B)));
   }));
-}, Ode = function(t) {
+}, kde = function(t) {
   var r = t.lineOffsetX, n = t.height, a = t.svgStyles, i = t.htmlStyles, o = t.pointSize, s = t.color;
   return /* @__PURE__ */ p.createElement("circle", ne({
     cx: r,
@@ -45115,7 +45119,7 @@ var Kde = function(t) {
   }, a, {
     style: i
   }));
-}, kde = function(t) {
+}, Tde = function(t) {
   var r = t.lineOffsetX, n = t.height, a = t.svgStyles, i = t.htmlStyles, o = t.pointSize, s = t.svgData, l = t.color, u = Math.round((100 - n) * s.height / 100) - o / 2;
   return /* @__PURE__ */ p.createElement("rect", ne({
     x: Math.round(r - o / 2),
@@ -45128,7 +45132,7 @@ var Kde = function(t) {
   }, a, {
     style: i
   }));
-}, Tde = function(t) {
+}, Nde = function(t) {
   var r = t.svgStyles, n = t.htmlStyles, a = t.pointSize, i = t.x, o = t.y, s = t.color, l = a / 2, u = "".concat(i, ",").concat(o - l, " ");
   return u += "".concat(i + l, ",").concat(o, " "), u += "".concat(i, ",").concat(o + l, " "), u += "".concat(i - l, ",").concat(o), /* @__PURE__ */ p.createElement("polygon", ne({
     points: u,
@@ -45138,7 +45142,7 @@ var Kde = function(t) {
   }, r, {
     style: n
   }));
-}, Nde = function(t) {
+}, Rde = function(t) {
   var r = t.value, n = t.valueFormat, a = n === void 0 ? "[VALUE]" : n, i = t.valueStyle, o = i === void 0 ? {} : i, s = t.valueOffset, l = s === void 0 ? 0 : s, u = t.x, c = t.y, d = t.color, f = a.replace("[VALUE]", r), h = Oe.splitStyles(o), v = h.svgStyles, g = h.htmlStyles;
   return /* @__PURE__ */ p.createElement(p.Fragment, null, /* @__PURE__ */ p.createElement("text", ne({
     x: u,
@@ -45149,7 +45153,7 @@ var Kde = function(t) {
   }, v, {
     style: g
   }), f));
-}, Rde = function(t) {
+}, Pde = function(t) {
   var r = t.fractions, n = t.indicator, a = t.maxValue, i = t.minValue, o = t.lineStartOffset, s = t.distanceBetweenLines;
   t.indicatorIndex;
   var l = t.svgData;
@@ -45199,7 +45203,7 @@ var Kde = function(t) {
       indicatorIndex: C,
       svgData: n
     };
-    return /* @__PURE__ */ p.createElement(Dde, ne({}, D, {
+    return /* @__PURE__ */ p.createElement(Ode, ne({}, D, {
       key: "graph-diagram-".concat(C)
     }));
   })) : null;
@@ -45375,7 +45379,7 @@ Er.fractionsToColors = function(e) {
   }, y = ["both", "super-both", "extra-both"];
   return y.includes(i) ? m() : o;
 };
-var Pde = function(t) {
+var Mde = function(t) {
   var r = t.temperature, n = t.minMax, a = t.className, i = t.coordinatesPanelId, o = t.temperaturePanel, s = o.type, l = s === void 0 ? "horizontal" : s;
   o.style;
   var u = l === "vertical";
@@ -45453,7 +45457,7 @@ var Pde = function(t) {
         }
       });
     }));
-  })), I && /* @__PURE__ */ p.createElement(Pde, {
+  })), I && /* @__PURE__ */ p.createElement(Mde, {
     temperature: l,
     minMax: M,
     className: g,
@@ -45540,7 +45544,7 @@ var Pde = function(t) {
         minHeight: x,
         maxHeight: x
       }
-    }, /* @__PURE__ */ p.createElement(Mde, ne({}, _, {
+    }, /* @__PURE__ */ p.createElement(Ade, ne({}, _, {
       childrenPercent: m[S].percents,
       childrenValue: m[S].items,
       itemIndex: S,
@@ -45554,7 +45558,7 @@ var Pde = function(t) {
       height: b
     }
   }));
-}, Mde = function(t) {
+}, Ade = function(t) {
   var r = t.connector, n = t.isLeft, a = t.itemIndex, i = t.itemId, o = t.childrenPercent, s = t.childrenValue, l = t.label, u = t.totalPercent, c = t.selectedId, d = r.data, f = null, h = null;
   if (c && i !== c) {
     var v = d.selectedIdInfo, g = v.children, m = v.index, y = v.isLeft;
@@ -45584,7 +45588,7 @@ var Pde = function(t) {
   }, l), /* @__PURE__ */ p.createElement("div", {
     className: "text-item-percents ".concat(b)
   }, "".concat(u, "%"))));
-}, Ade = function(t) {
+}, Ide = function(t) {
   return /* @__PURE__ */ p.createElement("div", {
     className: "parallel-sets-center"
   }, /* @__PURE__ */ p.createElement("svg", {
@@ -45595,7 +45599,7 @@ var Pde = function(t) {
     preserveAspectRatio: "none"
   }, /* @__PURE__ */ p.createElement(tN, ne({}, t, {
     side: "left"
-  })), /* @__PURE__ */ p.createElement(Ide, t), /* @__PURE__ */ p.createElement(tN, ne({}, t, {
+  })), /* @__PURE__ */ p.createElement(Lde, t), /* @__PURE__ */ p.createElement(tN, ne({}, t, {
     side: "right"
   }))));
 }, tN = function(t) {
@@ -45624,7 +45628,7 @@ var Pde = function(t) {
       opacity: C
     }));
   }));
-}, Ide = function(t) {
+}, Lde = function(t) {
   var r = t.connector, n = t.selectedId, a = r.utils, i = r.data, o = i.linksData;
   return /* @__PURE__ */ p.createElement(p.Fragment, null, o.map(function(s, l) {
     var u = s.left.fill, c = n ? s.id[n] ? 0.5 : 0.05 : 0.5;
@@ -45635,7 +45639,7 @@ var Pde = function(t) {
       opacity: c
     });
   }));
-}, Lde = /* @__PURE__ */ function() {
+}, $de = /* @__PURE__ */ function() {
   function e(t) {
     rn(this, e), this.connector = {
       utils: this,
@@ -45817,7 +45821,7 @@ var Pde = function(t) {
     }
   }]);
 }(), ufe = function(t) {
-  var r = p.useRef(new Lde(t)), n = r.current, a = n.connector, i = p.useState(1), o = se(i, 2), s = o[0], l = o[1];
+  var r = p.useRef(new $de(t)), n = r.current, a = n.connector, i = p.useState(1), o = se(i, 2), s = o[0], l = o[1];
   a.refresh = function() {
     return l(Math.round(Math.random() * 1e5));
   };
@@ -45842,10 +45846,10 @@ var Pde = function(t) {
     className: "parallel-sets-wrapper"
   }, /* @__PURE__ */ p.createElement(eN, ne({
     side: "left"
-  }, v)), /* @__PURE__ */ p.createElement(Ade, ne({}, t, v)), /* @__PURE__ */ p.createElement(eN, ne({
+  }, v)), /* @__PURE__ */ p.createElement(Ide, ne({}, t, v)), /* @__PURE__ */ p.createElement(eN, ne({
     side: "right"
   }, v)));
-}, $de = function(t) {
+}, Fde = function(t) {
   var r = t.connector, n = t.angles, a = t.index, i = t.fontSize, o = t.selectedSector, s = t.setSelectedSector, l = r.options, u = r.data, c = l.ringWidthPercent, d = c === void 0 ? 0 : c, f = n.from, h = n.to, v = Oe.getSectorPath({
     innerRadius: 50 - d,
     outerRadius: 50,
@@ -45888,7 +45892,7 @@ var Pde = function(t) {
     textAnchor: "middle",
     opacity: 0.8
   }, u.labels[a])));
-}, Fde = function(t) {
+}, Bde = function(t) {
   var r = t.connector, n = t.link, a = t.selectedSector, i = r.options, o = i.ringWidthPercent, s = o === void 0 ? 0 : o, l = n.from, u = n.to, c = function() {
     if (!l.angles) return null;
     var v = Oe.getArcPath({
@@ -45911,7 +45915,7 @@ var Pde = function(t) {
     fill: "#ff0",
     opacity: f
   }, "fill", l.color)));
-}, Bde = /* @__PURE__ */ function() {
+}, Hde = /* @__PURE__ */ function() {
   function e(t) {
     rn(this, e), this.connector = {
       utils: this,
@@ -46119,7 +46123,7 @@ var Pde = function(t) {
   }]);
 }(), cfe = function(t) {
   t.dyText;
-  var r = t.className, n = r === void 0 ? "" : r, a = t.fontSize, i = a === void 0 ? 16 : a, o = p.useRef(new Bde(t)), s = o.current, l = s.connector, u = p.useState(i), c = se(u, 2), d = c[0], f = c[1], h = p.useState(null), v = se(h, 2), g = v[0], m = v[1];
+  var r = t.className, n = r === void 0 ? "" : r, a = t.fontSize, i = a === void 0 ? 16 : a, o = p.useRef(new Hde(t)), s = o.current, l = s.connector, u = p.useState(i), c = se(u, 2), d = c[0], f = c[1], h = p.useState(null), v = se(h, 2), g = v[0], m = v[1];
   return p.useEffect(function() {
     var y = n ? ".".concat(n.replace(/\s+/g, " ").trim().replace(/ /g, ".")) : "", b = ".chords-wrapper".concat(y, " svg"), _ = function() {
       var S = document.querySelector(b), x = S.clientWidth, E = S.clientHeight, C = Math.min(x / 100, E / 100);
@@ -46140,7 +46144,7 @@ var Pde = function(t) {
   }, l.data.sectorsAngles.map(function(y, b) {
     return /* @__PURE__ */ p.createElement(p.Fragment, {
       key: "circle-sector-".concat(b)
-    }, /* @__PURE__ */ p.createElement($de, {
+    }, /* @__PURE__ */ p.createElement(Fde, {
       connector: l,
       angles: y,
       index: b,
@@ -46151,7 +46155,7 @@ var Pde = function(t) {
   }), l.data.links.map(function(y, b) {
     return /* @__PURE__ */ p.createElement(p.Fragment, {
       key: "circle-link-".concat(b)
-    }, /* @__PURE__ */ p.createElement(Fde, {
+    }, /* @__PURE__ */ p.createElement(Bde, {
       connector: l,
       link: y,
       selectedSector: g
@@ -46162,7 +46166,7 @@ export {
   Zz as Alert,
   ife as BarDiagram,
   lfe as Candlestick,
-  zde as Chart,
+  Kde as Chart,
   cfe as Chords,
   q_ as ColorPicker,
   afe as CoordinatesPanel,
@@ -46173,7 +46177,7 @@ export {
   rfe as CoordinatesPanelScaleYLeft,
   nfe as CoordinatesPanelScaleYRight,
   KQ as DatePicker,
-  Gde as Graph,
+  zde as Graph,
   ofe as GraphDiagram,
   sfe as Heatmap,
   Qde as Legend,
@@ -46181,16 +46185,16 @@ export {
   ufe as ParallelSets,
   XQ as PeriodPicker,
   Fi as Popup,
-  Wde as PopupColorPicker,
-  jde as PopupFilesPicker,
-  qde as PopupListPicker,
+  jde as PopupColorPicker,
+  Ude as PopupFilesPicker,
+  Wde as PopupListPicker,
   Xde as RingDiagram,
   ude as RingDiagramBackground,
   cde as RingDiagramCircle,
-  Kde as RingDiagramSectorText,
+  gde as RingDiagramSectorText,
   hde as RingDiagramWheel,
   gF as Table,
   $o as callAlert,
   Af as callPopup,
-  Ude as callTable
+  Gde as callTable
 };

@@ -36,7 +36,7 @@ class Utils {
         ];
 
         React.Children.map(children, child => {
-            const childName = child.type.name;
+            const childName = child.type.displayName || child.type.name;
             const {width, height} = child.props;
 
             if(childName === 'CoordinatesPanelScaleX' && height) options.scaleXHeight = height;

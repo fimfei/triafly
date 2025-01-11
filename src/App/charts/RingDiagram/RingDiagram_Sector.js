@@ -104,8 +104,6 @@ const RingDiagramSector = props => {
         });
     }
 
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
     return (
         <React.Fragment>
             <RingDiagramSectorDefs {...{connector, id, realOuterRadius, fillColor, path, clipRef}} />

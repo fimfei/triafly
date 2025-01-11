@@ -78,4 +78,6 @@ const BarDiagram = props => {
     )
 }
 
+BarDiagram.displayName = 'BarDiagram';
+
 export default BarDiagram;

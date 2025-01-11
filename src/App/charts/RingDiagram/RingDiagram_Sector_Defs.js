@@ -1,12 +1,8 @@
 import React from 'react';
 
 const RingDiagramSectorDefs = props => {
-    const {connector, id, realOuterRadius, fillColor, path, clipRef, defectGradientColor = '#888'} = props;
-    const {options, data} = connector;
-    const {centerX, centerY} = data;
-    const {innerRadius} = options;
+    const {id, path, clipRef} = props;
 
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     return (
             <defs>

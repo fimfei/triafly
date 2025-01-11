@@ -4,8 +4,6 @@ const RingDiagramBackground = props => {
     const {connector,  stroke: externalStroke, strokeWidth: externalStrokeWidth, fill: externalFill, className = '', style = {}} = props;
     const {diagramSize} = connector.options;
 
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
     return (
             <rect
                 className={`ring-diagram-background${className ? ' ' + className : ''}`}

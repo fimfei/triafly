@@ -86,4 +86,6 @@ const Heatmap = props => {
     )
 }
 
+Heatmap.displayName = 'Heatmap';
+
 export default Heatmap;

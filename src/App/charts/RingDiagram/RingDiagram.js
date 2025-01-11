@@ -37,8 +37,6 @@ const RingDiagram = props => {
 
     const isSvgComponent = child => child.type.displayName && svgComponents.includes(child.type.displayName);
 
-    console.log('========================>', React.Children.toArray(children))
-
     return (
         <div
             className="ring-diagram"
@@ -49,7 +47,6 @@ const RingDiagram = props => {
             }}
         >
             {React.Children.map(children, child => {
-                console.log('--->', child.type.name, child.type.displayName)
                 if(isSvgComponent(child)) {
                     firstChildren.current = false;
                     return null;

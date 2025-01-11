@@ -65,4 +65,6 @@ const Candlestick = props => {
     )
 }
 
+Candlestick.displayName = 'Candlestick';
+
 export default Candlestick;
