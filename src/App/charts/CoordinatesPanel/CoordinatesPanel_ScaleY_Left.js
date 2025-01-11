@@ -7,4 +7,6 @@ export const CoordinatesPanelScaleYLeft = props => {
     )
 }
 
+CoordinatesPanelScaleYLeft.displayName = 'CoordinatesPanelScaleYLeft';
+
 export default CoordinatesPanelScaleYLeft;

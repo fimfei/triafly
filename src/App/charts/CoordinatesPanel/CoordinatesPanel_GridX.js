@@ -28,4 +28,6 @@ const CoordinatesPanelGridX = props => {
     )
 }
 
+CoordinatesPanelGridX.displayName = 'CoordinatesPanelGridX';
+
 export default CoordinatesPanelGridX;

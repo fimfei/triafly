@@ -7,4 +7,6 @@ export const CoordinatesPanelGridYRight = props => {
     )
 }
 
+CoordinatesPanelGridYRight.displayName = 'CoordinatesPanelGridYRight';
+
 export default CoordinatesPanelGridYRight;

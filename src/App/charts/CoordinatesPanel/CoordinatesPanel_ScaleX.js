@@ -50,4 +50,6 @@ const CoordinatesPanelScaleX = props => {
     )
 }
 
+CoordinatesPanelScaleX.displayName = 'CoordinatesPanelScaleX';
+
 export default CoordinatesPanelScaleX;

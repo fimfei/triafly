@@ -58,4 +58,6 @@ export const CoordinatesPanelScaleYRight = props => {
     )
 }
 
+CoordinatesPanelScaleY.displayName = 'CoordinatesPanelScaleY';
+
 export default CoordinatesPanelScaleY;

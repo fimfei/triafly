@@ -25,14 +25,15 @@ class Utils {
             'CoordinatesPanelScaleY',
             'CoordinatesPanelScaleYLeft',
             'CoordinatesPanelScaleYRight',
-            'BarDiagram',
-            'GraphDiagram',
-            'Heatmap',
-            'Candlestick',
             'CoordinatesPanelGridX',
             'CoordinatesPanelGridY',
             'CoordinatesPanelGridYLeft',
             'CoordinatesPanelGridYRight',
+
+            'BarDiagram',
+            'GraphDiagram',
+            'Heatmap',
+            'Candlestick',
         ];
 
         React.Children.map(children, child => {

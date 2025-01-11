@@ -59,4 +59,6 @@ const GraphDiagram = props => {
     )
 }
 
+GraphDiagram.displayName = 'GraphDiagram';
+
 export default GraphDiagram;

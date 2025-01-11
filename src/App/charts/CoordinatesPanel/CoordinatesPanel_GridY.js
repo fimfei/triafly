@@ -52,4 +52,6 @@ const CoordinatesPanelGridY = props => {
     )
 }
 
+CoordinatesPanelGridY.displayName = 'CoordinatesPanelGridY';
+
 export default CoordinatesPanelGridY;
