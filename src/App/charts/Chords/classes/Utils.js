@@ -44,8 +44,8 @@ class Utils {
                     if (i === j) {
                         console.error(`ОШИБКА -- данные строк и столбцов на диагонали недопустимы`)
                     } else {
-                            totalValues[j] = totalValues[j] || 0;
-                            totalValues[j] += val;
+                        totalValues[j] = totalValues[j] || 0;
+                        totalValues[j] += val;
 
                         if (oneDirectionalChords) {
                             totalValues[i] = totalValues[i] || 0;

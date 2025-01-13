@@ -5,14 +5,14 @@ const RingDiagramSectorDefs = props => {
 
 
     return (
-            <defs>
-                <clipPath id={`clip-${id}`}>
-                    <path
-                        d={path.current}
-                        ref={clipRef}
-                    />
-                </clipPath>
-            </defs>
+        <defs>
+            <clipPath id={`clip-${id}`}>
+                <path
+                    d={path.current}
+                    ref={clipRef}
+                />
+            </clipPath>
+        </defs>
     );
 };
 export default RingDiagramSectorDefs;

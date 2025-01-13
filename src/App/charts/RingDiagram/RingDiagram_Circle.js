@@ -90,17 +90,17 @@ const Ring = props => {
     d += `Z`;
 
     return (
-            <path
-                className={className}
-                d={d}
-                fill={fill}
-                stroke={stroke}
-                strokeWidth={strokeWidth}
-                fill={fill}
-                stroke={stroke}
-                strokeWidth={strokeWidth}
-                style={style}
-            />
+        <path
+            className={className}
+            d={d}
+            fill={fill}
+            stroke={stroke}
+            strokeWidth={strokeWidth}
+            fill={fill}
+            stroke={stroke}
+            strokeWidth={strokeWidth}
+            style={style}
+        />
     )
 }
 
