@@ -18,9 +18,12 @@ const ChordsSector = props => {
 
     const dText = chartsUtils.getArcPath({radius: 50, startAngle: from, endAngle: to});
 
-    const onClick = () => {
-        const sel = index === selectedSector ? null : index;
-        setSelectedSector(sel);
+    const onMouseEnter = () => {
+        setSelectedSector(index);
+    }
+
+    const onMouseLeave = () => {
+        setSelectedSector(null);
     }
 
     return (
@@ -44,14 +47,16 @@ const ChordsSector = props => {
                 fill={data.colors[index]}
                 clipPath={`url(#sector-clip-${index})`}
                 opacity={.8}
-                onClick={onClick}
+                onMouseEnter={onMouseEnter}
+                onMouseLeave={onMouseLeave}
             />
             <text
                 className="chords-sector-text"
                 fontSize={fontSize}
                 dy={options.dyText}
                 dominantBaseline="hanging"
-                onClick={onClick}
+                onMouseEnter={onMouseEnter}
+                onMouseLeave={onMouseLeave}
             >
                 <textPath
                     href={`#text-path-${index}`}

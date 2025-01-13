@@ -35,7 +35,6 @@ const ChordsLink = props => {
     if(!path.current) return null;
 
     const opacity = selectedSector === null ? .5 : (from.index === selectedSector || to.index === selectedSector ? .5 : .05);
-    console.log(selectedSector, from.index, to.index)
 
     return (
         <React.Fragment>

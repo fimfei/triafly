@@ -17,8 +17,7 @@ class Utils {
     }
 
     getFractionsData() {
-        const {fractions, dataKey, colorKey, labelKey, sectorBorderAngleGap = 0, rotate = 0} = this.connector.options;
-        this.versatileChords = true;
+        const {fractions, dataKey, colorKey, labelKey, sectorBorderAngleGap = 0, rotate = 0, oneDirectionalChords = false} = this.connector.options;
 
         let totalValue = 0;
         const values = [];
@@ -40,23 +39,18 @@ class Utils {
 
             for (let j in data) {
                 const val = data[j];
-                const _val = fractions[j][i];
 
                 if (val) {
                     if (i === j) {
                         console.error(`ОШИБКА -- данные строк и столбцов на диагонали недопустимы`)
                     } else {
-                        if (this.versatileChords) {
-                        totalValues[j] = totalValues[j] || 0;
-                        totalValues[j] += val;
-                        } else {
                             totalValues[j] = totalValues[j] || 0;
                             totalValues[j] += val;
 
+                        if (oneDirectionalChords) {
                             totalValues[i] = totalValues[i] || 0;
                             totalValues[i] += val;
                         }
-
                     }
                 }
             }
@@ -109,8 +103,7 @@ class Utils {
     }
 
     getLinks(sectorsAngles, values, totalValues, colors) {
-        console.log('???????', sectorsAngles, values, totalValues, colors)
-        const {optimizeShortLinksFirst = false} = this.connector.options;
+        const {optimizeShortLinksFirst = false, oneDirectionalChords = false} = this.connector.options;
         const links = [];
         const sectorContent = [];
         let maxDistance = 0;
@@ -131,8 +124,8 @@ class Utils {
 
                 maxDistance = Math.max(maxDistance, distance);
 
-                if(value && (!this.versatileChords || (j < i))) {
-                    const _value = this.versatileChords ? values[j][i] : value;
+                if(value && (oneDirectionalChords || (j < i))) {
+                    const _value = oneDirectionalChords ? value : values[j][i];
                     links.push({
                         from: {index: Number(i), totalValue: totalValues[i], id, subSectorAngle: getAngle(i, _value), color: colors[i]},
                         to: {index: Number(j), totalValue: totalValues[j], id, subSectorAngle: getAngle(j, value), color: colors[j]},

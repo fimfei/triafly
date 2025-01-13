@@ -1,6 +1,6 @@
 import React from 'react';
 import {ChordsSector, ChordsLink} from ".";
-import {Utils} from ".";
+import {Utils, SectorInfo} from ".";
 
 import './scss/chords.scss';
 
@@ -12,6 +12,7 @@ const Chords = props => {
 
     const [fontSize, setFontSize] = React.useState(externalFontSize);
     const [selectedSector, setSelectedSector] = React.useState(null);
+    const innerRef = React.useRef(null);
 
     React.useEffect(() => {
         const classes = className ? `.${className.replace(/\s+/g, " ").trim().replace(/ /g, '.')}` : '';
@@ -31,11 +32,11 @@ const Chords = props => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    // console.log('connector', connector)
+    console.log('connector', connector)
 
     return (
         <div className={`chords-wrapper${className ? ' ' + className : ''}`}>
-            <div className="chords-inner">
+            <div className="chords-inner" ref={innerRef}>
                 <svg className="parallel-sets-svg-root" width="100%" height="100%" viewBox="0 0 100 100">
                     {connector.data.sectorsAngles.map((angles, index) => {
                         return (
@@ -52,7 +53,7 @@ const Chords = props => {
                         )
                     })}
                     {connector.data.links.map((link, index) => {
-                        //if(Number(index) > 2) return null
+
                         return (
                             <React.Fragment key={`circle-link-${index}`}>
                                 <ChordsLink
@@ -64,6 +65,13 @@ const Chords = props => {
                         )
                     })}
                 </svg>
+                {selectedSector !== null && (
+                    <SectorInfo
+                        connector={connector}
+                        selectedSector={selectedSector}
+                        inner={innerRef.current.getBoundingClientRect()}
+                    />
+                )}
             </div>
         </div>
     )
