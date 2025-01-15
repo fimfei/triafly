@@ -2,7 +2,8 @@ import React from 'react';
 import {useCurrentState} from "./hooks";
 import {DataUtils, Picker, WorkflowEditor} from './components/WorkflowEditor';
 
-const log = console.log;
+//const log = console.log;
+const log = () => {};
 
 const AppWorkflowEditor = props => {
     const {options} = props;

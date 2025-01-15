@@ -1,7 +1,5 @@
 import React from "react";
 import {SideResizer} from "../SideResizer";
-import {GraphOrLinkEditor, List} from "../WorkflowEditor";
-import {Graph} from "../Graph";
 
 import './scss/four-panels.scss';
 
@@ -35,24 +33,13 @@ const FourPanels = props => {
     const {left = {}, right = {}} = panels;
     const {top: leftTop = {}, bottom: leftBottom = {}} = left;
     const {top: rightTop = {}, bottom: rightBottom = {}} = right;
-    const {component: LeftTopComponentName = ''} = leftTop;
-    const {component: leftBottomComponentName = ''} = leftBottom;
-    const {component: rightTopComponentName = ''} = rightTop;
-    const {component: rightBottomComponentName = ''} = rightBottom;
 
-    const getComponent = name => {
-        const components = {
-            'WorkflowEditor:List'             : List,
-            'WorkflowEditor:MainGraph'        : Graph,
-            'WorkflowEditor:GraphOrLinkEditor': GraphOrLinkEditor,
-        }
-        return components[name] || (() => <div>aaaaaaaaaaa</div>);
-    }
+    const nullComponent = () => <div></div>
 
-    const LeftTopComponent = getComponent(LeftTopComponentName);
-    const LeftBottomComponent = getComponent(leftBottomComponentName);
-    const RightTopComponent = getComponent(rightTopComponentName);
-    const RightBottomComponent = getComponent(rightBottomComponentName);
+    const {component: LeftTopComponent = nullComponent} = leftTop;
+    const {component: LeftBottomComponent = nullComponent} = leftBottom;
+    const {component: RightTopComponent = nullComponent} = rightTop;
+    const {component: RightBottomComponent = nullComponent} = rightBottom;
 
     const data = {
         ...props,

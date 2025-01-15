@@ -32,7 +32,7 @@ const Chords = props => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    console.log('connector', connector)
+    //console.log('connector', connector)
 
     return (
         <div className={`chords-wrapper${className ? ' ' + className : ''}`}>

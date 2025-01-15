@@ -16,8 +16,6 @@ const Heatmap = props => {
 
     const heatmapLength = linkToScale === 'right' ? scaleYRight.fixValues?.length : scaleYLeft.fixValues?.length;
 
-    console.log('--->', heatmapLength, props)
-
     const [showPanel, setShowPanel] = React.useState(false);
     const [minMax, setMinMax] = React.useState(utils.getMinMax({fractions, valuesArrayKey, externalMinValue, externalMaxValue}));
     const [colors, setColors] = React.useState(null);

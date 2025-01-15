@@ -27,8 +27,6 @@ const ParallelSets = props => {
         _setSelectedId(id);
     }
 
-    //console.log('connector', connector, random)
-
     const data = {connector, random, selectedId, setSelectedId};
 
     return (

@@ -1,6 +1,7 @@
 import React from 'react';
-
 import {FourPanels} from "../FourPanels";
+import {GraphOrLinkEditor, List} from "../WorkflowEditor";
+import {Graph} from "../Graph";
 import {Utils} from './';
 
 import './scss/workflow-editor.scss';
@@ -11,7 +12,6 @@ const WorkflowEditor = ({...props}) => {
     const setInfoComponentCurrent = React.useRef(() => {});
 
     const onClickToEdge = (props) => {
-        console.log('click to edge', props)
         const {from, to, id} = props;
         editorProps.from = from;
         editorProps.to = to;
@@ -45,9 +45,6 @@ const WorkflowEditor = ({...props}) => {
     }, []);
     /* eslint-enable */
 
-    setTimeout(() => {
-        console.log('WorkflowEditor utils', utils)
-    }, 0)
 
     return (
         <div className="workflow-editor">
@@ -57,18 +54,18 @@ const WorkflowEditor = ({...props}) => {
                 panels={{
                     left: {
                         top: {
-                            component: 'WorkflowEditor:List',
+                            component: List,
                             props: {utils},
                         },
                         bottom: {},
                     },
                     right: {
                         top: {
-                            component: 'WorkflowEditor:MainGraph',
+                            component: Graph,
                             props: utils.mainGraphProps,
                         },
                         bottom: {
-                            component: 'WorkflowEditor:GraphOrLinkEditor',
+                            component: GraphOrLinkEditor,
                             props: {
                                 utils,
                                 graphProps: utils.infoGraphProps,
