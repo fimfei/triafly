@@ -1,9 +1,9 @@
 import React from 'react';
 import {getMonth, getYear} from 'date-fns';
 
-const UTILS = {};
+const utils = {};
 
-UTILS.range = (start, size, step) => {
+utils.range = (start, size, step) => {
     let arr = Array.from(Array(size));
     step = step === undefined ? 1 : step;
     return arr.map((el, i) => {
@@ -15,9 +15,9 @@ UTILS.range = (start, size, step) => {
     });
 };
 
-UTILS.renderCustomHeader = props => {
+utils.renderCustomHeader = props => {
     const {date, changeYear, changeMonth, decreaseMonth, increaseMonth, prevMonthButtonDisabled, nextMonthButtonDisabled} = props;
-    const years = UTILS.range(1990, getYear(new Date()) + 1, 1);
+    const years = utils.range(1990, getYear(new Date()) + 1, 1);
     const months = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
 
     return (
@@ -74,4 +74,4 @@ UTILS.renderCustomHeader = props => {
     );
 };
 
-export default UTILS;
+export default utils;

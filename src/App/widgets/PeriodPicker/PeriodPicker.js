@@ -3,7 +3,7 @@ import DatePicker from "react-datepicker";
 import moment from 'moment';
 import {ru} from 'date-fns/locale/ru';
 import {UTILS as COMMON_UTILS} from '../../common';
-import {UTILS} from "../DatePicker";
+import {utils} from "../DatePicker/index";
 
 const PeriodPicker = props => {
     const {
@@ -59,7 +59,7 @@ const PeriodPicker = props => {
                 isClearable={isClearable}
                 locale={ru}
                 ref={c => calendar = c}
-                renderCustomHeader={UTILS.renderCustomHeader}
+                renderCustomHeader={utils.renderCustomHeader}
             />
         </div>
     );

@@ -1,5 +1,5 @@
 import React from "react";
-import {Utils, ElementsPickerHeader, ElementsPickerList} from "./";
+import {Utils, ElementsPickerHeader, ElementsPickerList} from "./index";
 
 import './scss/elements-picker.scss';
 

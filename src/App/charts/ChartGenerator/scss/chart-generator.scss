@@ -1,0 +1,51 @@
+.chart-generator-wrapper {
+    width: 100%;
+    height: 100%;
+
+    .four-panels-all-panels {
+        overflow: hidden;
+
+        .four-panels-right-panels {
+            overflow: hidden;
+
+            .four-panels-bottom-panel {
+                overflow: hidden;
+            }
+        }
+    }
+
+    .chart-generator-item {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: inset 0px 0px 0px 1px #888;
+
+        &.chart {
+            width: 100%;
+            height: 100%;
+        }
+
+        &.fractions,
+        &.code {
+            width: 100%;
+            height: 100%;
+            padding: 1px;
+            overflow: hidden;
+
+            .wrapper {
+                width: 100%;
+                height: 100%;
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                white-space: pre;
+                font-family: 'monospace', monospace, monospace;
+                overflow: auto;
+            }
+        }
+    }
+}

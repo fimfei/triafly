@@ -1,8 +1,8 @@
 import React from 'react';
+import UTILS from "../../common/utils";
 import {CompactPicker, SketchPicker} from 'react-color';
 
 import './scss/color-picker.scss';
-import UTILS from "../../common/utils";
 
 const ColorPicker = props => {
     const {

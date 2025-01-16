@@ -1,0 +1,78 @@
+.chart-generator-item.code {
+
+    .wrapper {
+
+        .inner {
+
+            .code-prefix,
+            .code-postfix {
+
+            }
+
+            .code-wrapper {
+                margin-left: 30px;
+                display: flex;
+
+                .code-wrapper-parameters {
+
+                    .code-item {
+                        display: flex;
+
+                        .key {
+
+                            &:after {
+                                content: "=";
+                                padding: 0 2px;
+                            }
+                        }
+
+                        .value {
+                            font-weight: bold;
+                        }
+
+                        &.string {
+
+                            .value {
+                                color: #8e004b;
+
+                                &:after,
+                                &:before {
+                                    font-weight: normal;
+                                    content: "\"";
+                                    color: #000;
+                                }
+                            }
+                        }
+
+                        &.link,
+                        &.array,
+                        &.bool,
+                        &.number {
+
+                            .value {
+                                color: #0842a0;
+
+                                &:before {
+                                    font-weight: normal;
+                                    content: "{";
+                                    color: #000;
+                                }
+
+                                &:after {
+                                    font-weight: normal;
+                                    content: "}";
+                                    color: #000;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .code-wrapper-comments {
+                    color: #888;
+                    margin-left: 20px;
+                }
+            }
+        }
+    }
+}

@@ -3,7 +3,7 @@ import moment from 'moment';
 import DatePicker from 'react-datepicker';
 import {ru} from 'date-fns/locale/ru';
 import {UTILS as COMMON_UTILS} from '../../common';
-import {UTILS} from './';
+import {utils} from './index';
 
 import 'react-datepicker/dist/react-datepicker.css';
 import './scss/date-picker.scss';
@@ -56,7 +56,7 @@ const DateTimePicker = props => {
                 showTimeInput={withTime}
                 timeFormat="p"
                 ref={(c) => calendar = c}
-                renderCustomHeader={UTILS.renderCustomHeader}
+                renderCustomHeader={utils.renderCustomHeader}
                 isClearable={isClearable}
             />
         </div>

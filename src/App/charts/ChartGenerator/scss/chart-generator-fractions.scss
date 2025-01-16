@@ -1,0 +1,26 @@
+.chart-generator-item.fractions {
+
+    .wrapper {
+
+        .prefix,
+        .postfix {
+            font-weight: bold;
+        }
+
+        .inner {
+            display: flex;
+            padding-left: 30px;
+
+            .items {
+
+                &.is-int {
+                    text-align: right;
+                }
+                .item {
+
+                }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,13 @@
+.radar-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+    .radar-svg-wrapper {
+        width: 100%;
+        height: 100%;
+    }
+}

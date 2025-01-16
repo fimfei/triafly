@@ -1,0 +1,128 @@
+.ring-root {
+    position: fixed;
+    left: 10%;
+    top: 5%;
+    width: 80%;
+    height: 90%;
+    background: #fff;
+    box-shadow: 0px 0px 3px 1px #000;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    .chart-root {
+        height: unset;
+
+        .legend-root {
+            position: absolute;
+            top: -88px;
+            width: calc(100% - 50px);
+            left: 15px;
+            box-sizing: border-box;
+
+            &.little-legend {
+                top: unset;
+                bottom: 34px;
+                left: 112px;
+                background: #eee;
+                border-radius: 5px;
+                flex-direction: column;
+                width: 160px;
+                align-items: start;
+                padding-left: 30px;
+                box-shadow: inset 0px 0px 0px 1px #000, inset 4px 4px 6px 0px #fff, inset -4px -4px 6px 0px #888;
+
+                .legend-item {
+                    display: flex;
+                    align-items: center;
+                    height: 24px;
+
+                    .legend-point {
+                        border-radius: 10px;
+                        width: 20px;
+                        height: 20px;
+                        box-shadow: inset -2px -2px 5px 0px #888, inset 2px 2px 5px 0px #fff;
+                    }
+
+                    .legend-text {
+                        font-weight: bold;
+                        text-shadow: 1px 1px 4px #000, 1px 1px 4px #000, 1px 1px 4px #000, 1px 1px 4px #000, 1px 1px 4px #000;
+                        color: #fff;
+                    }
+
+                }
+            }
+        }
+    }
+
+    .chart-root {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        position: relative;
+
+        &.little-chart {
+            .ring-diagram {
+                margin-bottom: 110px;
+            }
+        }
+    }
+
+    .ring-diagram-all-buttons {
+        display: flex;
+        position: absolute;
+        left: 0;
+        top: -25px;
+        width: 100%;
+        height: 40px;
+        justify-content: space-around;
+        align-items: center;
+
+
+        .ring-diagram-buttons {
+            display: flex;
+            justify-content: center;
+
+            .ring-diagram-button {
+                width: 100px;
+                height: 20px;
+                box-shadow: 0px 0px 0px 1px #000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 2px;
+                cursor: pointer;
+                margin: 0 3px;
+                background: #fff;
+
+                &:hover {
+                    background: #ff0;
+                }
+            }
+        }
+    }
+}
+
+.big-chart .ring-diagram {
+    margin: 0 5px;
+}
+
+.avia .ring-diagram-value {
+    white-space: nowrap;
+    background: transparent;
+    color: #fff;
+    font-size: 14px;
+    text-shadow: 0px 0px 2px #000, 0px 0px 2px #000, 0px 0px 2px #000, 0px 0px 2px #000, 0px 0px 2px #000, 0px 0px 2px #000, 0px 0px 2px #000;
+}
+
+.avia-big .ring-diagram-value {
+    text-align: center;
+    background: transparent;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 0px 0px 2px #000, 0px 0px 2px #000, 0px 0px 2px #000, 0px 0px 2px #000;
+}
+
+.avia-little .ring-diagram-value {
+    white-space: nowrap;
+}

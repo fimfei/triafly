@@ -1,0 +1,40 @@
+.radar-text-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 0px;
+    height: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .radar-text-point {
+        position: absolute;
+        width: 0px;
+        height: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .radar-text-label {
+            font-size: 14px;
+            white-space: nowrap;
+        }
+    }
+
+    .radar-text-scale {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 0;
+        height: 0;
+
+        .radar-text-scale-item {
+            position: absolute;
+            left: 5px;
+            margin-top: -15px;
+            font-size: 14px;
+            color: #777;
+        }
+    }
+}

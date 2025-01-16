@@ -1,6 +1,6 @@
 import React from 'react';
 import {createRoot} from 'react-dom/client';
-import {Alert} from "./index";
+import Alert from "./Alert";
 
 const callAlert = props => {
     const appRoot = document.createElement('div');
