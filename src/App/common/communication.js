@@ -1,7 +1,7 @@
 
 const root = window;
 
-const COMMUNICATION = root.Backbone ? {
+const COMMUNICATION = root?.NetdbSlickgrid?.Utils ? {
     Backbone: root.Backbone,
     views: root.NetDB.namespace('views'),
     utils: root.NetDB.namespace('utils'),
