@@ -17,7 +17,7 @@
 
     .movable-popup-header {
         width: 100%;
-        background: #000;
+        background: #222f3f;
         color: #fff;
         padding: 5px 10px;
         display: flex;
@@ -26,6 +26,7 @@
         font-weight: bold;
         white-space: nowrap;
         position: relative;
+        box-sizing: border-box;
 
         .movable-popup-header-text {
 
@@ -47,7 +48,7 @@
             height: 100%;
             cursor: pointer;
             z-index: 1000;
-            background: #000;
+            background: #222f3f;
 
             &:hover {
                 &:before,
