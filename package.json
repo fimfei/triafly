@@ -3,6 +3,7 @@
   "version": "1.0.383",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
+  "style": "dist/style.css",
   "scripts": {
     "publish-packag": "git add . && git commit -m 'Table' && npm version patch && vite build && npm publish"
   },
