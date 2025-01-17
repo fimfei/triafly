@@ -5,7 +5,7 @@ import './scss/radar-text.scss';
 
 const RadarText = props => {
     const {connector} = props;
-    const {data: {radarWrapperRef, circles, angles, outerRadius, outerRadiusPx}, options: {fractions, labelKey}} = connector;
+    const {data: {circles, angles, outerRadius, outerRadiusPx}, options: {fractions, labelKey}} = connector;
 
     return (
         <div className="radar-text-wrapper">

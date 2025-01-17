@@ -8,6 +8,7 @@ import {
     Popup, callPopup, Alert, callAlert, ListPicker,
     PopupListPicker, DatePicker, PeriodPicker, ColorPicker,
     PopupColorPicker, PopupFilesPicker,
+    MovablePopup, callMovablePopup,
 } from './App/widgets';
 
 import {
@@ -49,6 +50,7 @@ export {
     DatePicker, PeriodPicker,
     ColorPicker, PopupColorPicker,
     PopupFilesPicker,
+    MovablePopup, callMovablePopup,
 
     Chart,
 

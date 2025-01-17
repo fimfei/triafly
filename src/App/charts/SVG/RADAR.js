@@ -6,7 +6,7 @@ import './scss/radar.scss';
 const RADAR = () => {
 
     const fractions = [
-        {org: 'AO "Корпорация "Компомаш"',  value1: 1800, value2:  1800},
+        {org: 'AO "Корпорация "Компомаш"',  value1: 1800, value2:  800},
         {org: 'AO "НИИМП-К"',               value1: 1500, value2:  650},
         {org: 'АО "НПО "Энергомаш"',        value1: 1700, value2: 1100},
         {org: 'АО "СХЗ"',                   value1: 1250, value2:  300},
