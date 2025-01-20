@@ -67,9 +67,11 @@ function MovablePopup(props) {
                     >?</div>
                 )}
                 <div
-                    className="movable-popup-header-close"
+                    className="field-icon field-icon-delete movable-popup-header-close"
                     onClick={onClose}
-                ></div>
+                >
+                    <i className={`fas fa-times`}></i>
+                </div>
             </div>
             <div className="movable-popup-body">
                 {children}
