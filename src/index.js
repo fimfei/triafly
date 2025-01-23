@@ -36,6 +36,8 @@ import {
     Candlestick,
     ParallelSets,
     Chords,
+    Radar,
+    TreeMap,
 } from './App/charts';
 
 import './styles/app.scss';
@@ -76,5 +78,7 @@ export {
     Candlestick,
     ParallelSets,
     Chords,
+    Radar,
+    TreeMap,
 };
 

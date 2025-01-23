@@ -23,4 +23,6 @@ export {default as Candlestick                 } from './Candlestick/Candlestick
 export {default as ParallelSets                } from './ParallelSets/ParallelSets';
 export {default as Chords                      } from './Chords/Chords';
 export {default as Radar                       } from './Radar/Radar';
+export {default as TreeMap                     } from './TreeMap/TreeMap';
+
 export {default as ChartGenerator              } from './ChartGenerator/ChartGenerator';

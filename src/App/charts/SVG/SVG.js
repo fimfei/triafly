@@ -1,5 +1,5 @@
 import React from 'react';
-import {RING, BAR, HEAT, CANDLESTICK, PARALLEL, CHORDS, RADAR, GENERATOR} from './';
+import {RING, BAR, HEAT, CANDLESTICK, PARALLEL, CHORDS, RADAR, GENERATOR, TREEMAP} from './';
 
 import './scss/svg.scss'
 
@@ -26,6 +26,7 @@ const SVG = () => {
                 <div className="svg-item" onClick={() => setType('parallel')}>Параллельные наборы</div>
                 <div className="svg-item" onClick={() => setType('chords')}>Хорды</div>
                 <div className="svg-item" onClick={() => setType('radar')}>Радар</div>
+                <div className="svg-item" onClick={() => setType('treemap')}>Карта дерева</div>
                 <div className="svg-item" onClick={() => setType('generator')}>Генератор</div>
             </div>
             {type === 'bar' && <BAR />}
@@ -35,6 +36,7 @@ const SVG = () => {
             {type === 'parallel' && <PARALLEL />}
             {type === 'chords' && <CHORDS />}
             {type === 'radar' && <RADAR />}
+            {type === 'treemap' && <TREEMAP />}
             {type === 'generator' && <GENERATOR />}
         </React.Fragment>
     )

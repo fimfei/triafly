@@ -117,3 +117,40 @@ chartsUtils.getSectorPath = props => {
         'Z',
     ].join(' ');
 }
+
+chartsUtils.getTextColor = backgroundColor => {
+    const parseColor = (color) => {
+        if (color.startsWith('#')) {
+            const hex = color.slice(1);
+            if(hex.length === 3) {
+                const r = parseInt(hex[0] + hex[0], 16);
+                const g = parseInt(hex[1] + hex[1], 16);
+                const b = parseInt(hex[2] + hex[2], 16);
+                return [r, g, b];
+            } else if(hex.length === 6) {
+                const r = parseInt(hex.slice(0, 2), 16);
+                const g = parseInt(hex.slice(2, 4), 16);
+                const b = parseInt(hex.slice(4, 6), 16);
+                return [r, g, b];
+            }
+        }
+        else if(color.startsWith('rgb')) {
+            const values = color
+                .replace(/rgba?\(/, '')
+                .replace(/\)/, '')
+                .replace(/\s+/g, '')
+                .split(',');
+            const r = parseInt(values[0]);
+            const g = parseInt(values[1]);
+            const b = parseInt(values[2]);
+            return [r, g, b];
+        }
+        return [0, 0, 0];
+    };
+
+    const normalize = value => value / 255;
+    const [r, g, b] = parseColor(backgroundColor).map(normalize);
+    const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+    return luminance > 0.5 ? '#000' : '#FFF';
+}
+

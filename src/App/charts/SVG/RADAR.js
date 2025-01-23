@@ -18,13 +18,13 @@ const RADAR = () => {
         <div className="bar-root radar-test">
             <Chart fractions={fractions}>
                 <Radar
-                    //maxValue={1800}
-                    //valueStep={300}
                     labelKey="org"
                     indicators={[
                         {valueKey: 'value1', color: '#f00'},
                         {valueKey: 'value2', color: '#00f'},
                     ]}
+                    maxValue={1800}
+                    valueStep={300}
                 />
             </Chart>
         </div>
