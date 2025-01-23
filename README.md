@@ -39,6 +39,8 @@
 | **Legend**           | Легенда                       | [Legend](src/App/charts/Legend/doc/LEGEND.md)                               |
 | **ParallelSets**     | Параллельные наборы           | [ParallelSets](src/App/charts/ParallelSets/doc/PARALLELSETS.md)             |
 | **RingDiagram**      | Круговая диаграмма            | [RingDiagram](src/App/charts/RingDiagram/doc/RINGDIAGRAM.md)                |
+| **Radar**            | Радар                         | [Radar](src/App/charts/Radar/doc/RADAR.md)                                  |
+| **TreeMap**          | Карта дерева                  | [TreeMap](src/App/charts/TreeMap/doc/TREEMAP.md)                            |
 
 
 
